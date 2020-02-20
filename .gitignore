@@ -2,3 +2,5 @@ env/
 db.sqlite3
 home/__pycache__/
 home/migrations/__pycache__/
+fantasyFootball/__pycache__/settings.cpython-38.pyc
+fantasyFootball/__pycache__/urls.cpython-38.pyc
