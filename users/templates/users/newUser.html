@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block page_content %}
+  <form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="id_subject">Username</label>
+      <input type="text" class="form-control" id="id_subject" name="username">
+    </div>
+    <div class="form-group">
+      <label for="id_message">First Name</label>
+      <input class="form-control" id="id_message" name="firstName" rows="5"></input>
+    </div>
+    <div class="form-group">
+        <label for="id_message">Last Name</label>
+        <input class="form-control" id="id_message" name="lastName" rows="5"></input>
+      </div>
+      <div class="form-group">
+        <label for="id_message">Email</label>
+        <input class="form-control" id="id_message" name="emailAddress" rows="5"></input>
+      </div>
+      <div class="form-group">
+        <label for="id_message">Password</label>
+        <input class="form-control" id="id_message" name="password" rows="5"></input>
+      </div>
+      <div class="form-group">
+        <label for="id_message">Confirm Password</label>
+        <input class="form-control" id="id_message" name="passwordConfirm" rows="5"></input>
+      </div>
+    <button type="submit" class="btn btn-success">Create Account</button>
+  </form>
+{% endblock %}
