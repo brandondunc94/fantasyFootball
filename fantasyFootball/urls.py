@@ -16,10 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf.urls import url
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", include("users.urls")),
+    url(r'^login/$', auth_views.LoginView.as_view(), name='login'),
+    #url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
+    url(r'^admin/', admin.site.urls),
+    url('', include('dashboard.urls')),
+    url(r'^account/', include('account.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
