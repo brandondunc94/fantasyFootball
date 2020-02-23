@@ -1,7 +1,7 @@
 from django.urls import include, path
-from dashboard import views
+from home import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('standings/', views.standings, name='standings'),
+    #path(r'^home/', views.home, name='home'),
 ]
