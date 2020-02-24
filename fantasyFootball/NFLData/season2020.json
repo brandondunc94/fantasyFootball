@@ -1,0 +1,24 @@
+{
+    "id": [],
+    "week": {
+       "id": [],
+       "game": {
+          "homeTeam": {
+             "location": [],
+             "name": [],
+             "logo": []
+          },
+          "awayTeam": {
+             "location": [],
+             "name": [],
+             "logo": []
+          },
+          "location": [],
+          "date": [],
+          "score": {
+             "homeTeamScore": [],
+             "awayTeamScore": []
+          }
+       }
+    }
+ }
