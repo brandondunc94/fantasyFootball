@@ -1,0 +1,19 @@
+{
+  "teams": [
+    {
+      "name": "Seahawks",
+      "city": "Seattle",
+      "logo": "seahawks.jpg"
+    },
+    {
+      "name": "Bears",
+      "city": "Chicago",
+      "logo": "bears.jpg"
+    },
+    {
+      "name": "Packers",
+      "city": "Green Bay",
+      "logo": "packers.jpg"
+    }
+  ]
+}
