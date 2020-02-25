@@ -7,8 +7,12 @@ import json
 # Create your views here.
 @login_required
 def home(request):
-    #Initialize empty dictionary
+    #Initialize empty dictionary for gameData to be passed to template
     gameData = []
+
+    #Determine week number to populate
+    week = 1    #defaulting to 1 for now
+   
     #Get all leagues and display current stats based on picks
     with open('./static/teams.json', 'r') as teamFile:
         teams = json.load(teamFile)
@@ -17,18 +21,21 @@ def home(request):
     #currentdate and compare it to the week start date and only grab that week
     with open('./static/season20192020.json', 'r') as seasonFile:
         season = json.load(seasonFile)
-        for week in season['weeks']:
-            for game in week['games']:
+        #Get week JSON object
+        displayWeek = next(item for item in season if item['i'] == week)
+            for game in displayWeek['games']:
 
                 homeTeamName = game['homeTeamData']['homeTeam']
                 awayTeamName = game['awayTeamData']['awayTeam']
-                #homeTeamData = next(item for item in teams if item['name'] == homeTeamName)
-                #awayTeamData = next(item for item in teams if item['name'] == awayTeamName)
-
+                awayTeamProfile = next(item for item in teams if item['name'] == awayTeamName)
+                homeTeamProfile = next(item for item in teams if item['name'] == homeTeamName)
+                
                 gameData.append(
                     {
-                        'homeTeam' : homeTeamName, 
-                        'awayTeam' : awayTeamName
+                        'homeTeam' : homeTeamProfile, 
+                        'awayTeam' : awayTeamProfile,
+                        'homeScore' : game['homeTeamData']['score'],
+                        'awayScore' : game['awayTeamData']['score']
                     })
 
                 print(homeTeamName + " VS " + awayTeamName)

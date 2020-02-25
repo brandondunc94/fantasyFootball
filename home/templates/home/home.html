@@ -1,11 +1,67 @@
-{% extends "base.html" %}
+{% extends "fantasyFootball/base.html" %} {% block page_content %}
 
-{% block page_content %}
-<div class="container">
-<h2>Homepage</h2>
-<p>Welcome, {{ user.get_username }}</p>
-{% for x in gameData %}
-    <h4>{{ x.homeTeam }}</h4>
-{% endfor %}
-</div>
+<body>
+    <div class="container">
+        <div class="card text-center">
+            <div class="card-header">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <h2 class="card-title">League Home</h2>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select League</button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Week 1
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Week 2</a>
+                        <a class="dropdown-item" href="#">Week 3</a>
+                        <a class="dropdown-item" href="#">Week 4</a>
+                        <a class="dropdown-item" href="#">Week 5</a>
+                        <a class="dropdown-item" href="#">Week 6</a>
+                        <a class="dropdown-item" href="#">Week 7</a>
+                        <a class="dropdown-item" href="#">Week 8</a>
+                        <a class="dropdown-item" href="#">Week 9</a>
+                        <a class="dropdown-item" href="#">Week 10</a>
+                        <a class="dropdown-item" href="#">Week 11</a>
+                        <a class="dropdown-item" href="#">Week 12</a>
+                        <a class="dropdown-item" href="#">Week 13</a>
+                        <a class="dropdown-item" href="#">Week 14</a>
+                        <a class="dropdown-item" href="#">Week 15</a>
+                        <a class="dropdown-item" href="#">Week 16</a>
+                        <a class="dropdown-item" href="#">Week 17</a>
+                    </div>
+                </div>
+                {% for currentGame in gameData %}
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h6 class="card-title">{{ currentGame.homeTeam.name }} @ {{ currentGame.awayTeam.name }}</h6>
+                        <h7 class="card-text">{{ currentGame.homeScore }} - {{ currentGame.awayScore }}</h7>
+                        <!--<img src="/static/media/bears.png" alt="Bears" class="img-thumbnail rounded float left img-fluid">-->
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col">
+                <h4>Leaderboard</h4>
+            </div>
+        </div>
+    </div>
+</body>
 {% endblock %}

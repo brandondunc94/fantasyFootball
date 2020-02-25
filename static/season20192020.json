@@ -1,37 +1,32 @@
-{
-   "weeks": [
-     {
-       "id": "1",
-       "games": [
-         {
-           "id": "1",
-           "winner": "Packers",
-           "location": "Chicago",
-           "date": "20190905",
-           "homeTeamData": {
-             "homeTeam": "Bears",
-             "score": "3"
-           },
-           "awayTeamData": {
-             "awayTeam": "Packers",
-             "score": "10"
-           }
+ [{
+     "id": "1",
+     "games": [{
+             "id": "1",
+             "winner": "Packers",
+             "location": "Chicago",
+             "date": "20190905",
+             "homeTeamData": {
+                 "homeTeam": "Bears",
+                 "score": "3"
+             },
+             "awayTeamData": {
+                 "awayTeam": "Packers",
+                 "score": "10"
+             }
          },
          {
-           "id": "2",
-           "winner": "Seahawks",
-           "location": "Seattle",
-           "date": "20190905",
-           "homeTeamData": {
-             "homeTeam": "Seahawks",
-             "score": "17"
-           },
-           "awayTeamData": {
-             "awayTeam": "49ers",
-             "score": "3"
-           }
+             "id": "2",
+             "winner": "Seahawks",
+             "location": "Seattle",
+             "date": "20190905",
+             "homeTeamData": {
+                 "homeTeam": "Seahawks",
+                 "score": "17"
+             },
+             "awayTeamData": {
+                 "awayTeam": "Packers",
+                 "score": "3"
+             }
          }
-       ]
-     }
-   ]
- }
+     ]
+ }]
