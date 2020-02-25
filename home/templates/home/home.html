@@ -4,5 +4,8 @@
 <div class="container">
 <h2>Homepage</h2>
 <p>Welcome, {{ user.get_username }}</p>
+{% for x in gameData %}
+    <h4>{{ x.homeTeam }}</h4>
+{% endfor %}
 </div>
 {% endblock %}

@@ -1,5 +1,4 @@
-{
-  "teams": [
+[
     {
       "name": "Seahawks",
       "city": "Seattle",
@@ -15,5 +14,4 @@
       "city": "Green Bay",
       "logo": "packers.jpg"
     }
-  ]
-}
+]

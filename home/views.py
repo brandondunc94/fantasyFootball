@@ -7,6 +7,8 @@ import json
 # Create your views here.
 @login_required
 def home(request):
+    #Initialize empty dictionary
+    gameData = []
     #Get all leagues and display current stats based on picks
     with open('./static/teams.json', 'r') as teamFile:
         teams = json.load(teamFile)
@@ -20,11 +22,17 @@ def home(request):
 
                 homeTeamName = game['homeTeamData']['homeTeam']
                 awayTeamName = game['awayTeamData']['awayTeam']
-                #currentHomeCity = [m['name'] for m in teams if m['name'] == homeTeamName]
-                #currentHomeCity = next(item for item in teams if item['name'] == homeTeamName)
+                #homeTeamData = next(item for item in teams if item['name'] == homeTeamName)
+                #awayTeamData = next(item for item in teams if item['name'] == awayTeamName)
+
+                gameData.append(
+                    {
+                        'homeTeam' : homeTeamName, 
+                        'awayTeam' : awayTeamName
+                    })
 
                 print(homeTeamName + " VS " + awayTeamName)
 
         seasonFile.close()
         #Get live scores and display on the top
-    return render(request, 'home/home.html')
+    return render(request, 'home/home.html', {'gameData': gameData})
