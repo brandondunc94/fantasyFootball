@@ -1,0 +1,7 @@
+{% extends "fantasyFootball/base.html" %} {% block page_content %}
+<h1> Create a new League</h1>
+<form action="create/" method="POST">
+    {% csrf_token %} {{ form }}
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

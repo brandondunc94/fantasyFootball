@@ -5,6 +5,7 @@
         <div class="card text-center">
             <div class="card-header">
                 <div class="card-body">
+                    {% if gameData %}
                     <div class="row">
                         <div class="col-sm-8">
                             <h2 class="card-title">League Home</h2>
@@ -20,6 +21,19 @@
                             </div>
                         </div>
                     </div>
+                    {% else %}
+                    <div class="row">
+                        <div class="col-6">
+                            <h4 class="card-title">You are not currently part of any leagues. Create or join one now!</h4>
+                        </div>
+                        <div class="co3">
+                            <a href="/league/create/" class="btn btn-info" role="button">Create League</a>
+                        </div>
+                        <div class="col-3">
+                            <a href="/league/join/" class="btn btn-info" disabled role="button">Join League</a>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

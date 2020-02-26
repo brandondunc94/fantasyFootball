@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/', include('home.urls')),
     url(r'^account/', include('account.urls')),
+    url(r'^league/', include('league.urls')),
     path('', auth_views.LoginView.as_view(), name='login'),
 ]
 
