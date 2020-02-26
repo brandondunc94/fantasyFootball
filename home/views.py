@@ -22,24 +22,23 @@ def home(request):
     with open('./static/season20192020.json', 'r') as seasonFile:
         season = json.load(seasonFile)
         #Get week JSON object
-        displayWeek = next(item for item in season if item['i'] == week)
-            for game in displayWeek['games']:
-
-                homeTeamName = game['homeTeamData']['homeTeam']
-                awayTeamName = game['awayTeamData']['awayTeam']
-                awayTeamProfile = next(item for item in teams if item['name'] == awayTeamName)
-                homeTeamProfile = next(item for item in teams if item['name'] == homeTeamName)
+        displayWeek = next(item for item in season if item['id'] == week)
+        for game in displayWeek['games']:
+            homeTeamName = game['homeTeamData']['homeTeam']
+            awayTeamName = game['awayTeamData']['awayTeam']
+            awayTeamProfile = next(item for item in teams if item['name'] == awayTeamName)
+            homeTeamProfile = next(item for item in teams if item['name'] == homeTeamName)
                 
-                gameData.append(
-                    {
-                        'homeTeam' : homeTeamProfile, 
-                        'awayTeam' : awayTeamProfile,
-                        'homeScore' : game['homeTeamData']['score'],
-                        'awayScore' : game['awayTeamData']['score']
-                    })
+            gameData.append(
+                {
+                    'homeTeam' : homeTeamProfile, 
+                    'awayTeam' : awayTeamProfile,
+                    'homeScore' : game['homeTeamData']['score'],
+                    'awayScore' : game['awayTeamData']['score']
+                })
 
-                print(homeTeamName + " VS " + awayTeamName)
+            print(homeTeamName + " VS " + awayTeamName)
 
-        seasonFile.close()
+    seasonFile.close()
         #Get live scores and display on the top
     return render(request, 'home/home.html', {'gameData': gameData})
