@@ -1,5 +1,4 @@
 from django import forms
 
 class NewLeagueForm(forms.Form):
-    username = forms.CharField(label='Username', max_length=100)
-    password = forms.CharField(label='Password', max_length=100)
+    name = forms.CharField(label='League Name', max_length=100)
