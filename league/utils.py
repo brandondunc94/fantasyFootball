@@ -4,3 +4,6 @@ from league.models import League
 def getUserLeagues(user):
     League = None
     return(League)
+
+def createLeague(user):
+    newLeague = League.objects.create(id=1, name="Test League")
