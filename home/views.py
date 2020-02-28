@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 import requests
 import json
-from league.utils import getUserLeagues
+from league.utils import getUserLeagues, createNewSeason
 #from home import classes
 
 # Create your views here.
@@ -18,7 +18,7 @@ def home(request):
     elif request.method == "GET":
         #Do a lookup to find all leagues for current user
         userLeagues = getUserLeagues(request.user)
-
+        #createNewSeason()
         if userLeagues == None:
             return render(request, 'home/home.html')
         else:

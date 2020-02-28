@@ -10,7 +10,7 @@ class League(models.Model):
         return self.name
 
 class Season(models.Model):
-    league = models.ForeignKey(League,on_delete=models.CASCADE, default=None)
+    #league = models.ForeignKey(League,on_delete=models.CASCADE, default=None)
     year = models.TextField(max_length=100, blank=True)
     
     def __str__(self):
