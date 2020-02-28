@@ -5,18 +5,17 @@
         <div class="card text-center">
             <div class="card-header">
                 <div class="card-body">
-                    {% if gameData %}
+                    {% if userLeagues %}
                     <div class="row">
                         <div class="col-sm-8">
-                            <h2 class="card-title">League Home</h2>
+                            <h2 class="card-title">League Home: {{ userLeagues.0.name }}</h2>
                         </div>
                         <div class="col-sm-4">
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select League</button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    {% for league in userLeagues %}
+                                    <a class="dropdown-item" type="submit">{{ league.name }}</a> {% endfor %}
                                 </div>
                             </div>
                         </div>
@@ -37,7 +36,7 @@
                 </div>
             </div>
         </div>
-        <hr>
+        <hr> {% if userLeagues %}
         <div class="row">
             <div class="col">
                 <div class="dropdown">
@@ -76,6 +75,19 @@
                 <h4>Leaderboard</h4>
             </div>
         </div>
+        <hr> {% if gameData %}
+        <div class="row">
+            <div class="col-6">
+                <h4 class="card-title">Create or join a league now</h4>
+            </div>
+            <div class="co-3">
+                <a href="/league/create/" class="btn btn-info" role="button">Create League</a>
+            </div>
+            <div class="col-3">
+                <a href="/league/join/" class="btn btn-info" disabled role="button">Join League</a>
+            </div>
+        </div>
+        {% endif %} {% endif %}
     </div>
 </body>
 {% endblock %}

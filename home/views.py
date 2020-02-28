@@ -10,12 +10,16 @@ from league.utils import getUserLeagues
 @login_required
 def home(request):
     if request.method == "POST":
+        #Get league from pick list or default to the first league found
+        league = request
+        #Get week from pick list, otherwise default to week 1
+
         return render(request, 'home/home.html')
     elif request.method == "GET":
         #Do a lookup to find all leagues for current user
-        userLeague = getUserLeagues(User)
+        userLeagues = getUserLeagues(request.user)
 
-        if userLeague == None:
+        if userLeagues == None:
             return render(request, 'home/home.html')
         else:
             #Initialize empty dictionary for gameData to be passed to template
@@ -54,4 +58,4 @@ def home(request):
 
             seasonFile.close()
                 #Get live scores and display on the top
-            return render(request, 'home/home.html', {'gameData': gameData})
+            return render(request, 'home/home.html', {'gameData': gameData, 'userLeagues': userLeagues})
