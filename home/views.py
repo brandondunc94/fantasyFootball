@@ -18,7 +18,7 @@ def home(request):
     elif request.method == "GET":
         #Do a lookup to find all leagues for current user
         userLeagues = getUserLeagues(request.user)
-        #createNewSeason()
+        createNewSeason()
         if userLeagues == None:
             return render(request, 'home/home.html')
         else:
@@ -37,12 +37,12 @@ def home(request):
             with open('./static/season20192020.json', 'r') as seasonFile:
                 season = json.load(seasonFile)
                 #Get week JSON object
-                displayWeek = next(item for item in season if item['id'] == week)
+                displayWeek = next(item for item in season)
                 for game in displayWeek['games']:
                     homeTeamName = game['homeTeamData']['homeTeam']
                     awayTeamName = game['awayTeamData']['awayTeam']
-                    awayTeamProfile = next(item for item in teams if item['name'] == awayTeamName)
-                    homeTeamProfile = next(item for item in teams if item['name'] == homeTeamName)
+                    #awayTeamProfile = next(item for item in teams if item['name'] == awayTeamName)
+                    #homeTeamProfile = next(item for item in teams if item['name'] == homeTeamName)
                         
                     gameData.append(
                         {

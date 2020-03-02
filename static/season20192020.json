@@ -1,10 +1,8 @@
-[
-    {
+[{
         "id": 1,
-        "games": [
-            {
-                "id": "1",
+        "games": [{
                 "winner": "Packers",
+                "loser": "Bears",
                 "location": "Chicago",
                 "date": "20190905",
                 "homeTeamData": {
@@ -17,38 +15,231 @@
                 }
             },
             {
-                "id": "1",
+                "winner": "Titans",
+                "location": "Browns",
+                "date": "20190908",
+                "homeTeamData": {
+                    "homeTeam": "Browns",
+                    "score": "13"
+                },
+                "awayTeamData": {
+                    "awayTeam": "Titans",
+                    "score": "43"
+                }
+            },
+            {
+                "winner": "Vikings",
+                "loser": "Falcons",
+                "location": "Minnesota",
+                "date": "20190908",
+                "homeTeamData": {
+                    "homeTeam": "Vikings",
+                    "score": "28"
+                },
+                "awayTeamData": {
+                    "awayTeam": "Falcons",
+                    "score": "12"
+                }
+            },
+            {
+                "winner": "Eagles",
+                "loser": "Redskins",
+                "location": "Philadelphia",
+                "date": "20190908",
+                "homeTeamData": {
+                    "homeTeam": "Eagles",
+                    "score": "32"
+                },
+                "awayTeamData": {
+                    "awayTeam": "Redskins",
+                    "score": "27"
+                }
+            },
+            {
+                "winner": "Rams",
+                "loser": "Panthers",
+                "location": "Carolina",
+                "date": "20190908",
+                "homeTeamData": {
+                    "homeTeam": "Panthers",
+                    "score": "27"
+                },
+                "awayTeamData": {
+                    "awayTeam": "Rams",
+                    "score": "30"
+                }
+            },
+            {
+                "winner": "Bills",
+                "loser": "Jets",
+                "location": "Buffalo",
+                "date": "20190908",
+                "homeTeamData": {
+                    "homeTeam": "Jets",
+                    "score": "16"
+                },
+                "awayTeamData": {
+                    "awayTeam": "Bills",
+                    "score": "17"
+                }
+            },
+            {
+                "winner": "Chiefs",
+                "loser": "Jaguars",
+                "location": "Jacksonville",
+                "date": "20190908",
+                "homeTeamData": {
+                    "homeTeam": "Jaguars",
+                    "score": "26"
+                },
+                "awayTeamData": {
+                    "awayTeam": "Chiefs",
+                    "score": "40"
+                }
+            },
+            {
+                "winner": "Ravens",
+                "loser": "Dolphins",
+                "location": "Miami",
+                "date": "20190908",
+                "homeTeamData": {
+                    "homeTeam": "Dolphins",
+                    "score": "10"
+                },
+                "awayTeamData": {
+                    "awayTeam": "Ravens",
+                    "score": "59"
+                }
+            },
+            {
+                "winner": "Chargers",
+                "loser": "Colts",
+                "location": "Los Angeles",
+                "date": "20190908",
+                "homeTeamData": {
+                    "homeTeam": "Chargers",
+                    "score": "30"
+                },
+                "awayTeamData": {
+                    "awayTeam": "Colts",
+                    "score": "24"
+                }
+            },
+            {
                 "winner": "Seahawks",
+                "loser": "Bengals",
                 "location": "Seattle",
-                "date": "20190905",
+                "date": "20190908",
                 "homeTeamData": {
                     "homeTeam": "Seahawks",
+                    "score": "21"
+                },
+                "awayTeamData": {
+                    "awayTeam": "Bengals",
+                    "score": "20"
+                }
+            },
+            {
+                "winner": "Cowboys",
+                "loser": "Giants",
+                "location": "Dallas",
+                "date": "20190908",
+                "homeTeamData": {
+                    "homeTeam": "Cowboys",
+                    "score": "35"
+                },
+                "awayTeamData": {
+                    "awayTeam": "Giants",
+                    "score": "17"
+                }
+            },
+            {
+                "winner": "",
+                "loser": "",
+                "location": "Arizona",
+                "date": "20190908",
+                "homeTeamData": {
+                    "homeTeam": "Cardinals",
+                    "score": "27"
+                },
+                "awayTeamData": {
+                    "awayTeam": "Lions",
+                    "score": "27"
+                }
+            },
+            {
+                "winner": "49ers",
+                "loser": "Buccaneers",
+                "location": "Tampa Bay",
+                "date": "20190908",
+                "homeTeamData": {
+                    "homeTeam": "Buccaneers",
                     "score": "17"
                 },
                 "awayTeamData": {
-                    "awayTeam": "Bears",
-                    "score": "10"
+                    "awayTeam": "49ers",
+                    "score": "31"
+                }
+            },
+            {
+                "winner": "Patriots",
+                "loser": "Steelers",
+                "location": "New England",
+                "date": "20190908",
+                "homeTeamData": {
+                    "homeTeam": "Patriots",
+                    "score": "33"
+                },
+                "awayTeamData": {
+                    "awayTeam": "Steelers",
+                    "score": "3"
+                }
+            },
+            {
+                "winner": "Saints",
+                "loser": "Texans",
+                "location": "New Orleans",
+                "date": "20190909",
+                "homeTeamData": {
+                    "homeTeam": "Saints",
+                    "score": "30"
+                },
+                "awayTeamData": {
+                    "awayTeam": "Texans",
+                    "score": "28"
+                }
+            },
+            {
+                "winner": "Raiders",
+                "loser": "Broncos",
+                "location": "Oakland",
+                "date": "20190909",
+                "homeTeamData": {
+                    "homeTeam": "Raiders",
+                    "score": "24"
+                },
+                "awayTeamData": {
+                    "awayTeam": "Broncos",
+                    "score": "16"
                 }
             }
         ]
     },
     {
         "id": 2,
-        "games": [
-            {
-                "id": "1",
-                "winner": "Packers",
-                "location": "Chicago",
-                "date": "20190905",
-                "homeTeamData": {
-                    "homeTeam": "Bears",
-                    "score": "3"
-                },
-                "awayTeamData": {
-                    "awayTeam": "Packers",
-                    "score": "10"
-                }
+        "games": [{
+            "id": "1",
+            "winner": "Packers",
+            "location": "Chicago",
+            "date": "20190905",
+            "homeTeamData": {
+                "homeTeam": "Bears",
+                "score": "3"
+            },
+            "awayTeamData": {
+                "awayTeam": "Packers",
+                "score": "10"
             }
-        ]
+        }]
     }
 ]
