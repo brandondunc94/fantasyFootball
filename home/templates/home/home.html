@@ -64,7 +64,7 @@
                 {% for currentGame in gameData %}
                 <div class="card text-center">
                     <div class="card-body">
-                        <h6 class="card-title">{{ currentGame.homeTeam.name }} @ {{ currentGame.awayTeam.name }}</h6>
+                        <h6 class="card-title">{{ currentGame.homeTeam }} @ {{ currentGame.awayTeam }}</h6>
                         <h7 class="card-text">{{ currentGame.homeScore }} - {{ currentGame.awayScore }}</h7>
                         <!--<img src="/static/media/bears.png" alt="Bears" class="img-thumbnail rounded float left img-fluid">-->
                     </div>

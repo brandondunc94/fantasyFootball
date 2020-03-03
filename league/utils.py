@@ -13,8 +13,9 @@ def getUserLeagues(currentUser):
 def createNewSeason():
 
     #Create new season object in db
-    newSeason = Season(year=20192020)
-    newSeason.save()
+    season = Season(year="20192020")
+    season.save()
+    #season = Season.objects.get(year="20192020")
 
     #Open team info JSON file
     with open('./static/teams.json', 'r') as teamFile:
@@ -23,10 +24,10 @@ def createNewSeason():
 
     #Open current season JSON file
     with open('./static/season20192020.json', 'r') as seasonFile:
-        season = json.load(seasonFile)
+        seasonData = json.load(seasonFile)
     
-    for week in season:
-        newWeek = Week(season=newSeason)
+    for week in seasonData:
+        newWeek = Week(season=season)
         newWeek.save()
         for game in week['games']:
             homeTeamName = game['homeTeamData']['homeTeam']
@@ -36,7 +37,9 @@ def createNewSeason():
             newGame = Game(
                 week=newWeek, 
                 homeTeam = homeTeamName, 
+                homeCity = homeTeamData['city'],
                 awayTeam = awayTeamName,
+                awayCity = awayTeamData['city'],
                 homeScore = game['homeTeamData']['score'],
                 awayScore = game['awayTeamData']['score'],
                 winner = game['winner'],

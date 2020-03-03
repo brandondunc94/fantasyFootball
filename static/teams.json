@@ -1,17 +1,161 @@
-[
-    {
-      "name": "Seahawks",
-      "city": "Seattle",
-      "logo": "seahawks.jpg"
+[{
+        "name": "Cardinals",
+        "city": "Arizona",
+        "logo": "cardinals.jpg"
     },
     {
-      "name": "Bears",
-      "city": "Chicago",
-      "logo": "bears.jpg"
+        "name": "Falcons",
+        "city": "Atlanta",
+        "logo": "falcons.jpg"
     },
     {
-      "name": "Packers",
-      "city": "Green Bay",
-      "logo": "packers.jpg"
+        "name": "Ravens",
+        "city": "Baltimore",
+        "logo": "ravens.jpg"
+    },
+    {
+        "name": "Bills",
+        "city": "Buffalo",
+        "logo": "bills.jpg"
+    },
+    {
+        "name": "Panthers",
+        "city": "Carolina",
+        "logo": "panthers.jpg"
+    },
+    {
+        "name": "Bears",
+        "city": "Chicago",
+        "logo": "bears.jpg"
+    },
+    {
+        "name": "Bengals",
+        "city": "Cincinnati",
+        "logo": "bengals.jpg"
+    },
+    {
+        "name": "Browns",
+        "city": "Cleveland",
+        "logo": "browns.jpg"
+    },
+    {
+        "name": "Cowboys",
+        "city": "Dallas",
+        "logo": "cowboys.jpg"
+    },
+    {
+        "name": "Broncos",
+        "city": "Denver",
+        "logo": "broncos.jpg"
+    },
+    {
+        "name": "Lions",
+        "city": "Detroit",
+        "logo": "lions.jpg"
+    },
+    {
+        "name": "Packers",
+        "city": "Green Bay",
+        "logo": "packers.jpg"
+    },
+    {
+        "name": "Texans",
+        "city": "Houston",
+        "logo": "texans.jpg"
+    },
+    {
+        "name": "Colts",
+        "city": "Indianapolis",
+        "logo": "colts.jpg"
+    },
+    {
+        "name": "Jaguars",
+        "city": "Jacksonville",
+        "logo": "jaguars.jpg"
+    },
+    {
+        "name": "Chiefs",
+        "city": "Kansas City",
+        "logo": "chiefs.jpg"
+    },
+    {
+        "name": "Chargers",
+        "city": "Los Angeles",
+        "logo": "chargers.jpg"
+    },
+    {
+        "name": "Rams",
+        "city": "Los Angeles",
+        "logo": "rams.jpg"
+    },
+    {
+        "name": "Dolphins",
+        "city": "Miami",
+        "logo": "dolphins.jpg"
+    },
+    {
+        "name": "Vikings",
+        "city": "Minnesota",
+        "logo": "vikings.jpg"
+    },
+    {
+        "name": "Patriots",
+        "city": "New England",
+        "logo": "patriots.jpg"
+    },
+    {
+        "name": "Saints",
+        "city": "New Orleans",
+        "logo": "saints.jpg"
+    },
+    {
+        "name": "Giants",
+        "city": "New York",
+        "logo": "giants.jpg"
+    },
+    {
+        "name": "Jets",
+        "city": "New York",
+        "logo": "jets.jpg"
+    },
+    {
+        "name": "Raiders",
+        "city": "Las Vegas",
+        "logo": "raiders.jpg"
+    },
+    {
+        "name": "Eagles",
+        "city": "Philadelphia",
+        "logo": "eagles.jpg"
+    },
+    {
+        "name": "Steelers",
+        "city": "Pittsburgh",
+        "logo": "steelers.jpg"
+    },
+    {
+        "name": "49ers",
+        "city": "San Francisco",
+        "logo": "49ers.jpg"
+    },
+    {
+        "name": "Seahawks",
+        "city": "Seattle",
+        "logo": "seahawks.jpg"
+    },
+    {
+        "name": "Buccaneers",
+        "city": "Tampa Bay",
+        "logo": "buccaneers.jpg"
+    },
+    {
+        "name": "Titans",
+        "city": "Tennessee",
+        "logo": "titans.jpg"
+    },
+    {
+        "name": "Redskins",
+        "city": "Washington",
+        "logo": "redskins.jpg"
     }
 ]
