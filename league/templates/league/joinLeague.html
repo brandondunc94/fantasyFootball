@@ -1,0 +1,20 @@
+{% extends "fantasyFootball/base.html" %} {% block page_content %}
+
+<div class="container">
+    <h2> Join a League</h2>
+    <p>Select a league below</p>
+
+    <form method="post" action="">
+        {% csrf_token %}
+        <select name="league">
+            <option selected="selected" disabled>Leagues</option>
+            {% for currentLeague in leagues %}
+            <option value="{{ currentLeague.name }}">{{ currentLeague.name }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Select">
+    </form>
+
+</div>
+</form>
+{% endblock %}

@@ -39,28 +39,18 @@
         <hr> {% if userLeagues %}
         <div class="row">
             <div class="col">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Week 1
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Week 2</a>
-                        <a class="dropdown-item" href="#">Week 3</a>
-                        <a class="dropdown-item" href="#">Week 4</a>
-                        <a class="dropdown-item" href="#">Week 5</a>
-                        <a class="dropdown-item" href="#">Week 6</a>
-                        <a class="dropdown-item" href="#">Week 7</a>
-                        <a class="dropdown-item" href="#">Week 8</a>
-                        <a class="dropdown-item" href="#">Week 9</a>
-                        <a class="dropdown-item" href="#">Week 10</a>
-                        <a class="dropdown-item" href="#">Week 11</a>
-                        <a class="dropdown-item" href="#">Week 12</a>
-                        <a class="dropdown-item" href="#">Week 13</a>
-                        <a class="dropdown-item" href="#">Week 14</a>
-                        <a class="dropdown-item" href="#">Week 15</a>
-                        <a class="dropdown-item" href="#">Week 16</a>
-                        <a class="dropdown-item" href="#">Week 17</a>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <select class="form-control">
+                      <option>Week 1</option>
+                      <option>Week 2</option>
+                      <option>Week 3</option>
+                      <option>Week 4</option>
+                      <option>Week 5</option>
+                    </select>
                     </div>
-                </div>
+                </form>
                 {% for currentGame in gameData %}
                 <div class="card text-center">
                     <div class="card-body">
@@ -73,6 +63,14 @@
             </div>
             <div class="col">
                 <h4>Leaderboard</h4>
+                {% for currentUser in leagueUsers %}
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h6 class="card-title">{{ currentUser.user }}</h6>
+                        <!--<img src="/static/media/bears.png" alt="Bears" class="img-thumbnail rounded float left img-fluid">-->
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
         <hr> {% if gameData %}

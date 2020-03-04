@@ -19,6 +19,8 @@ def home(request):
     elif request.method == "GET":
         #Do a lookup to find all leagues for current user
         userLeagues = getUserLeagues(request.user)
+        defaultLeague = userLeagues[0]
+        leagueUsers = LeagueMembership.objects.filter(league=defaultLeague)
         #createNewSeason()
         if userLeagues == None:
             return render(request, 'home/home.html')
@@ -39,4 +41,4 @@ def home(request):
                     'awayTeam' : getattr(currentGame, 'awayTeam'),
                     'awayScore' : getattr(currentGame, 'awayScore')
                 })
-            return render(request, 'home/home.html', {'gameData': gameData, 'userLeagues': userLeagues})
+            return render(request, 'home/home.html', {'gameData': gameData, 'userLeagues': userLeagues, 'leagueUsers': leagueUsers})
