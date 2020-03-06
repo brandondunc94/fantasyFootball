@@ -28,7 +28,9 @@ urlpatterns = [
     url(r'^home/', include('home.urls')),
     url(r'^account/', include('account.urls')),
     url(r'^league/', include('league.urls')),
+    url(r'^picks/', include('picks.urls')),
     path('', auth_views.LoginView.as_view(), name='login'),
+
 ]
 
 urlpatterns += staticfiles_urlpatterns()
