@@ -11,6 +11,7 @@ class League(models.Model):
 
 class Season(models.Model):
     year = models.TextField(max_length=100, blank=True)
+    currentActiveWeek = models.TextField(max_length=100, default="1")
     
     def __str__(self):
         return self.year
@@ -34,7 +35,9 @@ class Game(models.Model):
 #This model governs the relationship between a game and a user and who they picked to win the game
 class GameChoice(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    league = models.ForeignKey(League, on_delete=models.CASCADE, default="")
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
+    week = models.ForeignKey(Week, on_delete=models.CASCADE, default="", null=True)
     winner = models.TextField(max_length=50, blank=True)
     correctFlag = models.BooleanField(default=False)
 
