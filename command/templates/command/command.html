@@ -1,0 +1,11 @@
+{% extends "fantasyFootball/base.html" %} {% block page_content %}
+<h1>Command Central</h1>
+<form action="score/">
+    {% csrf_token %}
+    <input type="submit" value="Score Players">
+</form>
+<form action="createseason/">
+    {% csrf_token %}
+    <input type="submit" value="Create new season">
+</form>
+{% endblock %}

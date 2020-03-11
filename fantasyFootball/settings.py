@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'home',
     'league',
     'picks',
+    'command',
 ]
 
 MIDDLEWARE = [

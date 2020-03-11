@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 import requests
 import json
-from league.utils import getUserLeagues, createNewSeason
+from league.utils import getUserLeagues
 from league.models import League, LeagueMembership, Season, Week, Game, GameChoice
 from account.models import Profile
 #from home import classes

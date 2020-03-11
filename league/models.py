@@ -18,6 +18,7 @@ class Season(models.Model):
 
 class Week(models.Model):
     season = models.ForeignKey(Season,on_delete=models.CASCADE, default=None)
+    picksLocked = models.BooleanField(default=False)
 
 class Game(models.Model):
     week = models.ForeignKey(Week,on_delete=models.CASCADE, default=None)
@@ -39,10 +40,11 @@ class GameChoice(models.Model):
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     week = models.ForeignKey(Week, on_delete=models.CASCADE, default="", null=True)
     winner = models.TextField(max_length=50, blank=True)
-    correctFlag = models.BooleanField(default=False)
+    correctFlag = models.BooleanField(default=None,null=True)
 
 #This models governs the relationship between a User and a League they are associated with
 class LeagueMembership(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     league = models.ForeignKey(League, on_delete=models.CASCADE)
+    score = models.IntegerField(default=0)
     

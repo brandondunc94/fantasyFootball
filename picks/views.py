@@ -1,10 +1,11 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from league.models import League, LeagueMembership, Season, Week, Game, GameChoice
 from account.models import Profile
 from league.utils import getUserLeagues
-from picks.forms import PickForm, PickFormSet
+
 
 # Create your views here.
 @login_required
@@ -44,7 +45,8 @@ def picks(request):
                         winner = pickData[currentPick]
                     )
                     currentWinnerPick.save()
-        return render(request, 'picks/picks.html')
+        return redirect('/picks/')
+    
     elif request.method == "GET":
         
         #Do a lookup to find all leagues for current user
@@ -83,8 +85,5 @@ def picks(request):
                     'correctFlag' : correctFlag,
                     'pick' : winnerSelected
                 })
-                
-                print (currentGameChoice)
 
-            pickFormSet = PickFormSet()
-            return render(request, 'picks/picks.html', {'pickData': pickData, 'userLeagues': userLeagues, 'pickFormSet': pickFormSet})
+            return render(request, 'picks/picks.html', {'pickData': pickData, 'userLeagues': userLeagues})

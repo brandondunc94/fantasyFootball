@@ -25,6 +25,7 @@ urlpatterns = [
     #url('', auth_views.LoginView.as_view(), name='login'),
     url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
     url(r'^admin/', admin.site.urls),
+    url(r'^command/', include('command.urls')),
     url(r'^home/', include('home.urls')),
     url(r'^account/', include('account.urls')),
     url(r'^league/', include('league.urls')),
