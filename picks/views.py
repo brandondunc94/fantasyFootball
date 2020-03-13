@@ -32,6 +32,7 @@ def picks(request):
 
                 #Check to see if there is already a pick for this game
                 existingPick = GameChoice.objects.filter(league=currentActiveLeague,user=request.user,week=currentWeek,game=currentGame)
+                
                 if existingPick:
                     existingPick[0].winner = pickData[currentPick]
                     existingPick[0].save()

@@ -15,7 +15,7 @@ def command(request):
 def scorePlayers(request):
     weekNumber = 1
     #Get week, default to 1 for now, and set flag so that picks are locked in for this given week
-    week = Week.objects.get(week=weekNumber)
+    week = Week.objects.get(id=weekNumber)
     week.picksLocked = True
     week.save()
     
@@ -44,8 +44,11 @@ def scorePlayers(request):
                         currentPick.correctFlag = True
                         userScore += 1
                     else:
+                        #Set correct flag to False
                         currentPick.correctFlag = False
-            
+                    #Save current pick back to db
+                    currentPick.save()
+            #Update user score on league membership model
             currentMembership.score = userScore
             currentMembership.save()
     #Get all GameChoice objects for current user, current league, and current week

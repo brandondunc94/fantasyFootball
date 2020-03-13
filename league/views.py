@@ -11,14 +11,26 @@ def createLeague(request):
         form = NewLeagueForm(request.POST)
         if form.is_valid():
             print(form.cleaned_data['name'])
-
+            #Check to see if this league name already exists
+            existingLeague = League.objects.filter(name=form.cleaned_data['name'])
+            if existingLeague:
+                form = NewLeagueForm()
+                return render(request, 'league/createLeague.html', {'form': form, 'error': 'The League name you entered has already been taken. Please try another League name.'})
+            
             #Create new league model in db
             newLeague = League.objects.create(name=form.cleaned_data['name'])
 
             #Assign current user to new league - FIX THIS
             leagueMembership = LeagueMembership.objects.create(user=request.user,league=newLeague)
+            
+            #Get user profile and set newLeague to active league
+            currentProfile = Profile.objects.get(user=request.user)
+            currentProfile.currentActiveLeague = newLeague
+            currentProfile.save()
+
             #Return to home page
             return redirect('home')
+            
     elif request.method == "GET":
             form = NewLeagueForm()
             return render(request, 'league/createLeague.html', {'form': form})

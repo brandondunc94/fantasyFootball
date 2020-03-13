@@ -10,54 +10,56 @@ from account.models import Profile
 
 # Create your views here.
 @login_required
-def home(request):
-    if request.method == "POST":
-        #Get league from pick list or default to the first league found
+def home(request, weekId="1", leagueName=""):
         
-        #Get week from pick list, otherwise default to week 1
-
+    #Do a lookup to find all leagues for current user. If none, default to home page with no data
+    userLeagues = getUserLeagues(request.user)
+    if not userLeagues:
         return render(request, 'home/home.html')
-    elif request.method == "GET":
-        
-        #Do a lookup to find all leagues for current user
-        userLeagues = getUserLeagues(request.user)
 
-        if not userLeagues:
-            return render(request, 'home/home.html')
-        defaultLeague = userLeagues[0]
-    
-        #Set current active league for user
-        currentProfile = Profile.objects.get(user=request.user)
-        currentProfile.currentActiveLeague = defaultLeague
-        currentProfile.save()
+    #Get user profile
+    currentProfile = Profile.objects.get(user=request.user)
 
-        leagueUsers = LeagueMembership.objects.filter(league=defaultLeague)
-
-        if userLeagues == None:
-            return render(request, 'home/home.html')
+    #Get current active league and set it in user profile
+    if leagueName:
+        #Get league passed into view
+        activeLeague = League.objects.filter(name=leagueName)
+        if not activeLeague:
+            #No league found using name passed in, default to first league found
+            activeLeague = userLeagues[0]
         else:
-            #Initialize empty dictionary for gameData to be passed to template
-            gameData = []
+            #League found, there can only be 1 so grab first found league from query set
+            activeLeague = activeLeague[0]                 
+        currentProfile.currentActiveLeague = activeLeague
+        currentProfile.save()
+    else:
+        #Default to last used league
+        activeLeague = currentProfile.currentActiveLeague
+    
+    #Get all users for active league
+    leagueUsers = LeagueMembership.objects.filter(league=activeLeague)
 
-            #Determine week number to populate
-            week = 1    #defaulting to 1 for now
-            #weekData = Week.objects.get(id=1)
-            currentWeekGames = Game.objects.filter(week_id=week)
-            
-            #We will eventually want to get the currentdate and compare it to the week start date and only grab that week
-            for currentGame in currentWeekGames:
-                #Check to see if there is pick data for this game
-                currentGamePick = GameChoice.objects.filter(league=defaultLeague,user=request.user,week=week,game=currentGame)
-                if currentGamePick:
-                    currentPick = currentGamePick[0].winner
-                else:
-                    currentPick = ""
-                gameData.append(
-                {
-                    'homeTeam' : getattr(currentGame, 'homeTeam'),
-                    'homeScore' : getattr(currentGame, 'homeScore'),
-                    'awayTeam' : getattr(currentGame, 'awayTeam'),
-                    'awayScore' : getattr(currentGame, 'awayScore'),
-                    'pick' : currentPick
-                })
-            return render(request, 'home/home.html', {'gameData': gameData, 'userLeagues': userLeagues, 'leagueUsers': leagueUsers})
+    #Get game data for weekId passed in
+    currentWeekGames = Game.objects.filter(week_id=weekId)
+    
+    #Initialize empty dictionary for gameData to be passed to template
+    gameData = []
+
+    #We will eventually want to get the currentdate and compare it to the week start date and only grab that week
+    for currentGame in currentWeekGames:
+        #Check to see if there is pick data for this game
+        currentGamePick = GameChoice.objects.filter(league=activeLeague,user=request.user,week=weekId,game=currentGame)
+        if currentGamePick:
+            currentPick = currentGamePick[0].winner
+        else:
+            currentPick = "None"
+        gameData.append(
+        {
+            'homeTeam' : getattr(currentGame, 'homeTeam'),
+            'homeScore' : getattr(currentGame, 'homeScore'),
+            'awayTeam' : getattr(currentGame, 'awayTeam'),
+            'awayScore' : getattr(currentGame, 'awayScore'),
+            'winner' : getattr(currentGame, 'winner'),
+            'pick' : currentPick
+        })
+    return render(request, 'home/home.html', {'gameData': gameData, 'userLeagues': userLeagues, 'leagueUsers': leagueUsers, 'activeLeague': activeLeague.name})

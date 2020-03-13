@@ -6,62 +6,35 @@
             <h1>My Picks</h1>
         </div>
         <form action="" method="POST">
-            {% for currentPick in pickData %}
-            <fieldset class="form-group"></fieldset>
-            {% if currentPick.pick == currentPick.homeTeam %}
-            <div class="row">
-                <div class="col-sm-10">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}" checked>
-                        <label class="form-check-label" for="{{ currentPick.homeTeam }}">
-                            {{ currentPick.homeTeam }}
-                  </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}">
-                        <label class="form-check-label" for="{{ currentPick.awayTeam }}">
-                            {{ currentPick.awayTeam }}
-                  </label>
-                    </div>
-                </div>
-            </div>
-            {% elif currentPick.pick == currentPick.awayTeam %}
-            <div class="row">
-                <div class="col-sm-10">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}">
-                        <label class="form-check-label" for="{{ currentPick.homeTeam }}">
-                            {{ currentPick.homeTeam }}
-                  </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}" checked>
-                        <label class="form-check-label" for="{{ currentPick.awayTeam }}">
-                            {{ currentPick.awayTeam }}
-                  </label>
-                    </div>
-                </div>
-            </div>
-            {% else %}
-            <div class="row">
-                <div class="col-sm-10">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}">
-                        <label class="form-check-label" for="{{ currentPick.homeTeam }}">
-                            {{ currentPick.homeTeam }}
-                  </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}">
-                        <label class="form-check-label" for="{{ currentPick.awayTeam }}">
-                            {{ currentPick.awayTeam }}
-                  </label>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            </fieldset>
-            {% endfor %} {% csrf_token %}
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Home</th>
+                        <th scope="col">Away</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for currentPick in pickData %}
+                    <tr>
+                        <td><img src="/static/media/{{ currentPick.homeTeam }}.png" alt="{{ currentPick.homeTeam }}" class="img-fluid" width="50" height="50"></td>
+                        <td>
+                            <div class="radio">
+                                <label><input type="radio" id='{{ currentPick.homeTeam }}' name="{{ currentPick.game }}">{{ currentPick.homeTeam }}</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="radio">
+                                <label><input type="radio" id='{{ currentPick.awayTeam }}' name="{{ currentPick.game }}">{{ currentPick.awayTeam }}</label>
+                            </div>
+                        </td>
+                        <td><img src="/static/media/{{ currentPick.awayTeam }}.png" alt="{{ currentPick.awayTeam }}" class="img-fluid" width="50" height="50"></td>
+                    </tr>
+                    {% endfor %} {% csrf_token %}
+                </tbody>
+            </table>
             <input type="submit" value="Save Picks">
         </form>
     </div>
