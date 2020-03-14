@@ -17,6 +17,11 @@ def create_account(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             print(form.cleaned_data['username'])
+            #Check to see if username already exists
+            existingUser = User.objects.filter(username=form.cleaned_data['username'])
+            if existingUser:
+                form = RegisterForm()
+                return render(request, 'registration/register.html', {'form': form, 'error': "This username has already been taken. Please try a different one."})
             #Create new user using User model
             newUser = User.objects.create_user(form.cleaned_data['username'], 'bro_duncan18@yahoo.com'
                                                 ,form.cleaned_data['password'])

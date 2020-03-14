@@ -37,8 +37,8 @@ def home(request, weekId="1", leagueName=""):
         activeLeague = currentProfile.currentActiveLeague
     
     #Get all users for active league
-    leagueUsers = LeagueMembership.objects.filter(league=activeLeague)
-
+    leagueUsers = LeagueMembership.objects.filter(league=activeLeague).order_by('-score')
+    
     #Get game data for weekId passed in
     currentWeekGames = Game.objects.filter(week_id=weekId)
     

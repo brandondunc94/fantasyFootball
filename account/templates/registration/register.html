@@ -1,10 +1,13 @@
-{% extends "fantasyFootball/base.html" %}
-
-{% block page_content %}
-<h1> Create a new account</h1>
-<form action="" method="POST">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
-{% endblock %}
+{% extends "fantasyFootball/base.html" %} {% block page_content %}
+<div class="container">
+    <h1> Create a new account</h1>
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        <strong>Error: </strong> {{ error }}
+    </div>{% endif %}
+    <form action="" method="POST">
+        {% csrf_token %} {{ form }}
+        <input type="submit" value="Submit">
+    </form>
+    {% endblock %}
+</div>

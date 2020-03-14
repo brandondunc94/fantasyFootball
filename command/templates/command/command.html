@@ -1,11 +1,64 @@
 {% extends "fantasyFootball/base.html" %} {% block page_content %}
-<h1>Command Central</h1>
-<form action="score/">
-    {% csrf_token %}
-    <input type="submit" value="Score Players">
-</form>
-<form action="createseason/">
-    {% csrf_token %}
-    <input type="submit" value="Create new season">
-</form>
+<div class="container">
+    <h1>Command Central</h1>
+    <form action="score/">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary" value="Score Players">
+    </form>
+    <hr>
+    <form action="createseason/">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary" value="Create new season">
+    </form>
+    <hr>
+    <div class="dropdown">
+        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Lock Week
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="lock/1/">Week 1</a>
+            <a class="dropdown-item" href="lock/2/">Week 2</a>
+            <a class="dropdown-item" href="lock/3/">Week 3</a>
+            <a class="dropdown-item" href="lock/4/">Week 4</a>
+            <a class="dropdown-item" href="lock/5/">Week 5</a>
+            <a class="dropdown-item" href="lock/6/">Week 6</a>
+            <a class="dropdown-item" href="lock/7/">Week 7</a>
+            <a class="dropdown-item" href="lock/8/">Week 8</a>
+            <a class="dropdown-item" href="lock/9/">Week 9</a>
+            <a class="dropdown-item" href="lock/10/">Week 10</a>
+            <a class="dropdown-item" href="lock/11/">Week 11</a>
+            <a class="dropdown-item" href="lock/12/">Week 12</a>
+            <a class="dropdown-item" href="lock/13/">Week 13</a>
+            <a class="dropdown-item" href="lock/14/">Week 14</a>
+            <a class="dropdown-item" href="lock/15/">Week 15</a>
+            <a class="dropdown-item" href="lock/16/">Week 16</a>
+            <a class="dropdown-item" href="lock/17/">Week 17</a>
+        </div>
+    </div>
+    <hr>
+    <div class="dropdown">
+        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Score Games
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="score/1/">Week 1</a>
+            <a class="dropdown-item" href="score/2/">Week 2</a>
+            <a class="dropdown-item" href="score/3/">Week 3</a>
+            <a class="dropdown-item" href="score/4/">Week 4</a>
+            <a class="dropdown-item" href="score/5/">Week 5</a>
+            <a class="dropdown-item" href="score/6/">Week 6</a>
+            <a class="dropdown-item" href="score/7/">Week 7</a>
+            <a class="dropdown-item" href="score/8/">Week 8</a>
+            <a class="dropdown-item" href="score/9/">Week 9</a>
+            <a class="dropdown-item" href="score/10/">Week 10</a>
+            <a class="dropdown-item" href="score/11/">Week 11</a>
+            <a class="dropdown-item" href="score/12/">Week 12</a>
+            <a class="dropdown-item" href="score/13/">Week 13</a>
+            <a class="dropdown-item" href="score/14/">Week 14</a>
+            <a class="dropdown-item" href="score/15/">Week 15</a>
+            <a class="dropdown-item" href="score/16/">Week 16</a>
+            <a class="dropdown-item" href="score/17/">Week 17</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

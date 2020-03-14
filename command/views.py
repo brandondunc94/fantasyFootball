@@ -12,16 +12,21 @@ def command(request):
     elif request.method == "GET":
         return render(request, 'command/command.html')
 
-def scorePlayers(request):
-    weekNumber = 1
-    #Get week, default to 1 for now, and set flag so that picks are locked in for this given week
-    week = Week.objects.get(id=weekNumber)
-    week.picksLocked = True
-    week.save()
+def lockWeek(request, weekId):
+    #Get week and set flag so that picks are locked in for this given week
+    currentWeek = Week.objects.get(id=weekId)
+    currentWeek.picksLocked = True
+    currentWeek.save()
+    return render(request, 'command/command.html')
+
+def scoreWeek(request, weekId, seasonYear="20192020"):
     
+    #Get season
+    season = Season.objects.get(year=seasonYear)
+    week = Week.objects.get(id=weekId, season_id=season.id)
+
     #Get all leagues
     allLeagues = League.objects.all()
-    #allUsers = User.objects.all()
     
     for currentLeague in allLeagues:
         #Get all users in current league
@@ -32,7 +37,7 @@ def scorePlayers(request):
             currentUser = currentMembership.user
             userScore = currentMembership.score
             #Get GameChoices for current user in current league for current week
-            weekPicks = GameChoice.objects.filter(league=currentLeague,week=week,user=currentUser,)
+            weekPicks = GameChoice.objects.filter(league=currentLeague,week=weekId,user=currentUser,)
             for currentPick in weekPicks:
                 #Get game data for current game
                 currentGame = Game.objects.get(id=currentPick.game_id)

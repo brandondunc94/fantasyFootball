@@ -8,11 +8,11 @@
                     {% if userLeagues %}
                     <div class="row">
                         <div class="col-sm-8">
-                            <h2 class="card-title">League Home: {{ activeLeague }}</h2>
+                            <h2 class="card-title">{{ activeLeague }}</h2>
                         </div>
                         <div class="col-sm-4">
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select League</button>
+                                <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select League</button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     {% for league in userLeagues %}
                                     <a class="dropdown-item" type="submit" href="/home/1/{{ league.name }}/">{{ league.name }}</a> {% endfor %}
@@ -42,7 +42,7 @@
                 <div class="row">
                     <h4>Games</h4>
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Select Week
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -67,25 +67,24 @@
                     </div>
                 </div>
                 <div class=row>
-                    <table class="table">
+                    <table class="table text-center">
                         <thead class="thead-dark">
                             <tr>
-                                <th scope="col"></th>
                                 <th scope="col">Home</th>
+                                <th scope="col">Score</th>
                                 <th scope="col">Away</th>
-                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for currentGame in gameData %}
                             <tr>
                                 <td><img src="/static/media/{{ currentGame.homeTeam }}.png" alt="{{ currentGame.homeTeam }}" class="img-fluid" width="50" height="50"></td>
-                                {% if currentGame.homeTeam == currentGame.winner %}
-                                <td class="text-success">{{ currentGame.homeTeam }} {{ currentGame.homeScore }}</td>
-                                <td class="text-danger">{{ currentGame.awayTeam }} {{ currentGame.awayScore }}</td>
+                                {% if currentGame.pick == 'None' %}
+                                <td class="text">{{ currentGame.homeTeam }} {{ currentGame.homeScore }} - {{ currentGame.awayTeam }} {{ currentGame.awayScore }}</td>
+                                {% elif currentGame.pick == currentGame.winner %}
+                                <td class="text-success">{{ currentGame.homeTeam }} {{ currentGame.homeScore }} - {{ currentGame.awayTeam }} {{ currentGame.awayScore }}</td>
                                 {% else %}
-                                <td class="text-danger">{{ currentGame.homeTeam }} {{ currentGame.homeScore }}</td>
-                                <td class="text-success">{{ currentGame.awayTeam }} {{ currentGame.awayScore }}</td>
+                                <td class="text-danger">{{ currentGame.homeTeam }} {{ currentGame.homeScore }} - {{ currentGame.awayTeam }} {{ currentGame.awayScore }}</td>
                                 {% endif %}
                                 <td><img src="/static/media/{{ currentGame.awayTeam }}.png" alt="{{ currentGame.awayTeam }}" class="img-fluid" width="50" height="50"></td>
                             </tr>
@@ -109,9 +108,9 @@
                             <td>{{ currentUser.user }}</td>
                             <td>{{ currentUser.score }}</td>
                         </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
-                {% endfor %}
             </div>
         </div>
         <hr> {% if gameData %}

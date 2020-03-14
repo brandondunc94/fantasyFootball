@@ -46,6 +46,11 @@ def joinLeague(request):
         #Join current user to the league
         leagueMembership = LeagueMembership.objects.create(user=request.user,league=league)
 
+        #Get user profile and set newly jioned league to active league
+        currentProfile = Profile.objects.get(user=request.user)
+        currentProfile.currentActiveLeague = league
+        currentProfile.save()
+
         return redirect('home')
     if request.method == "GET":
         #Query for leagues and render on page
