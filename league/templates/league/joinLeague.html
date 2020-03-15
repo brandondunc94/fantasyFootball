@@ -1,10 +1,16 @@
 {% extends "fantasyFootball/base.html" %} {% block page_content %}
 
 <div class="container">
-    <h2> Join a League</h2>
-    <p>Select a league below</p>
+    <h4>Join a League</h4>
+    <!-- Search form -->
+    <input class="form-control" id="leagueSearch" type="text" placeholder="Search Leagues">
+    <br>
+    <ul class="list-group" id="myList">
+        {% for currentLeague in leagues %}
+        <li href="/league/join/{{ currentLeague.name }}" class="list-group-item" value="{{ currentLeague.name }}">{{ currentLeague.name }}</li> {% endfor %}
+    </ul>
 
-    <form method="post" action="">
+    <form method="POST" action="">
         {% csrf_token %}
         <select name="league">
             <option selected="selected" disabled>Leagues</option>

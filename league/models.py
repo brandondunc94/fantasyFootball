@@ -47,4 +47,9 @@ class LeagueMembership(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     league = models.ForeignKey(League, on_delete=models.CASCADE)
     score = models.IntegerField(default=0)
-    
+
+class LeagueMessage(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    league = models.ForeignKey(League, on_delete=models.CASCADE)
+    message = models.TextField(max_length=500, blank=True)
+    createDate = models.DateTimeField(auto_now=True)

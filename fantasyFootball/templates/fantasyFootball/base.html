@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+<script src="/static/js/jquery-3.4.1.min.js"></script>
+<script src="/static/js/searchLeagues.js"></script>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="/">Fantasy Football</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,8 +11,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="/home/">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/picks/">My Picks</a>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">League</a>
+                <div class="dropdown-menu">
+                    <a href="/league/home/" class="dropdown-item">Home</a>
+                    <a href="/picks/" class="dropdown-item">My Picks</a>
+                </div>
             </li>
         </ul>
         <ul class="navbar-nav">

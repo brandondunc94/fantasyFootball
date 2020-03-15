@@ -20,6 +20,12 @@ def picks(request, weekId="1", leagueName=""):
         pickData = request.POST
 
         currentWeek = Week.objects.get(id=weekId)
+
+        #Check if week is locked (It shouldn't be, this is someone trying to be sneaky)
+        lockedWeek = currentWeek.picksLocked
+        if lockedWeek == True:
+            return render(request, 'picks/picks.html')
+        
         try:
             #Get league from name passed in
             activeLeague = League.objects.get(name=leagueName)
@@ -52,8 +58,8 @@ def picks(request, weekId="1", leagueName=""):
                         winner = pickData[currentPick]
                     )
                     currentWinnerPick.save()
-                #Generate pick page with current week and current league
-                redirectUrl = '/picks/' + str(currentWeek.id) + '/' + activeLeague.name
+        #Generate pick page with current week and current league
+        redirectUrl = '/picks/' + str(currentWeek.id) + '/' + activeLeague.name
         return redirect(redirectUrl)
     
     elif request.method == "GET":
