@@ -7,6 +7,6 @@ A new fantasy football based solely on picking game winners
 ####To add a new app
 1. python manage.py startapp appname
 2. Update fantasyFootball.urls.py to include urls of app
-    Ex. url(r'^account/', include('account.urls')) whre 'account' is the new app name
+    Ex. url(r'^account/', include('account.urls')) where 'account' is the new app name
 
-##Logos Found at https://seeklogo.net/series/nfl-team-logos-vector
+##NFL Logos Found at https://seeklogo.net/series/nfl-team-logos-vector
