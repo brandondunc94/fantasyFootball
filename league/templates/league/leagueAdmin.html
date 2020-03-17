@@ -1,0 +1,47 @@
+{% extends "fantasyFootball/base.html" %} {% block page_content %}
+
+<body>
+    <div class="container">
+        <h3>League Admin</h3>
+
+
+        <div class="col">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Users</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for currentUser in leagueUsers %}
+                    <tr>
+                        <td>{{ currentUser.user }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Pending Requests</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for currentRequest in leagueRequests %}
+                    <tr>
+                        {% csrf_token %}
+                        <td>{{ currentRequest.user.username }}</td>
+                        <td>
+                            <a href="/league/add/{{ currentRequest.user.username }}/{{ activeLeague.name }}" class="btn btn-success" role="button">Accept</a>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+{% endblock %}

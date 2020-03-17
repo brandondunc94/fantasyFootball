@@ -3,14 +3,15 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class League(models.Model):
-    name = models.TextField(max_length=100, blank=True)
+    name = models.TextField(max_length=100, blank=True, unique=True)
     members = models.ManyToManyField(User, through="LeagueMembership")
+    admin = models.OneToOneField(User, on_delete=models.CASCADE, related_name="admin", default="", null=True)
 
     def __str__(self):
         return self.name
 
 class Season(models.Model):
-    year = models.TextField(max_length=100, blank=True)
+    year = models.TextField(max_length=100, blank=True, unique=True)
     currentActiveWeek = models.TextField(max_length=100, default="1")
     
     def __str__(self):
@@ -47,9 +48,20 @@ class LeagueMembership(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     league = models.ForeignKey(League, on_delete=models.CASCADE)
     score = models.IntegerField(default=0)
+    class Meta:
+        unique_together = ["user", "league"]
 
 class LeagueMessage(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     league = models.ForeignKey(League, on_delete=models.CASCADE)
     message = models.TextField(max_length=500, blank=True)
     createDate = models.DateTimeField(auto_now=True)
+    class Meta:
+        unique_together = ["user", "league"]
+
+class LeagueMembershipRequest(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    league = models.ForeignKey(League, on_delete=models.CASCADE)
+    requestDate = models.DateTimeField(auto_now=True)
+    class Meta:
+        unique_together = ["user", "league"]

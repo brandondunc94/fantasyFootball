@@ -5,5 +5,5 @@ from league.models import League
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     currentActiveLeague = models.ForeignKey(League, on_delete=models.CASCADE, default="", null=True)
-    bio = models.TextField(max_length=500, blank=True)
-    location = models.CharField(max_length=30, blank=True)
+    firstName = models.TextField(max_length=50, blank=True)
+    lastName = models.TextField(max_length=50, blank=True)

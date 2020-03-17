@@ -18,8 +18,12 @@ def picks(request, weekId="1", leagueName=""):
             return render(request, 'home/home.html')
 
         pickData = request.POST
-
-        currentWeek = Week.objects.get(id=weekId)
+        try:
+            #If this creates an error, it is because no week with this id is in the database
+            currentWeek = Week.objects.get(id=weekId)
+        except:
+            #Return user to home page, SEND ADMIN email that this happened.
+            return render(request, 'home/home.html')
 
         #Check if week is locked (It shouldn't be, this is someone trying to be sneaky)
         lockedWeek = currentWeek.picksLocked

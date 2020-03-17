@@ -25,11 +25,11 @@
                         <div class="col-6">
                             <h4 class="card-title">You are not currently part of any leagues. Create or join one now!</h4>
                         </div>
-                        <div class="co3">
+                        <div class="col-3">
                             <a href="/league/create/" class="btn btn-info" role="button">Create League</a>
                         </div>
                         <div class="col-3">
-                            <a href="/league/join/" class="btn btn-info" disabled role="button">Join League</a>
+                            <a href="/league/join/" class="btn btn-info" role="button">Join League</a>
                         </div>
                     </div>
                     {% endif %}
@@ -113,19 +113,7 @@
                 </table>
             </div>
         </div>
-        <hr> {% if gameData %}
-        <div class="row">
-            <div class="col-6">
-                <h4 class="card-title">Create or join a league now</h4>
-            </div>
-            <div class="co-3">
-                <a href="/league/create/" class="btn btn-info" role="button">Create League</a>
-            </div>
-            <div class="col-3">
-                <a href="/league/join/" class="btn btn-info" disabled role="button">Join League</a>
-            </div>
-        </div>
-        {% endif %} {% endif %}
+        <hr>{% endif %}
     </div>
 </body>
 {% endblock %}

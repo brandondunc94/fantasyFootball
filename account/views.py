@@ -16,22 +16,34 @@ def create_account(request):
     if request.method == "POST":
         form = RegisterForm(request.POST)
         if form.is_valid():
-            print(form.cleaned_data['username'])
+            print("Trying to add " + form.cleaned_data['username'])
             #Check to see if username already exists
             existingUser = User.objects.filter(username=form.cleaned_data['username'])
             if existingUser:
                 form = RegisterForm()
                 return render(request, 'registration/register.html', {'form': form, 'error': "This username has already been taken. Please try a different one."})
             #Create new user using User model
-            newUser = User.objects.create_user(form.cleaned_data['username'], 'bro_duncan18@yahoo.com'
-                                                ,form.cleaned_data['password'])
+            newUser = User.objects.create_user(
+                username=form.cleaned_data['username'], 
+                email = form.cleaned_data['email'],
+                password = form.cleaned_data['password']
+                )
+
             #Login newUser
             if newUser is not None:
                 login(request, newUser)
                 #Create new profile using Profile model and pass in newUser
-                newProfile = Profile(user = newUser, bio = "I like football.", location = "Seattle")
+                newProfile = Profile(
+                    user = newUser, 
+                    firstName = form.cleaned_data['firstName'],
+                    lastName = form.cleaned_data['lastName']
+                    )
+                    
                 newProfile.save()
                 return render(request, 'home/home.html')
+        else:
+            form = RegisterForm()
+            return render(request, 'registration/register.html', {'form': form, 'error': "Please fill out all required fields."})
     elif request.method == "GET":
         if request.user.is_authenticated:
             return render(request, 'account/profile.html')
