@@ -1,14 +1,26 @@
 {% extends "fantasyFootball/base.html" %} {% block page_content %}
 <div class="container">
-    <h1> Create a new League</h1>
+    <h2> Create a new League</h2>
     {% if error %}
     <div class="alert alert-danger" role="alert">
         <strong>Error: </strong> {{ error }}
     </div>{% endif %}
 
     <form action="" method="POST">
-        {% csrf_token %} {{ form }}
-        <input type="submit" value="Submit">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>League Name*</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="League Name" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>League Description</label>
+                <input type="text" class="form-control" id="description" name="description" placeholder="Request" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Create League</button>
     </form>
     {% endblock %}
 </div>

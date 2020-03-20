@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 import requests
 import json
-from league.utils import getUserLeagues
+from league import utils as leagueUtils
 from league.models import League, LeagueMembership, Season, Week, Game, GameChoice
 from account.models import Profile
 #from home import classes
@@ -11,30 +11,23 @@ from account.models import Profile
 # Create your views here.
 @login_required
 def home(request, weekId="1", leagueName=""):
-        
+
     #Do a lookup to find all leagues for current user. If none, default to home page with no data
-    userLeagues = getUserLeagues(request.user)
-    if not userLeagues:
-        return render(request, 'home/home.html')
+    userLeagues = leagueUtils.getUserLeagues(request.user)
+    if userLeagues == None:
+        return render(request, 'home/welcome.html')
 
     #Get user profile
     currentProfile = Profile.objects.get(user=request.user)
 
-    #Get current active league and set it in user profile
-    if leagueName:
-        #Get league passed into view
-        activeLeague = League.objects.filter(name=leagueName)
-        if not activeLeague:
-            #No league found using name passed in, default to first league found
-            activeLeague = userLeagues[0]
-        else:
-            #League found, there can only be 1 so grab first found league from query set
-            activeLeague = activeLeague[0]                 
-        currentProfile.currentActiveLeague = activeLeague
-        currentProfile.save()
+    #Get league passed into view
+    activeLeague = leagueUtils.getLeague(leagueName)
+    if activeLeague == None:
+        #No league found using name passed in, default to user's current active league
+        activeLeague = leagueUtils.getUserActiveLeague(request.user)
     else:
-        #Default to last used league
-        activeLeague = currentProfile.currentActiveLeague
+        #Set current league to user's active league in Profile
+        leagueUtils.setUserActiveLeague(request.user, activeLeague)
     
     #Get all users for active league
     leagueUsers = LeagueMembership.objects.filter(league=activeLeague).order_by('-score')
@@ -63,3 +56,6 @@ def home(request, weekId="1", leagueName=""):
             'pick' : currentPick
         })
     return render(request, 'home/home.html', {'gameData': gameData, 'userLeagues': userLeagues, 'leagueUsers': leagueUsers, 'activeLeague': activeLeague.name})
+
+def welcome(request):
+    return render(request, 'home/welcome.html')

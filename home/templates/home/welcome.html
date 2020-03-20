@@ -1,0 +1,58 @@
+<!-- Custom styles for this template -->
+{% extends "fantasyFootball/base.html" %} {% block page_content %}{% load static %}
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Welcome!</h1>
+    <p class="lead">Start or join a league and take part in a season-long competition to determine who can correctly predict the winner of the most NFL games.</p>
+</div>
+
+<div class="container">
+    <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 box-shadow">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Start a New League</h4>
+            </div>
+            <div class="card-body">
+                <h1 class="card-title pricing-card-title"><small class="text-muted"></small></h1>
+                <div class="my-2 my-md-0 mr-md-3">
+                    <p>Create and invite your friends to a private league, or set up a public league of your own for anyone to join.</p>
+                </div>
+                <a type="button" href="/league/create/" class="btn btn-lg btn-block btn-outline-info main-color">Create one now</a>
+            </div>
+        </div>
+        <div class="card mb-4 box-shadow">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Join an Existing League</h4>
+            </div>
+            <div class="card-body">
+                <h1 class="card-title pricing-card-title"><small class="text-muted"></small></h1>
+                <div class="my-2 my-md-0 mr-md-3">
+                    <p>Join either a private or public league. Private leagues will require an Administrator to accept you.</p>
+                </div>
+                <a type="button" href="/league/join/" class="btn btn-lg btn-block btn-outline-info main-color ">Join one now</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="pt-4 my-md-5 pt-md-5 border-top ">
+        <div class="row ">
+            <div class="col-12 col-md ">
+                <!--<img class="mb-2 " src=" " " alt=" " width="24 " height="24 ">-->
+                <small class="d-block mb-3 text-muted ">&copy; 2020-2021</small>
+            </div>
+            <div class="col-6 col-md ">
+                <h5>Rules</h5>
+
+            </div>
+            <div class="col-6 col-md ">
+                <h5>Help</h5>
+
+            </div>
+            <div class="col-6 col-md ">
+                <h5>About</h5>
+
+            </div>
+        </div>
+    </footer>
+</div>
+{% endblock %}

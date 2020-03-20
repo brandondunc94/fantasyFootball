@@ -3,12 +3,16 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class League(models.Model):
-    name = models.TextField(max_length=100, blank=True, unique=True)
+    name = models.TextField(max_length=100, blank=True)
     members = models.ManyToManyField(User, through="LeagueMembership")
+    description = models.TextField(max_length=100, default="")
     admin = models.OneToOneField(User, on_delete=models.CASCADE, related_name="admin", default="", null=True)
+    class Meta:
+        unique_together = ["name"]
 
     def __str__(self):
         return self.name
+    
 
 class Season(models.Model):
     year = models.TextField(max_length=100, blank=True, unique=True)

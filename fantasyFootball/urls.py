@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^command/', include('command.urls')),
     url(r'^home/', include('home.urls')),
+    url(r'^welcome/', include('home.urls')),
     url(r'^account/', include('account.urls')),
     url(r'^league/', include('league.urls')),
     url(r'^picks/', include('picks.urls')),

@@ -1,16 +1,16 @@
-{% extends "fantasyFootball/base.html" %} {% block page_content %}
+{% extends "fantasyFootball/base.html" %} {% block page_content %} {% load static %}
+<!--<script src="{% static 'js/requestLeagues.js' %}"></script>-->
 
 <div class="container">
-    <h4>Join a League</h4>
-    <table id="leagueTable" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+    <h1 class="display-4">Join a League</h1>
+    <input class="form-control" id="searchLeagues" type="text" placeholder="Search Leagues..">
+    <hr> {% if leagueData %}
+    <table id="leagueTable" class="table table-responsive-md btn-table" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th class="th-sm">League Name
-                </th>
-                <th class="th-sm">Admin
-                </th>
-                <th class="th-sm">Request to Join
-                </th>
+                <th class="th-sm">League Name</th>
+                <th class="th-sm">Admin</th>
+                <th class="th-sm">Request to Join</th>
             </tr>
         </thead>
         <tbody>
@@ -21,11 +21,35 @@
                 {% if currentLeague.pendingRequest == True %}
                 <td>Request Pending</td>
                 {% else %}
-                <td><a href="/league/request/{{ currentLeague.name }}" class="btn btn-success" role="button">Request to Join</a></td>
+                <!--<td><a href="/league/request/{{ currentLeague.league.name }}" class="btn btn-success" role="button" id="requestButton">Request to Join</a></td>-->
+                <td>
+                    <form action="/league/request/{{ currentLeague.league.name }}">
+                        <input type="submit" class="btn btn-indigo btn-sm m-0" value="Request" />
+                    </form>
+                </td>
                 {% endif %}
             </tr>
             {% endfor %}
         </tbody>
     </table>
-</div>
-{% endblock %}
+    {% else %}
+    <div class="row">
+        <div class="col">
+            <div class="text-center">
+                <h4>No Leagues have been created yet. Go create one now!</h4>
+                <a type="button" href="/league/create/" class="btn btn-outline-info main-color">Create League</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <script>
+        $(document).ready(function() {
+            $("#searchLeagues").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#leagueTable tbody tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+    {% endblock %}

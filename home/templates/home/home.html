@@ -2,73 +2,64 @@
 
 <body>
     <div class="container">
-        <div class="card text-center">
-            <div class="card-header">
-                <div class="card-body">
-                    {% if userLeagues %}
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <h2 class="card-title">{{ activeLeague }}</h2>
+        <!--League title and league picker-->
+        <div class="row">
+            <div class="col-sm-8">
+                <h1 class="display-4card-title">{{ activeLeague }}</h1>
+            </div>
+            <div class="col-sm-4">
+                <div class="dropdown float-right">
+                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select League</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        {% for league in userLeagues %}
+                        <a class="dropdown-item" type="submit" href="/home/1/{{ league.name }}/">{{ league.name }}</a> {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!--Games and Leaderboard columns-->
+        <div class="row">
+            <!--Game column-->
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="float-left">
+                            <h4>Games</h4>
                         </div>
-                        <div class="col-sm-4">
+                    </div>
+                    <div class="col-8">
+                        <div class="float-right">
                             <div class="dropdown">
-                                <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select League</button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    {% for league in userLeagues %}
-                                    <a class="dropdown-item" type="submit" href="/home/1/{{ league.name }}/">{{ league.name }}</a> {% endfor %}
+                                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Select Week
+                        </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/home/1/">Week 1</a>
+                                    <a class="dropdown-item" href="/home/2/">Week 2</a>
+                                    <a class="dropdown-item" href="/home/3/">Week 3</a>
+                                    <a class="dropdown-item" href="/home/4/">Week 4</a>
+                                    <a class="dropdown-item" href="/home/5/">Week 5</a>
+                                    <a class="dropdown-item" href="/home/6/">Week 6</a>
+                                    <a class="dropdown-item" href="/home/7/">Week 7</a>
+                                    <a class="dropdown-item" href="/home/8/">Week 8</a>
+                                    <a class="dropdown-item" href="/home/9/">Week 9</a>
+                                    <a class="dropdown-item" href="/home/10/">Week 10</a>
+                                    <a class="dropdown-item" href="/home/11/">Week 11</a>
+                                    <a class="dropdown-item" href="/home/12/">Week 12</a>
+                                    <a class="dropdown-item" href="/home/13/">Week 13</a>
+                                    <a class="dropdown-item" href="/home/14/">Week 14</a>
+                                    <a class="dropdown-item" href="/home/15/">Week 15</a>
+                                    <a class="dropdown-item" href="/home/16/">Week 16</a>
+                                    <a class="dropdown-item" href="/home/17/">Week 17</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {% else %}
-                    <div class="row">
-                        <div class="col-6">
-                            <h4 class="card-title">You are not currently part of any leagues. Create or join one now!</h4>
-                        </div>
-                        <div class="col-3">
-                            <a href="/league/create/" class="btn btn-info" role="button">Create League</a>
-                        </div>
-                        <div class="col-3">
-                            <a href="/league/join/" class="btn btn-info" role="button">Join League</a>
-                        </div>
-                    </div>
-                    {% endif %}
                 </div>
-            </div>
-        </div>
-        <hr> {% if userLeagues %}
-        <div class="row">
-            <div class="col">
                 <div class="row">
-                    <h4>Games</h4>
-                    <div class="dropdown">
-                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Select Week
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="/home/1/">Week 1</a>
-                            <a class="dropdown-item" href="/home/2/">Week 2</a>
-                            <a class="dropdown-item" href="/home/3/">Week 3</a>
-                            <a class="dropdown-item" href="/home/4/">Week 4</a>
-                            <a class="dropdown-item" href="/home/5/">Week 5</a>
-                            <a class="dropdown-item" href="/home/6/">Week 6</a>
-                            <a class="dropdown-item" href="/home/7/">Week 7</a>
-                            <a class="dropdown-item" href="/home/8/">Week 8</a>
-                            <a class="dropdown-item" href="/home/9/">Week 9</a>
-                            <a class="dropdown-item" href="/home/10/">Week 10</a>
-                            <a class="dropdown-item" href="/home/11/">Week 11</a>
-                            <a class="dropdown-item" href="/home/12/">Week 12</a>
-                            <a class="dropdown-item" href="/home/13/">Week 13</a>
-                            <a class="dropdown-item" href="/home/14/">Week 14</a>
-                            <a class="dropdown-item" href="/home/15/">Week 15</a>
-                            <a class="dropdown-item" href="/home/16/">Week 16</a>
-                            <a class="dropdown-item" href="/home/17/">Week 17</a>
-                        </div>
-                    </div>
-                </div>
-                <div class=row>
-                    <table class="table text-center">
-                        <thead class="thead-dark">
+                    <table class="table btn-table text-center" cellspacing="0" width="100%">
+                        <thead>
                             <tr>
                                 <th scope="col">Home</th>
                                 <th scope="col">Score</th>
@@ -93,27 +84,42 @@
                     </table>
                 </div>
             </div>
-            <div class="col">
-                <h4>Leaderboard</h4>
-                <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">Player</th>
-                            <th scope="col">Score</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for currentUser in leagueUsers %}
-                        <tr>
-                            <td>{{ currentUser.user }}</td>
-                            <td>{{ currentUser.score }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+            <!--Leaderboard coulmn-->
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="float-left">
+                            <h4>Leaderboard</h4>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="float-right">
+                            <a href="/league/home/" class="btn btn-secondary btn-sm" disabled role="button">League Home</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="table btn-table text-center" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th scope="col">Player</th>
+                                <th scope="col">Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for currentUser in leagueUsers %}
+                            <tr>
+                                <td>{{ currentUser.user }}</td>
+                                <td>{{ currentUser.score }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-        <hr>{% endif %}
+        <hr>
     </div>
+
 </body>
 {% endblock %}

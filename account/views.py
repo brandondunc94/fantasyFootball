@@ -40,7 +40,7 @@ def create_account(request):
                     )
                     
                 newProfile.save()
-                return render(request, 'home/home.html')
+                return render(request, 'home/welcome.html')
         else:
             form = RegisterForm()
             return render(request, 'registration/register.html', {'form': form, 'error': "Please fill out all required fields."})

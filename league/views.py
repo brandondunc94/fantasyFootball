@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from league.forms import NewLeagueForm
-from league.utils import getUserLeagues
+from league import utils as leagueUtils
 from league.models import League, LeagueMembership, LeagueMessage, LeagueMembershipRequest
 from account.models import Profile
 
@@ -13,28 +13,21 @@ def home(request, leagueName=""):
     
     if request.method == "GET":
         #Do a lookup to find all leagues for current user. If none, default to home page with no data
-        userLeagues = getUserLeagues(request.user)
-        if not userLeagues:
-            return render(request, 'home/home.html')
+        userLeagues = leagueUtils.getUserLeagues(request.user)
+        if userLeagues == None:
+            return render(request, 'home/welcome.html')
 
         #Get user profile
         currentProfile = Profile.objects.get(user=request.user)
 
-        #Get current active league and set it in user profile
-        if leagueName:
-            #Get league passed into view
-            activeLeague = League.objects.filter(name=leagueName)
-            if not activeLeague:
-                #No league found using name passed in, default to first league found
-                activeLeague = userLeagues[0]
-            else:
-                #League found, there can only be 1 so grab first found league from query set
-                activeLeague = activeLeague[0]                 
-            currentProfile.currentActiveLeague = activeLeague
-            currentProfile.save()
+        #Get league passed into view
+        activeLeague = leagueUtils.getLeague(leagueName)
+        if activeLeague == None:
+            #No league found using name passed in, default to user's current active league
+            activeLeague = leagueUtils.getUserActiveLeague(request.user)
         else:
-            #Default to last used league
-            activeLeague = currentProfile.currentActiveLeague
+            #Set current league to user's active league in Profile
+            leagueUtils.setUserActiveLeague(request.user, activeLeague)
 
         #Check if current user is an admin of the league - this will display the 'League Settings' button if true
         try:
@@ -100,15 +93,13 @@ def createLeague(request):
                 return render(request, 'league/createLeague.html', {'form': form, 'error': 'The League name you entered has already been taken. Please try another League name.'})
             
             #Create new league model in db
-            newLeague = League.objects.create(name=form.cleaned_data['name'], admin=request.user)
+            newLeague = League.objects.create(name=form.cleaned_data['name'], admin=request.user, description=form.cleaned_data['description'])
 
-            #Assign current user to new league - FIX THIS
+            #Assign current user to new league
             leagueMembership = LeagueMembership.objects.create(user=request.user,league=newLeague)
             
-            #Get user profile and set newLeague to active league
-            currentProfile = Profile.objects.get(user=request.user)
-            currentProfile.currentActiveLeague = newLeague
-            currentProfile.save()
+            #Set newLeague to active league for current user - THIS IS VERY IMPORTANT
+            leagueUtils.setUserActiveLeague(request.user, newLeague)
 
             #Return to home page
             return redirect('home')
@@ -155,12 +146,12 @@ def requestLeague(request, leagueName=""):
         leagueMember = LeagueMembership.objects.get(user=request.user,league=activeLeague)
         if leagueMember:
             #User is already a member, redirect them home
-            return redirect('home')
+            return redirect('/league/join/')
     except:
         #Create request to join the league
         membershipRequest = LeagueMembershipRequest.objects.create(user=request.user,league=activeLeague)
 
-    return redirect('home')
+    return redirect('/league/join/')
 
 
 def addToLeague(request, username="", leagueName=""):
@@ -178,10 +169,9 @@ def addToLeague(request, username="", leagueName=""):
     requestedUser = User.objects.get(username=username)
     #Create new league membership object
     newMembership = LeagueMembership.objects.create(league=leagueAdmin, user=requestedUser)
-    #Get user profile and set newly joined league to active league
-    currentProfile = Profile.objects.get(user=requestedUser)
-    currentProfile.currentActiveLeague = leagueAdmin 
-    currentProfile.save()
+
+    #Set newly joined league to active league for requested user
+    leagueUtils.setUserActiveLeague(requestedUser, leagueAdmin)
 
     #Delete request to join league
     try:

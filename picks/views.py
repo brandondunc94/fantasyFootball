@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from league.models import League, LeagueMembership, Season, Week, Game, GameChoice
 from account.models import Profile
-from league.utils import getUserLeagues
+from league import utils as leagueUtils
 
 
 # Create your views here.
@@ -13,9 +13,9 @@ def picks(request, weekId="1", leagueName=""):
     if request.method == "POST":
 
         #Do a lookup to find all leagues for current user
-        userLeagues = getUserLeagues(request.user)
+        userLeagues = leagueUtils.getUserLeagues(request.user)
         if userLeagues == None:
-            return render(request, 'home/home.html')
+            return render(request, 'home/welcome.html')
 
         pickData = request.POST
         try:
@@ -68,15 +68,16 @@ def picks(request, weekId="1", leagueName=""):
     
     elif request.method == "GET":
         #Do a lookup to find all leagues for current user
-        userLeagues = getUserLeagues(request.user)
+        userLeagues = leagueUtils.getUserLeagues(request.user)
         if userLeagues == None:
-            return render(request, 'home/home.html')
+            return render(request, 'home/welcome.html')
 
-        #Try to set active league to leagueName passed in, otherwise use first found
+        #Try to set active league to leagueName passed in, otherwise use active league
         try:
             activeLeague = League.objects.get(name=leagueName)
+            leagueUtils.setUserActiveLeague(activeLeague)
         except:
-            activeLeague = userLeagues[0]
+            activeLeague = leagueUtils.getUserActiveLeague(request.user)
         
         #Initialize empty dictionary for gameData to be passed to template
         pickData = []
