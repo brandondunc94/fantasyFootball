@@ -1,6 +1,7 @@
 from league.models import League, LeagueMembership, Season, Week, Game
 from account.models import Profile
 from django.contrib.auth.models import User
+from django.http import JsonResponse
 import json
 
 #Get all leagues for current user
@@ -53,5 +54,4 @@ def setUserActiveLeague(currentUser, activeLeague):
 def updateScores():
     #Update score and winner/loser in DB
     return True
-
 

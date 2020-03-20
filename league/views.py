@@ -6,6 +6,7 @@ from league.forms import NewLeagueForm
 from league import utils as leagueUtils
 from league.models import League, LeagueMembership, LeagueMessage, LeagueMembershipRequest
 from account.models import Profile
+from django.http import JsonResponse
 
 # Create your views here.
 @login_required
@@ -30,10 +31,9 @@ def home(request, leagueName=""):
             leagueUtils.setUserActiveLeague(request.user, activeLeague)
 
         #Check if current user is an admin of the league - this will display the 'League Settings' button if true
-        try:
-            League.objects.get(admin=request.user)
+        if activeLeague.admin == request.user:
             leagueAdmin = True
-        except:
+        else:
             leagueAdmin = False
 
         #Get all users for active league
@@ -61,6 +61,7 @@ def home(request, leagueName=""):
     else:
          return render(request, 'league/leagueHome.html')
 
+@login_required
 def leagueAdmin(request, leagueName=""):
     
     if leagueName:
@@ -81,6 +82,7 @@ def leagueAdmin(request, leagueName=""):
     leagueRequests = LeagueMembershipRequest.objects.filter(league=activeLeague)
     return render(request, 'league/leagueAdmin.html', {'leagueUsers': leagueUsers, 'leagueRequests': leagueRequests, 'activeLeague': activeLeague})
 
+@login_required
 def createLeague(request):
     if request.method == "POST":
         form = NewLeagueForm(request.POST)
@@ -108,6 +110,7 @@ def createLeague(request):
             form = NewLeagueForm()
             return render(request, 'league/createLeague.html', {'form': form})
 
+@login_required
 def joinLeaguePage(request):
     #Query for leagues and render on page
     leagues = League.objects.exclude(members__username__iexact=request.user.username)
@@ -129,39 +132,40 @@ def joinLeaguePage(request):
             })
     return render(request, 'league/joinLeague.html', {'leagueData': leagueData})
 
-def requestLeague(request, leagueName=""):
-
-    #Get league name from POST request
-    if not leagueName:
-        redirect('/league/join/')
-
-    #Get league object from DB
+@login_required
+def requestLeague(request):
+    leagueName = request.GET.get('leagueName', None)
     try:
-        activeLeague = League.objects.get(name=leagueName)
+        selectedLeague = League.objects.get(name=leagueName)
+        #Make sure the user is not already part of this league
+        try:
+            leagueMember = LeagueMembership.objects.get(user=request.user,league=selectedLeague)
+            if leagueMember:
+                #User is already a member, send back status
+                status = 'DUPLICATE'
+        except:
+            #Create request to join the league
+            membershipRequest = LeagueMembershipRequest.objects.create(user=request.user,league=selectedLeague)
+            status = 'SUCCESS'
     except:
-        print("League not found when searchd: " + leagueName)
+        status = 'FAILED'
+    
+    data = {
+            'status': status
+        }
 
-    #Make sure the user is not already part of this league
-    try:
-        leagueMember = LeagueMembership.objects.get(user=request.user,league=activeLeague)
-        if leagueMember:
-            #User is already a member, redirect them home
-            return redirect('/league/join/')
-    except:
-        #Create request to join the league
-        membershipRequest = LeagueMembershipRequest.objects.create(user=request.user,league=activeLeague)
-
-    return redirect('/league/join/')
-
-
+    return JsonResponse(data)
+    
+@login_required
 def addToLeague(request, username="", leagueName=""):
+    #This should be an AJAX call
     if not username:
         return redirect('/league/home/')
     if not leagueName:
         return redirect('/league/home/')
     #Make sure current user is the admin of the league
     try:
-        leagueAdmin = League.objects.get(admin=request.user)
+        leagueAdmin = League.objects.get(admin=request.user, name=leagueName)
     except:
         return redirect('/league/home/')
 
@@ -180,4 +184,4 @@ def addToLeague(request, username="", leagueName=""):
     except:
         print("Error - could not delete league membership request.")
 
-    return render(request, 'league/joinLeague.html')
+    return render(request, 'league/home.html')

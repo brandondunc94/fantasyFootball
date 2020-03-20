@@ -16,16 +16,17 @@
         <tbody>
             {% for currentLeague in leagueData %}
             <tr>
-                <td>{{ currentLeague.league.name }}</td>
+                <td value="{{ currentLeague.league.name }}" class="league-name">{{ currentLeague.league.name }}</td>
                 <td>{{ currentLeague.league.admin.username }}</td>
                 {% if currentLeague.pendingRequest == True %}
                 <td>Request Pending</td>
                 {% else %}
                 <!--<td><a href="/league/request/{{ currentLeague.league.name }}" class="btn btn-success" role="button" id="requestButton">Request to Join</a></td>-->
                 <td>
-                    <form action="/league/request/{{ currentLeague.league.name }}">
+                    <!--<form action="/league/request/{{ currentLeague.league.name }}">
                         <input type="submit" class="btn btn-indigo btn-sm m-0" value="Request" />
-                    </form>
+                    </form>-->
+                    <input type="submit" class="btn btn-indigo btn-sm m-0 request-button" value="Request" />
                 </td>
                 {% endif %}
             </tr>
@@ -36,7 +37,7 @@
     <div class="row">
         <div class="col">
             <div class="text-center">
-                <h4>No Leagues have been created yet. Go create one now!</h4>
+                <h4>There are currently no leagues to join. Go create one now!</h4>
                 <a type="button" href="/league/create/" class="btn btn-outline-info main-color">Create League</a>
             </div>
         </div>
@@ -49,6 +50,28 @@
                 $("#leagueTable tbody tr").filter(function() {
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
+            });
+        });
+
+        $(".request-button").click(function() {
+            var leagueName = $(this).parent().siblings('.league-name').html();
+            var requestButtonObject = $(this);
+            $.ajax({
+                url: '/league/request/',
+                data: {
+                    'leagueName': leagueName
+                },
+                dataType: 'json',
+                success: function(data) {
+                    if (data.status == "SUCCESS") {
+                        requestButtonObject.prop("disabled", true);
+                        requestButtonObject.prop('value', 'Requested');
+                    } else if (data.status == "DUPLICATE") {
+                        alert("You have already requested to join this league.");
+                    } else {
+                        alert("Unable to complete your request.");
+                    }
+                }
             });
         });
     </script>

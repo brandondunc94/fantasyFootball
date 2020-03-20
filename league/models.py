@@ -6,7 +6,8 @@ class League(models.Model):
     name = models.TextField(max_length=100, blank=True)
     members = models.ManyToManyField(User, through="LeagueMembership")
     description = models.TextField(max_length=100, default="")
-    admin = models.OneToOneField(User, on_delete=models.CASCADE, related_name="admin", default="", null=True)
+    admin = models.ForeignKey(User, on_delete=models.CASCADE, related_name="admin", default="", null=True)
+    #admin = models.OneToOneField(User, on_delete=models.CASCADE, related_name="admin", default="", null=True)
     class Meta:
         unique_together = ["name"]
 
