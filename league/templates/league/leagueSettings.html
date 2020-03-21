@@ -2,14 +2,13 @@
 
 <body>
     <div class="container">
-        <h3>League Admin</h3>
-
-
+        <h1 class="league-title">{{ activeLeague.name }}</h1>
+        <h4 class="text-center">League Settings</h4>
         <div class="col">
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Users</th>
+                        <th>Players</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,16 +24,17 @@
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Pending Requests</th>
+                        <th colspan="2">Pending League Requests</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for currentRequest in leagueRequests %}
                     <tr>
-                        {% csrf_token %}
-                        <td>{{ currentRequest.user.username }}</td>
+                        <td value="{{ currentRequest.user.username }}" class="user-name">{{ currentRequest.user.username }}</td>
                         <td>
-                            <a href="/league/add/{{ currentRequest.user.username }}/{{ activeLeague.name }}" class="btn btn-success" role="button">Accept</a>
+                            <input type="submit" class="btn btn-danger btn-sm m-0 reject-button float-right" value="Reject" />
+                            <input type="submit" class="btn btn-success btn-sm m-0 accept-button float-right mr-1" value="Accept" />
+                        </td>
                     </tr>
                     {% endfor %}
 
@@ -44,4 +44,7 @@
         </div>
     </div>
 </body>
+{% load static %}
+<script src="{% static 'league/js/leagueSettings.js' %}"></script>
+<script src="{% static js/jquery.cookie.js"></script>
 {% endblock %}

@@ -1,0 +1,20 @@
+input[type=radio] {
+    display: none;
+}
+
+input[type=radio]+label::before {
+    content: '';
+    display: inline-block;
+    border: 2px solid #000;
+    border-radius: 25%;
+    margin: 0 0.5em;
+}
+
+input[type=radio]:checked+label::before {
+    background-color: #33b5e5;
+}
+
+.radio-custom+label::before {
+    width: 1.5em;
+    height: 1.5em;
+}

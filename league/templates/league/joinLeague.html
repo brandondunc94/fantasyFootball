@@ -1,5 +1,4 @@
-{% extends "fantasyFootball/base.html" %} {% block page_content %} {% load static %}
-<!--<script src="{% static 'js/requestLeagues.js' %}"></script>-->
+{% extends "fantasyFootball/base.html" %} {% block page_content %}
 
 <div class="container">
     <h1 class="display-4">Join a League</h1>
@@ -21,11 +20,7 @@
                 {% if currentLeague.pendingRequest == True %}
                 <td>Request Pending</td>
                 {% else %}
-                <!--<td><a href="/league/request/{{ currentLeague.league.name }}" class="btn btn-success" role="button" id="requestButton">Request to Join</a></td>-->
                 <td>
-                    <!--<form action="/league/request/{{ currentLeague.league.name }}">
-                        <input type="submit" class="btn btn-indigo btn-sm m-0" value="Request" />
-                    </form>-->
                     <input type="submit" class="btn btn-indigo btn-sm m-0 request-button" value="Request" />
                 </td>
                 {% endif %}
@@ -43,36 +38,6 @@
         </div>
         {% endif %}
     </div>
-    <script>
-        $(document).ready(function() {
-            $("#searchLeagues").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $("#leagueTable tbody tr").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        });
-
-        $(".request-button").click(function() {
-            var leagueName = $(this).parent().siblings('.league-name').html();
-            var requestButtonObject = $(this);
-            $.ajax({
-                url: '/league/request/',
-                data: {
-                    'leagueName': leagueName
-                },
-                dataType: 'json',
-                success: function(data) {
-                    if (data.status == "SUCCESS") {
-                        requestButtonObject.prop("disabled", true);
-                        requestButtonObject.prop('value', 'Requested');
-                    } else if (data.status == "DUPLICATE") {
-                        alert("You have already requested to join this league.");
-                    } else {
-                        alert("Unable to complete your request.");
-                    }
-                }
-            });
-        });
-    </script>
+    {% load static %}
+    <script src="{% static 'league/js/joinLeague.js' %}"></script>
     {% endblock %}

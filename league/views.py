@@ -44,18 +44,6 @@ def home(request, leagueName=""):
 
         return render(request, 'league/leagueHome.html', {'userLeagues': userLeagues, 'leagueUsers': leagueUsers, 'activeLeague': activeLeague.name, 'leagueMessages': leagueMessages, 'leagueAdmin': leagueAdmin})
     elif request.method == "POST":
-        #Log message
-        newMessage = request.POST.get("message", "")
-
-        if not newMessage:
-            return render(request, 'league/leagueHome.html')
-        else:
-            #Get active league
-            userProfile = Profile.objects.get(user=request.user)
-            activeLeague = userProfile.currentActiveLeague
-
-            newLeagueMessage = LeagueMessage.objects.create(user=request.user, league=activeLeague, message=newMessage)
-            newLeagueMessage.save()
 
         return redirect("/league/home/")
     else:
@@ -80,7 +68,7 @@ def leagueAdmin(request, leagueName=""):
 
     #Get leagueRequests
     leagueRequests = LeagueMembershipRequest.objects.filter(league=activeLeague)
-    return render(request, 'league/leagueAdmin.html', {'leagueUsers': leagueUsers, 'leagueRequests': leagueRequests, 'activeLeague': activeLeague})
+    return render(request, 'league/leagueSettings.html', {'leagueUsers': leagueUsers, 'leagueRequests': leagueRequests, 'activeLeague': activeLeague})
 
 @login_required
 def createLeague(request):
@@ -132,6 +120,7 @@ def joinLeaguePage(request):
             })
     return render(request, 'league/joinLeague.html', {'leagueData': leagueData})
 
+#AJAX CALL
 @login_required
 def requestLeague(request):
     leagueName = request.GET.get('leagueName', None)
@@ -155,33 +144,66 @@ def requestLeague(request):
         }
 
     return JsonResponse(data)
-    
+
+#AJAX CALL
 @login_required
-def addToLeague(request, username="", leagueName=""):
-    #This should be an AJAX call
-    if not username:
-        return redirect('/league/home/')
-    if not leagueName:
-        return redirect('/league/home/')
+def addUserToLeague(request):
+    leagueName = request.GET.get('leagueName', None)
+    username = request.GET.get('username', None)
+
     #Make sure current user is the admin of the league
     try:
         leagueAdmin = League.objects.get(admin=request.user, name=leagueName)
     except:
         return redirect('/league/home/')
 
-    #Get user from username
+    #Make sure user is not already in this league
+    #INSERT LOGIC HERE
+
+    #Get user from username passed in
     requestedUser = User.objects.get(username=username)
-    #Create new league membership object
-    newMembership = LeagueMembership.objects.create(league=leagueAdmin, user=requestedUser)
-
-    #Set newly joined league to active league for requested user
-    leagueUtils.setUserActiveLeague(requestedUser, leagueAdmin)
-
-    #Delete request to join league
     try:
-        leagueRequest = LeagueMembershipRequest.objects.get(user=requestedUser, league=leagueAdmin)
-        leagueRequest.delete()
-    except:
-        print("Error - could not delete league membership request.")
+        #Create new league membership object
+        newMembership = LeagueMembership.objects.create(league=leagueAdmin, user=requestedUser)
 
-    return render(request, 'league/home.html')
+        #Set newly joined league to active league for requested user
+        leagueUtils.setUserActiveLeague(requestedUser, leagueAdmin)
+        status = 'SUCCESS'
+        #Delete request to join league
+        try:
+            leagueRequest = LeagueMembershipRequest.objects.get(user=requestedUser, league=leagueAdmin)
+            leagueRequest.delete()
+        except:
+            status = 'PARTIAL'
+            print("Error - Could not delete league membership request.")
+
+    except:
+        status = 'FAILED'
+        print("Error - could not add user to the league.")
+
+    data = {
+            'status': status
+        }
+    
+    return JsonResponse(data)
+
+#AJAX CALL
+def postLeagueMessage(request):
+    #Log message
+    newMessage = request.POST.get("message", "")
+     
+    if not newMessage:
+        return render(request, 'league/leagueHome.html')
+    else:
+        #Get active league
+        activeLeagueName = request.POST.get("leagueName", "")
+        activeLeague = League.objects.get(name=activeLeagueName)
+
+        newLeagueMessage = LeagueMessage.objects.create(user=request.user, league=activeLeague, message=newMessage)
+        newLeagueMessage.save()
+        status = 'SUCCESS'
+        data = {
+            'status': status
+        }
+        
+        return JsonResponse(data)

@@ -61,8 +61,6 @@ class LeagueMessage(models.Model):
     league = models.ForeignKey(League, on_delete=models.CASCADE)
     message = models.TextField(max_length=500, blank=True)
     createDate = models.DateTimeField(auto_now=True)
-    class Meta:
-        unique_together = ["user", "league"]
 
 class LeagueMembershipRequest(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

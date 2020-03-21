@@ -7,7 +7,7 @@
             <div class="col-lg-8">
                 <div class="row">
                     <div class="col-sm-8">
-                        <h1 class="display-4card-title">{{ activeLeague }}</h1>
+                        <h1 class="card-title league-title">{{ activeLeague }}</h1>
                     </div>
                     <div class="col-sm-4">
                         {% if leagueAdmin == True %}
@@ -16,13 +16,12 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <!--<main role="main" class="container bootdey.com">-->
-                        <div class="overflow-auto" style="height: 500px; overflow-y:auto">
-                            <div class="my-3 p-3 bg-white rounded box-shadow">
-                                <h6 class="border-bottom border-gray pb-2 mb-0 ">Message Board</h6>
+                        <h6 class="border-bottom border-gray pb-2 mb-0 ">Message Board</h6>
+                        <div class="overflow-auto message-board" style="height: 500px; overflow-y:auto">
+                            <div class="my-3 p-3 bg-white rounded box-shadow messages-div">
                                 {% for currentMessage in leagueMessages %}
                                 <div class="media text-muted pt-3 ">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png " alt=" " class="mr-2 rounded " width="32 " height="32 ">
+                                    <img src="/static/media/seahawks.png" alt=" " class="mr-2 rounded " width="32 " height="32 ">
                                     <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray ">
                                         <strong class="d-block text-gray-dark ">@{{ currentMessage.user.username }}</strong>{{ currentMessage.message }}
                                     </p>
@@ -30,16 +29,13 @@
                                 {% endfor %}
                             </div>
                         </div>
-                        <!--</main>-->
-                        <form method="POST" action="">
+                        <div class="md-form input-group mb-3">
                             {% csrf_token %}
-                            <div class="md-form input-group mb-3">
-                                <input type="text" class="form-control" name="message" placeholder="Type Message.." aria-label="Message" aria-describedby="MaterialButton-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-md btn-secondary m-0 px-3" type="submit" id="MaterialButton-addon2">Post</button>
-                                </div>
+                            <input type="text" class="form-control" id="messageBox" placeholder="Type Message.." aria-label="Message" aria-describedby="MaterialButton-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-md btn-secondary m-0 px-3 post-button" type="submit" id="MaterialButton-addon2">Post</button>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -66,4 +62,6 @@
 
     </div>
 </body>
+{% load static %}
+<script src="{% static 'league/js/leagueHome.js' %}"></script>
 {% endblock %}
