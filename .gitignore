@@ -1,4 +1,5 @@
 env/
+fantasyFootball/settings.py
 home/__pycache__/
 home/migrations/__pycache__/
 fantasyFootball/__pycache__/settings.cpython-38.pyc
