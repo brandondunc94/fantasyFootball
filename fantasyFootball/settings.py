@@ -25,7 +25,7 @@ SECRET_KEY = 'y-mo+a)cx5*=i!uz2b%(dm8&#uk))9%^mx4&94y9gu+f2r5)!j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['138.68.4.225']
 
 
 # Application definition
@@ -81,9 +81,17 @@ WSGI_APPLICATION = 'fantasyFootball.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
+    #'default': {
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #}
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'fantasyfootball',
+        'USER': 'db_user',
+        'PASSWORD': 'Uke4Life',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
