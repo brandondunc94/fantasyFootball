@@ -4,7 +4,7 @@ $(".accept-button").click(function() {
     var addButtonObject = $(this);
     var rejectButton = $(this).siblings('.reject-button');
     $.ajax({
-        url: '/league/add/',
+        url: '/league/addPrivate/',
         data: {
             'leagueName': leagueName,
             'username': username

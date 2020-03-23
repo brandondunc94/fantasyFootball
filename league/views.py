@@ -82,8 +82,14 @@ def createLeague(request):
                 form = NewLeagueForm()
                 return render(request, 'league/createLeague.html', {'form': form, 'error': 'The League name you entered has already been taken. Please try another League name.'})
             
+            #Determine if league is public or private
+            if form.cleaned_data['visibility'] == "Private":
+                leagueIsPublic = False
+            else:
+                leagueIsPublic = True
+
             #Create new league model in db
-            newLeague = League.objects.create(name=form.cleaned_data['name'], admin=request.user, description=form.cleaned_data['description'])
+            newLeague = League.objects.create(name=form.cleaned_data['name'], admin=request.user, description=form.cleaned_data['description'], isPublic=leagueIsPublic)
 
             #Assign current user to new league
             leagueMembership = LeagueMembership.objects.create(user=request.user,league=newLeague)
@@ -147,7 +153,7 @@ def requestLeague(request):
 
 #AJAX CALL
 @login_required
-def addUserToLeague(request):
+def addUserToPrivateLeague(request):
     leagueName = request.GET.get('leagueName', None)
     username = request.GET.get('username', None)
 
@@ -180,6 +186,39 @@ def addUserToLeague(request):
     except:
         status = 'FAILED'
         print("Error - could not add user to the league.")
+
+    data = {
+            'status': status
+        }
+    
+    return JsonResponse(data)
+
+#AJAX CALL
+@login_required
+def addUserToPublicLeague(request):
+    leagueName = request.GET.get('leagueName', None)
+
+    #Get league object
+    try:
+        league = League.objects.get(name=leagueName)
+        #Make sure user is not already in this league
+        try:
+            existingMember = LeagueMembership.objects.get(user=request.user, league=league)
+            #If found, set status to 'DUPLICATE' and return
+            status = 'DUPLICATE'
+        except:
+            try:
+                #Create new league membership object
+                newMembership = LeagueMembership.objects.create(league=league, user=request.user)
+
+                #Set newly joined league to active league for requested user
+                leagueUtils.setUserActiveLeague(request.user, league)
+                status = 'SUCCESS'
+            except:
+                status = 'FAILED'
+                print("Error - could not add user to the league.")
+    except:
+        status = 'FAILED'
 
     data = {
             'status': status

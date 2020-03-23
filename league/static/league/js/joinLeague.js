@@ -30,3 +30,27 @@ $(".request-button").click(function() {
         }
     });
 });
+
+
+/*Join league*/
+$(".join-button").click(function() {
+    var leagueName = $(this).parent().siblings('.league-name').html();
+    var joinButtonObject = $(this);
+    $.ajax({
+        url: '/league/addPublic/',
+        data: {
+            'leagueName': leagueName
+        },
+        dataType: 'json',
+        success: function(data) {
+            if (data.status == "SUCCESS") {
+                joinButtonObject.prop("disabled", true);
+                joinButtonObject.prop('value', 'Joined');
+            } else if (data.status == "DUPLICATE") {
+                alert("You are already a member of this league.");
+            } else {
+                alert("Unable to complete your request.");
+            }
+        }
+    });
+});

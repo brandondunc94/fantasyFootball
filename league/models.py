@@ -7,7 +7,7 @@ class League(models.Model):
     members = models.ManyToManyField(User, through="LeagueMembership")
     description = models.TextField(max_length=100, default="")
     admin = models.ForeignKey(User, on_delete=models.CASCADE, related_name="admin", default="", null=True)
-    #admin = models.OneToOneField(User, on_delete=models.CASCADE, related_name="admin", default="", null=True)
+    isPublic = models.BooleanField(default="False")
     class Meta:
         unique_together = ["name"]
 
@@ -38,13 +38,14 @@ class Game(models.Model):
     winner = models.TextField(max_length=50, blank=True)
     loser = models.TextField(max_length=50, blank=True)
     users = models.ManyToManyField(User, through="GameChoice")
+    pickLocked = models.BooleanField(default=False)
 
 #This model governs the relationship between a game and a user and who they picked to win the game
 class GameChoice(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    league = models.ForeignKey(League, on_delete=models.CASCADE, default="")
+    league = models.ForeignKey(League, on_delete=models.CASCADE)
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
-    week = models.ForeignKey(Week, on_delete=models.CASCADE, default="", null=True)
+    week = models.ForeignKey(Week, on_delete=models.CASCADE)
     winner = models.TextField(max_length=50, blank=True)
     correctFlag = models.BooleanField(default=None,null=True)
 

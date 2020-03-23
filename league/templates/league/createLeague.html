@@ -17,9 +17,29 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label>League Description</label>
-                <input type="text" class="form-control" id="description" name="description" placeholder="Request" required>
+                <input type="text" class="form-control" id="description" name="description" placeholder="Description" required>
             </div>
         </div>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">League Visibility</legend>
+                <legend class="col-form-label col-sm-2 pt-0">Public leagues allow for anyone to join, whereas private leagues will require the League Administrator to accept requests.</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="visibility" value="Public" checked>
+                        <label class="form-check-label">
+                    Public
+                  </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="visibility" value="Private">
+                        <label class="form-check-label">
+                    Private
+                  </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
         <button type="submit" class="btn btn-primary">Create League</button>
     </form>
     {% endblock %}

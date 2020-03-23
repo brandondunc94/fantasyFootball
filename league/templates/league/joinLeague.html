@@ -7,26 +7,29 @@
     <table id="leagueTable" class="table table-responsive-md btn-table" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th class="th-sm">League Name</th>
-                <th class="th-sm">Admin</th>
-                <th class="th-sm">Request to Join</th>
+                <th class="th-sm">Name</th>
+                <th class="th-sm">Visibility</th>
+                <th class="th-sm">Join</th>
             </tr>
         </thead>
-        <tbody>
-            {% for currentLeague in leagueData %}
-            <tr>
-                <td value="{{ currentLeague.league.name }}" class="league-name">{{ currentLeague.league.name }}</td>
-                <td>{{ currentLeague.league.admin.username }}</td>
-                {% if currentLeague.pendingRequest == True %}
-                <td>Request Pending</td>
-                {% else %}
-                <td>
-                    <input type="submit" class="btn btn-indigo btn-sm m-0 request-button" value="Request" />
-                </td>
-                {% endif %}
-            </tr>
-            {% endfor %}
-        </tbody>
+        <div class="btn-group">
+            <tbody>
+                {% for currentLeague in leagueData %}
+                <tr>
+                    <td value="{{ currentLeague.league.name }}" class="league-name">{{ currentLeague.league.name }}</td>
+                    {% if currentLeague.pendingRequest == True %}
+                    <td>Private</td>
+                    <td>Request Pending</td>
+                    {% else %} {% if currentLeague.league.isPublic == False %}
+                    <td>Private</td>
+                    <td><input type="submit" class="btn btn-indigo btn-sm m-0 btn-block request-button" value="Request" /></td>
+                    {% else %}
+                    <td>Public</td>
+                    <td><input type="submit" class="btn btn-success btn-sm m-0 btn-block join-button" value="Join" /></td>{% endif %} {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </div>
     </table>
     {% else %}
     <div class="row">

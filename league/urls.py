@@ -8,6 +8,7 @@ urlpatterns = [
     path('home/', views.home, name="League Home"),
     path("home/<leagueName>/", views.home, name='League Home'),
     path("admin/<leagueName>/", views.leagueAdmin, name='League Settings'),
-    path('add/', views.addUserToLeague, name="AJAX - Add user to League"),
+    path('addPrivate/', views.addUserToPrivateLeague, name="AJAX - Add user to Private League"),
+    path('addPublic/', views.addUserToPublicLeague, name="AJAX - Add user to Public League"),
     path('post/', views.postLeagueMessage, name="AJAX - Post message to league board"),
 ]
