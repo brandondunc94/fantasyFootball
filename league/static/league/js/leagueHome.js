@@ -5,7 +5,7 @@ $(document).ready(function() {
     }, 1000);
 
     // Get the input field
-    var input = $("#messageBox");
+    var input = document.getElementById('messageBox');
 
     // Execute a function when the user releases a key on the keyboard
     input.addEventListener("keyup", function(event) {
