@@ -8,8 +8,8 @@
                 <h1 class="display-4card-title">{{ activeLeague }}</h1>
             </div>
             <div class="col-sm-4">
-                <div class="dropdown float-right">
-                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select League</button>
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select League</button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         {% for league in userLeagues %}
                         <a class="dropdown-item" type="submit" href="/home/1/{{ league.name }}/">{{ league.name }}</a> {% endfor %}
