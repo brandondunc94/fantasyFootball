@@ -9,10 +9,10 @@
             </div>
             <div class="col-sm-4">
                 <div class="dropdown">
-                    <button class="btn btn-sm btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select League</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <button class="btn btn-sm btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select League</button>
+                    <div class="dropdown-menu">
                         {% for league in userLeagues %}
-                        <a class="dropdown-item" type="submit" href="/home/1/{{ league.name }}/">{{ league.name }}</a> {% endfor %}
+                        <a class="dropdown-item" href="/home/1/{{ league.name }}/">{{ league.name }}</a> {% endfor %}
                     </div>
                 </div>
             </div>
@@ -31,9 +31,7 @@
                     <div class="col-8">
                         <div class="float-right">
                             <div class="dropdown">
-                                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Select Week
-                        </button>
+                                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select Week</button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="/home/1/">Week 1</a>
                                     <a class="dropdown-item" href="/home/2/">Week 2</a>
