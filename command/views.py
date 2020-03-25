@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from league.models import League, LeagueMembership, Season, Week, Game, GameChoice
 from league.utils import getUserLeagues
 import json
+from datetime import datetime
 
 # Create your views here.
 def command(request):
@@ -11,13 +12,6 @@ def command(request):
         return render(request, 'command/command.html')
     elif request.method == "GET":
         return render(request, 'command/command.html')
-
-def lockWeek(request, weekId):
-    #Get week and set flag so that picks are locked in for this given week
-    currentWeek = Week.objects.get(id=weekId)
-    currentWeek.picksLocked = True
-    currentWeek.save()
-    return render(request, 'command/command.html')
 
 def scoreWeek(request, weekId, seasonYear="20192020"):
     
@@ -60,12 +54,39 @@ def scoreWeek(request, weekId, seasonYear="20192020"):
 
     return render(request, 'command/command.html')
 
+def lockGamesPage(request, weekId="1", seasonYear="2019-2020"):
+
+    #Get season object for season passed in
+    currentSeason = Season.objects.get(year=seasonYear)
+    #Try to fetch all games for week and season passed in
+    currentWeek = Week.objects.get(id=weekId, season=currentSeason)
+
+    #Get game data for weekId passed in
+    currentWeekGames = Game.objects.filter(week=currentWeek)
+    
+    #Initialize empty dictionary for gameData to be passed to template
+    gameData = []
+
+    #We will eventually want to get the currentdate and compare it to the week start date and only grab that week
+    for currentGame in currentWeekGames:
+        #dateFormatted = datetime.strptime(getattr(currentGame, 'date'), '%y
+        gameData.append(
+        {
+            'homeTeam' : getattr(currentGame, 'homeTeam'),
+            'homeScore' : getattr(currentGame, 'homeScore'),
+            'awayTeam' : getattr(currentGame, 'awayTeam'),
+            'awayScore' : getattr(currentGame, 'awayScore'),
+            'date' : getattr(currentGame, 'date')
+        })
+    return render(request, 'command/lockGames.html', {'gameData': gameData})
+
+#def lockGame(request, weekId, season):
+
 def createSeason(request):
 
     #Create new season object in db
-    season = Season(year="20192020")
+    season = Season(year="2019-2020")
     season.save()
-    #season = Season.objects.get(year="20192020")
 
     #Open team info JSON file
     with open('./static/teams.json', 'r') as teamFile:
@@ -84,6 +105,11 @@ def createSeason(request):
             awayTeamName = game['awayTeamData']['awayTeam']
             awayTeamData = next(item for item in teams if item['name'] == awayTeamName)
             homeTeamData = next(item for item in teams if item['name'] == homeTeamName)
+            try:
+                gameDate = datetime.strptime(game['date'],'%Y%m%d')
+            except:
+                gameDate = None
+
             newGame = Game(
                 week=newWeek, 
                 homeTeam = homeTeamName, 
@@ -94,7 +120,8 @@ def createSeason(request):
                 awayScore = game['awayTeamData']['score'],
                 winner = game['winner'],
                 loser = game['loser'],
-                location = game['location']
+                location = game['location'],
+                date = gameDate
                 )    
             newGame.save()
 

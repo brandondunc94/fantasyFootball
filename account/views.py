@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from account.models import Profile
 from django.contrib.auth.models import User
 from django.contrib.auth import views as auth_views
@@ -50,3 +50,4 @@ def create_account(request):
         else:
             form = RegisterForm()
             return render(request, 'registration/register.html', {'form': form})
+

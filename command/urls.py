@@ -6,5 +6,5 @@ urlpatterns = [
     path('', views.command, name="Command Central"),
     path('createseason/', views.createSeason, name="Create new Season"),
     path('score/<int:weekId>/', views.scoreWeek, name="Count up scores for given week"),
-    path("lock/<int:weekId>/", views.lockWeek, name='Lock picks for upcoming week'),
+    path('lock/<int:weekId>/', views.lockGamesPage, name='Page for locking picks for selected games'),
 ]

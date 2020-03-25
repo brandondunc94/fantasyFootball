@@ -35,6 +35,7 @@ class Game(models.Model):
     homeScore = models.TextField(max_length=10, blank=True)
     awayScore = models.TextField(max_length=10, blank=True)
     location = models.TextField(max_length=20, blank=True)
+    date = models.DateField(auto_now=False, null=True)
     winner = models.TextField(max_length=50, blank=True)
     loser = models.TextField(max_length=50, blank=True)
     users = models.ManyToManyField(User, through="GameChoice")
