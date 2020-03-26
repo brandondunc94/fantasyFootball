@@ -16,10 +16,10 @@ A new fantasy football based solely on picking game winners
   cd /home/bdunc/fantasyFootball
 2. Git pull origin master
 3. Start virtual env using: source env/bin/activate
-4. If changes were made to static files, run: python manage.py collectstatic
-  Make copy of all files/folders in 'static_root' to 'static' using: cp -a static_root/. static/
-5. Exit virtual env with: deactivate
-5. Restart Nginx and gunicorn using:  sudo systemctl restart nginx and sudo systemctl restart gunicorn
+4. If changes were made to static files, run: python manage.py collectstatic --noinput --clear
+5.  Make copy of all files/folders in 'static_root' to 'static' using: cp -a static_root/. static/
+6. Exit virtual env with: deactivate
+7. Restart Nginx and gunicorn using:  sudo systemctl restart nginx and sudo systemctl restart gunicorn
 
  ## Things to add
  1. Lock game pick automatically based on what day/time it currently is and what day/time the game is
