@@ -173,10 +173,10 @@ def createSeason(request):
                 homeCity = homeTeamData['city'],
                 awayTeam = awayTeamName,
                 awayCity = awayTeamData['city'],
-                homeScore = game['homeTeamData']['score'],
-                awayScore = game['awayTeamData']['score'],
-                winner = game['winner'],
-                loser = game['loser'],
+                homeScore = 'TBD',
+                awayScore = 'TBD',
+                winner = 'TBD',
+                loser = 'TBD',
                 location = game['location'],
                 date = gameDate
                 )    

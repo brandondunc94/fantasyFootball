@@ -53,6 +53,7 @@ def home(request, weekId="1", leagueName=""):
             'awayTeam' : getattr(currentGame, 'awayTeam'),
             'awayScore' : getattr(currentGame, 'awayScore'),
             'winner' : getattr(currentGame, 'winner'),
+            'date' : getattr(currentGame, 'date'),
             'pick' : currentPick
         })
     return render(request, 'home/home.html', {'gameData': gameData, 'userLeagues': userLeagues, 'leagueUsers': leagueUsers, 'activeLeague': activeLeague.name})

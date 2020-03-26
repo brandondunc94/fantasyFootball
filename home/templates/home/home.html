@@ -68,16 +68,25 @@
                         <tbody>
                             {% for currentGame in gameData %}
                             <tr>
+                                {% if currentGame.winner != 'TBD' %}
                                 <td><img src="/static/media/{{ currentGame.homeTeam }}.png" alt="{{ currentGame.homeTeam }}" class="img-fluid" width="50" height="50"></td>
-                                {% if currentGame.pick == 'None' %}
-                                <td class="text">{{ currentGame.homeTeam }} {{ currentGame.homeScore }} - {{ currentGame.awayTeam }} {{ currentGame.awayScore }}</td>
-                                {% elif currentGame.pick == currentGame.winner %}
-                                <td class="text-success">{{ currentGame.homeTeam }} {{ currentGame.homeScore }} - {{ currentGame.awayTeam }} {{ currentGame.awayScore }}</td>
-                                {% else %}
-                                <td class="text-danger">{{ currentGame.homeTeam }} {{ currentGame.homeScore }} - {{ currentGame.awayTeam }} {{ currentGame.awayScore }}</td>
-                                {% endif %}
+                                <td class="text">{{ currentGame.homeScore }} - {{ currentGame.awayScore }}</td>
                                 <td><img src="/static/media/{{ currentGame.awayTeam }}.png" alt="{{ currentGame.awayTeam }}" class="img-fluid" width="50" height="50"></td>
-                                <td>Check</td>
+                                {% if currentGame.pick == None %}
+                                <td>-</td>
+                                {% elif currentGame.pick == currentGame.winner %}
+                                <td class="text-success">{{ currentGame.pick }}</td>
+                                {% else %}
+                                <td class="text-danger">{{ currentGame.pick }}</td>
+                                {% endif %} {% else %}
+                                <td><img src="/static/media/{{ currentGame.homeTeam }}.png" alt="{{ currentGame.homeTeam }}" class="img-fluid" width="50" height="50"></td>
+                                <td class="text">{{ currentGame.date }}</td>
+                                <td><img src="/static/media/{{ currentGame.awayTeam }}.png" alt="{{ currentGame.awayTeam }}" class="img-fluid" width="50" height="50"></td>
+                                {% if currentGame.pick == None %}
+                                <td>-</td>
+                                {% else %}
+                                <td>{{ currentGame.pick }}</td>
+                                {% endif %} {% endif %}
                             </tr>
                             {% endfor %}
                         </tbody>
