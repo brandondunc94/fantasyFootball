@@ -3,8 +3,10 @@ from django.urls import path
 from command import views
 
 urlpatterns = [
-    path('', views.command, name="Command Central"),
+    path('', views.commandHome, name="Command Central with first season found"),
     path('createseason/', views.createSeason, name="Create new Season"),
-    path('score/<int:weekId>/', views.scoreWeek, name="Count up scores for given week"),
-    path('lock/<int:weekId>/', views.lockGamesPage, name='Page for locking picks for selected games'),
+    path('lock/', views.lockGame, name="AJAX - Lock picks for selected game"),
+    path('unlock/', views.unlockGame, name="AJAX - Unlock picks for selected game"),
+    path('<seasonYear>/', views.seasonSettings, name="Command Central with specific season"),
+    path('<seasonYear>/<int:weekId>/', views.gameOptionsPage, name="Lock and score games"),
 ]

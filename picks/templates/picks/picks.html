@@ -59,21 +59,62 @@
                 <form action="" method="POST">
                     <table class="table">
                         <thead class="thead-dark">
-                            <tr>
-                                <th scope="col"></th>
+                            <tr class="text-center">
                                 <th scope="col">Home</th>
                                 <th scope="col">Away</th>
-                                <th scope="col"></th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <fieldset class="form-group">
-                                {% if currentWeek.picksLocked == True %} {% for currentPick in pickData %}
+                                {% csrf_token %} {% for currentPick in pickData %} {% if currentPick.pickLocked == False %}
                                 <tr>
-                                    <td><img src="/static/media/{{ currentPick.homeTeam }}.png" alt="{{ currentPick.homeTeam }}" class="img-fluid" width="50" height="50"></td>
+                                    <!--<td><img src="/static/media/{{ currentPick.homeTeam }}.png" alt="{{ currentPick.homeTeam }}" class="img-fluid" width="50" height="50"></td>
                                     <td>
-                                        <div class="form-check disabled">
+                                        <div class="form-check">
+                                            {% if currentPick.pick == currentPick.homeTeam %}
+                                            <input class="form-check-input radio-custom" type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}" checked> {% else %}
+                                            <input class="form-check-input radio-custom" type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}">{% endif %}
+                                            <label class="form-check-label" for="{{ currentPick.homeTeam }}">{{ currentPick.homeTeam }}</label>
+                                        </div>
+                                    </td>-->
+                                    <td class="text-center">
+                                        <label>
+                                            {% if currentPick.pick == currentPick.homeTeam %}
+                                            <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}" checked>
+                                            {% else %}
+                                            <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}" >
+                                            {% endif %}
+                                            <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam }}.png" width="100" height="100">
+                                        </label>
+                                    </td>
+
+                                    <td class="text-center">
+                                        <label>
+                                            {% if currentPick.pick == currentPick.awayTeam %}
+                                            <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}" checked>
+                                            {% else %}
+                                            <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}" >
+                                            {% endif %}
+                                            <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam }}.png" width="100" height="100">
+                                        </label>
+                                    </td>
+
+                                    <!--<td>
+                                        <div class="form-check">
+                                            {% if currentPick.pick == currentPick.awayTeam %}
+                                            <input class="form-check-input radio-custom" type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}" checked> {% else %}
+                                            <input class="form-check-input radio-custom" type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}"> {% endif %}
+                                            <label class="form-check-label" for="{{ currentPick.awayTeam }}">{{ currentPick.awayTeam }}</label>
+                                        </div>
+                                    </td>
+                                    <td><img src="/static/media/{{ currentPick.awayTeam }}.png" alt="{{ currentPick.awayTeam }}" class="img-fluid" width="50" height="50"></td>-->
+                                </tr>
+                                {% else %}
+                                <tr>
+                                    <!--<td><img src="/static/media/{{ currentPick.homeTeam }}.png" alt="{{ currentPick.homeTeam }}" class="img-fluid" width="50" height="50"></td>
+                                    <td>
+                                        <div class="form-check">
                                             {% if currentPick.pick == currentPick.homeTeam %}
                                             <input class="form-check-input radio-custom" type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}" checked disabled> {% else %}
                                             <input class="form-check-input radio-custom" type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}" disabled>{% endif %}
@@ -81,9 +122,31 @@
                                         {{ currentPick.homeTeam }}
                               </label>
                                         </div>
+                                    </td>-->
+                                    <td class="text-center">
+                                        <label>
+                                            {% if currentPick.pick == currentPick.homeTeam %}
+                                            <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}" disabled checked>
+                                            {% else %}
+                                            <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}" disabled>
+                                            {% endif %}
+                                            <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam }}.png" width="100" height="100">
+                                        </label>
                                     </td>
-                                    <td>
-                                        <div class="form-check disabled">
+
+                                    <td class="text-center">
+                                        <label>
+                                            {% if currentPick.pick == currentPick.awayTeam %}
+                                            <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}" disabled checked>
+                                            {% else %}
+                                            <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}" disabled>
+                                            {% endif %}
+                                            <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam }}.png" width="100" height="100">
+                                        </label>
+                                    </td>
+
+                                    <!--<td>
+                                        <div class="form-check">
                                             {% if currentPick.pick == currentPick.awayTeam %}
                                             <input class="form-check-input radio-custom" type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}" checked disabled> {% else %}
                                             <input class="form-check-input radio-custom" type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}" disabled> {% endif %}
@@ -92,34 +155,9 @@
                               </label>
                                         </div>
                                     </td>
-                                    <td><img src="/static/media/{{ currentPick.awayTeam }}.png" alt="{{ currentPick.awayTeam }}" class="img-fluid" width="50" height="50"></td>
+                                    <td><img src="/static/media/{{ currentPick.awayTeam }}.png" alt="{{ currentPick.awayTeam }}" class="img-fluid" width="50" height="50"></td>-->
                                 </tr>
-                                {% endfor %} {% csrf_token %} {% else %} {% for currentPick in pickData %}
-                                <tr>
-                                    <td><img src="/static/media/{{ currentPick.homeTeam }}.png" alt="{{ currentPick.homeTeam }}" class="img-fluid" width="50" height="50"></td>
-                                    <td>
-                                        <div class="form-check">
-                                            {% if currentPick.pick == currentPick.homeTeam %}
-                                            <input class="form-check-input radio-custom" type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}" checked> {% else %}
-                                            <input class="form-check-input radio-custom" type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}">{% endif %}
-                                            <label class="form-check-label" for="{{ currentPick.homeTeam }}">
-                                        {{ currentPick.homeTeam }}
-                              </label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-check">
-                                            {% if currentPick.pick == currentPick.awayTeam %}
-                                            <input class="form-check-input radio-custom" type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}" checked> {% else %}
-                                            <input class="form-check-input radio-custom" type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}"> {% endif %}
-                                            <label class="form-check-label" for="{{ currentPick.awayTeam }}">
-                                        {{ currentPick.awayTeam }}
-                              </label>
-                                        </div>
-                                    </td>
-                                    <td><img src="/static/media/{{ currentPick.awayTeam }}.png" alt="{{ currentPick.awayTeam }}" class="img-fluid" width="50" height="50"></td>
-                                </tr>
-                                {% endfor %} {% csrf_token %} {% endif %}
+                                {% endif %} {% endfor %}
                             </fieldset>
                         </tbody>
                     </table>

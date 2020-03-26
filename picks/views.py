@@ -109,7 +109,8 @@ def picks(request, weekId="1", leagueName=""):
                 'awayTeam' : getattr(currentGame, 'awayTeam'),
                 'awayScore' : getattr(currentGame, 'awayScore'),
                 'correctFlag' : correctFlag,
-                'pick' : winnerSelected
+                'pick' : winnerSelected,
+                'pickLocked' : getattr(currentGame, 'pickLocked')
             })
 
         return render(request, 'picks/picks.html', {'pickData': pickData, 'userLeagues': userLeagues, 'currentWeek': currentWeek, 'activeLeague': activeLeague})

@@ -5,13 +5,50 @@ from league.models import League, LeagueMembership, Season, Week, Game, GameChoi
 from league.utils import getUserLeagues
 import json
 from datetime import datetime
+from django.http import JsonResponse
 
 # Create your views here.
-def command(request):
-    if request.method == "POST":
-        return render(request, 'command/command.html')
-    elif request.method == "GET":
-        return render(request, 'command/command.html')
+def commandHome(request):
+    
+    #Get seasons
+    seasons = Season.objects.all()
+
+    return render(request, 'command/command.html', {'seasons': seasons})
+
+def seasonSettings(request, seasonYear=""):
+
+    season = Season.objects.get(year=seasonYear)
+
+    return render(request, 'command/seasonSettings.html', {'season': season})
+
+def gameOptionsPage(request, seasonYear="2019-2020", weekId="1"):
+
+    #Get season object for season passed in
+    season = Season.objects.get(year=seasonYear)
+    #Try to fetch all games for week and season passed in
+    currentWeek = Week.objects.get(id=weekId, season=season)
+
+    #Get game data for weekId passed in
+    currentWeekGames = Game.objects.filter(week=currentWeek)
+    
+    #Initialize empty dictionary for gameData to be passed to template
+    gameData = []
+
+    #We will eventually want to get the currentdate and compare it to the week start date and only grab that week
+    for currentGame in currentWeekGames:
+        #dateFormatted = datetime.strptime(getattr(currentGame, 'date'), '%y
+        gameData.append(
+        {
+            'homeTeam' : getattr(currentGame, 'homeTeam'),
+            'homeScore' : getattr(currentGame, 'homeScore'),
+            'awayTeam' : getattr(currentGame, 'awayTeam'),
+            'awayScore' : getattr(currentGame, 'awayScore'),
+            'date' : getattr(currentGame, 'date'),
+            'id' : getattr(currentGame, 'id'),
+            'pickLocked' : getattr(currentGame, 'pickLocked')
+        })
+
+    return render(request, 'command/gameOptions.html', {'gameData': gameData, 'weekId': weekId, 'season' : season})
 
 def scoreWeek(request, weekId, seasonYear="20192020"):
     
@@ -54,33 +91,53 @@ def scoreWeek(request, weekId, seasonYear="20192020"):
 
     return render(request, 'command/command.html')
 
-def lockGamesPage(request, weekId="1", seasonYear="2019-2020"):
-
-    #Get season object for season passed in
-    currentSeason = Season.objects.get(year=seasonYear)
-    #Try to fetch all games for week and season passed in
-    currentWeek = Week.objects.get(id=weekId, season=currentSeason)
-
-    #Get game data for weekId passed in
-    currentWeekGames = Game.objects.filter(week=currentWeek)
+#AJAX CALL
+def lockGame(request):
+    seasonYear = request.GET.get('seasonYear', None)
+    week = request.GET.get('week', None)
+    game = request.GET.get('game', None)
+    print(seasonYear)
+    try:
+        #Get season object and then game object for current season, week, and game id
+        season = Season.objects.get(year=seasonYear)
+        game = Game.objects.get(week= Week.objects.get(season=season,id=week), id=game)
+        
+        #Lock picks for this game object
+        game.pickLocked = True
+        game.save()
+        status = 'SUCCESS'
+    except:
+        status = 'FAILED'
     
-    #Initialize empty dictionary for gameData to be passed to template
-    gameData = []
+    data = {
+            'status': status
+        }
 
-    #We will eventually want to get the currentdate and compare it to the week start date and only grab that week
-    for currentGame in currentWeekGames:
-        #dateFormatted = datetime.strptime(getattr(currentGame, 'date'), '%y
-        gameData.append(
-        {
-            'homeTeam' : getattr(currentGame, 'homeTeam'),
-            'homeScore' : getattr(currentGame, 'homeScore'),
-            'awayTeam' : getattr(currentGame, 'awayTeam'),
-            'awayScore' : getattr(currentGame, 'awayScore'),
-            'date' : getattr(currentGame, 'date')
-        })
-    return render(request, 'command/lockGames.html', {'gameData': gameData})
+    return JsonResponse(data)
 
-#def lockGame(request, weekId, season):
+#AJAX CALL
+def unlockGame(request):
+    seasonYear = request.GET.get('seasonYear', None)
+    week = request.GET.get('week', None)
+    game = request.GET.get('game', None)
+    print(seasonYear)
+    try:
+        #Get season object and then game object for current season, week, and game id
+        season = Season.objects.get(year=seasonYear)
+        game = Game.objects.get(week= Week.objects.get(season=season,id=week), id=game)
+        
+        #Unlock picks for this game object
+        game.pickLocked = False
+        game.save()
+        status = 'SUCCESS'
+    except:
+        status = 'FAILED'
+    
+    data = {
+            'status': status
+        }
+
+    return JsonResponse(data)
 
 def createSeason(request):
 
