@@ -10,11 +10,9 @@
 <div class="container text-center">
 
     <body>
-        <img class="mb-2 img-fluid rounded" src="/static/media/logoTitle.png">
+        <img class="mb-2 img-fluid rounded" src="/static/media/logoTitle.png" width="350" height="auto">
         <form class="form-signin" method="POST" action="{% url 'login' %}">
-            {% csrf_token %}
-            <h6 class="font-weight-normal">Please sign in</h6>
-            {% if form.errors %}
+            {% csrf_token %} {% if form.errors %}
             <div class="alert alert-danger" role="alert">
                 <strong>Invalid - </strong>Your username and password didn't match. Please try again.
             </div>

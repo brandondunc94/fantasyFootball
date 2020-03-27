@@ -106,6 +106,9 @@ def saveScore(request):
 
         gameObject.homeScore = homeScore
         gameObject.awayScore = awayScore
+        #Convert scores to integers
+        homeScore = int(homeScore)
+        awayScore = int(awayScore)
 
         if (homeScore > awayScore):
             gameObject.winner = gameObject.homeTeam
@@ -113,7 +116,31 @@ def saveScore(request):
             gameObject.winner = gameObject.awayTeam
         else:
             gameObject.winner = "N/A"
+
+        #Update user scores
+        allUsers = User.objects.all()
+
+        for currentUser in allUsers:
+            #Get game choices for current game and current user (1 per league that the user is in)
+            picks = GameChoice.objects.filter(user=currentUser, game=gameObject)
             
+            for currentPick in picks:
+                membership = LeagueMembership.objects.get(user=currentUser, league=currentPick.league)
+
+                #Check to see if this game has already been counted towards their score. If so, remove 1 and rescore them
+                if currentPick.correctFlag == True:
+                    membership.score -= 1
+                
+                #Give player 1 point if they got this game correct 
+                if currentPick.winner == gameObject.winner:
+                    currentPick.correctFlag = True
+                    membership.score += 1
+                else:
+                    currentPick.correctFlag = False
+
+                membership.save()
+                currentPick.save()
+
         gameObject.save()
         status = 'SUCCESS'
     except:

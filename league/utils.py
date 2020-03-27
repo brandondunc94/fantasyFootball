@@ -19,7 +19,6 @@ def getLeague(leagueName):
     try:
         league = League.objects.get(name=leagueName)
     except:
-        print("League could not be found: " + leagueName)
         league = None
 
     return(league)
@@ -30,7 +29,7 @@ def getUserActiveLeague(currentUser):
         userProfile = Profile.objects.get(user=currentUser)
     except:
         #All users SHOULD have a profile. Send email to admin if this happens
-        print("Could not get profile for user: " + currentUser.username)
+        print("Could not get profile for user when trying to get active league: " + currentUser.username)
         return None
     
     #Return currentActiveLeague
@@ -42,16 +41,12 @@ def setUserActiveLeague(currentUser, activeLeague):
         userProfile = Profile.objects.get(user=currentUser)
     except:
         #All users SHOULD have a profile. Send email to admin if this happens
-        print("Could not get profile for user: " + currentUser.username)
+        print("Could not get profile for user when trying to set active league: " + currentUser.username)
         return False
     
     #Set activeLeague to the user's current active league
     userProfile.currentActiveLeague = activeLeague
     userProfile.save()
 
-    return True
-    
-def updateScores():
-    #Update score and winner/loser in DB
     return True
 

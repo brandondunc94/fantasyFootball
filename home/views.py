@@ -56,7 +56,7 @@ def home(request, weekId="1", leagueName=""):
             'date' : getattr(currentGame, 'date'),
             'pick' : currentPick
         })
-    return render(request, 'home/home.html', {'gameData': gameData, 'userLeagues': userLeagues, 'leagueUsers': leagueUsers, 'activeLeague': activeLeague.name})
+    return render(request, 'home/home.html', {'gameData': gameData, 'userLeagues': userLeagues, 'leagueUsers': leagueUsers, 'activeLeague': activeLeague.name, 'week': weekId})
 
 def welcome(request):
     return render(request, 'home/welcome.html')

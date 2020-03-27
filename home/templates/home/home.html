@@ -3,55 +3,38 @@
 <body>
     <div class="container">
         <!--League title and league picker-->
-        <div class="row">
-            <div class="col-sm-8">
-                <h1>{{ activeLeague }}</h1>
-            </div>
-            <div class="col-sm-4">
-                <div class="dropdown">
-                    <button class="btn btn-sm btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select League</button>
-                    <div class="dropdown-menu">
-                        {% for league in userLeagues %}
-                        <a class="dropdown-item" href="/home/1/{{ league.name }}/">{{ league.name }}</a> {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr>
         <!--Games and Leaderboard columns-->
         <div class="row">
             <!--Game column-->
             <div class="col-lg-6">
-                <div class="row">
-                    <div class="col-4">
-                        <div class="float-left">
-                            <h4>Games</h4>
+                <div class="d-flex flex-row justify-content-between">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Week {{ week }}</button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/home/1/">Week 1</a>
+                            <a class="dropdown-item" href="/home/2/">Week 2</a>
+                            <a class="dropdown-item" href="/home/3/">Week 3</a>
+                            <a class="dropdown-item" href="/home/4/">Week 4</a>
+                            <a class="dropdown-item" href="/home/5/">Week 5</a>
+                            <a class="dropdown-item" href="/home/6/">Week 6</a>
+                            <a class="dropdown-item" href="/home/7/">Week 7</a>
+                            <a class="dropdown-item" href="/home/8/">Week 8</a>
+                            <a class="dropdown-item" href="/home/9/">Week 9</a>
+                            <a class="dropdown-item" href="/home/10/">Week 10</a>
+                            <a class="dropdown-item" href="/home/11/">Week 11</a>
+                            <a class="dropdown-item" href="/home/12/">Week 12</a>
+                            <a class="dropdown-item" href="/home/13/">Week 13</a>
+                            <a class="dropdown-item" href="/home/14/">Week 14</a>
+                            <a class="dropdown-item" href="/home/15/">Week 15</a>
+                            <a class="dropdown-item" href="/home/16/">Week 16</a>
+                            <a class="dropdown-item" href="/home/17/">Week 17</a>
                         </div>
                     </div>
-                    <div class="col-8">
-                        <div class="float-right">
-                            <div class="dropdown">
-                                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select Week</button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="/home/1/">Week 1</a>
-                                    <a class="dropdown-item" href="/home/2/">Week 2</a>
-                                    <a class="dropdown-item" href="/home/3/">Week 3</a>
-                                    <a class="dropdown-item" href="/home/4/">Week 4</a>
-                                    <a class="dropdown-item" href="/home/5/">Week 5</a>
-                                    <a class="dropdown-item" href="/home/6/">Week 6</a>
-                                    <a class="dropdown-item" href="/home/7/">Week 7</a>
-                                    <a class="dropdown-item" href="/home/8/">Week 8</a>
-                                    <a class="dropdown-item" href="/home/9/">Week 9</a>
-                                    <a class="dropdown-item" href="/home/10/">Week 10</a>
-                                    <a class="dropdown-item" href="/home/11/">Week 11</a>
-                                    <a class="dropdown-item" href="/home/12/">Week 12</a>
-                                    <a class="dropdown-item" href="/home/13/">Week 13</a>
-                                    <a class="dropdown-item" href="/home/14/">Week 14</a>
-                                    <a class="dropdown-item" href="/home/15/">Week 15</a>
-                                    <a class="dropdown-item" href="/home/16/">Week 16</a>
-                                    <a class="dropdown-item" href="/home/17/">Week 17</a>
-                                </div>
-                            </div>
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ activeLeague }}</button>
+                        <div class="dropdown-menu">
+                            {% for league in userLeagues %}
+                            <a class="dropdown-item" href="/home/1/{{ league.name }}/">{{ league.name }}</a> {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -68,7 +51,7 @@
                         <tbody>
                             {% for currentGame in gameData %}
                             <tr>
-                                {% if currentGame.winner != 'TBD' %}
+                                {% if currentGame.winner != '' %}
                                 <td><img src="/static/media/{{ currentGame.homeTeam }}.png" alt="{{ currentGame.homeTeam }}" class="img-fluid" width="50" height="50"></td>
                                 <td class="text">{{ currentGame.homeScore }} - {{ currentGame.awayScore }}</td>
                                 <td><img src="/static/media/{{ currentGame.awayTeam }}.png" alt="{{ currentGame.awayTeam }}" class="img-fluid" width="50" height="50"></td>
@@ -95,17 +78,9 @@
             </div>
             <!--Leaderboard coulmn-->
             <div class="col-lg-6">
-                <div class="row">
-                    <div class="col-4">
-                        <div class="float-left">
-                            <h4>Leaderboard</h4>
-                        </div>
-                    </div>
-                    <div class="col-8">
-                        <div class="float-right">
-                            <a href="/league/home/" class="btn btn-secondary btn-sm">League Home</a>
-                        </div>
-                    </div>
+                <div class="d-flex flex-row justify-content-between">
+                    <h4 class="my-auto mr-4">Leaderboard</h4>
+                    <a href="/league/home/" class="btn btn-secondary btn-sm">League Home</a>
                 </div>
                 <div class="row">
                     <table class="table btn-table text-center" cellspacing="0" width="100%">
