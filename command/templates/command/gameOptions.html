@@ -30,7 +30,7 @@
                     <a class="dropdown-item" href="/command/{{ season.year }}/17/">Week 17</a>
                 </div>
             </div>
-            <input class="btn btn-success btn-sm btn-block mt-1 save-button" value="Save Scores" />
+            <input type="submit" class="btn btn-success btn-sm btn-block mt-1 save-button" value="Save Scores" />
         </div>
     </div>
     <div class="row">
@@ -50,12 +50,12 @@
                     {% if currentGame.pickLocked == False %}
                     <td>
                         <div class="form-group">
-                            <input type="text" class="form-control home-score" value="{{ currentGame.homeScore }}">
+                            <input type="number" class="form-control home-score" value="{{ currentGame.homeScore }}">
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
-                            <input type="text" class="form-control away-score" value="{{ currentGame.awayScore }}">
+                            <input type="number" class="form-control away-score" value="{{ currentGame.awayScore }}">
                         </div>
                     </td>
                     <td><input class="btn btn-indigo btn-sm m-0 lock-button" value="Lock" /></td>
@@ -63,16 +63,16 @@
                     {% else %}
                     <td>
                         <div class="form-group">
-                            <input type="text" class="form-control home-score" value="{{ currentGame.homeScore }}">
+                            <input type="number" class="form-control home-score" value="{{ currentGame.homeScore }}">
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
-                            <input type="text" class="form-control away-score" value="{{ currentGame.awayScore }}">
+                            <input type="number" class="form-control away-score" value="{{ currentGame.awayScore }}">
                         </div>
                     </td>
-                    <td><input class="btn btn-indigo btn-sm m-0 lock-button" value="Locked" disabled/></td>
-                    <td><input class="btn btn-indigo btn-sm m-0 unlock-button" value="Unlock" /></td>{% endif %}
+                    <td><input class="btn btn-indigo btn-sm lock-button" value="Locked" disabled/></td>
+                    <td><input class="btn btn-indigo btn-sm unlock-button" value="Unlock" /></td>{% endif %}
                 </tr>
                 {% endfor %}
             </tbody>
