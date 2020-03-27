@@ -40,22 +40,22 @@
                     <th scope="col">Game</th>
                     <th scope="col">Home Score</th>
                     <th scope="col">Away Score</th>
-                    <th scope="col">Lock Picks</th>
+                    <th colspan="2">Lock Picks</th>
                 </tr>
             </thead>
             <tbody>
                 {% for currentGame in gameData %}
-                <tr>
+                <tr class="score-input" value="">
                     <td class="text game-id" value="{{ currentGame.id }}">{{ currentGame.date }} - {{ currentGame.homeTeam }} @ {{ currentGame.awayTeam }}</td>
                     {% if currentGame.pickLocked == False %}
                     <td>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="{{ currentGame.homeTeam }} Score">
+                            <input type="text" class="form-control home-score" value="{{ currentGame.homeScore }}">
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="{{ currentGame.awayTeam }} Score">
+                            <input type="text" class="form-control away-score" value="{{ currentGame.awayScore }}">
                         </div>
                     </td>
                     <td><input class="btn btn-indigo btn-sm m-0 lock-button" value="Lock" /></td>
@@ -63,12 +63,12 @@
                     {% else %}
                     <td>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="{{ currentGame.homeTeam }} Score">
+                            <input type="text" class="form-control home-score" value="{{ currentGame.homeScore }}">
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="{{ currentGame.awayTeam }} Score">
+                            <input type="text" class="form-control away-score" value="{{ currentGame.awayScore }}">
                         </div>
                     </td>
                     <td><input class="btn btn-indigo btn-sm m-0 lock-button" value="Locked" disabled/></td>

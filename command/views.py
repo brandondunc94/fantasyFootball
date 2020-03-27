@@ -50,7 +50,7 @@ def gameOptionsPage(request, seasonYear="2019-2020", weekId="1"):
 
     return render(request, 'command/gameOptions.html', {'gameData': gameData, 'weekId': weekId, 'season' : season})
 
-def scoreWeek(request, weekId, seasonYear="20192020"):
+def scoreWeek(request, weekId, seasonYear="2019-2020"):
     
     #Get season
     season = Season.objects.get(year=seasonYear)
@@ -90,7 +90,39 @@ def scoreWeek(request, weekId, seasonYear="20192020"):
     #Get all GameChoice objects for current user, current league, and current week
 
     return render(request, 'command/command.html')
+#AJAX CALL
+def saveScore(request):
+    seasonYear = request.GET.get('season', None)
+    week = request.GET.get('weekId', None)
+    game = request.GET.get('gameId', None)
+    homeScore = request.GET.get('homeScore', None)
+    awayScore = request.GET.get('awayScore', None)
 
+    try:
+        #Get season object and then game object for current season, week, and game id
+        season = Season.objects.get(year=seasonYear)
+        gameObject = Game.objects.get(week= Week.objects.get(season=season,id=week), id=game)
+
+        gameObject.homeScore = homeScore
+        gameObject.awayScore = awayScore
+
+        if (homeScore > awayScore):
+            gameObject.winner = gameObject.homeTeam
+        elif (awayScore > homeScore):
+            gameObject.winner = gameObject.awayTeam
+        else:
+            gameObject.winner = "N/A"
+            
+        gameObject.save()
+        status = 'SUCCESS'
+    except:
+        status = 'FAILED'
+
+    data = {
+            'status': status
+        }
+
+    return JsonResponse(data)
 #AJAX CALL
 def lockGame(request):
     seasonYear = request.GET.get('seasonYear', None)
@@ -146,41 +178,44 @@ def createSeason(request):
     season.save()
 
     #Open team info JSON file
-    with open('./static/teams.json', 'r') as teamFile:
+    with open('./static_in_env/teams.json', 'r') as teamFile:
         teams = json.load(teamFile)
         teamFile.close()
 
     #Open current season JSON file
-    with open('./static/season20192020.json', 'r') as seasonFile:
+    with open('./static_in_env/season20192020.json', 'r') as seasonFile:
         seasonData = json.load(seasonFile)
-    
-    for week in seasonData:
-        newWeek = Week(season=season)
-        newWeek.save()
-        for game in week['games']:
-            homeTeamName = game['homeTeamData']['homeTeam']
-            awayTeamName = game['awayTeamData']['awayTeam']
-            awayTeamData = next(item for item in teams if item['name'] == awayTeamName)
-            homeTeamData = next(item for item in teams if item['name'] == homeTeamName)
-            try:
-                gameDate = datetime.strptime(game['date'],'%Y%m%d')
-            except:
-                gameDate = None
+    try:
+        for week in seasonData:
+            newWeek = Week(season=season)
+            newWeek.save()
+            for game in week['games']:
+                homeTeamName = game['homeTeamData']['homeTeam']
+                awayTeamName = game['awayTeamData']['awayTeam']
+                awayTeamData = next(item for item in teams if item['name'] == awayTeamName)
+                homeTeamData = next(item for item in teams if item['name'] == homeTeamName)
+                try:
+                    gameDate = datetime.strptime(game['date'],'%Y%m%d')
+                except:
+                    gameDate = None
 
-            newGame = Game(
-                week=newWeek, 
-                homeTeam = homeTeamName, 
-                homeCity = homeTeamData['city'],
-                awayTeam = awayTeamName,
-                awayCity = awayTeamData['city'],
-                homeScore = 'TBD',
-                awayScore = 'TBD',
-                winner = 'TBD',
-                loser = 'TBD',
-                location = game['location'],
-                date = gameDate
-                )    
-            newGame.save()
+                newGame = Game(
+                    week=newWeek, 
+                    homeTeam = homeTeamName, 
+                    homeCity = homeTeamData['city'],
+                    awayTeam = awayTeamName,
+                    awayCity = awayTeamData['city'],
+                    homeScore = 'TBD',
+                    awayScore = 'TBD',
+                    winner = 'TBD',
+                    loser = 'TBD',
+                    location = game['location'],
+                    date = gameDate
+                    )    
+                newGame.save()
+    except:
+        print("Missing data from JSON file, continue processing")
+        
 
     seasonFile.close()
     return render(request, 'command/command.html')
