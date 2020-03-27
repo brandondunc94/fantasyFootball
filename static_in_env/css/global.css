@@ -1,4 +1,10 @@
 .main-color {
     color: #17a2b8;
-    /*font-family: 'Arsenal', sans-serif;*/
+}
+
+.btn-group-xs>.btn,
+.btn-xs {
+    padding: .2rem;
+    border-radius: .2rem;
+    width: 100%;
 }
