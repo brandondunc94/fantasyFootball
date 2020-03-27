@@ -1,4 +1,5 @@
-{% extends "fantasyFootball/base.html" %} {% block page_content %}
+{% extends "fantasyFootball/base.html" %} {% block page_content %} {% load static %}
+
 <div class="container">
     <h1 id="seasonId" value="{{ season.year }}">Season Settings {{ season.year }} </h1>
     <div class="row">
@@ -49,36 +50,27 @@
                     <td class="text game-id" value="{{ currentGame.id }}">{{ currentGame.date }} - {{ currentGame.homeTeam }} @ {{ currentGame.awayTeam }}</td>
                     {% if currentGame.pickLocked == False %}
                     <td>
-                        <div class="form-group">
-                            <input type="number" class="form-control home-score" value="{{ currentGame.homeScore }}">
-                        </div>
+                        <input type="text" class="form-control home-score" size="3" maxlength="3" value="{{ currentGame.homeScore }}">
                     </td>
                     <td>
-                        <div class="form-group">
-                            <input type="number" class="form-control away-score" value="{{ currentGame.awayScore }}">
-                        </div>
+                        <input type="text" class="form-control away-score" size="3" maxlength="3" value="{{ currentGame.awayScore }}">
                     </td>
-                    <td><input class="btn btn-indigo btn-sm m-0 lock-button" value="Lock" /></td>
-                    <td><input class="btn btn-indigo btn-sm m-0 unlock-button" value="Unlock" disabled/></td>
+                    <td><input class="btn btn-indigo btn-xs m-0 lock-button" value="Lock" /></td>
+                    <td><input class="btn btn-indigo btn-xs m-0 unlock-button" value="Unlocked" disabled/></td>
                     {% else %}
                     <td>
-                        <div class="form-group">
-                            <input type="number" class="form-control home-score" value="{{ currentGame.homeScore }}">
-                        </div>
+                        <input type="text" class="form-control home-score" size="3" maxlength="3" value="{{ currentGame.homeScore }}">
                     </td>
                     <td>
-                        <div class="form-group">
-                            <input type="number" class="form-control away-score" value="{{ currentGame.awayScore }}">
-                        </div>
+                        <input type="text" class="form-control away-score" size="3" maxlength="3" value="{{ currentGame.awayScore }}">
                     </td>
-                    <td><input class="btn btn-indigo btn-sm lock-button" value="Locked" disabled/></td>
-                    <td><input class="btn btn-indigo btn-sm unlock-button" value="Unlock" /></td>{% endif %}
+                    <td><input class="btn btn-indigo btn-xs m-0 lock-button" value="Locked" disabled/></td>
+                    <td><input class="btn btn-indigo btn-xs m-0 unlock-button" value="Unlock" /></td>{% endif %}
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
 </div>
-{% load static %}
 <script src="{% static 'command/js/gameOptions.js' %}"></script>
 {% endblock %}

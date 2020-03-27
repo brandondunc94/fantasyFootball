@@ -90,6 +90,7 @@ def scoreWeek(request, weekId, seasonYear="2019-2020"):
     #Get all GameChoice objects for current user, current league, and current week
 
     return render(request, 'command/command.html')
+
 #AJAX CALL
 def saveScore(request):
     seasonYear = request.GET.get('season', None)
@@ -205,10 +206,10 @@ def createSeason(request):
                     homeCity = homeTeamData['city'],
                     awayTeam = awayTeamName,
                     awayCity = awayTeamData['city'],
-                    homeScore = 'TBD',
-                    awayScore = 'TBD',
-                    winner = 'TBD',
-                    loser = 'TBD',
+                    homeScore = '',
+                    awayScore = '',
+                    winner = '',
+                    loser = '',
                     location = game['location'],
                     date = gameDate
                     )    

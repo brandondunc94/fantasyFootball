@@ -63,14 +63,14 @@ $(".unlock-button").click(function() {
 $(".save-button").click(function() {
     var seasonYear = $('#seasonId').attr('value');
     var weekId = $('#weekId').attr('value');
-    var statusFlag = false;
+    var statusFlag = true;
     /*var saveButtonObject = $(this);*/
 
     $(".score-input").each(function(index) {
-        var homeScore = $(this).children().children().children('.home-score').val();
-        var awayScore = $(this).children().children().children('.away-score').val();
+        var homeScore = $(this).children().children('.home-score').val();
+        var awayScore = $(this).children().children('.away-score').val();
         var gameId = $(this).children('.game-id').attr('value');
-        if (homeScore != 'TBD') {
+        if (homeScore != '') {
             $.ajax({
                 url: '/command/save-score/',
                 data: {
@@ -82,8 +82,8 @@ $(".save-button").click(function() {
                 },
                 dataType: 'json',
                 success: function(data) {
-                    if (data.status == "SUCCESS") {
-                        statusFlag = true;
+                    if (data.status == "FAILED") {
+                        statusFlag = false;
                     } else {
 
                     }
@@ -92,8 +92,11 @@ $(".save-button").click(function() {
         }
 
     });
+
     if (statusFlag == true) {
-        alert("All games saved successfully.");
+        alert("All game scores saved successfully.");
+    } else {
+        alert("Unable to save all game scores.");
     }
 
 });
