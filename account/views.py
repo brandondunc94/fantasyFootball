@@ -51,3 +51,11 @@ def create_account(request):
             form = RegisterForm()
             return render(request, 'registration/register.html', {'form': form})
 
+def delete_account(request):
+    #Delete user account
+    try:
+        request.user.delete()
+        return redirect('/login/')
+    except:
+        print("Could not delete user.")
+        return render(request, 'account/profile.html')

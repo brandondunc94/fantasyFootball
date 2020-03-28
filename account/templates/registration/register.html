@@ -6,14 +6,12 @@
     <!-- Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design for Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet">
-
-    <link href="/static/css/global.css" rel="stylesheet">
-    <link href="/static/css/datatables.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet"> {% load static %}
+    <link href="{% static 'css/global.css' %}" rel="stylesheet">
 </head>
-<nav class="navbar navbar-expand-lg mb-3 navbar-dark" style="background-color: #6b696b">
+<nav class="navbar navbar-expand-lg mb-3 navbar-dark" style="background-color: #292727">
     <a class="navbar-brand" href="#">
-        <img class="rounded img-fluid" src="/static/media/logoTitle.png" width="200" height="auto">
+        <img class="rounded img-fluid" src="{% static 'media/logoTitleWhite.png' %}" width="200" height="auto">
     </a>
 </nav>
 <hr>
@@ -39,16 +37,6 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label>Password*</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-            </div>
-            <div class="form-group col-md-6">
-                <label>Re-enter Password*</label>
-                <input type="password" class="form-control" id="password2" name="password2" placeholder="Re-enter Password">
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
                 <label>First Name</label>
                 <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name">
             </div>
@@ -57,11 +45,27 @@
                 <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Password*</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+            </div>
+            <div class="form-group col-md-6">
+                <label>Re-enter Password*</label>
+                <input type="password" class="form-control" id="password2" name="password2" placeholder="Re-enter Password">
+            </div>
+            <div class="form-group col-md-6 alert" id="divCheckPasswordMatch" role="alert">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-green" id="submitButton" disabled>Submit</button>
     </form>
 </div>
+<!-- jQuery -->
+<script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js "></script>
+<script src="{% static 'account/js/register.js' %} "></script>
+
 <!-- Bootstrap -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js "></script>
 
 <!-- Material Design for Bootstrap -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/js/mdb.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/js/mdb.min.js "></script>

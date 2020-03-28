@@ -9,7 +9,7 @@
             <div class="col-lg-6">
                 <div class="d-flex flex-row justify-content-between">
                     <div class="dropdown">
-                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Week {{ week }}</button>
+                        <button class="btn btn-green btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Week {{ week }}</button>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="/home/1/">Week 1</a>
                             <a class="dropdown-item" href="/home/2/">Week 2</a>
@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <div class="dropdown">
-                        <button class="btn btn-sm btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ activeLeague }}</button>
+                        <button class="btn btn-sm btn-blue dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ activeLeague }}</button>
                         <div class="dropdown-menu">
                             {% for league in userLeagues %}
                             <a class="dropdown-item" href="/home/1/{{ league.name }}/">{{ league.name }}</a> {% endfor %}
@@ -80,7 +80,7 @@
             <div class="col-lg-6">
                 <div class="d-flex flex-row justify-content-between">
                     <h4 class="my-auto mr-4">Leaderboard</h4>
-                    <a href="/league/home/" class="btn btn-secondary btn-sm">League Home</a>
+                    <a href="/league/home/" class="btn btn-blue btn-sm">League Home</a>
                 </div>
                 <div class="row">
                     <table class="table btn-table text-center" cellspacing="0" width="100%">

@@ -3,5 +3,6 @@ from account import views
 
 urlpatterns = [
     path('', views.account_page, name='Account Home'),
-    path('create/', views.create_account, name="New Account")
+    path('create/', views.create_account, name="New Account"),
+    path('delete/', views.delete_account, name="Delete Account"),
 ]
