@@ -47,7 +47,6 @@ $(".post-button").click(function() {
                     var username = $('.username-nav').html().replace("Welcome, ", "");
                     var newMessage = `
                                     <div class='media text-muted pt-3'>
-                                    <img src='/static/media/Seahawks.png' class='mr-2 rounded' width='32' height='32'>
                                     <p class='media-body pb-3 mb-0 small lh-125 border-bottom border-gray'><strong class='d-block text-gray-dark'>@` + username + `</strong>` + message + `</p>
                                     </div>`
                     $('.messages-div').append(newMessage);

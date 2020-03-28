@@ -11,13 +11,13 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label>League Name* - <small> Only alphanumeric values please.</small></label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="League Name" required>
+                <input type="text" class="form-control" id="name" name="name" placeholder="League Name">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label>League Description</label>
-                <input type="text" class="form-control" id="description" name="description" placeholder="Description" required>
+                <input type="text" class="form-control" id="description" name="description" placeholder="Description">
             </div>
         </div>
         <fieldset class="form-group">
@@ -36,12 +36,7 @@
                 </div>
             </div>
         </fieldset>
-        <button type="submit" class="btn btn-primary">Create League</button>
+        <button type="submit" class="btn btn-green">Create League</button>
     </form>
     {% endblock %}
 </div>
-<script>
-    $(document).ready(function() {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-</script>

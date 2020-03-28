@@ -11,7 +11,7 @@
                     </div>
                     <div class="col-sm-4">
                         {% if leagueAdmin == True %}
-                        <a href="/league/admin/{{ activeLeague }}" class="btn btn-sm btn-info">League Settings</a>{% endif %}
+                        <a href="/league/admin/{{ activeLeague }}" class="btn btn-sm btn-blue">League Settings</a>{% endif %}
                     </div>
                 </div>
                 <div class="row">
@@ -21,7 +21,6 @@
                             <div class="my-3 p-3 bg-white rounded box-shadow messages-div">
                                 {% for currentMessage in leagueMessages %}
                                 <div class="media text-muted pt-3 ">
-                                    <img src="/static/media/Seahawks.png" alt=" " class="mr-2 rounded " width="32 " height="32 ">
                                     <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray ">
                                         <strong class="d-block text-gray-dark ">@{{ currentMessage.user.username }}</strong>{{ currentMessage.message }}
                                     </p>

@@ -1,7 +1,7 @@
 {% extends "fantasyFootball/base.html" %} {% block page_content %}
 
 <div class="container">
-    <h1 class="display-4">Join a League</h1>
+    <h1>Join a League</h1>
     <input class="form-control" id="searchLeagues" type="text" placeholder="Search Leagues..">
     <hr> {% if leagueData %}
     <table id="leagueTable" class="table table-responsive-md btn-table" cellspacing="0" width="100%">
@@ -22,10 +22,10 @@
                     <td>Request Pending</td>
                     {% else %} {% if currentLeague.league.isPublic == False %}
                     <td>Private</td>
-                    <td><input type="submit" class="btn btn-indigo btn-sm m-0 btn-block request-button" value="Request" /></td>
+                    <td><input type="submit" class="btn btn-blue btn-sm m-0 btn-block request-button" value="Request" /></td>
                     {% else %}
                     <td>Public</td>
-                    <td><input type="submit" class="btn btn-success btn-sm m-0 btn-block join-button" value="Join" /></td>{% endif %} {% endif %}
+                    <td><input type="submit" class="btn btn-green btn-sm m-0 btn-block join-button" value="Join" /></td>{% endif %} {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>
@@ -36,7 +36,7 @@
         <div class="col">
             <div class="text-center">
                 <h4>There are currently no leagues to join. Go create one now!</h4>
-                <a href="/league/create/" class="btn btn-outline-info main-color">Create League</a>
+                <a href="/league/create/" class="btn btn-md btn-green">Create League</a>
             </div>
         </div>
         {% endif %}
