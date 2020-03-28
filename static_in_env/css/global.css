@@ -1,10 +1,21 @@
-.main-color {
-    color: #17a2b8;
-}
+/*XS Button */
 
 .btn-group-xs>.btn,
 .btn-xs {
     padding: .2rem;
     border-radius: .2rem;
     width: 100%;
+}
+
+
+/*Button colors*/
+
+.btn-blue {
+    background-color: #0419a4;
+    color: white;
+}
+
+.btn-green {
+    background-color: #19A404;
+    color: white;
 }
