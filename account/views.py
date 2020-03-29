@@ -5,6 +5,7 @@ from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from .forms import RegisterForm
+from home.views import home
 
 # Create your views here.
 
@@ -59,3 +60,12 @@ def delete_account(request):
     except:
         print("Could not delete user.")
         return render(request, 'account/profile.html')
+
+def login_redirect(request):
+    if request.user.is_authenticated:
+        #response = home(request)
+        response = redirect('/home/')
+    else:
+        response = redirect('/login/')
+    
+    return response

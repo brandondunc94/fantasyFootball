@@ -18,6 +18,7 @@ from django.urls import include, path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import url
 from django.contrib.auth import views as auth_views
+from account.views import login_redirect
 
 urlpatterns = [
     url(r'^login/$', auth_views.LoginView.as_view(), name='login'),
@@ -29,7 +30,7 @@ urlpatterns = [
     url(r'^account/', include('account.urls')),
     url(r'^league/', include('league.urls')),
     url(r'^picks/', include('picks.urls')),
-    path('', auth_views.LoginView.as_view(), name='login'),
+    path('', login_redirect, name='login'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
