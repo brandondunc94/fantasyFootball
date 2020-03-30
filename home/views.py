@@ -37,13 +37,15 @@ def home(request, weekId="1", leagueName=""):
     
     #Initialize empty dictionary for gameData to be passed to template
     gameData = []
-
+    gameCount = currentWeekGames.count()
+    pickCount = 0
     #We will eventually want to get the currentdate and compare it to the week start date and only grab that week
     for currentGame in currentWeekGames:
         #Check to see if there is pick data for this game
         currentGamePick = GameChoice.objects.filter(league=activeLeague,user=request.user,week=weekId,game=currentGame)
         if currentGamePick:
             currentPick = currentGamePick[0].winner
+            pickCount += 1
         else:
             currentPick = "None"
         gameData.append(
@@ -54,10 +56,19 @@ def home(request, weekId="1", leagueName=""):
             'awayScore' : getattr(currentGame, 'awayScore'),
             'winner' : getattr(currentGame, 'winner'),
             'date' : getattr(currentGame, 'date'),
-            'pick' : currentPick
+            'pick' : currentPick,
         })
 
-    return render(request, 'home/home.html', {'gameData': gameData, 'userLeagues': userLeagues, 'leagueUsers': leagueUsers, 'activeLeague': activeLeague.name, 'week': weekId})
+    return render(request, 'home/home.html', 
+    {
+        'gameData': gameData, 
+        'userLeagues': userLeagues, 
+        'leagueUsers': leagueUsers, 
+        'activeLeague': activeLeague.name, 
+        'week': weekId,
+        'gameCount': gameCount,
+        'pickCount': pickCount
+    })
 
 def welcome(request):
     return render(request, 'home/welcome.html')

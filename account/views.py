@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
-from account.models import Profile
 from django.contrib.auth.models import User
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from .forms import RegisterForm
 from home.views import home
+from account.models import Profile
+from command.views import sendEmail
 
 # Create your views here.
 
@@ -39,9 +40,16 @@ def create_account(request):
                     firstName = form.cleaned_data['firstName'],
                     lastName = form.cleaned_data['lastName']
                     )
-                    
+
                 newProfile.save()
+
+                #Send email to admin
+                emailSubject = 'Onsidepick.com - New User Created'
+                emailBody = 'New user was created with username: ' + form.cleaned_data['username']
+                sendEmail(emailSubject, emailBody)
+
                 return render(request, 'home/welcome.html')
+                
         else:
             form = RegisterForm()
             return render(request, 'registration/register.html', {'form': form, 'error': "Please fill out all required fields."})

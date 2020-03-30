@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from league.models import League, LeagueMembership, Season, Week, Game, GameChoice
 from league.utils import getUserLeagues
-import json
+import json, smtplib, ssl
 from datetime import datetime
 from django.http import JsonResponse
 
@@ -247,3 +247,21 @@ def createSeason(request):
 
     seasonFile.close()
     return render(request, 'command/command.html')
+
+def sendEmail(subject, body):
+    port = 465  # For SSL
+    smtp_server = "smtp.gmail.com"
+    sender_email = 'brandon.douglas.duncan@gmail.com'
+    receiver_email = 'brandon.douglas.duncan@gmail.com'
+    password = ''
+    
+    message = 'Subject: {}\n\n{}'.format(subject, body)
+    try:
+        context = ssl.create_default_context()
+        with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+            server.login(sender_email, password)
+            server.sendmail(sender_email, receiver_email, message)
+        return True
+    except:
+        print('Unable to send email.')
+        return False
