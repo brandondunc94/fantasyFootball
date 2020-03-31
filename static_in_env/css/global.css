@@ -14,8 +14,19 @@
     color: #19A404;
 }
 
+.gray {
+    color: #292727;
+}
+
 
 /*Button colors*/
+
+.btn-main {
+    border-color: white;
+    background-color: transparent;
+    border-width: 2;
+    color: white;
+}
 
 .btn-blue {
     background-color: #0419a4;
@@ -28,4 +39,16 @@
 }
 
 
-/*Cool Buttons*/
+/*Font*/
+
+body {
+    font-family: 'Exo 2', sans-serif;
+}
+
+
+/* Table header style */
+
+.gray-table {
+    background-color: #292727;
+    color: white;
+}

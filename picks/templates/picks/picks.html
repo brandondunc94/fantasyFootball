@@ -3,17 +3,9 @@
 
 <body>
     <div class="container">
-        <!--Select League and Week-->
-        <div class="row justify-content-center">
+        <div class="d-flex flex-row justify-content-between">
             <div class="dropdown">
-                <button class="btn btn-sm btn-inline-block btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ activeLeague }}</button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    {% for league in userLeagues %}
-                    <a class="dropdown-item" href="/home/1/{{ league.name }}/">{{ league.name }}</a> {% endfor %}
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="btn btn-secondary btn-inline-block btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-green btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Week {{ currentWeek.id }}
                 </button>
                 <div class="dropdown-menu">
@@ -36,21 +28,28 @@
                     <a class="dropdown-item" href="/picks/17/">Week 17</a>
                 </div>
             </div>
+            <div class="dropdown">
+                <button class="btn btn-sm btn-blue dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ activeLeague }}</button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    {% for league in userLeagues %}
+                    <a class="dropdown-item" href="/home/1/{{ league.name }}/">{{ league.name }}</a> {% endfor %}
+                </div>
+            </div>
         </div>
         <!--Picks-->
         <div class="row">
             <div class="col">
                 <form action="" method="POST">
                     <table class="table">
-                        <thead class="thead-dark">
+                        <thead>
                             <tr class="text-center">
                                 <th scope="col">Home</th>
+                                <th scope="col">Date</th>
                                 <th scope="col">Away</th>
                             </tr>
                         </thead>
-
                         <tbody>
-                            <fieldset class="form-group">
+                            <fieldset class="form-group mt-0">
                                 {% csrf_token %} {% for currentPick in pickData %} {% if currentPick.pickLocked == False %}
                                 <tr>
                                     <td class="text-center">
@@ -60,10 +59,14 @@
                                             {% else %}
                                             <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}" >
                                             {% endif %}
-                                            <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam }}.png" width="100" height="100">
+                                            <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam }}.png" width="75" height="75">
                                         </label>
                                     </td>
-
+                                    <td class="text-center align-middle">
+                                        <label>
+                                            {{ currentPick.date }}
+                                        </label>
+                                    </td>
                                     <td class="text-center">
                                         <label>
                                             {% if currentPick.pick == currentPick.awayTeam %}
@@ -71,12 +74,12 @@
                                             {% else %}
                                             <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}" >
                                             {% endif %}
-                                            <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam }}.png" width="100" height="100">
+                                            <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam }}.png" width="75" height="75">
                                         </label>
                                     </td>
                                 </tr>
                                 {% else %}
-                                <tr>
+                                <tr class="disabled">
                                     <td class="text-center">
                                         <label>
                                             {% if currentPick.pick == currentPick.homeTeam %}
@@ -84,10 +87,14 @@
                                             {% else %}
                                             <input type="radio" class="incorrect" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}" disabled >
                                             {% endif %}
-                                            <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam }}.png" width="100" height="100">
+                                            <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam }}.png" width="75" height="75">
                                         </label>
                                     </td>
-
+                                    <td class="text-center align-middle">
+                                        <label>
+                                            {{ currentPick.date }}
+                                        </label>
+                                    </td>
                                     <td class="text-center">
                                         <label>
                                             {% if currentPick.pick == currentPick.awayTeam %}
@@ -95,7 +102,7 @@
                                             {% else %}
                                             <input type="radio" class= "incorrect" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}" disabled>
                                             {% endif %}
-                                            <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam }}.png" width="100" height="100">
+                                            <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam }}.png" width="75" height="75">
                                         </label>
                                     </td>
                                 </tr>

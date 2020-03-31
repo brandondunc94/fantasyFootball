@@ -20,7 +20,7 @@ Blue: #0419a4
 ## How to Deploy
 1. Navigate to server using putty, login with user and navigate to project folder.
   'cd /home/bdunc/fantasyFootball'
-2. 'Git pull origin master'
+2. 'Git pull origin master' or 'git reset --hard origin/master'
 3. Start virtual env using: 'source env/bin/activate'
 4. If changes were made to static files, run: 'python manage.py collectstatic --noinput --clear'
 5.  Make copy of all files/folders in /static_in_env to /static using: 'cp -a static_in_env/. static/'

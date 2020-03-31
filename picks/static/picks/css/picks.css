@@ -38,7 +38,6 @@ input[type=radio]:checked+label::before {
 
 [type=radio]:checked:disabled+img {
     outline: 2px solid rgb(58, 59, 59);
-    background-color: #6f7070;
     opacity: 0.6;
 }
 
@@ -46,4 +45,8 @@ input[type=radio]:checked+label::before {
     outline: 2px solid rgb(58, 59, 59);
     background-color: #33b5e5;
     opacity: 0.6;
+}
+
+tr.disabled {
+    background-color: #8b8c8f;
 }

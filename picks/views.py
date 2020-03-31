@@ -108,6 +108,7 @@ def picks(request, weekId="1", leagueName=""):
                 'homeScore' : getattr(currentGame, 'homeScore'),
                 'awayTeam' : getattr(currentGame, 'awayTeam'),
                 'awayScore' : getattr(currentGame, 'awayScore'),
+                'date': getattr(currentGame, 'date'),
                 'correctFlag' : correctFlag,
                 'pick' : winnerSelected,
                 'pickLocked' : getattr(currentGame, 'pickLocked')

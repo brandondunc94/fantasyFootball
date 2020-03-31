@@ -2,7 +2,6 @@
 
 <body>
     <div class="container">
-        <!--League title and league picker-->
         <!--Games and Leaderboard columns-->
         <div class="row">
             <!--Game column-->
@@ -49,9 +48,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for currentGame in gameData %}
+                            {% for currentGame in gameData %} {% if currentGame.winner != '' %}
                             <tr>
-                                {% if currentGame.winner != '' %}
                                 <td><img src="/static/media/{{ currentGame.homeTeam }}.png" alt="{{ currentGame.homeTeam }}" class="img-fluid" width="50" height="50"></td>
                                 <td class="text">{{ currentGame.homeScore }} - {{ currentGame.awayScore }}</td>
                                 <td><img src="/static/media/{{ currentGame.awayTeam }}.png" alt="{{ currentGame.awayTeam }}" class="img-fluid" width="50" height="50"></td>
@@ -61,7 +59,8 @@
                                 <td class="text-success">{{ currentGame.pick }}</td>
                                 {% else %}
                                 <td class="text-danger">{{ currentGame.pick }}</td>
-                                {% endif %} {% else %}
+                            </tr>{% endif %} {% else %}
+                            <tr>
                                 <td><img src="/static/media/{{ currentGame.homeTeam }}.png" alt="{{ currentGame.homeTeam }}" class="img-fluid" width="50" height="50"></td>
                                 <td class="text">{{ currentGame.date }}</td>
                                 <td><img src="/static/media/{{ currentGame.awayTeam }}.png" alt="{{ currentGame.awayTeam }}" class="img-fluid" width="50" height="50"></td>
@@ -69,9 +68,8 @@
                                 <td>-</td>
                                 {% else %}
                                 <td>{{ currentGame.pick }}</td>
-                                {% endif %} {% endif %}
-                            </tr>
-                            {% endfor %}
+                                {% endif %}
+                            </tr> {% endif %} {% endfor %}
                         </tbody>
                     </table>
                 </div>
