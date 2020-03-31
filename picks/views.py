@@ -86,7 +86,7 @@ def picks(request, weekId="1", leagueName=""):
         currentWeek = Week.objects.get(id=weekId)
 
         #Get all games from current week for current league
-        currentWeekGames = Game.objects.filter(week_id=weekId)
+        currentWeekGames = Game.objects.filter(week_id=weekId).order_by('date')
         for currentGame in currentWeekGames:
             
             #Query for game choice model

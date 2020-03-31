@@ -48,66 +48,60 @@
                                 <th scope="col">Away</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <fieldset class="form-group mt-0">
-                                {% csrf_token %} {% for currentPick in pickData %} {% if currentPick.pickLocked == False %}
-                                <tr>
-                                    <td class="text-center">
-                                        <label>
-                                            {% if currentPick.pick == currentPick.homeTeam %}
-                                            <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}" checked>
-                                            {% else %}
-                                            <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}" >
-                                            {% endif %}
-                                            <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam }}.png" width="75" height="75">
-                                        </label>
-                                    </td>
-                                    <td class="text-center align-middle">
-                                        <label>
-                                            {{ currentPick.date }}
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label>
-                                            {% if currentPick.pick == currentPick.awayTeam %}
-                                            <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}" checked>
-                                            {% else %}
-                                            <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}" >
-                                            {% endif %}
-                                            <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam }}.png" width="75" height="75">
-                                        </label>
-                                    </td>
-                                </tr>
-                                {% else %}
-                                <tr class="disabled">
-                                    <td class="text-center">
-                                        <label>
-                                            {% if currentPick.pick == currentPick.homeTeam %}
-                                            <input type="radio" class= "correct" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}" disabled checked>
-                                            {% else %}
-                                            <input type="radio" class="incorrect" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}" disabled >
-                                            {% endif %}
-                                            <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam }}.png" width="75" height="75">
-                                        </label>
-                                    </td>
-                                    <td class="text-center align-middle">
-                                        <label>
-                                            {{ currentPick.date }}
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label>
-                                            {% if currentPick.pick == currentPick.awayTeam %}
-                                            <input type="radio" class= "correct" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}" disabled checked >
-                                            {% else %}
-                                            <input type="radio" class= "incorrect" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}" disabled>
-                                            {% endif %}
-                                            <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam }}.png" width="75" height="75">
-                                        </label>
-                                    </td>
-                                </tr>
-                                {% endif %} {% endfor %}
-                            </fieldset>
+                        <tbody class="form-group">
+                            {% csrf_token %} {% for currentPick in pickData %} {% if currentPick.pickLocked == False %}
+                            <tr class="enabled">
+                                <td class="text-center">
+                                    <label>
+                                        {% if currentPick.pick == currentPick.homeTeam %}
+                                        <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}" checked>
+                                        {% else %}
+                                        <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}" >
+                                        {% endif %}
+                                        <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam }}.png" width="75" height="75">
+                                    </label>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <label>{{ currentPick.date }}</label>
+                                </td>
+                                <td class="text-center">
+                                    <label>
+                                        {% if currentPick.pick == currentPick.awayTeam %}
+                                        <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}" checked>
+                                        {% else %}
+                                        <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}" >
+                                        {% endif %}
+                                        <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam }}.png" width="75" height="75">
+                                    </label>
+                                </td>
+                            </tr>
+                            {% else %}
+                            <tr class="disabled">
+                                <td class="text-center">
+                                    <label>
+                                        {% if currentPick.pick == currentPick.homeTeam %}
+                                        <input type="radio" class= "correct" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}" disabled checked>
+                                        {% else %}
+                                        <input type="radio" class="incorrect" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam }}" value="{{ currentPick.homeTeam }}" disabled >
+                                        {% endif %}
+                                        <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam }}.png" width="75" height="75">
+                                    </label>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <label>{{ currentPick.date }}</label>
+                                </td>
+                                <td class="text-center">
+                                    <label>
+                                        {% if currentPick.pick == currentPick.awayTeam %}
+                                        <input type="radio" class= "correct" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}" disabled checked >
+                                        {% else %}
+                                        <input type="radio" class= "incorrect" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam }}" value="{{ currentPick.awayTeam }}" disabled>
+                                        {% endif %}
+                                        <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam }}.png" width="75" height="75">
+                                    </label>
+                                </td>
+                            </tr>
+                            {% endif %} {% endfor %}
                         </tbody>
                     </table>
                     <div class="text-center">
