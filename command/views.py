@@ -175,6 +175,15 @@ def lockGame(request):
 
     return JsonResponse(data)
 
+#THIS WILL BE CALLED EVERY TIME THE COMMAND PAGE IS ACCESSED
+def autoLockPick(request):
+    now = datetime.now()
+    #nextDay = now + datetime.timedelta(days=1)
+
+    #Get all game objects within the next week
+    #upcomingGames = Game.objects.filter(date__range=[now, nextDay])
+    return True
+
 #AJAX CALL
 def unlockGame(request):
     seasonYear = request.GET.get('seasonYear', None)
