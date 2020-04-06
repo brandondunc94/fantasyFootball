@@ -4,9 +4,9 @@ from django.contrib.auth.models import User
 import requests
 import json
 from league import utils as leagueUtils
-from league.models import League, LeagueMembership, Season, Week, Game, GameChoice
+from league.models import League, Team, LeagueMembership, Season, Week, Game, GameChoice
 from account.models import Profile
-#from home import classes
+from datetime import datetime, timedelta
 
 # Create your views here.
 @login_required
@@ -29,11 +29,14 @@ def home(request, weekId="1", leagueName=""):
         #Set current league to user's active league in Profile
         leagueUtils.setUserActiveLeague(request.user, activeLeague)
     
+    #Get current active season
+    activeSeason = Season.objects.get(active=True)
+
     #Get all users for active league
     leagueUsers = LeagueMembership.objects.filter(league=activeLeague).order_by('-score')
     
     #Get game data for weekId passed in
-    currentWeekGames = Game.objects.filter(week_id=weekId).order_by('date')
+    currentWeekGames = Game.objects.filter(week_id=Week.objects.get(id=weekId, season=activeSeason)).order_by('dateTime')
     
     #Initialize empty dictionary for gameData to be passed to template
     gameData = []
@@ -42,21 +45,23 @@ def home(request, weekId="1", leagueName=""):
     #We will eventually want to get the currentdate and compare it to the week start date and only grab that week
     for currentGame in currentWeekGames:
         #Check to see if there is pick data for this game
-        currentGamePick = GameChoice.objects.filter(league=activeLeague,user=request.user,week=weekId,game=currentGame)
-        if currentGamePick:
-            currentPick = currentGamePick[0].winner
+        try:
+            currentGamePick = GameChoice.objects.get(league=activeLeague,user=request.user,week=Week.objects.get(id=weekId, season=activeSeason),game=currentGame)
+            currentPick = currentGamePick.winner
             pickCount += 1
-        else:
-            currentPick = "None"
+        except:
+            currentPick = None
+
         gameData.append(
         {
-            'homeTeam' : getattr(currentGame, 'homeTeam'),
-            'homeScore' : getattr(currentGame, 'homeScore'),
-            'awayTeam' : getattr(currentGame, 'awayTeam'),
-            'awayScore' : getattr(currentGame, 'awayScore'),
-            'winner' : getattr(currentGame, 'winner'),
-            'date' : getattr(currentGame, 'date'),
-            'pick' : currentPick,
+            'homeTeam' : currentGame.homeTeam,
+            'homeScore' : currentGame.homeScore,
+            'awayTeam' : currentGame.awayTeam,
+            'awayScore' : currentGame.awayScore,
+            'winner' : currentGame.winner,
+            'date' : datetime.strftime(currentGame.dateTime, '%b %#d, %Y'),
+            'time' : datetime.strftime(currentGame.dateTime - timedelta(hours=7), '%#I:%M %p'),
+            'pick' : currentPick
         })
 
     return render(request, 'home/home.html', 

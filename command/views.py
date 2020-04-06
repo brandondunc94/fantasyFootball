@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from league.models import League, LeagueMembership, Season, Week, Game, GameChoice
+from league.models import League, LeagueMembership, Season, Week, Game, Team, GameChoice
 from league.utils import getUserLeagues
 import json, smtplib, ssl
 from datetime import datetime
@@ -39,13 +39,13 @@ def gameOptionsPage(request, seasonYear="2019-2020", weekId="1"):
         #dateFormatted = datetime.strptime(getattr(currentGame, 'date'), '%y
         gameData.append(
         {
-            'homeTeam' : getattr(currentGame, 'homeTeam'),
-            'homeScore' : getattr(currentGame, 'homeScore'),
-            'awayTeam' : getattr(currentGame, 'awayTeam'),
-            'awayScore' : getattr(currentGame, 'awayScore'),
-            'date' : getattr(currentGame, 'date'),
-            'id' : getattr(currentGame, 'id'),
-            'pickLocked' : getattr(currentGame, 'pickLocked')
+            'homeTeam' : currentGame.homeTeam,
+            'homeScore' : currentGame.homeScore,
+            'awayTeam' : currentGame.awayTeam,
+            'awayScore' : currentGame.awayScore,
+            'date' : currentGame.dateTime,
+            'id' : currentGame.id,
+            'pickLocked' : currentGame.pickLocked
         })
 
     return render(request, 'command/gameOptions.html', {'gameData': gameData, 'weekId': weekId, 'season' : season})
@@ -78,7 +78,7 @@ def scoreWeek(request, weekId, seasonYear="2019-2020"):
                     if currentPick.winner == currentGame.winner:
                         #Set correct flag to True
                         currentPick.correctFlag = True
-                        userScore += 1
+                        userScore += 100
                     else:
                         #Set correct flag to False
                         currentPick.correctFlag = False
@@ -115,7 +115,7 @@ def saveScore(request):
         elif (awayScore > homeScore):
             gameObject.winner = gameObject.awayTeam
         else:
-            gameObject.winner = "N/A"
+            gameObject.winner = None
 
         #Update user scores
         allUsers = User.objects.all()
@@ -129,12 +129,12 @@ def saveScore(request):
 
                 #Check to see if this game has already been counted towards their score. If so, remove 1 and rescore them
                 if currentPick.correctFlag == True:
-                    membership.score -= 1
+                    membership.score -= 100
                 
                 #Give player 1 point if they got this game correct 
                 if currentPick.winner == gameObject.winner:
                     currentPick.correctFlag = True
-                    membership.score += 1
+                    membership.score += 100
                 else:
                     currentPick.correctFlag = False
 
@@ -211,13 +211,17 @@ def unlockGame(request):
 def createSeason(request):
 
     #Create new season object in db
-    season = Season(year="2019-2020")
-    season.save()
+    try:
+        season = Season(year="2019-2020")
+        season.save()
+    except:
+        print("Season already exists, continuing..")
 
-    #Open team info JSON file
-    with open('./static_in_env/teams.json', 'r') as teamFile:
-        teams = json.load(teamFile)
-        teamFile.close()
+    #Populate db with team data
+    try:
+        createTeams(season)
+    except:
+        print("Teams have already been populated, continuing...")
 
     #Open current season JSON file
     with open('./static_in_env/season20192020.json', 'r') as seasonFile:
@@ -227,33 +231,44 @@ def createSeason(request):
             newWeek = Week(season=season)
             newWeek.save()
             for game in week['games']:
-                homeTeamName = game['homeTeamData']['homeTeam']
-                awayTeamName = game['awayTeamData']['awayTeam']
-                awayTeamData = next(item for item in teams if item['name'] == awayTeamName)
-                homeTeamData = next(item for item in teams if item['name'] == homeTeamName)
+                homeTeam = Team.objects.get(name=game['homeTeamData']['homeTeam'])
+                awayTeam = Team.objects.get(name=game['awayTeamData']['awayTeam'])
                 try:
-                    gameDate = datetime.strptime(game['date'],'%Y%m%d')
+                    gameDateTime = datetime.strptime(game['date'],'%Y%m%d %H:%M')  
                 except:
-                    gameDate = None
+                    gameDateTime = None
 
                 newGame = Game(
                     week=newWeek, 
-                    homeTeam = homeTeamName, 
-                    homeCity = homeTeamData['city'],
-                    awayTeam = awayTeamName,
-                    awayCity = awayTeamData['city'],
+                    homeTeam = homeTeam, 
+                    awayTeam = awayTeam,
                     homeScore = '',
                     awayScore = '',
-                    winner = '',
-                    loser = '',
                     location = game['location'],
-                    date = gameDate
+                    dateTime = gameDateTime,
+                    winner = None,
+                    loser =None,
+                    favorite = None
                     )    
                 newGame.save()
     except:
-        print("Missing data from JSON file, continue processing")
-        
+        print("Something happened while creating new season. Check the season JSON file for missing data?")
 
     seasonFile.close()
     return render(request, 'command/command.html')
 
+def createTeams(season):
+    #Open team info JSON file
+    with open('./static_in_env/teams.json', 'r') as teamFile:
+        teams = json.load(teamFile)
+        teamFile.close()
+    
+    for currentTeam in teams:
+        newTeam = Team(
+            name = currentTeam['name'],
+            city = currentTeam['city'],
+            wins = 0,
+            losses = 0,
+            season = season
+        )
+        newTeam.save()

@@ -2,9 +2,10 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from league.models import League, LeagueMembership, Season, Week, Game, GameChoice
+from league.models import League, LeagueMembership, Season, Week, Game, GameChoice, Team
 from account.models import Profile
 from league import utils as leagueUtils
+from datetime import datetime, timedelta
 
 
 # Create your views here.
@@ -19,15 +20,17 @@ def picks(request, weekId="1", leagueName=""):
 
         pickData = request.POST
         try:
+            #Get active season
+            activeSeason = Season.objects.get(active=True)
             #If this creates an error, it is because no week with this id is in the database
-            currentWeek = Week.objects.get(id=weekId)
+            currentWeek = Week.objects.get(id=weekId, season=activeSeason)
         except:
             #Return user to home page, SEND ADMIN email that this happened.
+            print("No week/season combo with id " + weekId + "/" + activeSeason.year + " exists in the db.")
             return render(request, 'home/home.html')
 
         #Check if week is locked (It shouldn't be, this is someone trying to be sneaky)
-        lockedWeek = currentWeek.picksLocked
-        if lockedWeek == True:
+        if currentWeek.picksLocked == True:
             return render(request, 'picks/picks.html')
         
         try:
@@ -38,13 +41,14 @@ def picks(request, weekId="1", leagueName=""):
             activeLeague = userLeagues[0]
         
         #Get week game data from current week
-        games = Game.objects.filter(week=currentWeek).order_by('date')
+        games = Game.objects.filter(week=currentWeek).order_by('dateTime')
 
         for currentPick in pickData:    #This is assuming the games and picks are in the same order
             if currentPick != "csrfmiddlewaretoken":
-                currentGame = Game.objects.get(id=currentPick)
-                print(currentGame.homeTeam + " VS " + currentGame.awayTeam)
-                print("Winner picked: " + pickData[currentPick])
+                currentGame = Game.objects.get(id=currentPick, week=currentWeek)
+                print(currentGame.homeTeam.name + " VS " + currentGame.awayTeam.name)
+                winnerPicked = Team.objects.get(name=pickData[currentPick])
+                print("Winner picked: " + winnerPicked.name)
 
                 #Check to see if there is already a pick for this game
                 existingPick = GameChoice.objects.filter(league=activeLeague,user=request.user,week=currentWeek,game=currentGame)
@@ -59,7 +63,7 @@ def picks(request, weekId="1", leagueName=""):
                         league=activeLeague,
                         game = currentGame,
                         week = currentWeek,
-                        winner = pickData[currentPick]
+                        winner = winnerPicked
                     )
                     currentWinnerPick.save()
         #Generate pick page with current week and current league
@@ -82,36 +86,31 @@ def picks(request, weekId="1", leagueName=""):
         #Initialize empty dictionary for gameData to be passed to template
         pickData = []
         
-        #Get current week
-        currentWeek = Week.objects.get(id=weekId)
+        #Get current week in active season
+        currentWeek = Week.objects.get(id=weekId, season=Season.objects.get(active=True))
 
         #Get all games from current week for current league
-        currentWeekGames = Game.objects.filter(week_id=weekId).order_by('date')
+        currentWeekGames = Game.objects.filter(week=currentWeek).order_by('dateTime')
         for currentGame in currentWeekGames:
             
             #Query for game choice model
             try:
-                currentGameChoice = GameChoice.objects.get(league=activeLeague,user=request.user,week=weekId,game=currentGame)
-                winnerSelected = getattr(currentGameChoice, 'winner')
-                if winnerSelected == currentGame.winner:
-                    correctFlag = True #default to true for now
-                else:
-                    correctFlag = False
+                currentGameChoice = GameChoice.objects.get(league=activeLeague,user=request.user,week=currentWeek,game=currentGame)
+                winnerSelected = currentGameChoice.winner
             except:
                 winnerSelected = None #default pick to none until they have made one
-                correctFlag = None
 
             pickData.append(
             {
                 'game' : currentGame.id,
-                'homeTeam' : getattr(currentGame, 'homeTeam'),
-                'homeScore' : getattr(currentGame, 'homeScore'),
-                'awayTeam' : getattr(currentGame, 'awayTeam'),
-                'awayScore' : getattr(currentGame, 'awayScore'),
-                'date': getattr(currentGame, 'date'),
-                'correctFlag' : correctFlag,
+                'homeTeam' : currentGame.homeTeam,
+                'homeScore' : currentGame.homeScore,
+                'awayTeam' : currentGame.awayTeam,
+                'awayScore' : currentGame.awayScore,
+                'date' : datetime.strftime(currentGame.dateTime, '%b %#d, %Y'),
+                'time' : datetime.strftime(currentGame.dateTime - timedelta(hours=7), '%#I:%M %p'),
                 'pick' : winnerSelected,
-                'pickLocked' : getattr(currentGame, 'pickLocked')
+                'pickLocked' : currentGame.pickLocked
             })
 
         return render(request, 'picks/picks.html', {'pickData': pickData, 'userLeagues': userLeagues, 'currentWeek': currentWeek, 'activeLeague': activeLeague})

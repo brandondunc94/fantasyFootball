@@ -4,7 +4,7 @@
             "winner": "",
             "loser": "",
             "location": "Chicago",
-            "date": "20190905",
+            "date": "20190905 12:00",
             "homeTeamData": {
                 "homeTeam": "Bears",
                 "score": ""
@@ -18,7 +18,7 @@
             "winner": "",
             "loser": "",
             "location": "Browns",
-            "date": "20190908",
+            "date": "20190908 12:00",
             "homeTeamData": {
                 "homeTeam": "Browns",
                 "score": ""
@@ -32,7 +32,7 @@
             "winner": "",
             "loser": "",
             "location": "Minnesota",
-            "date": "20190908",
+            "date": "20190908 12:00",
             "homeTeamData": {
                 "homeTeam": "Vikings",
                 "score": ""
@@ -46,7 +46,7 @@
             "winner": "",
             "loser": "",
             "location": "Philadelphia",
-            "date": "20190908",
+            "date": "20190908 12:00",
             "homeTeamData": {
                 "homeTeam": "Eagles",
                 "score": ""
@@ -60,7 +60,7 @@
             "winner": "",
             "loser": "",
             "location": "Carolina",
-            "date": "20190908",
+            "date": "20190908 12:00",
             "homeTeamData": {
                 "homeTeam": "Panthers",
                 "score": ""
@@ -74,7 +74,7 @@
             "winner": "",
             "loser": "",
             "location": "Buffalo",
-            "date": "20190908",
+            "date": "20190908 15:00",
             "homeTeamData": {
                 "homeTeam": "Jets",
                 "score": ""
@@ -88,7 +88,7 @@
             "winner": "",
             "loser": "",
             "location": "Jacksonville",
-            "date": "20190908",
+            "date": "20190908 15:00",
             "homeTeamData": {
                 "homeTeam": "Jaguars",
                 "score": ""
@@ -102,7 +102,7 @@
             "winner": "",
             "loser": "",
             "location": "Miami",
-            "date": "20190908",
+            "date": "20190908 15:00",
             "homeTeamData": {
                 "homeTeam": "Dolphins",
                 "score": ""
@@ -116,7 +116,7 @@
             "winner": "",
             "loser": "",
             "location": "Los Angeles",
-            "date": "20190908",
+            "date": "20190908 12:00",
             "homeTeamData": {
                 "homeTeam": "Chargers",
                 "score": ""
@@ -130,7 +130,7 @@
             "winner": "",
             "loser": "",
             "location": "Seattle",
-            "date": "20190908",
+            "date": "20190908 12:00",
             "homeTeamData": {
                 "homeTeam": "Seahawks",
                 "score": ""
@@ -144,7 +144,7 @@
             "winner": "",
             "loser": "",
             "location": "Dallas",
-            "date": "20190908",
+            "date": "20190908 12:00",
             "homeTeamData": {
                 "homeTeam": "Cowboys",
                 "score": ""
@@ -158,7 +158,7 @@
             "winner": "",
             "loser": "",
             "location": "Arizona",
-            "date": "20190908",
+            "date": "20190908 12:00",
             "homeTeamData": {
                 "homeTeam": "Cardinals",
                 "score": ""
@@ -172,7 +172,7 @@
             "winner": "",
             "loser": "",
             "location": "Tampa Bay",
-            "date": "20190908",
+            "date": "20190908 12:00",
             "homeTeamData": {
                 "homeTeam": "Buccaneers",
                 "score": ""
@@ -186,7 +186,7 @@
             "winner": "",
             "loser": "",
             "location": "New England",
-            "date": "20190908",
+            "date": "20190908 20:00",
             "homeTeamData": {
                 "homeTeam": "Patriots",
                 "score": ""
@@ -200,7 +200,7 @@
             "winner": "",
             "loser": "",
             "location": "New Orleans",
-            "date": "20190909",
+            "date": "20190909 20:00",
             "homeTeamData": {
                 "homeTeam": "Saints",
                 "score": ""
@@ -214,7 +214,7 @@
             "winner": "",
             "loser": "",
             "location": "Oakland",
-            "date": "20190909",
+            "date": "20190909 20:00",
             "homeTeamData": {
                 "homeTeam": "Raiders",
                 "score": ""
@@ -231,7 +231,7 @@
             "winner": "",
             "loser": "",
             "location": "Carolina",
-            "date": "20190912",
+            "date": "20190912 12:00",
             "homeTeamData": {
                 "homeTeam": "Buccaneers",
                 "score": ""
@@ -245,7 +245,7 @@
             "winner": "",
             "loser": "",
             "location": "New York",
-            "date": "20190915",
+            "date": "20190915 12:00",
             "homeTeamData": {
                 "homeTeam": "Giants",
                 "score": ""
@@ -259,7 +259,7 @@
             "winner": "",
             "loser": "",
             "location": "Green Bay",
-            "date": "20190915",
+            "date": "20190915 12:00",
             "homeTeamData": {
                 "homeTeam": "Packers",
                 "score": ""
@@ -273,7 +273,7 @@
             "winner": "",
             "loser": "",
             "location": "Houston",
-            "date": "20190915",
+            "date": "20190915 12:00",
             "homeTeamData": {
                 "homeTeam": "Texans",
                 "score": ""
@@ -287,7 +287,7 @@
             "winner": "",
             "loser": "",
             "location": "Baltimore",
-            "date": "20190915",
+            "date": "20190915 12:00",
             "homeTeamData": {
                 "homeTeam": "Ravens",
                 "score": ""
@@ -301,7 +301,7 @@
             "winner": "",
             "loser": "",
             "location": "Cincinnati",
-            "date": "20190915",
+            "date": "20190915 12:00",
             "homeTeamData": {
                 "homeTeam": "Bengals",
                 "score": ""
@@ -315,7 +315,7 @@
             "winner": "",
             "loser": "",
             "location": "Detroit",
-            "date": "20190915",
+            "date": "20190915 12:00",
             "homeTeamData": {
                 "homeTeam": "Lions",
                 "score": ""
@@ -329,7 +329,7 @@
             "winner": "",
             "loser": "",
             "location": "Miami",
-            "date": "20190915",
+            "date": "20190915 12:00",
             "homeTeamData": {
                 "homeTeam": "Dolphins",
                 "score": ""
@@ -343,7 +343,7 @@
             "winner": "",
             "loser": "",
             "location": "Tennessee",
-            "date": "20190915",
+            "date": "20190915 12:00",
             "homeTeamData": {
                 "homeTeam": "Titans",
                 "score": ""
@@ -357,7 +357,7 @@
             "winner": "",
             "loser": "",
             "location": "Pittsburgh",
-            "date": "20190915",
+            "date": "20190915 12:00",
             "homeTeamData": {
                 "homeTeam": "Steelers",
                 "score": ""
@@ -371,7 +371,7 @@
             "winner": "",
             "loser": "",
             "location": "Washington",
-            "date": "20190915",
+            "date": "20190915 12:00",
             "homeTeamData": {
                 "homeTeam": "Redskins",
                 "score": ""
@@ -385,7 +385,7 @@
             "winner": "",
             "loser": "",
             "location": "Oakland",
-            "date": "20190915",
+            "date": "20190915 12:00",
             "homeTeamData": {
                 "homeTeam": "Raiders",
                 "score": ""
@@ -399,7 +399,7 @@
             "winner": "",
             "loser": "",
             "location": "Los Angeles",
-            "date": "20190915",
+            "date": "20190915 12:00",
             "homeTeamData": {
                 "homeTeam": "Rams",
                 "score": ""
@@ -413,7 +413,7 @@
             "winner": "",
             "loser": "",
             "location": "Denver",
-            "date": "20190915",
+            "date": "20190915 12:00",
             "homeTeamData": {
                 "homeTeam": "Broncos",
                 "score": ""
@@ -427,7 +427,7 @@
             "winner": "",
             "loser": "",
             "location": "Atlanta",
-            "date": "20190915",
+            "date": "20190915 12:00",
             "homeTeamData": {
                 "homeTeam": "Falcons",
                 "score": ""
@@ -441,7 +441,7 @@
             "winner": "",
             "loser": "",
             "location": "New York",
-            "date": "20190915",
+            "date": "20190915 12:00",
             "homeTeamData": {
                 "homeTeam": "Jets",
                 "score": ""
@@ -458,7 +458,7 @@
             "winner": "",
             "loser": "",
             "location": "Jacksonville",
-            "date": "20190919",
+            "date": "20190919 12:00",
             "homeTeamData": {
                 "homeTeam": "Jaguars",
                 "score": ""
@@ -472,7 +472,7 @@
             "winner": "",
             "loser": "",
             "location": "Philadelphia ",
-            "date": "20190922",
+            "date": "20190922 12:00",
             "homeTeamData": {
                 "homeTeam": "Eagles",
                 "score": ""
@@ -486,7 +486,7 @@
             "winner": "",
             "loser": "",
             "location": "Dallas",
-            "date": "20190922",
+            "date": "20190922 12:00",
             "homeTeamData": {
                 "homeTeam": "Cowboys",
                 "score": ""
@@ -500,7 +500,7 @@
             "winner": "",
             "loser": "",
             "location": "Kansas City",
-            "date": "20190922",
+            "date": "20190922 12:00",
             "homeTeamData": {
                 "homeTeam": "Chiefs",
                 "score": ""
@@ -514,7 +514,7 @@
             "winner": "",
             "loser": "",
             "location": "Buffalo",
-            "date": "20190922",
+            "date": "20190922 12:00",
             "homeTeamData": {
                 "homeTeam": "Bills",
                 "score": ""
@@ -528,7 +528,7 @@
             "winner": "",
             "loser": "",
             "location": "Indianapolis",
-            "date": "20190922",
+            "date": "20190922 12:00",
             "homeTeamData": {
                 "homeTeam": "Colts",
                 "score": ""
@@ -542,7 +542,7 @@
             "winner": "",
             "loser": "",
             "location": "New England",
-            "date": "20190922",
+            "date": "20190922 12:00",
             "homeTeamData": {
                 "homeTeam": "Patriots",
                 "score": ""
@@ -556,7 +556,7 @@
             "winner": "",
             "loser": "",
             "location": "Green Bay",
-            "date": "20190922",
+            "date": "20190922 12:00",
             "homeTeamData": {
                 "homeTeam": "Packers",
                 "score": ""
@@ -570,7 +570,7 @@
             "winner": "",
             "loser": "",
             "location": "Arizona ",
-            "date": "20190922",
+            "date": "20190922 12:00",
             "homeTeamData": {
                 "homeTeam": "Cardinals",
                 "score": ""
@@ -584,7 +584,7 @@
             "winner": "",
             "loser": "",
             "location": "Tampa Bay",
-            "date": "20190922",
+            "date": "20190922 12:00",
             "homeTeamData": {
                 "homeTeam": "Buccaneers",
                 "score": ""
@@ -598,7 +598,7 @@
             "winner": "",
             "loser": "",
             "location": "Los Angeles",
-            "date": "20190922",
+            "date": "20190922 12:00",
             "homeTeamData": {
                 "homeTeam": "Chargers",
                 "score": ""
@@ -612,7 +612,7 @@
             "winner": "",
             "loser": "",
             "location": "Seattle ",
-            "date": "20190922",
+            "date": "20190922 12:00",
             "homeTeamData": {
                 "homeTeam": "Seahawks",
                 "score": ""
@@ -626,7 +626,7 @@
             "winner": "",
             "loser": "",
             "location": "San Francisco",
-            "date": "20190922",
+            "date": "20190922 12:00",
             "homeTeamData": {
                 "homeTeam": "49ers",
                 "score": ""
@@ -640,7 +640,7 @@
             "winner": "",
             "loser": "",
             "location": "Cleveland",
-            "date": "20190922",
+            "date": "20190922 12:00",
             "homeTeamData": {
                 "homeTeam": "Browns",
                 "score": ""
@@ -654,7 +654,7 @@
             "winner": "",
             "loser": "",
             "location": "Washington",
-            "date": "20190923",
+            "date": "20190923 12:00",
             "homeTeamData": {
                 "homeTeam": "Redskins",
                 "score": ""
@@ -671,7 +671,7 @@
             "winner": "",
             "loser": "",
             "location": "Green Bay",
-            "date": "20190926",
+            "date": "20190926 12:00",
             "homeTeamData": {
                 "homeTeam": "Packers",
                 "score": ""
@@ -685,7 +685,7 @@
             "winner": "",
             "loser": "",
             "location": "Miami ",
-            "date": "20190929",
+            "date": "20190929 12:00",
             "homeTeamData": {
                 "homeTeam": "Dolphins",
                 "score": ""
@@ -699,7 +699,7 @@
             "winner": "",
             "loser": "",
             "location": "Houston ",
-            "date": "20190929",
+            "date": "20190929 12:00",
             "homeTeamData": {
                 "homeTeam": "Texans",
                 "score": ""
@@ -713,7 +713,7 @@
             "winner": "",
             "loser": "",
             "location": "Baltimore ",
-            "date": "20190929",
+            "date": "20190929 12:00",
             "homeTeamData": {
                 "homeTeam": "Ravens",
                 "score": ""
@@ -727,7 +727,7 @@
             "winner": "",
             "loser": "",
             "location": "Buffalo ",
-            "date": "20190929",
+            "date": "20190929 12:00",
             "homeTeamData": {
                 "homeTeam": "Bills",
                 "score": ""
@@ -741,7 +741,7 @@
             "winner": "",
             "loser": "",
             "location": "Detroit ",
-            "date": "20190929",
+            "date": "20190929 12:00",
             "homeTeamData": {
                 "homeTeam": "Lions",
                 "score": ""
@@ -755,7 +755,7 @@
             "winner": "",
             "loser": "",
             "location": "Indianapolis ",
-            "date": "20190929",
+            "date": "20190929 12:00",
             "homeTeamData": {
                 "homeTeam": "Colts",
                 "score": ""
@@ -769,7 +769,7 @@
             "winner": "",
             "loser": "",
             "location": "Atlanta",
-            "date": "20190929",
+            "date": "20190929 12:00",
             "homeTeamData": {
                 "homeTeam": "Falcons",
                 "score": ""
@@ -783,7 +783,7 @@
             "winner": "",
             "loser": "",
             "location": "New York",
-            "date": "20190929",
+            "date": "20190929 12:00",
             "homeTeamData": {
                 "homeTeam": "Giants",
                 "score": ""
@@ -797,7 +797,7 @@
             "winner": "",
             "loser": "",
             "location": "Arizona ",
-            "date": "20190929",
+            "date": "20190929 12:00",
             "homeTeamData": {
                 "homeTeam": "Cardinals",
                 "score": ""
@@ -811,7 +811,7 @@
             "winner": "",
             "loser": "",
             "location": "Los Angeles",
-            "date": "20190929",
+            "date": "20190929 12:00",
             "homeTeamData": {
                 "homeTeam": "Rams",
                 "score": ""
@@ -825,7 +825,7 @@
             "winner": "",
             "loser": "",
             "location": "Denver ",
-            "date": "20190929",
+            "date": "20190929 12:00",
             "homeTeamData": {
                 "homeTeam": "Broncos",
                 "score": ""
@@ -839,7 +839,7 @@
             "winner": "",
             "loser": "",
             "location": "Chicago",
-            "date": "20190929",
+            "date": "20190929 12:00",
             "homeTeamData": {
                 "homeTeam": "Bears",
                 "score": ""
@@ -853,7 +853,7 @@
             "winner": "",
             "loser": "",
             "location": "New Orleans",
-            "date": "20190929",
+            "date": "20190929 12:00",
             "homeTeamData": {
                 "homeTeam": "Saints",
                 "score": ""
@@ -867,7 +867,7 @@
             "winner": "",
             "loser": "",
             "location": "Pittsburgh",
-            "date": "20190930",
+            "date": "20190930 12:00",
             "homeTeamData": {
                 "homeTeam": "Steelers",
                 "score": ""
@@ -884,7 +884,7 @@
             "winner": "",
             "loser": "",
             "location": "Seattle ",
-            "date": "20191003",
+            "date": "20191003 12:00",
             "homeTeamData": {
                 "homeTeam": "Seahawks",
                 "score": ""
@@ -898,7 +898,7 @@
             "winner": "",
             "loser": "",
             "location": "Philadelphia",
-            "date": "20191006",
+            "date": "20191006 12:00",
             "homeTeamData": {
                 "homeTeam": "Eagles",
                 "score": ""
@@ -912,7 +912,7 @@
             "winner": "",
             "loser": "",
             "location": "Houston ",
-            "date": "20191006",
+            "date": "20191006 12:00",
             "homeTeamData": {
                 "homeTeam": "Texans",
                 "score": ""
@@ -926,7 +926,7 @@
             "winner": "",
             "loser": "",
             "location": "Tennessee ",
-            "date": "20191006",
+            "date": "20191006 12:00",
             "homeTeamData": {
                 "homeTeam": "Titans",
                 "score": ""
@@ -940,7 +940,7 @@
             "winner": "",
             "loser": "",
             "location": "Carolina ",
-            "date": "20191006",
+            "date": "20191006 12:00",
             "homeTeamData": {
                 "homeTeam": "Panthers",
                 "score": ""
@@ -954,7 +954,7 @@
             "winner": "",
             "loser": "",
             "location": "Cincinnati",
-            "date": "20191006",
+            "date": "20191006 12:00",
             "homeTeamData": {
                 "homeTeam": "Bengals",
                 "score": ""
@@ -968,7 +968,7 @@
             "winner": "",
             "loser": "",
             "location": "New York",
-            "date": "20191006",
+            "date": "20191006 12:00",
             "homeTeamData": {
                 "homeTeam": "Giants",
                 "score": ""
@@ -982,7 +982,7 @@
             "winner": "",
             "loser": "",
             "location": "New Orleans",
-            "date": "20191006",
+            "date": "20191006 12:00",
             "homeTeamData": {
                 "homeTeam": "Saints",
                 "score": ""
@@ -996,7 +996,7 @@
             "winner": "",
             "loser": "",
             "location": "Pittsburgh",
-            "date": "20191006",
+            "date": "20191006 12:00",
             "homeTeamData": {
                 "homeTeam": "Steelers",
                 "score": ""
@@ -1010,7 +1010,7 @@
             "winner": "",
             "loser": "",
             "location": "Washington",
-            "date": "20191006",
+            "date": "20191006 12:00",
             "homeTeamData": {
                 "homeTeam": "Redskins",
                 "score": ""
@@ -1024,7 +1024,7 @@
             "winner": "",
             "loser": "",
             "location": "Oakland",
-            "date": "20191006",
+            "date": "20191006 12:00",
             "homeTeamData": {
                 "homeTeam": "Raiders",
                 "score": ""
@@ -1038,7 +1038,7 @@
             "winner": "",
             "loser": "",
             "location": "Los Angeles",
-            "date": "20191006",
+            "date": "20191006 12:00",
             "homeTeamData": {
                 "homeTeam": "Chargers",
                 "score": ""
@@ -1052,7 +1052,7 @@
             "winner": "",
             "loser": "",
             "location": "Dallas",
-            "date": "20191006",
+            "date": "20191006 12:00",
             "homeTeamData": {
                 "homeTeam": "Cowboys",
                 "score": ""
@@ -1066,7 +1066,7 @@
             "winner": "",
             "loser": "",
             "location": "Kansas City",
-            "date": "20191006",
+            "date": "20191006 12:00",
             "homeTeamData": {
                 "homeTeam": "Chiefs",
                 "score": ""
@@ -1080,7 +1080,7 @@
             "winner": "",
             "loser": "",
             "location": "San Francisco",
-            "date": "20191006",
+            "date": "20191006 12:00",
             "homeTeamData": {
                 "homeTeam": "49ers",
                 "score": ""
@@ -1097,7 +1097,7 @@
             "winner": "",
             "loser": "",
             "location": "New England",
-            "date": "20191010",
+            "date": "20191010 12:00",
             "homeTeamData": {
                 "homeTeam": "Patriots",
                 "score": ""
@@ -1111,7 +1111,7 @@
             "winner": "",
             "loser": "",
             "location": "Tampa Bay",
-            "date": "20191013",
+            "date": "20191013 12:00",
             "homeTeamData": {
                 "homeTeam": "Buccaneers",
                 "score": ""
@@ -1125,7 +1125,7 @@
             "winner": "",
             "loser": "",
             "location": "Miami",
-            "date": "20191013",
+            "date": "20191013 12:00",
             "homeTeamData": {
                 "homeTeam": "Dolphins",
                 "score": ""
@@ -1139,7 +1139,7 @@
             "winner": "",
             "loser": "",
             "location": "Minnesota",
-            "date": "20191013",
+            "date": "20191013 12:00",
             "homeTeamData": {
                 "homeTeam": "Vikings",
                 "score": ""
@@ -1153,7 +1153,7 @@
             "winner": "",
             "loser": "",
             "location": "Baltimore",
-            "date": "20191013",
+            "date": "20191013 12:00",
             "homeTeamData": {
                 "homeTeam": "Ravens",
                 "score": ""
@@ -1167,7 +1167,7 @@
             "winner": "",
             "loser": "",
             "location": "Cleveland",
-            "date": "20191013",
+            "date": "20191013 12:00",
             "homeTeamData": {
                 "homeTeam": "Browns",
                 "score": ""
@@ -1181,7 +1181,7 @@
             "winner": "",
             "loser": "",
             "location": "Jacksonville",
-            "date": "20191013",
+            "date": "20191013 12:00",
             "homeTeamData": {
                 "homeTeam": "Jaguars",
                 "score": ""
@@ -1195,7 +1195,7 @@
             "winner": "",
             "loser": "",
             "location": "Kansas City",
-            "date": "20191013",
+            "date": "20191013 12:00",
             "homeTeamData": {
                 "homeTeam": "Chiefs",
                 "score": ""
@@ -1209,7 +1209,7 @@
             "winner": "",
             "loser": "",
             "location": "Arizona",
-            "date": "20191013",
+            "date": "20191013 12:00",
             "homeTeamData": {
                 "homeTeam": "Cardinals",
                 "score": ""
@@ -1223,7 +1223,7 @@
             "winner": "",
             "loser": "",
             "location": "Los Angeles",
-            "date": "20191013",
+            "date": "20191013 12:00",
             "homeTeamData": {
                 "homeTeam": "Los Angeles",
                 "score": ""
@@ -1237,7 +1237,7 @@
             "winner": "",
             "loser": "",
             "location": "Denver",
-            "date": "20191013",
+            "date": "20191013 12:00",
             "homeTeamData": {
                 "homeTeam": "Broncos",
                 "score": ""
@@ -1251,7 +1251,7 @@
             "winner": "",
             "loser": "",
             "location": "New York",
-            "date": "20191013",
+            "date": "20191013 12:00",
             "homeTeamData": {
                 "homeTeam": "Jets",
                 "score": ""
@@ -1265,7 +1265,7 @@
             "winner": "",
             "loser": "",
             "location": "Los Angeles",
-            "date": "20191013",
+            "date": "20191013 12:00",
             "homeTeamData": {
                 "homeTeam": "Chargers",
                 "score": ""
@@ -1279,7 +1279,7 @@
             "winner": "",
             "loser": "",
             "location": "Green Bay",
-            "date": "20191014",
+            "date": "20191014 12:00",
             "homeTeamData": {
                 "homeTeam": "Packers",
                 "score": ""
@@ -1296,7 +1296,7 @@
             "winner": "",
             "loser": "",
             "location": "Denver ",
-            "date": "20191017",
+            "date": "20191017 12:00",
             "homeTeamData": {
                 "homeTeam": "Broncos",
                 "score": ""
@@ -1310,7 +1310,7 @@
             "winner": "",
             "loser": "",
             "location": "Buffalo ",
-            "date": "20191020",
+            "date": "20191020 12:00",
             "homeTeamData": {
                 "homeTeam": "Bills",
                 "score": ""
@@ -1324,7 +1324,7 @@
             "winner": "",
             "loser": "",
             "location": "Green Bay",
-            "date": "20191020",
+            "date": "20191020 12:00",
             "homeTeamData": {
                 "homeTeam": "Packers",
                 "score": ""
@@ -1338,7 +1338,7 @@
             "winner": "",
             "loser": "",
             "location": "New York",
-            "date": "20191020",
+            "date": "20191020 12:00",
             "homeTeamData": {
                 "homeTeam": "Giants",
                 "score": ""
@@ -1352,7 +1352,7 @@
             "winner": "",
             "loser": "",
             "location": "Indianapolis",
-            "date": "20191020",
+            "date": "20191020 12:00",
             "homeTeamData": {
                 "homeTeam": "Colts",
                 "score": ""
@@ -1366,7 +1366,7 @@
             "winner": "",
             "loser": "",
             "location": "Detroit",
-            "date": "20191020",
+            "date": "20191020 12:00",
             "homeTeamData": {
                 "homeTeam": "Lions",
                 "score": ""
@@ -1380,7 +1380,7 @@
             "winner": "",
             "loser": "",
             "location": "Cincinnati",
-            "date": "20191020",
+            "date": "20191020 12:00",
             "homeTeamData": {
                 "homeTeam": "Bengals",
                 "score": ""
@@ -1394,7 +1394,7 @@
             "winner": "",
             "loser": "",
             "location": "Washington",
-            "date": "20191020",
+            "date": "20191020 12:00",
             "homeTeamData": {
                 "homeTeam": "Redskins",
                 "score": ""
@@ -1408,7 +1408,7 @@
             "winner": "",
             "loser": "",
             "location": "Atlanta",
-            "date": "20191020",
+            "date": "20191020 12:00",
             "homeTeamData": {
                 "homeTeam": "Falcons",
                 "score": ""
@@ -1422,7 +1422,7 @@
             "winner": "",
             "loser": "",
             "location": "Tennessee",
-            "date": "20191020",
+            "date": "20191020 12:00",
             "homeTeamData": {
                 "homeTeam": "Titans",
                 "score": ""
@@ -1436,7 +1436,7 @@
             "winner": "",
             "loser": "",
             "location": "Seattle",
-            "date": "20191020",
+            "date": "20191020 12:00",
             "homeTeamData": {
                 "homeTeam": "Seahawks",
                 "score": ""
@@ -1450,7 +1450,7 @@
             "winner": "",
             "loser": "",
             "location": "Chicago",
-            "date": "20191020",
+            "date": "20191020 12:00",
             "homeTeamData": {
                 "homeTeam": "Bears",
                 "score": ""
@@ -1464,7 +1464,7 @@
             "winner": "",
             "loser": "",
             "location": "Dallas",
-            "date": "20191020",
+            "date": "20191020 12:00",
             "homeTeamData": {
                 "homeTeam": "Cowboys",
                 "score": ""
@@ -1478,7 +1478,7 @@
             "winner": "",
             "loser": "",
             "location": "New York",
-            "date": "20191021",
+            "date": "20191021 12:00",
             "homeTeamData": {
                 "homeTeam": "Jets",
                 "score": ""
@@ -1495,7 +1495,7 @@
             "winner": "",
             "loser": "",
             "location": "Minnesota",
-            "date": "20191024",
+            "date": "20191024 12:00",
             "homeTeamData": {
                 "homeTeam": "Vikings",
                 "score": ""
@@ -1509,7 +1509,7 @@
             "winner": "",
             "loser": "",
             "location": "Detroit",
-            "date": "20191027",
+            "date": "20191027 12:00",
             "homeTeamData": {
                 "homeTeam": "Lions",
                 "score": ""
@@ -1523,7 +1523,7 @@
             "winner": "",
             "loser": "",
             "location": "Chicago",
-            "date": "20191027",
+            "date": "20191027 12:00",
             "homeTeamData": {
                 "homeTeam": "Bears",
                 "score": ""
@@ -1537,7 +1537,7 @@
             "winner": "",
             "loser": "",
             "location": "Tennessee",
-            "date": "20191027",
+            "date": "20191027 12:00",
             "homeTeamData": {
                 "homeTeam": "Titans",
                 "score": ""
@@ -1551,7 +1551,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "20191027",
+            "date": "20191027 12:00",
             "homeTeamData": {
                 "homeTeam": "Falcons",
                 "score": ""
@@ -1565,7 +1565,7 @@
             "winner": "",
             "loser": "",
             "location": "Buffalo",
-            "date": "20191027",
+            "date": "20191027 12:00",
             "homeTeamData": {
                 "homeTeam": "Bills",
                 "score": ""
@@ -1579,7 +1579,7 @@
             "winner": "",
             "loser": "",
             "location": "Jacksonville",
-            "date": "20191027",
+            "date": "20191027 12:00",
             "homeTeamData": {
                 "homeTeam": "Jaguars",
                 "score": ""
@@ -1593,7 +1593,7 @@
             "winner": "",
             "loser": "",
             "location": "New Orleans",
-            "date": "20191027",
+            "date": "20191027 12:00",
             "homeTeamData": {
                 "homeTeam": "Saints",
                 "score": ""
@@ -1607,7 +1607,7 @@
             "winner": "",
             "loser": "",
             "location": "Los Angeles",
-            "date": "20191027",
+            "date": "20191027 12:00",
             "homeTeamData": {
                 "homeTeam": "Rams",
                 "score": ""
@@ -1621,7 +1621,7 @@
             "winner": "",
             "loser": "",
             "location": "Indianapolis",
-            "date": "20191027",
+            "date": "20191027 12:00",
             "homeTeamData": {
                 "homeTeam": "Colts",
                 "score": ""
@@ -1635,7 +1635,7 @@
             "winner": "",
             "loser": "",
             "location": "San Francisco",
-            "date": "20191027",
+            "date": "20191027 12:00",
             "homeTeamData": {
                 "homeTeam": "49ers",
                 "score": ""
@@ -1649,7 +1649,7 @@
             "winner": "",
             "loser": "",
             "location": "Houston",
-            "date": "20191027",
+            "date": "20191027 12:00",
             "homeTeamData": {
                 "homeTeam": "Texans",
                 "score": ""
@@ -1663,7 +1663,7 @@
             "winner": "",
             "loser": "",
             "location": "New England",
-            "date": "20191027",
+            "date": "20191027 12:00",
             "homeTeamData": {
                 "homeTeam": "Patriots",
                 "score": ""
@@ -1677,7 +1677,7 @@
             "winner": "",
             "loser": "",
             "location": "Kansas City",
-            "date": "20191027",
+            "date": "20191027 12:00",
             "homeTeamData": {
                 "homeTeam": "Chiefs",
                 "score": ""
@@ -1691,7 +1691,7 @@
             "winner": "",
             "loser": "",
             "location": "20191028",
-            "date": "20191027",
+            "date": "20191027 12:00",
             "homeTeamData": {
                 "homeTeam": "Steelers",
                 "score": ""
@@ -1708,7 +1708,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -1722,7 +1722,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -1736,7 +1736,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -1750,7 +1750,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -1764,7 +1764,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -1778,7 +1778,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -1792,7 +1792,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -1806,7 +1806,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -1820,7 +1820,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -1834,7 +1834,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -1848,7 +1848,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -1862,7 +1862,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -1876,7 +1876,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -1890,7 +1890,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -1904,7 +1904,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -1918,7 +1918,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -1935,7 +1935,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -1949,7 +1949,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -1963,7 +1963,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -1977,7 +1977,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -1991,7 +1991,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2005,7 +2005,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2019,7 +2019,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2033,7 +2033,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2047,7 +2047,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2061,7 +2061,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2075,7 +2075,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2089,7 +2089,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2103,7 +2103,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2117,7 +2117,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2131,7 +2131,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2145,7 +2145,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2162,7 +2162,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2176,7 +2176,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2190,7 +2190,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2204,7 +2204,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2218,7 +2218,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2232,7 +2232,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2246,7 +2246,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2260,7 +2260,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2274,7 +2274,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2288,7 +2288,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2302,7 +2302,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2316,7 +2316,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2330,7 +2330,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2344,7 +2344,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2358,7 +2358,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2372,7 +2372,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2389,7 +2389,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2403,7 +2403,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2417,7 +2417,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2431,7 +2431,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2445,7 +2445,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2459,7 +2459,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2473,7 +2473,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2487,7 +2487,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2501,7 +2501,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2515,7 +2515,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2529,7 +2529,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2543,7 +2543,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2557,7 +2557,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2571,7 +2571,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2585,7 +2585,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2599,7 +2599,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2616,7 +2616,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2630,7 +2630,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2644,7 +2644,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2658,7 +2658,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2672,7 +2672,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2686,7 +2686,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2700,7 +2700,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2714,7 +2714,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2728,7 +2728,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2742,7 +2742,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2756,7 +2756,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2770,7 +2770,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2784,7 +2784,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2798,7 +2798,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2812,7 +2812,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2826,7 +2826,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2843,7 +2843,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2857,7 +2857,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2871,7 +2871,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2885,7 +2885,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2899,7 +2899,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2913,7 +2913,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2927,7 +2927,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2941,7 +2941,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2955,7 +2955,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2969,7 +2969,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2983,7 +2983,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -2997,7 +2997,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3011,7 +3011,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3025,7 +3025,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3039,7 +3039,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3053,7 +3053,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3070,7 +3070,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3084,7 +3084,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3098,7 +3098,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3112,7 +3112,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3126,7 +3126,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3140,7 +3140,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3154,7 +3154,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3168,7 +3168,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3182,7 +3182,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3196,7 +3196,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3210,7 +3210,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3224,7 +3224,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3238,7 +3238,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3252,7 +3252,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3266,7 +3266,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3280,7 +3280,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3297,7 +3297,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3311,7 +3311,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3325,7 +3325,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3339,7 +3339,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3353,7 +3353,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3367,7 +3367,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3381,7 +3381,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3395,7 +3395,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3409,7 +3409,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3423,7 +3423,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3437,7 +3437,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3451,7 +3451,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3465,7 +3465,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3479,7 +3479,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3493,7 +3493,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3507,7 +3507,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3524,7 +3524,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3538,7 +3538,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3552,7 +3552,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3566,7 +3566,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3580,7 +3580,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3594,7 +3594,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3608,7 +3608,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3622,7 +3622,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3636,7 +3636,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3650,7 +3650,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3664,7 +3664,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3678,7 +3678,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3692,7 +3692,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3706,7 +3706,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3720,7 +3720,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3734,7 +3734,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3751,7 +3751,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3765,7 +3765,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3779,7 +3779,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3793,7 +3793,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3807,7 +3807,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3821,7 +3821,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3835,7 +3835,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3849,7 +3849,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3863,7 +3863,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3877,7 +3877,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3891,7 +3891,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3905,7 +3905,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3919,7 +3919,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3933,7 +3933,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3947,7 +3947,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""
@@ -3961,7 +3961,7 @@
             "winner": "",
             "loser": "",
             "location": "",
-            "date": "",
+            "date": " 12:00",
             "homeTeamData": {
                 "homeTeam": "",
                 "score": ""

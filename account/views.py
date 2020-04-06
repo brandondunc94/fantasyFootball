@@ -38,7 +38,8 @@ def create_account(request):
                 newProfile = Profile(
                     user = newUser, 
                     firstName = form.cleaned_data['firstName'],
-                    lastName = form.cleaned_data['lastName']
+                    lastName = form.cleaned_data['lastName'],
+                    currentActiveLeague = None
                     )
 
                 newProfile.save()

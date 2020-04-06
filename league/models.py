@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class League(models.Model):
-    name = models.TextField(max_length=100, blank=True)
+    name = models.TextField(primary_key=True, max_length=100, blank=True)
     members = models.ManyToManyField(User, through="LeagueMembership")
     description = models.TextField(max_length=100, default="")
     admin = models.ForeignKey(User, on_delete=models.CASCADE, related_name="admin", default="", null=True)
@@ -16,7 +16,8 @@ class League(models.Model):
     
 
 class Season(models.Model):
-    year = models.TextField(max_length=100, blank=True, unique=True)
+    year = models.TextField(primary_key=True, max_length=100, blank=True)
+    active = models.BooleanField(default=True)
     currentActiveWeek = models.TextField(max_length=100, default="1")
     
     def __str__(self):
@@ -26,20 +27,27 @@ class Week(models.Model):
     season = models.ForeignKey(Season,on_delete=models.CASCADE, default=None)
     picksLocked = models.BooleanField(default=False)
 
+class Team(models.Model):
+    name = models.TextField(primary_key=True, max_length=50, blank=True)
+    city = models.TextField(max_length=50, blank=True)
+    wins = models.IntegerField(default=0)
+    losses = models.IntegerField(default=0)
+    season = models.ForeignKey(Season,on_delete=models.CASCADE, default=None)
+
 class Game(models.Model):
-    week = models.ForeignKey(Week,on_delete=models.CASCADE, default=None)
-    homeTeam = models.TextField(max_length=50, blank=True)
-    awayTeam = models.TextField(max_length=50, blank=True)
-    homeCity = models.TextField(max_length=50, blank=True)
-    awayCity = models.TextField(max_length=50, blank=True)
+    week = models.ForeignKey(Week, on_delete=models.CASCADE, default=None)
+    homeTeam = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True, related_name="home")
+    awayTeam = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True, related_name="away")
     homeScore = models.TextField(max_length=10, blank=True)
     awayScore = models.TextField(max_length=10, blank=True)
     location = models.TextField(max_length=20, blank=True)
-    date = models.DateField(auto_now=False, null=True)
-    winner = models.TextField(max_length=50, blank=True)
-    loser = models.TextField(max_length=50, blank=True)
+    dateTime = models.DateTimeField(auto_now=False, null=True)
+    winner = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True, related_name="winner")
+    loser = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True, related_name="loser")
+    favorite = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True, related_name="favorite")
     users = models.ManyToManyField(User, through="GameChoice")
     pickLocked = models.BooleanField(default=False)
+
 
 #This model governs the relationship between a game and a user and who they picked to win the game
 class GameChoice(models.Model):
@@ -47,14 +55,14 @@ class GameChoice(models.Model):
     league = models.ForeignKey(League, on_delete=models.CASCADE)
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     week = models.ForeignKey(Week, on_delete=models.CASCADE)
-    winner = models.TextField(max_length=50, blank=True)
+    winner = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True)
     correctFlag = models.BooleanField(default=None,null=True)
 
 #This models governs the relationship between a User and a League they are associated with
 class LeagueMembership(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     league = models.ForeignKey(League, on_delete=models.CASCADE)
-    score = models.IntegerField(default=0)
+    score = models.IntegerField(default=500)
     class Meta:
         unique_together = ["user", "league"]
 

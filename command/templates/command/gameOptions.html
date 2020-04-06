@@ -47,7 +47,7 @@
             <tbody>
                 {% for currentGame in gameData %}
                 <tr class="score-input" value="">
-                    <td class="text game-id" value="{{ currentGame.id }}">{{ currentGame.date }} - {{ currentGame.homeTeam }} @ {{ currentGame.awayTeam }}</td>
+                    <td class="text game-id" value="{{ currentGame.id }}">{{ currentGame.date }} - {{ currentGame.homeTeam.name }} @ {{ currentGame.awayTeam.name }}</td>
                     {% if currentGame.pickLocked == False %}
                     <td>
                         <input type="text" class="form-control home-score" size="3" maxlength="3" value="{{ currentGame.homeScore }}">
