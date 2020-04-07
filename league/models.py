@@ -44,7 +44,8 @@ class Game(models.Model):
     dateTime = models.DateTimeField(auto_now=False, null=True)
     winner = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True, related_name="winner")
     loser = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True, related_name="loser")
-    favorite = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True, related_name="favorite")
+    homeSpread = models.IntegerField(default=0)
+    awaySpread = models.IntegerField(default=0)
     users = models.ManyToManyField(User, through="GameChoice")
     pickLocked = models.BooleanField(default=False)
 

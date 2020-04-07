@@ -56,8 +56,12 @@ def home(request, weekId="1", leagueName=""):
         {
             'homeTeam' : currentGame.homeTeam,
             'homeScore' : currentGame.homeScore,
+            'homeRecordWins' : currentGame.homeTeam.wins,
+            'homeRecordLosses' : currentGame.homeTeam.losses,
             'awayTeam' : currentGame.awayTeam,
             'awayScore' : currentGame.awayScore,
+            'awayRecordWins' : currentGame.awayTeam.wins,
+            'awayRecordLosses' : currentGame.awayTeam.losses,
             'winner' : currentGame.winner,
             'date' : datetime.strftime(currentGame.dateTime, '%b %#d, %Y'),
             'time' : datetime.strftime(currentGame.dateTime - timedelta(hours=7), '%#I:%M %p'),

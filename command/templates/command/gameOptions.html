@@ -40,7 +40,9 @@
                 <tr>
                     <th scope="col">Game</th>
                     <th scope="col">Home Score</th>
+                    <th scope="col">Home Spread</th>
                     <th scope="col">Away Score</th>
+                    <th scope="col">Away Spread</th>
                     <th colspan="2">Lock Picks</th>
                 </tr>
             </thead>
@@ -53,16 +55,28 @@
                         <input type="text" class="form-control home-score" size="3" maxlength="3" value="{{ currentGame.homeScore }}">
                     </td>
                     <td>
+                        <input type="text" class="form-control home-spread" size="3" maxlength="3" value="{{ currentGame.homeSpread }}">
+                    </td>
+                    <td>
                         <input type="text" class="form-control away-score" size="3" maxlength="3" value="{{ currentGame.awayScore }}">
                     </td>
-                    <td><input class="btn btn-indigo btn-xs m-0 lock-button" value="Lock" /></td>
-                    <td><input class="btn btn-indigo btn-xs m-0 unlock-button" value="Unlocked" disabled/></td>
+                    <td>
+                        <input type="text" class="form-control home-spread" size="3" maxlength="3" value="{{ currentGame.homeSpread }}">
+                    </td>
+                    <td><input class="btn btn-indigo btn-sm btn-inline-block m-0 lock-button" value="Lock" /></td>
+                    <td><input class="btn btn-indigo btn-sm m-0 unlock-button" value="Unlocked" disabled/></td>
                     {% else %}
                     <td>
                         <input type="text" class="form-control home-score" size="3" maxlength="3" value="{{ currentGame.homeScore }}">
                     </td>
                     <td>
+                        <input type="text" class="form-control home-spread" size="3" maxlength="3" value="{{ currentGame.homeSpread }}">
+                    </td>
+                    <td>
                         <input type="text" class="form-control away-score" size="3" maxlength="3" value="{{ currentGame.awayScore }}">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control home-spread" size="3" maxlength="3" value="{{ currentGame.homeSpread }}">
                     </td>
                     <td><input class="btn btn-indigo btn-xs m-0 lock-button" value="Locked" disabled/></td>
                     <td><input class="btn btn-indigo btn-xs m-0 unlock-button" value="Unlock" /></td>{% endif %}

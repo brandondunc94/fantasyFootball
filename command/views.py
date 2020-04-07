@@ -41,8 +41,10 @@ def gameOptionsPage(request, seasonYear="2019-2020", weekId="1"):
         {
             'homeTeam' : currentGame.homeTeam,
             'homeScore' : currentGame.homeScore,
+            'homeSpread' : currentGame.homeSpread,
             'awayTeam' : currentGame.awayTeam,
             'awayScore' : currentGame.awayScore,
+            'awaySpread' : currentGame.awaySpread,
             'date' : currentGame.dateTime,
             'id' : currentGame.id,
             'pickLocked' : currentGame.pickLocked
@@ -112,10 +114,18 @@ def saveScore(request):
 
         if (homeScore > awayScore):
             gameObject.winner = gameObject.homeTeam
+            gameObject.homeTeam.wins += 1
+            gameObject.awayTeam.losses += 1
         elif (awayScore > homeScore):
             gameObject.winner = gameObject.awayTeam
+            gameObject.homeTeam.losses += 1
+            gameObject.awayTeam.wins += 1
         else:
             gameObject.winner = None
+        
+        #Save home and away wins/losses update
+        gameObject.homeTeam.save()
+        gameObject.awayTeam.save()
 
         #Update user scores
         allUsers = User.objects.all()
