@@ -257,8 +257,7 @@ def createSeason(request):
                     location = game['location'],
                     dateTime = gameDateTime,
                     winner = None,
-                    loser =None,
-                    favorite = None
+                    loser =None
                     )    
                 newGame.save()
     except:
