@@ -54,7 +54,7 @@ def picks(request, weekId="1", leagueName=""):
                 existingPick = GameChoice.objects.filter(league=activeLeague,user=request.user,week=currentWeek,game=currentGame)
                 
                 if existingPick:
-                    existingPick[0].winner = pickData[currentPick]
+                    existingPick[0].winner = winnerPicked
                     existingPick[0].save()
                 else:    
                     #Save gamechoice object using currentGame, currentLeague and user

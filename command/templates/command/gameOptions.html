@@ -63,7 +63,7 @@
                     <td>
                         <input type="text" class="form-control home-spread" size="3" maxlength="3" value="{{ currentGame.homeSpread }}">
                     </td>
-                    <td><input class="btn btn-indigo btn-sm btn-inline-block m-0 lock-button" value="Lock" /></td>
+                    <td><input class="btn btn-indigo btn-sm m-0 lock-button" value="Lock" /></td>
                     <td><input class="btn btn-indigo btn-sm m-0 unlock-button" value="Unlocked" disabled/></td>
                     {% else %}
                     <td>
@@ -78,8 +78,8 @@
                     <td>
                         <input type="text" class="form-control home-spread" size="3" maxlength="3" value="{{ currentGame.homeSpread }}">
                     </td>
-                    <td><input class="btn btn-indigo btn-xs m-0 lock-button" value="Locked" disabled/></td>
-                    <td><input class="btn btn-indigo btn-xs m-0 unlock-button" value="Unlock" /></td>{% endif %}
+                    <td><input class="btn btn-indigo btn-sm m-0 lock-button" value="Locked" disabled/></td>
+                    <td><input class="btn btn-indigo btn-sm m-0 unlock-button" value="Unlock" /></td>{% endif %}
                 </tr>
                 {% endfor %}
             </tbody>
