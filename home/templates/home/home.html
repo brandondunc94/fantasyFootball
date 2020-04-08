@@ -48,21 +48,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for currentGame in gameData %} {% if currentGame.winner != None %}
+                            {% for currentGame in gameData %} {% if currentGame.game.winner != None %}
                             <tr>
                                 <td>
                                     <div>
-                                        <img src="/static/media/{{ currentGame.homeTeam.name }}.png" alt="{{ currentGame.homeTeam.name }}" class="img-fluid" width="50" height="50">
+                                        <img src="/static/media/{{ currentGame.game.homeTeam.name }}.png" alt="{{ currentGame.game.homeTeam.name }}" class="img-fluid" width="50" height="50">
                                     </div>
-                                    <div><small>{{ currentGame.homeRecordWins }} - {{ currentGame.homeRecordLosses }}</small></div>
+                                    <div><small>{{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }}</small></div>
                                 </td>
 
-                                <td class="text">{{ currentGame.homeScore }} - {{ currentGame.awayScore }}</td>
+                                <td class="text">{{ currentGame.game.homeScore }} - {{ currentGame.game.awayScore }}</td>
                                 <td>
                                     <div>
-                                        <img src="/static/media/{{ currentGame.awayTeam.name }}.png" alt="{{ currentGame.awayTeam.name }}" class="img-fluid" width="50" height="50">
+                                        <img src="/static/media/{{ currentGame.game.awayTeam.name }}.png" alt="{{ currentGame.game.awayTeam.name }}" class="img-fluid" width="50" height="50">
                                     </div>
-                                    <div><small>{{ currentGame.awayRecordWins }} - {{ currentGame.awayRecordLosses }}</small></div>
+                                    <div><small>{{ currentGame.game.awayTeam.wins }} - {{ currentGame.game.awayTeam.losses }}</small></div>
                                 </td>
                                 {% if currentGame.pick == None %}
                                 <td>-</td>
@@ -74,9 +74,9 @@
                             <tr>
                                 <td>
                                     <div>
-                                        <img src="/static/media/{{ currentGame.homeTeam.name }}.png" alt="{{ currentGame.homeTeam.name }}" class="img-fluid" width="50" height="50">
+                                        <img src="/static/media/{{ currentGame.game.homeTeam.name }}.png" alt="{{ currentGame.game.homeTeam.name }}" class="img-fluid" width="50" height="50">
                                     </div>
-                                    <div><small>{{ currentGame.homeRecordWins }} - {{ currentGame.homeRecordLosses }}</small></div>
+                                    <div><small>{{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }}</small></div>
                                 </td>
                                 <td class="text-center align-middle">
                                     <div>{{ currentGame.date }} </div>
@@ -84,9 +84,9 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <img src="/static/media/{{ currentGame.awayTeam.name }}.png" alt="{{ currentGame.awayTeam.name }}" class="img-fluid" width="50" height="50">
+                                        <img src="/static/media/{{ currentGame.game.awayTeam.name }}.png" alt="{{ currentGame.game.awayTeam.name }}" class="img-fluid" width="50" height="50">
                                     </div>
-                                    <div><small>{{ currentGame.awayRecordWins }} - {{ currentGame.awayRecordLosses }}</small></div>
+                                    <div><small>{{ currentGame.game.awayTeam.wins }} - {{ currentGame.game.awayTeam.losses }}</small></div>
                                 </td>
                                 {% if currentGame.pick == None %}
                                 <td>-</td>

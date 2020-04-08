@@ -54,15 +54,7 @@ def home(request, weekId="1", leagueName=""):
 
         gameData.append(
         {
-            'homeTeam' : currentGame.homeTeam,
-            'homeScore' : currentGame.homeScore,
-            'homeRecordWins' : currentGame.homeTeam.wins,
-            'homeRecordLosses' : currentGame.homeTeam.losses,
-            'awayTeam' : currentGame.awayTeam,
-            'awayScore' : currentGame.awayScore,
-            'awayRecordWins' : currentGame.awayTeam.wins,
-            'awayRecordLosses' : currentGame.awayTeam.losses,
-            'winner' : currentGame.winner,
+            'game' : currentGame,
             'date' : datetime.strftime(currentGame.dateTime, '%b %#d, %Y'),
             'time' : datetime.strftime(currentGame.dateTime, '%#I:%M %p'),
             'pick' : currentPick
