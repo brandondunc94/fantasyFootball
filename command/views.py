@@ -29,7 +29,7 @@ def gameOptionsPage(request, seasonYear="2019-2020", weekId="1"):
     currentWeek = Week.objects.get(id=weekId, season=season)
 
     #Get game data for weekId passed in
-    currentWeekGames = Game.objects.filter(week=currentWeek)
+    currentWeekGames = Game.objects.filter(week=currentWeek).order_by('id')
     
     #Initialize empty dictionary for gameData to be passed to template
     gameData = []

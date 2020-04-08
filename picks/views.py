@@ -41,7 +41,7 @@ def picks(request, weekId="1", leagueName=""):
             activeLeague = userLeagues[0]
         
         #Get week game data from current week
-        games = Game.objects.filter(week=currentWeek).order_by('dateTime')
+        games = Game.objects.filter(week=currentWeek).order_by('id')
 
         for currentPick in pickData:    #This is assuming the games and picks are in the same order
             if currentPick != "csrfmiddlewaretoken":
@@ -90,7 +90,7 @@ def picks(request, weekId="1", leagueName=""):
         currentWeek = Week.objects.get(id=weekId, season=Season.objects.get(active=True))
 
         #Get all games from current week for current league
-        currentWeekGames = Game.objects.filter(week=currentWeek).order_by('dateTime')
+        currentWeekGames = Game.objects.filter(week=currentWeek).order_by('id')
         for currentGame in currentWeekGames:
             
             #Query for game choice model

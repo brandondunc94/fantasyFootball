@@ -36,7 +36,7 @@ def home(request, weekId="1", leagueName=""):
     leagueUsers = LeagueMembership.objects.filter(league=activeLeague).order_by('-score')
     
     #Get game data for weekId passed in
-    currentWeekGames = Game.objects.filter(week_id=Week.objects.get(id=weekId, season=activeSeason)).order_by('dateTime')
+    currentWeekGames = Game.objects.filter(week_id=Week.objects.get(id=weekId, season=activeSeason)).order_by('id')
     
     #Initialize empty dictionary for gameData to be passed to template
     gameData = []
