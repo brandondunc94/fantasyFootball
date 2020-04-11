@@ -1,10 +1,10 @@
 from __future__ import absolute_import, unicode_literals
 
-#from celery import shared_task
+from celery import shared_task
 from league.models import Season, Week, Game
 from datetime import datetime, timedelta
 
-#@shared_task
+@shared_task
 def lockPicks():
     try:
         #Get current active season
