@@ -4,12 +4,10 @@ from django.contrib.auth.models import User
 from league.models import League, LeagueMembership, Season, Week, Game, Team, GameChoice
 from league.utils import getUserLeagues
 import json, smtplib, ssl
-from datetime import datetime
 from django.http import JsonResponse
 
 # Create your views here.
 def commandHome(request):
-    
     #Get seasons
     seasons = Season.objects.all()
 
@@ -185,15 +183,6 @@ def lockGame(request):
 
     return JsonResponse(data)
 
-#THIS WILL BE CALLED EVERY TIME THE COMMAND PAGE IS ACCESSED
-def autoLockPick(request):
-    now = datetime.now()
-    #nextDay = now + datetime.timedelta(days=1)
-
-    #Get all game objects within the next week
-    #upcomingGames = Game.objects.filter(date__range=[now, nextDay])
-    return True
-
 #AJAX CALL
 def unlockGame(request):
     seasonYear = request.GET.get('seasonYear', None)
@@ -234,17 +223,17 @@ def createSeason(request):
         print("Teams have already been populated, continuing...")
 
     #Open current season JSON file
-    with open('./static_in_env/season20192020.json', 'r') as seasonFile:
+    with open('./static_in_env/season20192020AllTimes.json', 'r') as seasonFile:
         seasonData = json.load(seasonFile)
     try:
         for week in seasonData:
             newWeek = Week(season=season)
             newWeek.save()
             for game in week['games']:
-                homeTeam = Team.objects.get(name=game['homeTeamData']['homeTeam'])
-                awayTeam = Team.objects.get(name=game['awayTeamData']['awayTeam'])
+                homeTeam = Team.objects.get(name=game['homeTeam'])
+                awayTeam = Team.objects.get(name=game['awayTeam'])
                 try:
-                    gameDateTime = datetime.strptime(game['date'],'%Y%m%d %H:%M')  
+                    gameDateTime = datetime.strptime(game['date'],'%Y%m%d %I:%M %p')  
                 except:
                     gameDateTime = None
 
