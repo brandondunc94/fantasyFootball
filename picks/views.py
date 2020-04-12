@@ -2,11 +2,9 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from league.models import League, LeagueMembership, Season, Week, Game, GameChoice, Team
-from account.models import Profile
-from league import utils as leagueUtils
 from datetime import datetime, timedelta
-
+from league.models import League, LeagueMembership, Season, Week, Game, GameChoice, Team
+from league import utils as leagueUtils
 
 # Create your views here.
 @login_required
@@ -108,9 +106,11 @@ def picks(request, weekId="1", leagueName=""):
                 'awayTeam' : currentGame.awayTeam,
                 'awayScore' : currentGame.awayScore,
                 'date' : datetime.strftime(currentGame.dateTime, '%b %#d, %Y'),
-                'time' : datetime.strftime(currentGame.dateTime - timedelta(hours=7), '%#I:%M %p'),
+                'time' : datetime.strftime(currentGame.dateTime, '%#I:%M %p'),
                 'pick' : winnerSelected,
                 'pickLocked' : currentGame.pickLocked
             })
 
-        return render(request, 'picks/picks.html', {'pickData': pickData, 'userLeagues': userLeagues, 'currentWeek': currentWeek, 'activeLeague': activeLeague})
+        weeks = leagueUtils.getWeekIds()
+        
+        return render(request, 'picks/picks.html', {'pickData': pickData, 'userLeagues': userLeagues, 'currentWeek': currentWeek, 'activeLeague': activeLeague, 'weeks': weeks})

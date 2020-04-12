@@ -10,23 +10,8 @@
                     <div class="dropdown">
                         <button class="btn btn-green btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Week {{ week }}</button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/home/1/">Week 1</a>
-                            <a class="dropdown-item" href="/home/2/">Week 2</a>
-                            <a class="dropdown-item" href="/home/3/">Week 3</a>
-                            <a class="dropdown-item" href="/home/4/">Week 4</a>
-                            <a class="dropdown-item" href="/home/5/">Week 5</a>
-                            <a class="dropdown-item" href="/home/6/">Week 6</a>
-                            <a class="dropdown-item" href="/home/7/">Week 7</a>
-                            <a class="dropdown-item" href="/home/8/">Week 8</a>
-                            <a class="dropdown-item" href="/home/9/">Week 9</a>
-                            <a class="dropdown-item" href="/home/10/">Week 10</a>
-                            <a class="dropdown-item" href="/home/11/">Week 11</a>
-                            <a class="dropdown-item" href="/home/12/">Week 12</a>
-                            <a class="dropdown-item" href="/home/13/">Week 13</a>
-                            <a class="dropdown-item" href="/home/14/">Week 14</a>
-                            <a class="dropdown-item" href="/home/15/">Week 15</a>
-                            <a class="dropdown-item" href="/home/16/">Week 16</a>
-                            <a class="dropdown-item" href="/home/17/">Week 17</a>
+                            {% for week in weeks %}
+                            <a class="dropdown-item" href="/home/{{ week }}/">Week {{ week }}</a> {% endfor %}
                         </div>
                     </div>
                     <div class="dropdown">
@@ -88,9 +73,10 @@
                                     </div>
                                     <div><small>{{ currentGame.game.awayTeam.wins }} - {{ currentGame.game.awayTeam.losses }}</small></div>
                                 </td>
-                                {% if currentGame.pick == None %}
-                                <td>-</td>
+                                {% if currentGame.pick == None %} {% if currentGame.upcomingPickWarning == True %}
+                                <td class="text-danger">Pick locking soon!</td>
                                 {% else %}
+                                <td>-</td>{% endif %} {% else %}
                                 <td>{{ currentGame.pick.name }}</td>
                                 {% endif %}
                             </tr> {% endif %} {% endfor %}
