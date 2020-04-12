@@ -50,3 +50,20 @@ def setUserActiveLeague(currentUser, activeLeague):
 
     return True
 
+def getActiveSeason():
+
+    try:
+        activeSeason = Season.objects.get(active=True)
+    except:
+        print("There are currently no active seasons.")
+        activeSeason = None
+        
+    return activeSeason
+
+#Returns string list of week ids for active season
+def getWeekIds():
+    weekObjects = Week.objects.filter(season=getActiveSeason())
+    weeks = []
+    for week in weekObjects:
+        weeks.append(week.id)
+    return weeks
