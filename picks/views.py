@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from datetime import datetime, timedelta
 from league.models import League, LeagueMembership, Season, Week, Game, GameChoice, Team
 from league import utils as leagueUtils
+from account.utils import convertTimeToLocalTimezone
 
 # Create your views here.
 @login_required
@@ -105,8 +106,8 @@ def picks(request, weekId="1", leagueName=""):
                 'homeScore' : currentGame.homeScore,
                 'awayTeam' : currentGame.awayTeam,
                 'awayScore' : currentGame.awayScore,
-                'date' : datetime.strftime(currentGame.dateTime, '%b %#d, %Y'),
-                'time' : datetime.strftime(currentGame.dateTime, '%#I:%M %p'),
+                'date' : datetime.strftime(convertTimeToLocalTimezone(request.user, currentGame.dateTime), '%b %#d, %Y'),
+                'time' : datetime.strftime(convertTimeToLocalTimezone(request.user, currentGame.dateTime), '%#I:%M %p'),
                 'pick' : winnerSelected,
                 'pickLocked' : currentGame.pickLocked
             })

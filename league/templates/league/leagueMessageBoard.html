@@ -1,0 +1,29 @@
+{% extends "fantasyFootball/base.html" %} {% block page_content %}
+<div class="container">
+    <div class="d-flex align-items-stretch">
+        <div class="col">
+            <h6 class="border-bottom border-gray pb-2 mb-0 ">Message Board - {{ activeLeague }} </h6>
+            <div class="overflow-auto message-board" style="height: 600px; overflow-y:auto;">
+                <div class="my-3 p-3 bg-white rounded box-shadow messages-div">
+                    {% for currentMessage in leagueMessages %}
+                    <div class="media text-muted pt-3 ">
+                        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray ">
+                            <strong class="d-block text-gray-dark ">@{{ currentMessage.user.username }}</strong>{{ currentMessage.message }}
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="md-form input-group mb-3">
+                {% csrf_token %}
+                <input type="text" class="form-control" id="messageBox" placeholder="Type Message.." aria-label="Message" aria-describedby="MaterialButton-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-md btn-secondary m-0 px-3 post-button" type="submit" id="MaterialButton-addon2">Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% load static %}
+<script src="{% static 'league/js/leagueHome.js' %}"></script>
+{% endblock %}

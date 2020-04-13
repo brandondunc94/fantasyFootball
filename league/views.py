@@ -12,42 +12,49 @@ from django.http import JsonResponse
 @login_required
 def home(request, leagueName=""):
     
-    if request.method == "GET":
-        #Do a lookup to find all leagues for current user. If none, default to home page with no data
-        userLeagues = leagueUtils.getUserLeagues(request.user)
-        if userLeagues == None:
-            return render(request, 'home/welcome.html')
+    #Do a lookup to find all leagues for current user. If none, default to home page with no data
+    userLeagues = leagueUtils.getUserLeagues(request.user)
+    if userLeagues == None:
+        return render(request, 'home/welcome.html')
 
-        #Get user profile
-        currentProfile = Profile.objects.get(user=request.user)
+    #Get user profile
+    currentProfile = Profile.objects.get(user=request.user)
 
-        #Get league passed into view
-        activeLeague = leagueUtils.getLeague(leagueName)
-        if activeLeague == None:
-            #No league found using name passed in, default to user's current active league
-            activeLeague = leagueUtils.getUserActiveLeague(request.user)
-        else:
-            #Set current league to user's active league in Profile
-            leagueUtils.setUserActiveLeague(request.user, activeLeague)
-
-        #Check if current user is an admin of the league - this will display the 'League Settings' button if true
-        if activeLeague.admin == request.user:
-            leagueAdmin = True
-        else:
-            leagueAdmin = False
-
-        #Get all users for active league
-        leagueUsers = LeagueMembership.objects.filter(league=activeLeague).order_by('-score')
-
-        #Get all messages for current league to populate message board
-        leagueMessages = LeagueMessage.objects.filter(league=activeLeague)
-
-        return render(request, 'league/leagueHome.html', {'userLeagues': userLeagues, 'leagueUsers': leagueUsers, 'activeLeague': activeLeague.name, 'leagueMessages': leagueMessages, 'leagueAdmin': leagueAdmin})
-    elif request.method == "POST":
-
-        return redirect("/league/home/")
+    #Get league passed into view
+    activeLeague = leagueUtils.getLeague(leagueName)
+    if activeLeague == None:
+        #No league found using name passed in, default to user's current active league
+        activeLeague = leagueUtils.getUserActiveLeague(request.user)
     else:
-         return render(request, 'league/leagueHome.html')
+        #Set current league to user's active league in Profile
+        leagueUtils.setUserActiveLeague(request.user, activeLeague)
+
+    #Check if current user is an admin of the league - this will display the 'League Settings' button if true
+    if activeLeague.admin == request.user:
+        leagueAdmin = True
+    else:
+        leagueAdmin = False
+
+    #Get all users for active league
+    leagueUsers = LeagueMembership.objects.filter(league=activeLeague).order_by('-score')
+
+    return render(request, 'league/leagueHome.html', {'userLeagues': userLeagues, 'leagueUsers': leagueUsers, 'activeLeague': activeLeague.name, 'leagueAdmin': leagueAdmin})
+
+@login_required
+def leagueMessageBoard(request, leagueName=""):
+    #Get league passed into view
+    activeLeague = leagueUtils.getLeague(leagueName)
+    if activeLeague == None:
+        #No league found using name passed in, default to user's current active league
+        activeLeague = leagueUtils.getUserActiveLeague(request.user)
+    else:
+        #Set current league to user's active league in Profile
+        leagueUtils.setUserActiveLeague(request.user, activeLeague)
+
+    #Get all messages for current league to populate message board
+    leagueMessages = LeagueMessage.objects.filter(league=activeLeague)
+
+    return render(request, 'league/leagueMessageBoard.html', {'activeLeague': activeLeague.name, 'leagueMessages': leagueMessages})
 
 @login_required
 def leagueAdmin(request, leagueName=""):
