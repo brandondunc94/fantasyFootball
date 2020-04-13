@@ -257,6 +257,7 @@ def createSeason(request):
     return render(request, 'command/command.html')
 
 def createTeams(season):
+
     #Open team info JSON file
     with open('./static_in_env/teams.json', 'r') as teamFile:
         teams = json.load(teamFile)

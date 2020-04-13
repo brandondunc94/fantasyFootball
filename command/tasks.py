@@ -13,14 +13,13 @@ def lockPicks():
         #Season has not been created, just quit this task
         return True
 
-    #Get all games that 
-    upcomingGames = Game.objects.filter(dateTime__range=[datetime.now(), datetime.now() + timedelta(hours=3)])
+    #Get all games that are within a hour from start time
+    upcomingGames = Game.objects.filter(dateTime__range=[datetime.now(), datetime.now() + timedelta(hours=1)])
 
     for game in upcomingGames:
-        #Lock picks for this game
+        #Lock picks for this game which is within a hour from start time
         game.pickLocked=True
         game.save()
         print("Locking an upcoming game: " + game.homeTeam.name + " VS " + game.awayTeam.name)
         
-    print("The lock picks task ran.")
     return True

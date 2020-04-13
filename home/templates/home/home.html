@@ -64,8 +64,12 @@
                                     <div><small>{{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }}</small></div>
                                 </td>
                                 <td class="text-center align-middle">
+                                    {% if currentGame.gameActive == True %}
+                                    <div>Game in Progress</div>
+                                    {% else %}
                                     <div>{{ currentGame.date }} </div>
                                     <div>{{ currentGame.time }}</div>
+                                    {% endif %}
                                 </td>
                                 <td>
                                     <div>

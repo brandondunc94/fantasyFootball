@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from datetime import datetime, timedelta
 from league import utils as leagueUtils
 from league.models import League, Team, LeagueMembership, Season, Week, Game, GameChoice
+from account.utils import convertTimeToLocalTimezone
+from fantasyFootball import settings
+import pytz
 
 # Create your views here.
 @login_required
@@ -13,7 +16,7 @@ def home(request, weekId="1", leagueName=""):
     userLeagues = leagueUtils.getUserLeagues(request.user)
     if userLeagues == None:
         return render(request, 'home/welcome.html')
-
+   
     #Get league passed into view
     activeLeague = leagueUtils.getLeague(leagueName)
     if activeLeague == None:
@@ -25,7 +28,7 @@ def home(request, weekId="1", leagueName=""):
     
     #Get current active season
     activeSeason = leagueUtils.getActiveSeason()
-
+    
     #Get all users for active league
     leagueUsers = LeagueMembership.objects.filter(league=activeLeague).order_by('-score')
     
@@ -48,21 +51,27 @@ def home(request, weekId="1", leagueName=""):
             pickCount += 1
             upcomingPickWarning = False
         except:
-            #User has not yet made a pick, let's warn them if the game is going to lock soon. (Between Game + 3 hours and Game + 6 hours)
-            upcomingGames = Game.objects.filter(dateTime__range=[datetime.now(), datetime.now() + timedelta(hours=3)])
-            if currentGame.dateTime + timedelta(hours=3) < datetime.now(currentGame.dateTime.tzinfo) < currentGame.dateTime + timedelta(hours=9):
+            #User has not yet made a pick, let's warn them if the game is going to lock soon. ( -6 hours -----if current time is here, warn user---- -3 hours ------ Game time)
+            if currentGame.dateTime - timedelta(hours=12) < datetime.utcnow().replace(tzinfo=pytz.utc) < currentGame.dateTime - timedelta(hours=1):
                 upcomingPickWarning = True
             else:
                 upcomingPickWarning = False
             currentPick = None
-        
+
+        #Check if the game is in progress
+        if currentGame.dateTime < datetime.utcnow().replace(tzinfo=pytz.utc) < currentGame.dateTime + timedelta(hours=3): #This is assuming the game will be 3 hours or less
+            gameActive = True
+        else:
+            gameActive = False
+
         gameData.append(
         {
             'game' : currentGame,
-            'date' : datetime.strftime(currentGame.dateTime, '%b %#d, %Y'),
-            'time' : datetime.strftime(currentGame.dateTime, '%#I:%M %p'),
+            'date' : datetime.strftime(convertTimeToLocalTimezone(request.user, currentGame.dateTime), '%b %#d, %Y'),
+            'time' : datetime.strftime(convertTimeToLocalTimezone(request.user, currentGame.dateTime), '%#I:%M %p'),
             'pick' : currentPick,
-            'upcomingPickWarning' : upcomingPickWarning
+            'upcomingPickWarning' : upcomingPickWarning,
+            'gameActive' : gameActive
         })
 
     return render(request, 'home/home.html', 

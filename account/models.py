@@ -7,3 +7,4 @@ class Profile(models.Model):
     currentActiveLeague = models.ForeignKey(League, on_delete=models.CASCADE, default=None, null=True)
     firstName = models.TextField(max_length=50, blank=True)
     lastName = models.TextField(max_length=50, blank=True)
+    timezone = models.CharField(max_length=50, blank=True, default="US/Pacific")
