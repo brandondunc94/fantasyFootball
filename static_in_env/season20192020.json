@@ -1,3975 +1,2294 @@
 [{
-    "id": 1,
-    "games": [{
-            "winner": "",
-            "loser": "",
-            "location": "Chicago",
-            "date": "20190905 12:00",
-            "homeTeamData": {
+        "id": 1,
+        "games": [{
+                "location": "Chicago",
+                "date": "20200410 8:00 AM",
                 "homeTeam": "Bears",
-                "score": ""
+                "awayTeam": "Packers"
             },
-            "awayTeamData": {
-                "awayTeam": "Packers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Browns",
-            "date": "20190908 12:00",
-            "homeTeamData": {
+            {
+                "location": "Cleveland",
+                "date": "20200410 9:00 AM",
                 "homeTeam": "Browns",
-                "score": ""
+                "awayTeam": "Titans"
             },
-            "awayTeamData": {
-                "awayTeam": "Titans",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Minnesota",
-            "date": "20190908 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Minnesota",
+                "date": "20200410 10:00 AM",
+
                 "homeTeam": "Vikings",
-                "score": ""
+                "awayTeam": "Falcons"
             },
-            "awayTeamData": {
-                "awayTeam": "Falcons",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Philadelphia",
-            "date": "20190908 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Philadelphia",
+                "date": "20190908 11:00 AM",
+
                 "homeTeam": "Eagles",
-                "score": ""
+                "awayTeam": "Redskins"
             },
-            "awayTeamData": {
-                "awayTeam": "Redskins",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Carolina",
-            "date": "20190908 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Carolina",
+                "date": "20190908 12:00 PM",
+
                 "homeTeam": "Panthers",
-                "score": ""
+                "awayTeam": "Rams"
             },
-            "awayTeamData": {
-                "awayTeam": "Rams",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Buffalo",
-            "date": "20190908 15:00",
-            "homeTeamData": {
+            {
+
+                "location": "Buffalo",
+                "date": "20190908 1:00 PM",
+
                 "homeTeam": "Jets",
-                "score": ""
+                "awayTeam": "Bills"
             },
-            "awayTeamData": {
-                "awayTeam": "Bills",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Jacksonville",
-            "date": "20190908 15:00",
-            "homeTeamData": {
+            {
+
+                "location": "Jacksonville",
+                "date": "20190908 2:00 PM",
+
                 "homeTeam": "Jaguars",
-                "score": ""
+                "awayTeam": "Chiefs"
             },
-            "awayTeamData": {
-                "awayTeam": "Chiefs",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Miami",
-            "date": "20190908 15:00",
-            "homeTeamData": {
+            {
+
+                "location": "Miami",
+                "date": "20190908 3:00 PM",
+
                 "homeTeam": "Dolphins",
-                "score": ""
+                "awayTeam": "Ravens"
             },
-            "awayTeamData": {
-                "awayTeam": "Ravens",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Los Angeles",
-            "date": "20190908 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Los Angeles",
+                "date": "20190908 4:00PM",
+
                 "homeTeam": "Chargers",
-                "score": ""
+                "awayTeam": "Colts"
             },
-            "awayTeamData": {
-                "awayTeam": "Colts",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Seattle",
-            "date": "20190908 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Seattle",
+                "date": "20190908 5:00 PM",
+
                 "homeTeam": "Seahawks",
-                "score": ""
+                "awayTeam": "Bengals"
             },
-            "awayTeamData": {
-                "awayTeam": "Bengals",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Dallas",
-            "date": "20190908 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Dallas",
+                "date": "20190908 6:00 PM",
+
                 "homeTeam": "Cowboys",
-                "score": ""
+                "awayTeam": "Giants"
             },
-            "awayTeamData": {
-                "awayTeam": "Giants",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Arizona",
-            "date": "20190908 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Arizona",
+                "date": "20190908 7:00 PM",
+
                 "homeTeam": "Cardinals",
-                "score": ""
+                "awayTeam": "Lions"
             },
-            "awayTeamData": {
-                "awayTeam": "Lions",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Tampa Bay",
-            "date": "20190908 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Tampa Bay",
+                "date": "20190908 8:00 PM",
+
                 "homeTeam": "Buccaneers",
-                "score": ""
+                "awayTeam": "49ers"
             },
-            "awayTeamData": {
-                "awayTeam": "49ers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "New England",
-            "date": "20190908 20:00",
-            "homeTeamData": {
+            {
+
+                "location": "New England",
+                "date": "20190908 9:00 PM",
+
                 "homeTeam": "Patriots",
-                "score": ""
+                "awayTeam": "Steelers"
             },
-            "awayTeamData": {
-                "awayTeam": "Steelers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "New Orleans",
-            "date": "20190909 20:00",
-            "homeTeamData": {
+            {
+
+                "location": "New Orleans",
+                "date": "20190909 10:00 PM",
+
                 "homeTeam": "Saints",
-                "score": ""
+                "awayTeam": "Texans"
             },
-            "awayTeamData": {
-                "awayTeam": "Texans",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Oakland",
-            "date": "20190909 20:00",
-            "homeTeamData": {
+            {
+
+                "location": "Oakland",
+                "date": "20190909 11:00 PM",
+
                 "homeTeam": "Raiders",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "Broncos",
-                "score": ""
+                "awayTeam": "Broncos"
             }
-        }
-    ]
-}, {
-    "id": 2,
-    "games": [{
-            "winner": "",
-            "loser": "",
-            "location": "Carolina",
-            "date": "20190912 12:00",
-            "homeTeamData": {
+        ]
+    },
+    {
+        "id": 2,
+        "games": [{
+
+                "location": "Carolina",
+                "date": "20190912 12:00 PM",
+
                 "homeTeam": "Buccaneers",
-                "score": ""
+                "awayTeam": "Panthers"
             },
-            "awayTeamData": {
-                "awayTeam": "Panthers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "New York",
-            "date": "20190915 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "New York",
+                "date": "20190915 12:00 PM",
+
                 "homeTeam": "Giants",
-                "score": ""
+                "awayTeam": "Bills"
             },
-            "awayTeamData": {
-                "awayTeam": "Bills",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Green Bay",
-            "date": "20190915 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Green Bay",
+                "date": "20190915 12:00 PM",
+
                 "homeTeam": "Packers",
-                "score": ""
+                "awayTeam": "Vikings"
             },
-            "awayTeamData": {
-                "awayTeam": "Vikings",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Houston",
-            "date": "20190915 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Houston",
+                "date": "20190915 12:00 PM",
+
                 "homeTeam": "Texans",
-                "score": ""
+                "awayTeam": "Jaguars"
             },
-            "awayTeamData": {
-                "awayTeam": "Jaguars",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Baltimore",
-            "date": "20190915 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Baltimore",
+                "date": "20190915 12:00 PM",
+
                 "homeTeam": "Ravens",
-                "score": ""
+                "awayTeam": "Cardinals"
             },
-            "awayTeamData": {
-                "awayTeam": "Cardinals",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Cincinnati",
-            "date": "20190915 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Cincinnati",
+                "date": "20190915 12:00 PM",
+
                 "homeTeam": "Bengals",
-                "score": ""
+                "awayTeam": "49ers"
             },
-            "awayTeamData": {
-                "awayTeam": "49ers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Detroit",
-            "date": "20190915 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Detroit",
+                "date": "20190915 12:00 PM",
+
                 "homeTeam": "Lions",
-                "score": ""
+                "awayTeam": "Chargers"
             },
-            "awayTeamData": {
-                "awayTeam": "Chargers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Miami",
-            "date": "20190915 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Miami",
+                "date": "20190915 12:00 PM",
+
                 "homeTeam": "Dolphins",
-                "score": ""
+                "awayTeam": "Patriots"
             },
-            "awayTeamData": {
-                "awayTeam": "Patriots",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Tennessee",
-            "date": "20190915 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Tennessee",
+                "date": "20190915 12:00 PM",
+
                 "homeTeam": "Titans",
-                "score": ""
+                "awayTeam": "Colts"
             },
-            "awayTeamData": {
-                "awayTeam": "Colts",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Pittsburgh",
-            "date": "20190915 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Pittsburgh",
+                "date": "20190915 12:00 PM",
+
                 "homeTeam": "Steelers",
-                "score": ""
+                "awayTeam": "Seahawks"
             },
-            "awayTeamData": {
-                "awayTeam": "Seahawks",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Washington",
-            "date": "20190915 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Washington",
+                "date": "20190915 12:00 PM",
+
                 "homeTeam": "Redskins",
-                "score": ""
+                "awayTeam": "Cowboys"
             },
-            "awayTeamData": {
-                "awayTeam": "Cowboys",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Oakland",
-            "date": "20190915 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Oakland",
+                "date": "20190915 12:00 PM",
+
                 "homeTeam": "Raiders",
-                "score": ""
+                "awayTeam": "Chiefs"
             },
-            "awayTeamData": {
-                "awayTeam": "Chiefs",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Los Angeles",
-            "date": "20190915 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Los Angeles",
+                "date": "20190915 12:00 PM",
+
                 "homeTeam": "Rams",
-                "score": ""
+                "awayTeam": "Saints"
             },
-            "awayTeamData": {
-                "awayTeam": "Saints",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Denver",
-            "date": "20190915 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Denver",
+                "date": "20190915 12:00 PM",
+
                 "homeTeam": "Broncos",
-                "score": ""
+                "awayTeam": "Bears"
             },
-            "awayTeamData": {
-                "awayTeam": "Bears",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Atlanta",
-            "date": "20190915 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Atlanta",
+                "date": "20190915 12:00 PM",
+
                 "homeTeam": "Falcons",
-                "score": ""
+                "awayTeam": "Eagles"
             },
-            "awayTeamData": {
-                "awayTeam": "Eagles",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "New York",
-            "date": "20190915 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "New York",
+                "date": "20190915 12:00 PM",
+
                 "homeTeam": "Jets",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "Browns",
-                "score": ""
+                "awayTeam": "Browns"
             }
-        }
-    ]
-}, {
-    "id": 3,
-    "games": [{
-            "winner": "",
-            "loser": "",
-            "location": "Jacksonville",
-            "date": "20190919 12:00",
-            "homeTeamData": {
+        ]
+    }, {
+        "id": 3,
+        "games": [{
+
+                "location": "Jacksonville",
+                "date": "20190919 12:00 PM",
+
                 "homeTeam": "Jaguars",
-                "score": ""
+                "awayTeam": "Titans"
             },
-            "awayTeamData": {
-                "awayTeam": "Titans",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Philadelphia ",
-            "date": "20190922 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Philadelphia ",
+                "date": "20190922 12:00 PM",
+
                 "homeTeam": "Eagles",
-                "score": ""
+                "awayTeam": "Lions"
             },
-            "awayTeamData": {
-                "awayTeam": "Lions",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Dallas",
-            "date": "20190922 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Dallas",
+                "date": "20190922 12:00 PM",
+
                 "homeTeam": "Cowboys",
-                "score": ""
+                "awayTeam": "Dolphins"
             },
-            "awayTeamData": {
-                "awayTeam": "Dolphins",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Kansas City",
-            "date": "20190922 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Kansas City",
+                "date": "20190922 12:00 PM",
+
                 "homeTeam": "Chiefs",
-                "score": ""
+                "awayTeam": "Ravens"
             },
-            "awayTeamData": {
-                "awayTeam": "Ravens",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Buffalo",
-            "date": "20190922 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Buffalo",
+                "date": "20190922 12:00 PM",
+
                 "homeTeam": "Bills",
-                "score": ""
+                "awayTeam": "Bengals"
             },
-            "awayTeamData": {
-                "awayTeam": "Bengals",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Indianapolis",
-            "date": "20190922 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Indianapolis",
+                "date": "20190922 12:00 PM",
+
                 "homeTeam": "Colts",
-                "score": ""
+                "awayTeam": "Falcons"
             },
-            "awayTeamData": {
-                "awayTeam": "Falcons",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "New England",
-            "date": "20190922 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "New England",
+                "date": "20190922 12:00 PM",
+
                 "homeTeam": "Patriots",
-                "score": ""
+                "awayTeam": "Jets"
             },
-            "awayTeamData": {
-                "awayTeam": "Jets",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Green Bay",
-            "date": "20190922 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Green Bay",
+                "date": "20190922 12:00 PM",
+
                 "homeTeam": "Packers",
-                "score": ""
+                "awayTeam": "Broncos"
             },
-            "awayTeamData": {
-                "awayTeam": "Broncos",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Arizona ",
-            "date": "20190922 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Arizona ",
+                "date": "20190922 12:00 PM",
+
                 "homeTeam": "Cardinals",
-                "score": ""
+                "awayTeam": "Panthers"
             },
-            "awayTeamData": {
-                "awayTeam": "Panthers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Tampa Bay",
-            "date": "20190922 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Tampa Bay",
+                "date": "20190922 12:00 PM",
+
                 "homeTeam": "Buccaneers",
-                "score": ""
+                "awayTeam": "Giants"
             },
-            "awayTeamData": {
-                "awayTeam": "Giants",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Los Angeles",
-            "date": "20190922 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Los Angeles",
+                "date": "20190922 12:00 PM",
+
                 "homeTeam": "Chargers",
-                "score": ""
+                "awayTeam": "Texans"
             },
-            "awayTeamData": {
-                "awayTeam": "Texans",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Seattle ",
-            "date": "20190922 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Seattle ",
+                "date": "20190922 12:00 PM",
+
                 "homeTeam": "Seahawks",
-                "score": ""
+                "awayTeam": "Saints"
             },
-            "awayTeamData": {
-                "awayTeam": "Saints",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "San Francisco",
-            "date": "20190922 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "San Francisco",
+                "date": "20190922 12:00 PM",
+
                 "homeTeam": "49ers",
-                "score": ""
+                "awayTeam": "Steelers"
             },
-            "awayTeamData": {
-                "awayTeam": "Steelers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Cleveland",
-            "date": "20190922 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Cleveland",
+                "date": "20190922 12:00 PM",
+
                 "homeTeam": "Browns",
-                "score": ""
+                "awayTeam": "Rams"
             },
-            "awayTeamData": {
-                "awayTeam": "Rams",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Washington",
-            "date": "20190923 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Washington",
+                "date": "20190923 12:00 PM",
+
                 "homeTeam": "Redskins",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "Bears",
-                "score": ""
+                "awayTeam": "Bears"
             }
-        }
-    ]
-}, {
-    "id": 4,
-    "games": [{
-            "winner": "",
-            "loser": "",
-            "location": "Green Bay",
-            "date": "20190926 12:00",
-            "homeTeamData": {
+
+        ]
+    }, {
+        "id": 4,
+        "games": [{
+
+                "location": "Green Bay",
+                "date": "20190926 12:00 PM",
+
                 "homeTeam": "Packers",
-                "score": ""
+                "awayTeam": "Eagles"
             },
-            "awayTeamData": {
-                "awayTeam": "Eagles",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Miami ",
-            "date": "20190929 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Miami ",
+                "date": "20190929 12:00 PM",
+
                 "homeTeam": "Dolphins",
-                "score": ""
+                "awayTeam": "Chargers"
             },
-            "awayTeamData": {
-                "awayTeam": "Chargers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Houston ",
-            "date": "20190929 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Houston ",
+                "date": "20190929 12:00 PM",
+
                 "homeTeam": "Texans",
-                "score": ""
+                "awayTeam": "Panthers"
             },
-            "awayTeamData": {
-                "awayTeam": "Panthers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Baltimore ",
-            "date": "20190929 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Baltimore ",
+                "date": "20190929 12:00 PM",
+
                 "homeTeam": "Ravens",
-                "score": ""
+                "awayTeam": "Browns"
             },
-            "awayTeamData": {
-                "awayTeam": "Browns",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Buffalo ",
-            "date": "20190929 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Buffalo ",
+                "date": "20190929 12:00 PM",
+
                 "homeTeam": "Bills",
-                "score": ""
+                "awayTeam": "Patriots"
             },
-            "awayTeamData": {
-                "awayTeam": "Patriots",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Detroit ",
-            "date": "20190929 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Detroit ",
+                "date": "20190929 12:00 PM",
+
                 "homeTeam": "Lions",
-                "score": ""
+                "awayTeam": "Chiefs"
             },
-            "awayTeamData": {
-                "awayTeam": "Chiefs",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Indianapolis ",
-            "date": "20190929 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Indianapolis ",
+                "date": "20190929 12:00 PM",
+
                 "homeTeam": "Colts",
-                "score": ""
+                "awayTeam": "Raiders"
             },
-            "awayTeamData": {
-                "awayTeam": "Raiders",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Atlanta",
-            "date": "20190929 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Atlanta",
+                "date": "20190929 12:00 PM",
+
                 "homeTeam": "Falcons",
-                "score": ""
+                "awayTeam": "Titans"
             },
-            "awayTeamData": {
-                "awayTeam": "Titans",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "New York",
-            "date": "20190929 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "New York",
+                "date": "20190929 12:00 PM",
+
                 "homeTeam": "Giants",
-                "score": ""
+                "awayTeam": "Redskins"
             },
-            "awayTeamData": {
-                "awayTeam": "Redskins",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Arizona ",
-            "date": "20190929 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Arizona ",
+                "date": "20190929 12:00 PM",
+
                 "homeTeam": "Cardinals",
-                "score": ""
+                "awayTeam": "Seahawks"
             },
-            "awayTeamData": {
-                "awayTeam": "Seahawks",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Los Angeles",
-            "date": "20190929 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Los Angeles",
+                "date": "20190929 12:00 PM",
+
                 "homeTeam": "Rams",
-                "score": ""
+                "awayTeam": "Buccaneers"
             },
-            "awayTeamData": {
-                "awayTeam": "Buccaneers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Denver ",
-            "date": "20190929 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Denver ",
+                "date": "20190929 12:00 PM",
+
                 "homeTeam": "Broncos",
-                "score": ""
+                "awayTeam": "Jaguars"
             },
-            "awayTeamData": {
-                "awayTeam": "Jaguars",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Chicago",
-            "date": "20190929 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Chicago",
+                "date": "20190929 12:00 PM",
+
                 "homeTeam": "Bears",
-                "score": ""
+                "awayTeam": "Vikings"
             },
-            "awayTeamData": {
-                "awayTeam": "Vikings",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "New Orleans",
-            "date": "20190929 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "New Orleans",
+                "date": "20190929 12:00 PM",
+
                 "homeTeam": "Saints",
-                "score": ""
+                "awayTeam": "Cowboys"
             },
-            "awayTeamData": {
-                "awayTeam": "Cowboys",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Pittsburgh",
-            "date": "20190930 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Pittsburgh",
+                "date": "20190930 12:00 PM",
+
                 "homeTeam": "Steelers",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "Bengals",
-                "score": ""
+                "awayTeam": "Bengals"
             }
-        }
-    ]
-}, {
-    "id": 5,
-    "games": [{
-            "winner": "",
-            "loser": "",
-            "location": "Seattle ",
-            "date": "20191003 12:00",
-            "homeTeamData": {
+        ]
+    }, {
+        "id": 5,
+        "games": [{
+
+                "location": "Seattle ",
+                "date": "20191003 12:00 PM",
+
                 "homeTeam": "Seahawks",
-                "score": ""
+                "awayTeam": "Rams"
             },
-            "awayTeamData": {
-                "awayTeam": "Rams",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Philadelphia",
-            "date": "20191006 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Philadelphia",
+                "date": "20191006 12:00 PM",
+
                 "homeTeam": "Eagles",
-                "score": ""
+                "awayTeam": "Jets"
             },
-            "awayTeamData": {
-                "awayTeam": "Jets",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Houston ",
-            "date": "20191006 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Houston ",
+                "date": "20191006 12:00 PM",
+
                 "homeTeam": "Texans",
-                "score": ""
+                "awayTeam": "Falcons"
             },
-            "awayTeamData": {
-                "awayTeam": "Falcons",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Tennessee ",
-            "date": "20191006 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Tennessee ",
+                "date": "20191006 12:00 PM",
+
                 "homeTeam": "Titans",
-                "score": ""
+                "awayTeam": "Bills"
             },
-            "awayTeamData": {
-                "awayTeam": "Bills",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Carolina ",
-            "date": "20191006 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Carolina ",
+                "date": "20191006 12:00 PM",
+
                 "homeTeam": "Panthers",
-                "score": ""
+                "awayTeam": "Jaguars"
             },
-            "awayTeamData": {
-                "awayTeam": "Jaguars",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Cincinnati",
-            "date": "20191006 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Cincinnati",
+                "date": "20191006 12:00 PM",
+
                 "homeTeam": "Bengals",
-                "score": ""
+                "awayTeam": "Cardinals"
             },
-            "awayTeamData": {
-                "awayTeam": "Cardinals",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "New York",
-            "date": "20191006 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "New York",
+                "date": "20191006 12:00 PM",
+
                 "homeTeam": "Giants",
-                "score": ""
+                "awayTeam": "Vikings"
             },
-            "awayTeamData": {
-                "awayTeam": "Vikings",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "New Orleans",
-            "date": "20191006 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "New Orleans",
+                "date": "20191006 12:00 PM",
+
                 "homeTeam": "Saints",
-                "score": ""
+                "awayTeam": "Buccaneers"
             },
-            "awayTeamData": {
-                "awayTeam": "Buccaneers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Pittsburgh",
-            "date": "20191006 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Pittsburgh",
+                "date": "20191006 12:00 PM",
+
                 "homeTeam": "Steelers",
-                "score": ""
+                "awayTeam": "Ravens"
             },
-            "awayTeamData": {
-                "awayTeam": "Ravens",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Washington",
-            "date": "20191006 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Washington",
+                "date": "20191006 12:00 PM",
+
                 "homeTeam": "Redskins",
-                "score": ""
+                "awayTeam": "Patriots"
             },
-            "awayTeamData": {
-                "awayTeam": "Patriots",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Oakland",
-            "date": "20191006 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Oakland",
+                "date": "20191006 12:00 PM",
+
                 "homeTeam": "Raiders",
-                "score": ""
+                "awayTeam": "Bears"
             },
-            "awayTeamData": {
-                "awayTeam": "Bears",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Los Angeles",
-            "date": "20191006 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Los Angeles",
+                "date": "20191006 12:00 PM",
+
                 "homeTeam": "Chargers",
-                "score": ""
+                "awayTeam": "Broncos"
             },
-            "awayTeamData": {
-                "awayTeam": "Broncos",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Dallas",
-            "date": "20191006 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Dallas",
+                "date": "20191006 12:00 PM",
+
                 "homeTeam": "Cowboys",
-                "score": ""
+                "awayTeam": "Packers"
             },
-            "awayTeamData": {
-                "awayTeam": "Packers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Kansas City",
-            "date": "20191006 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Kansas City",
+                "date": "20191006 12:00 PM",
+
                 "homeTeam": "Chiefs",
-                "score": ""
+                "awayTeam": "Colts"
             },
-            "awayTeamData": {
-                "awayTeam": "Colts",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "San Francisco",
-            "date": "20191006 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "San Francisco",
+                "date": "20191006 12:00 PM",
+
                 "homeTeam": "49ers",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "Browns",
-                "score": ""
+                "awayTeam": "Browns"
             }
-        }
-    ]
-}, {
-    "id": 6,
-    "games": [{
-            "winner": "",
-            "loser": "",
-            "location": "New England",
-            "date": "20191010 12:00",
-            "homeTeamData": {
+        ]
+    }, {
+        "id": 6,
+        "games": [{
+
+                "location": "New England",
+                "date": "20191010 12:00 PM",
+
                 "homeTeam": "Patriots",
-                "score": ""
+                "awayTeam": "Giants"
             },
-            "awayTeamData": {
-                "awayTeam": "Giants",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Tampa Bay",
-            "date": "20191013 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Tampa Bay",
+                "date": "20191013 12:00 PM",
+
                 "homeTeam": "Buccaneers",
-                "score": ""
+                "awayTeam": "Panthers"
             },
-            "awayTeamData": {
-                "awayTeam": "Panthers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Miami",
-            "date": "20191013 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Miami",
+                "date": "20191013 12:00 PM",
+
                 "homeTeam": "Dolphins",
-                "score": ""
+                "awayTeam": "Redskins"
             },
-            "awayTeamData": {
-                "awayTeam": "Redskins",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Minnesota",
-            "date": "20191013 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Minnesota",
+                "date": "20191013 12:00 PM",
+
                 "homeTeam": "Vikings",
-                "score": ""
+                "awayTeam": "Eagles"
             },
-            "awayTeamData": {
-                "awayTeam": "Eagles",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Baltimore",
-            "date": "20191013 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Baltimore",
+                "date": "20191013 12:00 PM",
+
                 "homeTeam": "Ravens",
-                "score": ""
+                "awayTeam": "Bengals"
             },
-            "awayTeamData": {
-                "awayTeam": "Bengals",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Cleveland",
-            "date": "20191013 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Cleveland",
+                "date": "20191013 12:00 PM",
+
                 "homeTeam": "Browns",
-                "score": ""
+                "awayTeam": "Seahawks"
             },
-            "awayTeamData": {
-                "awayTeam": "Seahawks",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Jacksonville",
-            "date": "20191013 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Jacksonville",
+                "date": "20191013 12:00 PM",
+
                 "homeTeam": "Jaguars",
-                "score": ""
+                "awayTeam": "Saints"
             },
-            "awayTeamData": {
-                "awayTeam": "Saints",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Kansas City",
-            "date": "20191013 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Kansas City",
+                "date": "20191013 12:00 PM",
+
                 "homeTeam": "Chiefs",
-                "score": ""
+                "awayTeam": "Texans"
             },
-            "awayTeamData": {
-                "awayTeam": "Texans",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Arizona",
-            "date": "20191013 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Arizona",
+                "date": "20191013 12:00 PM",
+
                 "homeTeam": "Cardinals",
-                "score": ""
+                "awayTeam": "Falcons"
             },
-            "awayTeamData": {
-                "awayTeam": "Falcons",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Los Angeles",
-            "date": "20191013 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Los Angeles",
+                "date": "20191013 12:00 PM",
+
                 "homeTeam": "Los Angeles",
-                "score": ""
+                "awayTeam": "49ers"
             },
-            "awayTeamData": {
-                "awayTeam": "49ers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Denver",
-            "date": "20191013 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Denver",
+                "date": "20191013 12:00 PM",
+
                 "homeTeam": "Broncos",
-                "score": ""
+                "awayTeam": "Titans"
             },
-            "awayTeamData": {
-                "awayTeam": "Titans",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "New York",
-            "date": "20191013 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "New York",
+                "date": "20191013 12:00 PM",
+
                 "homeTeam": "Jets",
-                "score": ""
+                "awayTeam": "Cowboys"
             },
-            "awayTeamData": {
-                "awayTeam": "Cowboys",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Los Angeles",
-            "date": "20191013 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Los Angeles",
+                "date": "20191013 12:00 PM",
+
                 "homeTeam": "Chargers",
-                "score": ""
+                "awayTeam": "Steelers"
             },
-            "awayTeamData": {
-                "awayTeam": "Steelers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Green Bay",
-            "date": "20191014 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Green Bay",
+                "date": "20191014 12:00 PM",
+
                 "homeTeam": "Packers",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "Lions",
-                "score": ""
+                "awayTeam": "Lions"
             }
-        }
-    ]
-}, {
-    "id": 7,
-    "games": [{
-            "winner": "",
-            "loser": "",
-            "location": "Denver ",
-            "date": "20191017 12:00",
-            "homeTeamData": {
+        ]
+    }, {
+        "id": 7,
+        "games": [{
+
+                "location": "Denver ",
+                "date": "20191017 12:00 PM",
+
                 "homeTeam": "Broncos",
-                "score": ""
+                "awayTeam": "Chiefs"
             },
-            "awayTeamData": {
-                "awayTeam": "Chiefs",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Buffalo ",
-            "date": "20191020 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Buffalo ",
+                "date": "20191020 12:00 PM",
+
                 "homeTeam": "Bills",
-                "score": ""
+                "awayTeam": "Dolphins"
             },
-            "awayTeamData": {
-                "awayTeam": "Dolphins",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Green Bay",
-            "date": "20191020 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Green Bay",
+                "date": "20191020 12:00 PM",
+
                 "homeTeam": "Packers",
-                "score": ""
+                "awayTeam": "Raiders"
             },
-            "awayTeamData": {
-                "awayTeam": "Raiders",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "New York",
-            "date": "20191020 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "New York",
+                "date": "20191020 12:00 PM",
+
                 "homeTeam": "Giants",
-                "score": ""
+                "awayTeam": "Cardinals"
             },
-            "awayTeamData": {
-                "awayTeam": "Cardinals",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Indianapolis",
-            "date": "20191020 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Indianapolis",
+                "date": "20191020 12:00 PM",
+
                 "homeTeam": "Colts",
-                "score": ""
+                "awayTeam": "Texans"
             },
-            "awayTeamData": {
-                "awayTeam": "Texans",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Detroit",
-            "date": "20191020 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Detroit",
+                "date": "20191020 12:00 PM",
+
                 "homeTeam": "Lions",
-                "score": ""
+                "awayTeam": "Vikings"
             },
-            "awayTeamData": {
-                "awayTeam": "Vikings",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Cincinnati",
-            "date": "20191020 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Cincinnati",
+                "date": "20191020 12:00 PM",
+
                 "homeTeam": "Bengals",
-                "score": ""
+                "awayTeam": "Jaguars"
             },
-            "awayTeamData": {
-                "awayTeam": "Jaguars",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Washington",
-            "date": "20191020 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Washington",
+                "date": "20191020 12:00 PM",
+
                 "homeTeam": "Redskins",
-                "score": ""
+                "awayTeam": "49ers"
             },
-            "awayTeamData": {
-                "awayTeam": "49ers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Atlanta",
-            "date": "20191020 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Atlanta",
+                "date": "20191020 12:00 PM",
+
                 "homeTeam": "Falcons",
-                "score": ""
+                "awayTeam": "Rams"
             },
-            "awayTeamData": {
-                "awayTeam": "Rams",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Tennessee",
-            "date": "20191020 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Tennessee",
+                "date": "20191020 12:00 PM",
+
                 "homeTeam": "Titans",
-                "score": ""
+                "awayTeam": "Chargers"
             },
-            "awayTeamData": {
-                "awayTeam": "Chargers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Seattle",
-            "date": "20191020 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Seattle",
+                "date": "20191020 12:00 PM",
+
                 "homeTeam": "Seahawks",
-                "score": ""
+                "awayTeam": "Ravens"
             },
-            "awayTeamData": {
-                "awayTeam": "Ravens",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Chicago",
-            "date": "20191020 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Chicago",
+                "date": "20191020 12:00 PM",
+
                 "homeTeam": "Bears",
-                "score": ""
+                "awayTeam": "Saints"
             },
-            "awayTeamData": {
-                "awayTeam": "Saints",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Dallas",
-            "date": "20191020 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Dallas",
+                "date": "20191020 12:00 PM",
+
                 "homeTeam": "Cowboys",
-                "score": ""
+                "awayTeam": "Eagles"
             },
-            "awayTeamData": {
-                "awayTeam": "Eagles",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "New York",
-            "date": "20191021 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "New York",
+                "date": "20191021 12:00 PM",
+
                 "homeTeam": "Jets",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "Patriots",
-                "score": ""
+                "awayTeam": "Patriots"
             }
-        }
-    ]
-}, {
-    "id": 8,
-    "games": [{
-            "winner": "",
-            "loser": "",
-            "location": "Minnesota",
-            "date": "20191024 12:00",
-            "homeTeamData": {
+        ]
+    }, {
+        "id": 8,
+        "games": [{
+
+                "location": "Minnesota",
+                "date": "20191024 12:00 PM",
+
                 "homeTeam": "Vikings",
-                "score": ""
+                "awayTeam": "Redskins"
             },
-            "awayTeamData": {
-                "awayTeam": "Redskins",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Detroit",
-            "date": "20191027 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Detroit",
+                "date": "20191027 12:00 PM",
+
                 "homeTeam": "Lions",
-                "score": ""
+                "awayTeam": "Giants"
             },
-            "awayTeamData": {
-                "awayTeam": "Giants",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Chicago",
-            "date": "20191027 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Chicago",
+                "date": "20191027 12:00 PM",
+
                 "homeTeam": "Bears",
-                "score": ""
+                "awayTeam": "Chargers"
             },
-            "awayTeamData": {
-                "awayTeam": "Chargers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Tennessee",
-            "date": "20191027 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Tennessee",
+                "date": "20191027 12:00 PM",
+
                 "homeTeam": "Titans",
-                "score": ""
+                "awayTeam": "Buccaneers"
             },
-            "awayTeamData": {
-                "awayTeam": "Buccaneers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": "20191027 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "",
+                "date": "20191027 12:00 PM",
+
                 "homeTeam": "Falcons",
-                "score": ""
+                "awayTeam": "Seahawks"
             },
-            "awayTeamData": {
-                "awayTeam": "Seahawks",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Buffalo",
-            "date": "20191027 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Buffalo",
+                "date": "20191027 12:00 PM",
+
                 "homeTeam": "Bills",
-                "score": ""
+                "awayTeam": "Eagles"
             },
-            "awayTeamData": {
-                "awayTeam": "Eagles",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Jacksonville",
-            "date": "20191027 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Jacksonville",
+                "date": "20191027 12:00 PM",
+
                 "homeTeam": "Jaguars",
-                "score": ""
+                "awayTeam": "Jets"
             },
-            "awayTeamData": {
-                "awayTeam": "Jets",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "New Orleans",
-            "date": "20191027 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "New Orleans",
+                "date": "20191027 12:00 PM",
+
                 "homeTeam": "Saints",
-                "score": ""
+                "awayTeam": "Cardinals"
             },
-            "awayTeamData": {
-                "awayTeam": "Cardinals",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Los Angeles",
-            "date": "20191027 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Los Angeles",
+                "date": "20191027 12:00 PM",
+
                 "homeTeam": "Rams",
-                "score": ""
+                "awayTeam": "Bengals"
             },
-            "awayTeamData": {
-                "awayTeam": "Bengals",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Indianapolis",
-            "date": "20191027 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Indianapolis",
+                "date": "20191027 12:00 PM",
+
                 "homeTeam": "Colts",
-                "score": ""
+                "awayTeam": "Broncos"
             },
-            "awayTeamData": {
-                "awayTeam": "Broncos",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "San Francisco",
-            "date": "20191027 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "San Francisco",
+                "date": "20191027 12:00 PM",
+
                 "homeTeam": "49ers",
-                "score": ""
+                "awayTeam": "Panthers"
             },
-            "awayTeamData": {
-                "awayTeam": "Panthers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Houston",
-            "date": "20191027 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Houston",
+                "date": "20191027 12:00 PM",
+
                 "homeTeam": "Texans",
-                "score": ""
+                "awayTeam": "Raiders"
             },
-            "awayTeamData": {
-                "awayTeam": "Raiders",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "New England",
-            "date": "20191027 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "New England",
+                "date": "20191027 12:00 PM",
+
                 "homeTeam": "Patriots",
-                "score": ""
+                "awayTeam": "Browns"
             },
-            "awayTeamData": {
-                "awayTeam": "Browns",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "Kansas City",
-            "date": "20191027 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "Kansas City",
+                "date": "20191027 12:00 PM",
+
                 "homeTeam": "Chiefs",
-                "score": ""
+                "awayTeam": "Packers"
             },
-            "awayTeamData": {
-                "awayTeam": "Packers",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "20191028",
-            "date": "20191027 12:00",
-            "homeTeamData": {
+            {
+
+                "location": "20191028",
+                "date": "20191027 12:00 PM",
+
                 "homeTeam": "Steelers",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "Dolphins",
-                "score": ""
-            }
-        }
-    ]
-}, {
-    "id": 9,
-    "games": [{
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
+                "awayTeam": "Dolphins"
+            }
+        ]
+    }, {
+        "id": 9,
+        "games": [{
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
             },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        }
-    ]
-}, {
-    "id": 10,
-    "games": [{
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        }
-    ]
-}, {
-    "id": 11,
-    "games": [{
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        }
-    ]
-}, {
-    "id": 12,
-    "games": [{
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        }
-    ]
-}, {
-    "id": 13,
-    "games": [{
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        }
-    ]
-}, {
-    "id": 14,
-    "games": [{
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        }
-    ]
-}, {
-    "id": 15,
-    "games": [{
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        }
-    ]
-}, {
-    "id": 16,
-    "games": [{
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        }
-    ]
-}, {
-    "id": 17,
-    "games": [{
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        }
-    ]
-}, {
-    "id": 18,
-    "games": [{
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
-            }
-        },
-        {
-            "winner": "",
-            "loser": "",
-            "location": "",
-            "date": " 12:00",
-            "homeTeamData": {
-                "homeTeam": "",
-                "score": ""
-            },
-            "awayTeamData": {
-                "awayTeam": "",
-                "score": ""
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
             }
-        }
-    ]
-}]
+        ]
+    }, {
+        "id": 10,
+        "games": [{
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            }
+        ]
+    }, {
+        "id": 11,
+        "games": [{
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            }
+        ]
+    }, {
+        "id": 12,
+        "games": [{
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            }
+        ]
+    }, {
+        "id": 13,
+        "games": [{
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            }
+        ]
+    }, {
+        "id": 14,
+        "games": [{
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            }
+        ]
+    }, {
+        "id": 15,
+        "games": [{
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            }
+        ]
+    }, {
+        "id": 16,
+        "games": [{
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            }
+        ]
+    }, {
+        "id": 17,
+        "games": [{
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            }
+        ]
+    }, {
+        "id": 18,
+        "games": [{
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            },
+            {
+
+                "location": "",
+                "date": " 12:00 PM",
+
+                "homeTeam": "",
+                "awayTeam": ""
+            }
+        ]
+    }
+]

@@ -1,5 +1,5 @@
 {% extends "fantasyFootball/base.html" %} {% block page_content %} {% load static %}
-<link href="{% static 'picks/css/picks.css' %}" rel="stylesheet">
+<link href="{% static 'bets/css/bets.css' %}" rel="stylesheet">
 
 <body>
     <div class="container">
@@ -10,19 +10,59 @@
                 </button>
                 <div class="dropdown-menu">
                     {% for week in weeks %}
-                    <a class="dropdown-item" href="/picks/{{ week }}/">Week {{ week }}</a> {% endfor %}
+                    <a class="dropdown-item" href="/bets/{{ week }}/">Week {{ week }}</a> {% endfor %}
                 </div>
             </div>
             <div class="dropdown">
                 <button class="btn btn-sm btn-blue dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ activeLeague }}</button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     {% for league in userLeagues %}
-                    <a class="dropdown-item" href="/picks/1/{{ league.name }}/">{{ league.name }}</a> {% endfor %}
+                    <a class="dropdown-item" href="/bets/1/{{ league.name }}/">{{ league.name }}</a> {% endfor %}
                 </div>
             </div>
         </div>
-        <!--Picks-->
-        <div class="row mt-1">
+        <!-- Total Points Display -->
+        <div class="d-flex flex-row justify-content-center point-box mt-3">
+            <div class="col-lg-6 text-muted text-center">
+                <h6 class="point-box-text">Points to Bet: {{ userScore }}</h6>
+            </div>
+        </div>
+        <!--Bets-->
+        <div class="d-flex flex-row justify-content-center">
+            <div class="col-lg-5 text-muted text-center">
+                <h6>Home Spread</h6>
+            </div>
+            <div class="col-lg-2 text-muted text-center">
+                <h6>Current Bet</h6>
+            </div>
+            <div class="col-lg-5 text-muted text-center">
+                <h6>Away Spread</h6>
+            </div>
+        </div>
+        {% for currentPick in pickData %}
+        <div class="d-flex flex-row justify-content-center">
+            <div class="col-lg-5 bet-box text-center">
+                <div class="pick">
+                    <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam.name }}" value="{{ currentPick.homeTeam.name }}">
+                    <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam.name }}.png" width="75" height="75">
+                    <div><small>{{ currentPick.homeTeam.wins }} - {{ currentPick.homeTeam.losses }}</small></div>
+                </div>
+            </div>
+            <div class="col-lg-2 text-center mt-4">
+                <h6>0 Points</h6>
+                <button class="btn btn-outline-success mr-1 points-button" type="button">+</button>
+                <button class="btn btn-outline-danger points-button" type="button">-</button>
+            </div>
+            <div class="col-lg-5 bet-box text-center">
+                <div class="pick">
+                    <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam.name }}" value="{{ currentPick.awayTeam.name }}">
+                    <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam.name }}.png" width="75" height="75">
+                    <div><small>{{ currentPick.awayTeam.wins }} - {{ currentPick.awayTeam.losses }}</small></div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!--<div class="row">
             <div class="col">
                 <form action="" method="POST">
                     <table class="table">
@@ -44,6 +84,7 @@
                                         <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam.name }}" value="{{ currentPick.homeTeam.name }}" >
                                         {% endif %}
                                         <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam.name }}.png" width="75" height="75">
+                                        <h5>+7</h5>
                                     </label>
                                 </td>
                                 <td class="text-center align-middle">
@@ -58,6 +99,7 @@
                                         <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam.name }}" value="{{ currentPick.awayTeam.name }}" >
                                         {% endif %}
                                         <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam.name }}.png" width="75" height="75">
+                                        <h5>-7</h5>
                                     </label>
                                 </td>
                             </tr>
@@ -71,6 +113,7 @@
                                         <input type="radio" class="incorrect" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam.name }}" value="{{ currentPick.homeTeam.name }}" disabled >
                                         {% endif %}
                                         <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam.name }}.png" width="75" height="75">
+                                        <h5>+7</h5>
                                     </label>
                                 </td>
                                 <td class="text-center align-middle">
@@ -87,6 +130,7 @@
                                         <input type="radio" class= "incorrect" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam.name }}" value="{{ currentPick.awayTeam.name }}" disabled>
                                         {% endif %}
                                         <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam.name }}.png" width="75" height="75">
+                                        <h5>-7</h5>
                                     </label>
                                 </td>
                             </tr>
@@ -98,7 +142,8 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div>-->
     </div>
-</body>
+</body>{% load static %}
+<script src="{% static 'bets/js/betting.js' %}"></script>
 {% endblock %}

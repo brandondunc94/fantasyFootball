@@ -32,10 +32,10 @@ Blue: #0419a4
 2. 'DROP DATABASE dbname;' If there are live connections, kill them with
     SELECT pg_terminate_backend(pg_stat_activity.pid)
     FROM pg_stat_activity
-    WHERE pg_stat_activity.datname = 'dbname'
+    WHERE pg_stat_activity.datname = 'fantasyfootball'
     AND pid <> pg_backend_pid();
 3. 'CREATE DATABASE dbname;'
-4. 'GRANT ALL PRIVILEGES ON DATABASE dbname TO dbuser;'
+4. 'GRANT ALL PRIVILEGES ON DATABASE dbname TO dbuser;' '\q' to quit
 5. If changes to models - Start virtual env using: 'source env/bin/activate'
 6. Then run 'python manage.py migrate'
 
@@ -45,3 +45,7 @@ Blue: #0419a4
  3. Add team records
  4. Enter all 2019-2020 game data
  5. User profile images?
+
+ ##Celery (Without supervisor)
+ 1. Start the worker INSIDE THE VIRTUAL ENV with 'celery -A fantasyFootball worker --loglevel=info'
+ 2. Start celery beat with 'celery -A fantasyFootball beat'

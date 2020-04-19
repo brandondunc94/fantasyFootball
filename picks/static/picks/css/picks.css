@@ -1,7 +1,3 @@
-input[type=radio] {
-    display: none;
-}
-
 input[type=radio]+label::before {
     content: '';
     display: inline-block;

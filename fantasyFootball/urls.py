@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^account/', include('account.urls')),
     url(r'^league/', include('league.urls')),
     url(r'^picks/', include('picks.urls')),
+    url(r'^bets/', include('bets.urls')),
     path('', login_redirect, name='login'),
 ]
 

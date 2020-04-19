@@ -1,0 +1,49 @@
+.bet-box {
+    border-style: solid;
+    border-radius: 10px;
+    background-color: #4d4b4b;
+    border-color: #4d4b4b;
+    margin-bottom: 25px;
+    color: #ffffff;
+}
+
+.bet-box-unselected {
+    background-color: #4d4b4b;
+    border-color: #4d4b4b;
+    opacity: 50%;
+    cursor: pointer;
+}
+
+.bet-box-selected {
+    background-color: #0419a4;
+    border-color: #0419a4;
+}
+
+.point-box {
+    background-color: #4d4b4b;
+    border-radius: 10px;
+}
+
+.point-box-text {
+    color: #ffffff;
+    margin: auto;
+}
+
+.points-button {
+    border-radius: 5px;
+}
+
+input[type=radio]+label::before {
+    content: '';
+    display: inline-block;
+    border: 2px solid #000;
+    border-radius: 25%;
+    margin: 0 0em;
+}
+
+[type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}

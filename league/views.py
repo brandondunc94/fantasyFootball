@@ -242,8 +242,8 @@ def postLeagueMessage(request):
         return render(request, 'league/leagueHome.html')
     else:
         #Get active league
-        activeLeagueName = request.POST.get("leagueName", "")
-        activeLeague = League.objects.get(name=activeLeagueName)
+        activeLeague = Profile.objects.get(user=request.user).currentActiveLeague
+        #activeLeague = League.objects.get(name=activeLeagueName)
 
         newLeagueMessage = LeagueMessage.objects.create(user=request.user, league=activeLeague, message=newMessage)
         newLeagueMessage.save()
