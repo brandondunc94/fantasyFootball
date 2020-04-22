@@ -2,8 +2,6 @@ env/
 fantasyFootball/settings.py
 __pycache__/
 db.sqlite3
+migrations/
 fantasyFootball/celery.py
 fantasyFootball/__init__.py
-league/migrations/
-bets/migrations/
-account/migrations

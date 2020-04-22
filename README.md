@@ -39,9 +39,12 @@ Blue: #0419a4
 5. If changes to models - Start virtual env using: 'source env/bin/activate'
 6. Then run 'python manage.py migrate'
 
- ##Celery (Without supervisor)
+ # Celery (Without supervisor)
  1. Start the worker INSIDE THE VIRTUAL ENV with 'celery -A fantasyFootball worker --loglevel=info'
  2. Start celery beat with 'celery -A fantasyFootball beat'
+
+ # Celery (With supervisor)
+ 1. 
 
  ## Things to add
  1. Add betting on game spread using points
