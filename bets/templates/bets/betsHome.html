@@ -23,8 +23,13 @@
         </div>
         <!-- Total Points Display -->
         <div class="d-flex flex-row justify-content-center point-box mt-3">
-            <div class="col-lg-6 text-muted text-center">
-                <h6 class="point-box-text">Points to Bet: {{ userScore }}</h6>
+            <div class="col-lg-6 text-center">
+                <h6 >Your current point total: </h6>
+                <h6 id="totalPoints">{{ userScore }}</h6>
+            </div>
+            <div class="col-lg-6 text-center">
+                <h6 >Points available to bet: </h6>
+                <h6 id="pointsToBet">{{ userScore }}</h6>
             </div>
         </div>
         <!--Bets-->
@@ -48,10 +53,10 @@
                     <div><small>{{ currentPick.homeTeam.wins }} - {{ currentPick.homeTeam.losses }}</small></div>
                 </div>
             </div>
-            <div class="col-lg-2 text-center mt-4">
-                <h6>0 Points</h6>
-                <button class="btn btn-outline-success mr-1 points-button" type="button">+</button>
-                <button class="btn btn-outline-danger points-button" type="button">-</button>
+            <div class="col-lg-2 game-point-display text-center mt-4">
+                <h6 class="game-bet-amount">0</h6>
+                <button class="btn btn-outline-success mr-1 increase-bet-button" type="button">+</button>
+                <button class="btn btn-outline-danger decrease-bet-button" type="button">-</button>
             </div>
             <div class="col-lg-5 bet-box text-center">
                 <div class="pick">
