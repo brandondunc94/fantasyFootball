@@ -6,7 +6,7 @@
         <div class="row">
             <!--Game column-->
             <div class="col-lg-6">
-                <div class="d-flex flex-row justify-content-between">
+                <div class="d-flex flex-row justify-content-between mb-2">
                     <div class="dropdown">
                         <button class="btn btn-green btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Week {{ week }}</button>
                         <div class="dropdown-menu">
@@ -52,9 +52,9 @@
                                 {% if currentGame.pick == None %}
                                 <td>-</td>
                                 {% elif currentGame.pick == currentGame.game.winner %}
-                                <td class="text-success">{{ currentGame.pick.name }}</td>
+                                <td class="text-success text-center align-middle">{{ currentGame.pick.name }}</td>
                                 {% else %}
-                                <td class="text-danger">{{ currentGame.pick.name }}</td>
+                                <td class="text-danger text-center align-middle">{{ currentGame.pick.name }}</td>
                             </tr>{% endif %} {% else %}
                             <tr>
                                 <td>
@@ -81,7 +81,7 @@
                                 <td class="text-danger">Pick locking soon!</td>
                                 {% else %}
                                 <td>-</td>{% endif %} {% else %}
-                                <td>{{ currentGame.pick.name }}</td>
+                                <td class="text-center align-middle">{{ currentGame.pick.name }}</td>
                                 {% endif %}
                             </tr> {% endif %} {% endfor %}
                         </tbody>
@@ -90,7 +90,7 @@
             </div>
             <!--Leaderboard coulmn-->
             <div class="col-lg-6">
-                <div class="d-flex flex-row justify-content-between">
+                <div class="d-flex flex-row justify-content-between mb-2">
                     <h4 class="my-auto mr-4">Leaderboard</h4>
                     <a href="/league/home/" class="btn btn-blue btn-sm">League Home</a>
                 </div>
