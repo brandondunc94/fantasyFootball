@@ -46,3 +46,9 @@ input[type=radio]+label::before {
     width: 0;
     height: 0;
 }
+
+/*Hide input
+.hidden-input {
+    position: absolute;
+    display: none;
+}*/

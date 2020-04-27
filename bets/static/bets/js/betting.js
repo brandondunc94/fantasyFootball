@@ -1,4 +1,8 @@
-/*Send a request to join a league*/
+$( document ).ready(function() {
+    calculatePointsAvailable();
+});
+
+/*Select a team box to make bets*/
 $(".bet-box").click(function() {
     if ($(this).hasClass('bet-box-selected')) {
         /*Unselect the currently selected box and unselect radio button*/
@@ -9,6 +13,12 @@ $(".bet-box").click(function() {
         /*Select opposite div and radio button to mark as untouched bet box*/
         var oppositeDiv = $(this).siblings('.bet-box');
         oppositeDiv.removeClass('bet-box-unselected')
+
+        /*Disable +/- buttons and set bet amount to 0*/
+        $(this).siblings().children('.increase-bet-button').prop('disabled', true);
+        $(this).siblings().children('.decrease-bet-button').prop('disabled', true);
+        $(this).siblings().children('.game-bet-amount').html('0').val('0');
+        calculatePointsAvailable();
     } 
     else {
         /*Select child radio button and div to mark as checked*/
@@ -25,6 +35,10 @@ $(".bet-box").click(function() {
         }, 200)
         oppositeRadioButton = oppositeDiv.find("input");
         oppositeRadioButton.attr('checked', false);
+
+        /*Enable +/- buttons*/
+        $(this).siblings().children('.increase-bet-button').prop('disabled', false);
+        $(this).siblings().children('.decrease-bet-button').prop('disabled', false);
     }
 });
 
@@ -44,12 +58,9 @@ $(".increase-bet-button").click(function() {
         var gameBetAmount = parseInt(gameBetAmountDisplay.html());
         gameBetAmount += 10;
         gameBetAmountDisplay.html(gameBetAmount.toString());
+        gameBetAmountDisplay.siblings('.game-bet-amount-input').val(gameBetAmount);
 
-        /*Subtract 10 points from points available to bet*/
-        var pointTotalDisplay = $('#pointsToBet');
-        var totalPointsAvailable = parseInt(pointTotalDisplay.html());
-        totalPointsAvailable -= 10;
-        pointTotalDisplay.html( totalPointsAvailable.toString());
+        calculatePointsAvailable();
     }
 });
 
@@ -61,12 +72,22 @@ $(".decrease-bet-button").click(function() {
     if (gameBetAmount > 0){
         gameBetAmount -= 10;
         gameBetAmountDisplay.html(gameBetAmount.toString());
+        gameBetAmountDisplay.siblings('.game-bet-amount-input').val(gameBetAmount);
 
-        /*Add back 10 points from points available to bet*/
-        var pointTotalDisplay = $('#pointsToBet');
-        var totalPointsAvailable = parseInt(pointTotalDisplay.html());
-        totalPointsAvailable += 10;
-        pointTotalDisplay.html( totalPointsAvailable.toString());
+        calculatePointsAvailable();
     }
 });
 
+/*Calculate points available to bet*/
+function calculatePointsAvailable(){
+    /*Get total user points*/
+    pointsAvailable = parseInt($('#totalPoints').html());
+
+    /*Sum up all points that have already been bet on other games*/
+    $('.game-bet-amount').each(function( index ) {
+        pointsAvailable -= (parseInt($(this).html()));
+      });
+    
+    /*Set display at top of page to reflect # of points available to bet*/
+    $('#pointsToBet').html(pointsAvailable.toString());
+}
