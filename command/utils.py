@@ -10,3 +10,19 @@ def lockOldGames():
         game.save()
 
     return True
+
+def sendEmailToAdmin(subject, message):
+    try:
+        send_mail(
+            subject,
+            message,
+            'brandon.douglas.duncan@gmail.com',
+            ['brandon.douglas.duncan@gmail.com'],
+            fail_silently=False,
+        )
+        return True
+    except:
+        print('Email could not be sent to admin: Subject: ' + subject + ' Message: ' + message)
+        return False
+    
+    

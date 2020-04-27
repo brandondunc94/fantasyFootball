@@ -56,7 +56,9 @@ class GameChoice(models.Model):
     league = models.ForeignKey(League, on_delete=models.CASCADE)
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     week = models.ForeignKey(Week, on_delete=models.CASCADE)
-    winner = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True)
+    pickWinner = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True,  related_name="pickWinner")
+    betWinner = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True, related_name="betWinner")
+    betAmount = models.IntegerField(default=0)
     correctFlag = models.BooleanField(default=None,null=True)
 
 #This models governs the relationship between a User and a League they are associated with

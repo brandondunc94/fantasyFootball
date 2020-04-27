@@ -47,7 +47,7 @@ def home(request, weekId="1", leagueName=""):
         #Check to see if there is pick data for this game
         try:
             currentGamePick = GameChoice.objects.get(league=activeLeague,user=request.user,week=Week.objects.get(id=weekId, season=activeSeason),game=currentGame)
-            currentPick = currentGamePick.winner
+            currentPick = currentGamePick.pickWinner
             pickCount += 1
             upcomingPickWarning = False
         except:

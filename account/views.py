@@ -7,6 +7,7 @@ from .forms import RegisterForm
 from home.views import home
 from account.models import Profile
 from django.core.mail import send_mail
+from command.utils import sendEmailToAdmin
 
 # Create your views here.
 
@@ -47,16 +48,7 @@ def create_account(request):
                 #Send email to admin
                 emailSubject = 'Onsidepick.com - New User Created'
                 emailMessage = 'New user was created with username: ' + form.cleaned_data['username']
-                try:
-                    send_mail(
-                        emailSubject,
-                        emailMessage,
-                        'brandon.douglas.duncan@gmail.com',
-                        ['brandon.douglas.duncan@gmail.com'],
-                        fail_silently=False,
-                    )
-                except:
-                    print('New user created but email could not be sent to admin.')
+                sendEmailToAdmin(emailSubject, emailMessage)
         
                 return render(request, 'home/welcome.html')
                 

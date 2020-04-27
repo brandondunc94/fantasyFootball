@@ -32,12 +32,8 @@ def picks(request, weekId="1", leagueName=""):
         if currentWeek.picksLocked == True:
             return render(request, 'picks/picks.html')
         
-        try:
-            #Get league from name passed in
-            activeLeague = League.objects.get(name=leagueName)
-        except:
-            #Use first found league
-            activeLeague = userLeagues[0]
+        #Get user's active league to apply picks to
+        activeLeague = leagueUtils.getUserActiveLeague(request.user)
         
         #Get week game data from current week
         games = Game.objects.filter(week=currentWeek).order_by('id')
@@ -53,7 +49,7 @@ def picks(request, weekId="1", leagueName=""):
                 existingPick = GameChoice.objects.filter(league=activeLeague,user=request.user,week=currentWeek,game=currentGame)
                 
                 if existingPick:
-                    existingPick[0].winner = winnerPicked
+                    existingPick[0].pickWinner = winnerPicked
                     existingPick[0].save()
                 else:    
                     #Save gamechoice object using currentGame, currentLeague and user
@@ -62,7 +58,7 @@ def picks(request, weekId="1", leagueName=""):
                         league=activeLeague,
                         game = currentGame,
                         week = currentWeek,
-                        winner = winnerPicked
+                        pickWinner = winnerPicked
                     )
                     currentWinnerPick.save()
         #Generate pick page with current week and current league
@@ -95,7 +91,7 @@ def picks(request, weekId="1", leagueName=""):
             #Query for game choice model
             try:
                 currentGameChoice = GameChoice.objects.get(league=activeLeague,user=request.user,week=currentWeek,game=currentGame)
-                winnerSelected = currentGameChoice.winner
+                winnerSelected = currentGameChoice.pickWinner
             except:
                 winnerSelected = None #default pick to none until they have made one
 
