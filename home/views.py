@@ -46,10 +46,18 @@ def home(request, weekId="1", leagueName=""):
     for currentGame in currentWeekGames:
         #Check to see if there is pick data for this game
         try:
-            currentGamePick = GameChoice.objects.get(league=activeLeague,user=request.user,week=Week.objects.get(id=weekId, season=activeSeason),game=currentGame)
-            currentPick = currentGamePick.pickWinner
-            pickCount += 1
-            upcomingPickWarning = False
+            currentGamePick = GameChoice.objects.get(league=activeLeague,user=request.user,week=Week.objects.get(id=weekId, season=activeSeason),game=currentGame).pickWinner
+            if currentGamePick:
+                currentPick = currentGamePick
+                pickCount += 1
+                upcomingPickWarning = False
+            else: #If we get here it means that the user has made a bet selection, but not a pick selection
+                currentPick = None
+                 #User has not yet made a pick, let's warn them if the game is going to lock soon. ( -6 hours -----if current time is here, warn user---- -3 hours ------ Game time)
+                if currentGame.dateTime - timedelta(hours=12) < datetime.utcnow().replace(tzinfo=pytz.utc) < currentGame.dateTime - timedelta(hours=1):
+                    upcomingPickWarning = True
+                else:
+                    upcomingPickWarning = False
         except:
             #User has not yet made a pick, let's warn them if the game is going to lock soon. ( -6 hours -----if current time is here, warn user---- -3 hours ------ Game time)
             if currentGame.dateTime - timedelta(hours=12) < datetime.utcnow().replace(tzinfo=pytz.utc) < currentGame.dateTime - timedelta(hours=1):
