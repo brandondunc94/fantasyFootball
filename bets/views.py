@@ -39,7 +39,7 @@ def betsHome(request, weekId="1", leagueName=""):
 
         betData = request.POST
 
-        for currentBet in betData:    #This is assuming the games and picks are in the same order
+        for currentBet in betData:
             if (currentBet != "csrfmiddlewaretoken") & (currentBet.startswith('#') == False):
                 currentGame = Game.objects.get(id=currentBet, week=currentWeek)
                 print(currentGame.homeTeam.name + " VS " + currentGame.awayTeam.name)
@@ -65,6 +65,23 @@ def betsHome(request, weekId="1", leagueName=""):
                         betAmount = amountBet
                     )
                     currentWinnerPick.save()
+            elif(currentBet != "csrfmiddlewaretoken") & (currentBet.startswith('#') == True):
+                #Search for the matching pick. If not found, this means the game has no bet
+                gameId = currentBet.strip('#')
+                try:
+                    matchingPick = betData[gameId]
+                except:
+                    currentGame = Game.objects.get(id=gameId, week=currentWeek)
+
+                    try:
+                        #Check to see if there is already a pick for this game
+                        existingPick = GameChoice.objects.get(league=activeLeague,user=request.user,week=currentWeek,game=currentGame)
+                        existingPick.betWinner = None
+                        existingPick.betAmount = 0
+                        existingPick.save()
+                    except:
+                        print("Could not delete existing bet data in GameChoice")
+                
         #Generate pick page with current week and current league
         redirectUrl = '/bets/' + str(currentWeek.id) + '/' + activeLeague.name
         return redirect(redirectUrl)
