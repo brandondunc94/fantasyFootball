@@ -1,23 +1,19 @@
 /* Bet Box Styles */
 .bet-box {
-    border-style: solid;
-    border-radius: 10px;
-    background-color: #4d4b4b;
-    border-color: #4d4b4b;
     margin-bottom: 25px;
     cursor: pointer;
-    color: #ffffff;
+    border-radius: 5px;
 }
 
 .bet-box-unselected {
     background-color: #4d4b4b;
-    border-color: #4d4b4b;
     opacity: 50%;
+    color: #ffffff;
 }
 
 .bet-box-selected {
-    background-color: #0419a4;
-    border-color: #0419a4;
+    background-color: #19A404;
+    color: #ffffff;
 }
 
 /* Point +/- Button Style */
@@ -27,8 +23,11 @@
     border-radius: 5px;
 }
 
-.points-button {
-    border-radius: 5px;
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }
 
 /* Hide radio buttons */
@@ -46,9 +45,3 @@ input[type=radio]+label::before {
     width: 0;
     height: 0;
 }
-
-/*Hide input
-.hidden-input {
-    position: absolute;
-    display: none;
-}*/

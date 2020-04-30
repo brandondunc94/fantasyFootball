@@ -3,24 +3,8 @@
 
 <body>
     <div class="container">
-        <div class="d-flex flex-row justify-content-between">
-            <div class="dropdown">
-                <button class="btn btn-green btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Week {{ currentWeek.id }}
-                </button>
-                <div class="dropdown-menu">
-                    {% for week in weeks %}
-                    <a class="dropdown-item" href="/bets/{{ week }}/">Week {{ week }}</a> {% endfor %}
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="btn btn-sm btn-blue dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ activeLeague }}</button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    {% for league in userLeagues %}
-                    <a class="dropdown-item" href="/bets/1/{{ league.name }}/">{{ league.name }}</a> {% endfor %}
-                </div>
-            </div>
-        </div>
+        <!--Week and League List Selectors-->
+        {% include "fantasyFootball/weekLeagueLists.html" %} 
         <!-- Total Points Display -->
         <div class="d-flex flex-row justify-content-center mt-2 mb-2">
             <div class="col-lg-3 point-box text-center">
@@ -62,7 +46,7 @@
             <!--Display logic for if a winner has already been selected-->
             {% if currentBet.pick != None %}
             {% if currentBet.pick.name == currentBet.homeTeam.name %}
-            <div class="col-lg-3 bet-box bet-box-selected text-center">
+            <div class="col-lg-3 shadow-sm bet-box bet-box-selected text-center">
                 <div class="pick">
                     {% if currentBet.homeSpread > 0 %}
                     <div><h6>+{{ currentBet.homeSpread }}</h6></div>
@@ -75,7 +59,7 @@
                 </div>
             </div>
             {% else %}
-            <div class="col-lg-3 bet-box bet-box-unselected text-center">
+            <div class="col-lg-3 shadow-sm bet-box bet-box-unselected text-center">
                 <div class="pick">
                     {% if currentBet.homeSpread > 0 %}
                     <div><h6>+{{ currentBet.homeSpread }}</h6></div>
@@ -100,7 +84,7 @@
                 {% endif %}
             </div>
             {% if currentBet.pick.name == currentBet.awayTeam.name %}
-            <div class="col-lg-3 bet-box bet-box-selected text-center">
+            <div class="col-lg-3 shadow-sm bet-box bet-box-selected text-center">
                 <div class="pick">
                     {% if currentBet.awaySpread > 0 %}
                     <div><h6>+{{ currentBet.awaySpread }}</h6></div>
@@ -113,7 +97,7 @@
                 </div>
             </div>
             {% else %}
-            <div class="col-lg-3 bet-box bet-box-unselected text-center">
+            <div class="col-lg-3 shadow-sm bet-box bet-box-unselected text-center">
                 <div class="pick">
                     {% if currentBet.awaySpread > 0 %}
                     <div><h6>+{{ currentBet.awaySpread }}</h6></div>
@@ -128,7 +112,7 @@
             {% endif %}
             <!--Display logic for if a winner has not been selected, this is the default view-->
             {% else %}
-            <div class="col-lg-3 bet-box text-center">
+            <div class="col-lg-3 shadow-sm bet-box text-center">
                 <div class="pick">
                     {% if currentBet.homeSpread > 0 %}
                     <div><h6>+{{ currentBet.homeSpread }}</h6></div>
@@ -151,7 +135,7 @@
                 <button class="btn btn-outline-danger decrease-bet-button" type="button">-</button>
                 {% endif %}
             </div>
-            <div class="col-lg-3 bet-box text-center">
+            <div class="col-lg-3 shadow-sm bet-box text-center">
                 <div class="pick">
                     {% if currentBet.awaySpread > 0 %}
                     <div><h6>+{{ currentBet.awaySpread }}</h6></div>
@@ -168,7 +152,7 @@
         {% else %}
         <!-- Betting is locked for the current game if we make it here -->
         <div class="d-flex flex-row justify-content-center">
-            <div class="col-lg-5 bet-box text-center">
+            <div class="col-lg-3 shadow-sm bet-box text-center">
                 <div class="pick">
                     {% if currentBet.homeSpread > 0 %}
                     <div><h6>+{{ currentBet.homeSpread }}</h6></div>
@@ -183,7 +167,7 @@
             <div class="col-lg-2 game-point-display text-center mt-4">
                 <h6 class="game-bet-amount">{{ currentBet.betAmount }}</h6>
             </div>
-            <div class="col-lg-5 bet-box text-center">
+            <div class="col-lg-3 shadow-sm bet-box text-center">
                 <div class="pick">
                     {% if currentBet.awaySpread > 0 %}
                     <div><h6>+{{ currentBet.awaySpread }}</h6></div>
