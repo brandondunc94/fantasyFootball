@@ -68,17 +68,21 @@ $(".save-button").click(function() {
 
     $(".score-input").each(function(index) {
         var homeScore = $(this).children().children('.home-score').val();
+        var homeSpread = $(this).children().children('.home-spread').val();
         var awayScore = $(this).children().children('.away-score').val();
+        var awaySpread = $(this).children().children('.away-spread').val();
         var gameId = $(this).children('.game-id').attr('value');
-        if (homeScore != '') {
+        if (homeScore | homeSpread | awayScore | awaySpread) {
             $.ajax({
-                url: '/command/save-score/',
+                url: '/command/saveScoreSpread/',
                 data: {
                     'season': seasonYear,
                     'weekId': weekId,
                     'gameId': gameId,
                     'homeScore': homeScore,
-                    'awayScore': awayScore
+                    'homeSpread': homeSpread,
+                    'awayScore': awayScore,
+                    'awaySpread': awaySpread
                 },
                 dataType: 'json',
                 success: function(data) {

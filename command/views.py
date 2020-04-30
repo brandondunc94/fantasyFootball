@@ -55,7 +55,6 @@ def scoreWeek(request, weekId, seasonYear="2019-2020"):
     
     #Get season
     season = Season.objects.get(year=seasonYear)
-    week = Week.objects.get(id=weekId, season_id=season.id)
 
     #Get all leagues
     allLeagues = League.objects.all()
@@ -93,64 +92,87 @@ def scoreWeek(request, weekId, seasonYear="2019-2020"):
     return render(request, 'command/command.html')
 
 #AJAX CALL
-def saveScore(request):
+def saveScoreSpread(request):
     seasonYear = request.GET.get('season', None)
     week = request.GET.get('weekId', None)
     game = request.GET.get('gameId', None)
     homeScore = request.GET.get('homeScore', None)
     awayScore = request.GET.get('awayScore', None)
+    homeSpread = request.GET.get('homeSpread', None)
+    awaySpread = request.GET.get('awaySpread', None)
 
     try:
         #Get season object and then game object for current season, week, and game id
         season = Season.objects.get(year=seasonYear)
         gameObject = Game.objects.get(week= Week.objects.get(season=season,id=week), id=game)
 
-        gameObject.homeScore = homeScore
-        gameObject.awayScore = awayScore
-        #Convert scores to integers
-        homeScore = int(homeScore)
-        awayScore = int(awayScore)
+        #Update scores if passed in and score players
+        try:
+            homeScore = int(homeScore)
+            awayScore = int(awayScore)
+        except:
+            homeScore = None
+            awayScore = None
 
-        if (homeScore > awayScore):
-            gameObject.winner = gameObject.homeTeam
-            gameObject.homeTeam.wins += 1
-            gameObject.awayTeam.losses += 1
-        elif (awayScore > homeScore):
-            gameObject.winner = gameObject.awayTeam
-            gameObject.homeTeam.losses += 1
-            gameObject.awayTeam.wins += 1
-        else:
-            gameObject.winner = None
-        
-        #Save home and away wins/losses update
-        gameObject.homeTeam.save()
-        gameObject.awayTeam.save()
+        if homeScore and awayScore:
+            gameObject.homeScore = homeScore
+            gameObject.awayScore = awayScore
 
-        #Update user scores
-        allUsers = User.objects.all()
-
-        for currentUser in allUsers:
-            #Get game choices for current game and current user (1 per league that the user is in)
-            picks = GameChoice.objects.filter(user=currentUser, game=gameObject)
+            if (homeScore > awayScore):
+                gameObject.winner = gameObject.homeTeam
+                gameObject.homeTeam.wins += 1
+                gameObject.awayTeam.losses += 1
+            elif (awayScore > homeScore):
+                gameObject.winner = gameObject.awayTeam
+                gameObject.homeTeam.losses += 1
+                gameObject.awayTeam.wins += 1
+            else:
+                gameObject.winner = None
             
-            for currentPick in picks:
-                membership = LeagueMembership.objects.get(user=currentUser, league=currentPick.league)
+            #Save home and away wins/losses update, save gameObject changes
+            gameObject.homeTeam.save()
+            gameObject.awayTeam.save()
 
-                #Check to see if this game has already been counted towards their score. If so, remove 1 and rescore them
-                if currentPick.correctFlag == True:
-                    membership.score -= 100
+            #Update user scores
+            allUsers = User.objects.all()   #Get all users
+
+            for currentUser in allUsers:
+                #Get game choices for current game and current user (1 per league that the user is in)
+                picks = GameChoice.objects.filter(user=currentUser, game=gameObject)
                 
-                #Give player 1 point if they got this game correct 
-                if currentPick.winner == gameObject.winner:
-                    currentPick.correctFlag = True
-                    membership.score += 100
-                else:
-                    currentPick.correctFlag = False
+                for currentPick in picks:
+                    membership = LeagueMembership.objects.get(user=currentUser, league=currentPick.league)
 
-                membership.save()
-                currentPick.save()
+                    #Check to see if this game has already been counted towards their score. If so, remove 1 and rescore them
+                    if currentPick.correctFlag == True:
+                        membership.score -= 100
+                    
+                    #Give player 1 point if they got this game correct 
+                    if currentPick.winner == gameObject.winner:
+                        currentPick.correctFlag = True
+                        membership.score += 100
+                    else:
+                        currentPick.correctFlag = False
 
+                    membership.save()
+                    currentPick.save()
+        
+        #Update spreads if they were passed in
+        try:    #Convert spreads to integers
+            homeSpread = int(homeSpread)
+            awaySpread = int(awaySpread)
+        except:
+            homeSpread = None
+            awaySpread = None
+        
+        #Update game spreads
+        if homeSpread and awaySpread:
+            gameObject.homeSpread = homeSpread
+            gameObject.awaySpread = awaySpread
+
+        #Save game object changes (scores and spreads)
         gameObject.save()
+
         status = 'SUCCESS'
     except:
         status = 'FAILED'

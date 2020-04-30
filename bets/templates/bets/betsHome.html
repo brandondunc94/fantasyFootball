@@ -67,7 +67,7 @@
                     {% if currentBet.homeSpread > 0 %}
                     <div><h6>+{{ currentBet.homeSpread }}</h6></div>
                     {% else %}
-                    <div><h6>+{{ currentBet.homeSpread }}</h6></div>
+                    <div><h6>{{ currentBet.homeSpread }}</h6></div>
                     {% endif %}
                     <input type="radio" name="{{ currentBet.game }}" id="{{ currentBet.homeTeam.name }}" value="{{ currentBet.homeTeam.name }}" checked="checked">
                     <img class="img-fluid" src="/static/media/{{ currentBet.homeTeam.name }}.png" width="60" height="60">
@@ -80,7 +80,7 @@
                     {% if currentBet.homeSpread > 0 %}
                     <div><h6>+{{ currentBet.homeSpread }}</h6></div>
                     {% else %}
-                    <div><h6>+{{ currentBet.homeSpread }}</h6></div>
+                    <div><h6>{{ currentBet.homeSpread }}</h6></div>
                     {% endif %}
                     <input type="radio" name="{{ currentBet.game }}" id="{{ currentBet.homeTeam.name }}" value="{{ currentBet.homeTeam.name }}">
                     <img class="img-fluid" src="/static/media/{{ currentBet.homeTeam.name }}.png" width="60" height="60">
@@ -105,7 +105,7 @@
                     {% if currentBet.awaySpread > 0 %}
                     <div><h6>+{{ currentBet.awaySpread }}</h6></div>
                     {% else %}
-                    <div><h6>+{{ currentBet.awaySpread }}</h6></div>
+                    <div><h6>{{ currentBet.awaySpread }}</h6></div>
                     {% endif %}
                     <input type="radio" name="{{ currentBet.game }}" id="{{ currentBet.awayTeam.name }}" value="{{ currentBet.awayTeam.name }}" checked="checked">
                     <img class="img-fluid" src="/static/media/{{ currentBet.awayTeam.name }}.png" width="60" height="60">
@@ -118,7 +118,7 @@
                     {% if currentBet.awaySpread > 0 %}
                     <div><h6>+{{ currentBet.awaySpread }}</h6></div>
                     {% else %}
-                    <div><h6>+{{ currentBet.awaySpread }}</h6></div>
+                    <div><h6>{{ currentBet.awaySpread }}</h6></div>
                     {% endif %}
                     <input type="radio" name="{{ currentBet.game }}" id="{{ currentBet.awayTeam.name }}" value="{{ currentBet.awayTeam.name }}">
                     <img class="img-fluid" src="/static/media/{{ currentBet.awayTeam.name }}.png" width="60" height="60">
@@ -133,7 +133,7 @@
                     {% if currentBet.homeSpread > 0 %}
                     <div><h6>+{{ currentBet.homeSpread }}</h6></div>
                     {% else %}
-                    <div><h6>+{{ currentBet.homeSpread }}</h6></div>
+                    <div><h6>{{ currentBet.homeSpread }}</h6></div>
                     {% endif %}
                     <input type="radio" name="{{ currentBet.game }}" id="{{ currentBet.homeTeam.name }}" value="{{ currentBet.homeTeam.name }}">
                     <img class="img-fluid" src="/static/media/{{ currentBet.homeTeam.name }}.png" width="60" height="60">
@@ -156,7 +156,7 @@
                     {% if currentBet.awaySpread > 0 %}
                     <div><h6>+{{ currentBet.awaySpread }}</h6></div>
                     {% else %}
-                    <div><h6>+{{ currentBet.awaySpread }}</h6></div>
+                    <div><h6>{{ currentBet.awaySpread }}</h6></div>
                     {% endif %}
                     <input type="radio" name="{{ currentBet.game }}" id="{{ currentBet.awayTeam.name }}" value="{{ currentBet.awayTeam.name }}">
                     <img class="img-fluid" src="/static/media/{{ currentBet.awayTeam.name }}.png" width="60" height="60">
@@ -173,7 +173,7 @@
                     {% if currentBet.homeSpread > 0 %}
                     <div><h6>+{{ currentBet.homeSpread }}</h6></div>
                     {% else %}
-                    <div><h6>+{{ currentBet.homeSpread }}</h6></div>
+                    <div><h6>{{ currentBet.homeSpread }}</h6></div>
                     {% endif %}
                     <input type="radio" name="{{ currentBet.game }}" id="{{ currentBet.homeTeam.name }}" value="{{ currentBet.homeTeam.name }}">
                     <img class="img-fluid" src="/static/media/{{ currentBet.homeTeam.name }}.png" width="60" height="60">
@@ -188,7 +188,7 @@
                     {% if currentBet.awaySpread > 0 %}
                     <div><h6>+{{ currentBet.awaySpread }}</h6></div>
                     {% else %}
-                    <div><h6>+{{ currentBet.awaySpread }}</h6></div>
+                    <div><h6>{{ currentBet.awaySpread }}</h6></div>
                     {% endif %}
                     <input type="radio" name="{{ currentBet.game }}" id="{{ currentBet.awayTeam.name }}" value="{{ currentBet.awayTeam.name }}">
                     <img class="img-fluid" src="/static/media/{{ currentBet.awayTeam.name }}.png" width="60" height="60">
