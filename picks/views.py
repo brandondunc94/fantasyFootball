@@ -64,7 +64,11 @@ def save_pick(request):
         league = League.objects.get(name=request.GET.get('leagueName', None))
         week = Week.objects.get(id=request.GET.get('weekId', None))
         game = Game.objects.get(id=request.GET.get('gameId', None))
-        pick = Team.objects.get(name=request.GET.get('pick', None))
+        try:
+            pick = Team.objects.get(name=request.GET.get('pick'))
+        except:
+            pick = None #User is removing their pick, setting pick to None
+
         try:
             #Check to see if there is already a pick for this game
             existingPick = GameChoice.objects.get(league=league,user=request.user,week=week,game=game)
