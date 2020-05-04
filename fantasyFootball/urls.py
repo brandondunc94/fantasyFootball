@@ -19,6 +19,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import url
 from django.contrib.auth import views as auth_views
 from account.views import login_redirect
+from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^login/$', auth_views.LoginView.as_view(), name='login'),
@@ -31,7 +32,7 @@ urlpatterns = [
     url(r'^league/', include('league.urls')),
     url(r'^picks/', include('picks.urls')),
     url(r'^bets/', include('bets.urls')),
-    path('', login_redirect, name='login'),
+    path('', TemplateView.as_view(template_name='home/home.html'))
 ]
 
 urlpatterns += staticfiles_urlpatterns()

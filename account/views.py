@@ -4,7 +4,6 @@ from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from .forms import RegisterForm
-from home.views import home
 from account.models import Profile
 from django.core.mail import send_mail
 from command.utils import sendEmailToAdmin

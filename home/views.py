@@ -9,8 +9,11 @@ from fantasyFootball import settings
 import pytz
 
 # Create your views here.
+def default(request):
+    return render(request, 'home/welcome.html')
+    
 @login_required
-def home(request, weekId="1", leagueName=""):
+def dashboard(request, weekId="1", leagueName=""):
     
     #Do a lookup to find all leagues for current user. If none, default to home page with no data
     userLeagues = leagueUtils.getUserLeagues(request.user)
@@ -82,7 +85,7 @@ def home(request, weekId="1", leagueName=""):
             'gameActive' : gameActive
         })
 
-    return render(request, 'home/home.html', 
+    return render(request, 'home/dashboard.html', 
     {
         'gameData': gameData, 
         'userLeagues': userLeagues, 

@@ -13,9 +13,11 @@ A new fantasy football based solely on picking game winners
 
 ## Color Scheme
 Green: #19A404
+Grey: #3A506B
 White: #ffffff
-Grey: #292727
-Blue: #0419a4
+Light Blue: #33A1FD
+Medium Blue: #3066be
+Dark Blue: #1B2A41
 
 ## How to Deploy
 1. Navigate to server using putty, login with user bdunc and navigate to project folder.
@@ -53,3 +55,11 @@ Blue: #0419a4
  4. Clean up pick page, beautify UI like the betting page
  5. User profile images
  6. Make default home page when season is not active
+
+League selection in nav bar with join league and create league
+
+Change 'home' to 'dashboard'
+
+Dashboard Picks Bets
+
+Make league home contents in dashboard

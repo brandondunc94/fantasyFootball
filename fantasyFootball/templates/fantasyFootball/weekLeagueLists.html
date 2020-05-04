@@ -1,18 +1,11 @@
 <div class="d-flex flex-row justify-content-between">
     <div class="dropdown">
-        <button class="btn btn-green btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-green btn-sm dropdown-toggle" id="weekId" name="{{ currentWeek.id }}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Week {{ currentWeek.id }}
         </button>
         <div class="dropdown-menu">
             {% for week in weeks %}
             <a class="dropdown-item" href="/bets/{{ week }}/">Week {{ week }}</a> {% endfor %}
-        </div>
-    </div>
-    <div class="dropdown">
-        <button class="btn btn-sm btn-blue dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ activeLeague }}</button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            {% for league in userLeagues %}
-            <a class="dropdown-item" href="/bets/1/{{ league.name }}/">{{ league.name }}</a> {% endfor %}
         </div>
     </div>
 </div>

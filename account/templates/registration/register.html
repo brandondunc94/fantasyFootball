@@ -9,57 +9,59 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet"> {% load static %}
     <link href="{% static 'css/global.css' %}" rel="stylesheet">
 </head>
-<nav class="navbar navbar-expand-lg mb-3 navbar-dark" style="background-color: #292727">
+
+<nav class="navbar navbar-expand-lg mb-3 navbar-dark fixed-top" style="background-color: #292727">
     <a class="navbar-brand" href="#">
         <img class="rounded img-fluid" src="{% static 'media/logoTitleWhite.png' %}" width="200" height="auto">
     </a>
 </nav>
-<hr>
 
-<div class="container">
-    <h2>Create a new account</h2>
-    {% if error %}
-    <div class="alert alert-danger" role="alert">
-        <strong>Error: </strong> {{ error }}
-    </div>{% endif %}
+<body>
+    <div class="container">
+        <h2>Create a new account</h2>
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+            <strong>Error: </strong> {{ error }}
+        </div>{% endif %}
 
-    <form action="" method="POST">
-        {% csrf_token %}
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label>Username*</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Username*</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Email*</label>
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Email">
+                </div>
             </div>
-            <div class="form-group col-md-6">
-                <label>Email*</label>
-                <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Email">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>First Name</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
+                </div>
             </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label>First Name</label>
-                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Password*</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Re-enter Password*</label>
+                    <input type="password" class="form-control" id="password2" name="password2" placeholder="Re-enter Password">
+                </div>
+                <div class="form-group col-md-6 alert" id="divCheckPasswordMatch" role="alert">
+                </div>
             </div>
-            <div class="form-group col-md-6">
-                <label>Last Name</label>
-                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label>Password*</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-            </div>
-            <div class="form-group col-md-6">
-                <label>Re-enter Password*</label>
-                <input type="password" class="form-control" id="password2" name="password2" placeholder="Re-enter Password">
-            </div>
-            <div class="form-group col-md-6 alert" id="divCheckPasswordMatch" role="alert">
-            </div>
-        </div>
-        <button type="submit" class="btn btn-green" id="submitButton" disabled>Submit</button>
-    </form>
-</div>
+            <button type="submit" class="btn btn-green" id="submitButton" disabled>Submit</button>
+        </form>
+    </div>
+</body>
 <!-- jQuery -->
 <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js "></script>
 <script src="{% static 'account/js/register.js' %} "></script>
