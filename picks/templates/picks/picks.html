@@ -4,85 +4,112 @@
 <body>
     <div class="container">
         <!--Week and League List Selectors-->
-        {% include "fantasyFootball/weekLeagueLists.html" %} 
+        {% include "fantasyFootball/weekLeagueLists.html" %}
         <!--Picks-->
         <div class="row mt-1">
             <div class="col">
-                <form action="" method="POST">
-                    <table class="table">
-                        <thead>
-                            <tr class="text-center">
-                                <th scope="col">Home</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Away</th>
-                            </tr>
-                        </thead>
-                        <tbody class="form-group">
-                            {% csrf_token %} {% for currentPick in pickData %} {% if currentPick.pickLocked == False %}
-                            <tr class="enabled">
-                                <td class="text-center">
-                                    <label>
-                                        {% if currentPick.pick.name == currentPick.homeTeam.name %}
-                                        <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam.name }}" value="{{ currentPick.homeTeam.name }}" checked>
-                                        {% else %}
-                                        <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam.name }}" value="{{ currentPick.homeTeam.name }}" >
-                                        {% endif %}
-                                        <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam.name }}.png" width="75" height="75">
-                                    </label>
-                                </td>
-                                <td class="text-center align-middle">
-                                    <div>{{ currentPick.date }} </div>
-                                    <div>{{ currentPick.time }}</div>
-                                </td>
-                                <td class="text-center">
-                                    <label>
-                                        {% if currentPick.pick.name == currentPick.awayTeam.name %}
-                                        <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam.name }}" value="{{ currentPick.awayTeam.name }}" checked>
-                                        {% else %}
-                                        <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam.name }}" value="{{ currentPick.awayTeam.name }}" >
-                                        {% endif %}
-                                        <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam.name }}.png" width="75" height="75">
-                                    </label>
-                                </td>
-                            </tr>
-                            {% else %}
-                            <tr class="disabled">
-                                <td class="text-center">
-                                    <label>
-                                        {% if currentPick.pick.name == currentPick.homeTeam.name %}
-                                        <input type="radio" class= "correct" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam.name }}" value="{{ currentPick.homeTeam.name }}" disabled checked>
-                                        {% else %}
-                                        <input type="radio" class="incorrect" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam.name }}" value="{{ currentPick.homeTeam.name }}" disabled >
-                                        {% endif %}
-                                        <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam.name }}.png" width="75" height="75">
-                                    </label>
-                                </td>
-                                <td class="text-center align-middle">
-                                    <label>
-                                        <div>{{ currentPick.date }}</div>
-                                        <div>{{ currentPick.time }}</div>
-                                    </label>
-                                </td>
-                                <td class="text-center">
-                                    <label>
-                                        {% if currentPick.pick.name == currentPick.awayTeam.name %}
-                                        <input type="radio" class= "correct" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam.name }}" value="{{ currentPick.awayTeam.name }}" disabled checked >
-                                        {% else %}
-                                        <input type="radio" class= "incorrect" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam.name }}" value="{{ currentPick.awayTeam.name }}" disabled>
-                                        {% endif %}
-                                        <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam.name }}.png" width="75" height="75">
-                                    </label>
-                                </td>
-                            </tr>
-                            {% endif %} {% endfor %}
-                        </tbody>
-                    </table>
-                    <div class="text-center">
-                        <input type="submit" class="btn btn-success" value="Save Picks">
+                <div class="d-flex flex-row justify-content-center">
+                    <div class="col-lg-3 text-center">
+                        <h6>Home</h6>
                     </div>
-                </form>
+                    <div class="col-lg-2 text-center">
+                        <h6>Date/Time</h6>
+                    </div>
+                    <div class="col-lg-3 text-center">
+                        <h6>Away</h6>
+                    </div>
+                </div>
+                {% csrf_token %} {% for currentPick in pickData %} {% if currentPick.pickLocked == False %} {% if currentPick.pick != None %}
+                <!-- Picks have been made -->
+                <div class="d-flex flex-row justify-content-center">
+                    {% if currentPick.pick.name == currentPick.homeTeam.name %}
+                    <div class="col-lg-3 bet-box bet-box-selected text-center">
+                        <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam.name }}" value="{{ currentPick.homeTeam.name }}" checked>
+                        <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam.name }}.png" width="60" height="60">
+                        <div><small>{{ currentPick.homeTeam.wins }} - {{ currentPick.homeTeam.losses }}</small></div>
+                    </div>
+                    {% else %}
+                    <div class="col-lg-3 bet-box bet-box-unselected text-center">
+                        <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam.name }}" value="{{ currentPick.homeTeam.name }}">
+                        <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam.name }}.png" width="60" height="60">
+                        <div><small>{{ currentPick.homeTeam.wins }} - {{ currentPick.homeTeam.losses }}</small></div>
+                    </div>
+                    {% endif%}
+                    <div class="col-lg-2 d-flex flex-column align-items-center justify-content-center mb-3">
+                        <small>{{ currentPick.date }}</small>
+                        <small>{{ currentPick.time }}</small>
+                    </div>
+                    {% if currentPick.pick.name == currentPick.awayTeam.name %}
+                    <div class="col-lg-3 bet-box bet-box-selected text-center">
+                        <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam.name }}" value="{{ currentPick.awayTeam.name }}" checked>
+                        <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam.name }}.png" width="60" height="60">
+                        <div><small>{{ currentPick.awayTeam.wins }} - {{ currentPick.awayTeam.losses }}</small></div>
+                    </div>
+                    {% else %}
+                    <div class="col-lg-3 bet-box bet-box-unselected text-center">
+                        <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam.name }}" value="{{ currentPick.awayTeam.name }}">
+                        <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam.name }}.png" width="60" height="60">
+                        <div><small>{{ currentPick.awayTeam.wins }} - {{ currentPick.awayTeam.losses }}</small></div>
+                    </div>
+                    {% endif%}
+                </div>
+                {% else %}
+                <!-- Picks have not been made yet and are not yet locked -->
+                <div class="d-flex flex-row justify-content-center">
+                    <div class="col-lg-3  bet-box text-center">
+                        <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam.name }}" value="{{ currentPick.homeTeam.name }}">
+                        <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam.name }}.png" width="60" height="60">
+                        <div><small>{{ currentPick.homeTeam.wins }} - {{ currentPick.homeTeam.losses }}</small></div>
+                    </div>
+                    <div class="col-lg-2 d-flex flex-column align-items-center justify-content-center mb-3">
+                        <div><small>{{ currentPick.date }}</small></div>
+                        <div><small>{{ currentPick.time }}</small></div>
+                    </div>
+                    <div class="col-lg-3 bet-box text-center">
+                        <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam.name }}" value="{{ currentPick.awayTeam.name }}">
+                        <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam.name }}.png" width="60" height="60">
+                        <div><small>{{ currentPick.awayTeam.wins }} - {{ currentPick.awayTeam.losses }}</small></div>
+                    </div>
+                </div>
+                {% endif %} {% else %}
+                <!-- Picks are locked -->
+                <div class="d-flex flex-row justify-content-center">
+                    {% if currentPick.pick.name == currentPick.homeTeam.name %}
+                    <div class="col-lg-3 bet-box bet-box-selected text-center">
+                        <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam.name }}" value="{{ currentPick.homeTeam.name }}" checked disabled>
+                        <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam.name }}.png" width="60" height="60">
+                        <div><small>{{ currentPick.homeTeam.wins }} - {{ currentPick.homeTeam.losses }}</small></div>
+                    </div>
+                    {% else %}
+                    <div class="col-lg-3 bet-box bet-box-unselected text-center">
+                        <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam.name }}" value="{{ currentPick.homeTeam.name }}" disabled>
+                        <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam.name }}.png" width="60" height="60">
+                        <div><small>{{ currentPick.homeTeam.wins }} - {{ currentPick.homeTeam.losses }}</small></div>
+                    </div>
+                    {% endif %}
+                    <div class="col-lg-2 d-flex flex-column align-items-center justify-content-center mb-3">
+                        <img class="img-fluid" src="{% static 'media/lock.png' %}" width="30" height="auto">
+                        <div><small>{{ currentPick.date }}</small></div>
+                        <div><small>{{ currentPick.time }}</small></div>
+                    </div>
+                    {% if currentPick.pick.name == currentPick.awayTeam.name %}
+                    <div class="col-lg-3 bet-box bet-box-selected text-center">
+                        <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam.name }}" value="{{ currentPick.awayTeam.name }}" checked disabled>
+                        <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam.name }}.png" width="60" height="60">
+                        <div><small>{{ currentPick.awayTeam.wins }} - {{ currentPick.awayTeam.losses }}</small></div>
+                    </div>
+                    {% else %}
+                    <div class="col-lg-3 bet-box bet-box-unselected text-center">
+                        <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam.name }}" value="{{ currentPick.awayTeam.name }}" disabled>
+                        <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam.name }}.png" width="60" height="60">
+                        <div><small>{{ currentPick.awayTeam.wins }} - {{ currentPick.awayTeam.losses }}</small></div>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %} {% endfor %}
             </div>
         </div>
     </div>
-</body>
+</body>{% load static %}
+<script src="{% static 'picks/js/picks.js' %}"></script>
 {% endblock %}

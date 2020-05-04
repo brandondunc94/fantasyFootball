@@ -1,3 +1,25 @@
+/* Bet Box Styles */
+
+.bet-box {
+    margin-bottom: 25px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bet-box-unselected {
+    background-color: #4d4b4b;
+    color: #ffffff;
+}
+
+.bet-box-selected {
+    background-color: #33A1FD;
+    color: #ffffff;
+}
+
+
+/* Hide radio buttons */
+
 input[type=radio]+label::before {
     content: '';
     display: inline-block;
@@ -6,43 +28,9 @@ input[type=radio]+label::before {
     margin: 0 0em;
 }
 
-input[type=radio]:checked+label::before {
-    background-color: #33b5e5;
-}
-
-.radio-custom+label::before {
-    width: 1em;
-    height: 1em;
-}
-
 [type=radio] {
     position: absolute;
     opacity: 0;
     width: 0;
     height: 0;
-}
-
-
-/* IMAGE STYLES */
-
-[type=radio]+img {
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-
-/* CHECKED STYLES */
-
-[type=radio]:checked:disabled+img {
-    opacity: 0.6;
-}
-
-[type=radio]:checked+img {
-    background-color: #33b5e5;
-    opacity: 0.6;
-}
-
-tr.disabled {
-    background-color: #8b8c8f;
-    opacity: 0.5;
 }
