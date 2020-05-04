@@ -6,22 +6,9 @@
         <div class="row">
             <!--Game column-->
             <div class="col-lg-6">
-                <div class="d-flex flex-row justify-content-between mb-2">
-                    <div class="dropdown">
-                        <button class="btn btn-green btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Week {{ week }}</button>
-                        <div class="dropdown-menu">
-                            {% for week in weeks %}
-                            <a class="dropdown-item" href="/home/{{ week }}/">Week {{ week }}</a> {% endfor %}
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <button class="btn btn-sm btn-blue dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ activeLeague }}</button>
-                        <div class="dropdown-menu">
-                            {% for league in userLeagues %}
-                            <a class="dropdown-item" href="/home/1/{{ league.name }}/">{{ league.name }}</a> {% endfor %}
-                        </div>
-                    </div>
-                </div>
+                <!-- Week List Picker -->
+                {% include "fantasyFootball/weekList.html" %}
+                <!-- Games -->
                 <div class="row">
                     <table class="table btn-table text-center" cellspacing="0" width="100%">
                         <thead>
@@ -80,7 +67,7 @@
                                 {% if currentGame.pick == None %} {% if currentGame.upcomingPickWarning == True %}
                                 <td class="text-danger">Pick locking soon!</td>
                                 {% else %}
-                                <td>-</td>{% endif %} {% else %}
+                                <td class="text-center align-middle">-</td>{% endif %} {% else %}
                                 <td class="text-center align-middle">{{ currentGame.pick.name }}</td>
                                 {% endif %}
                             </tr> {% endif %} {% endfor %}

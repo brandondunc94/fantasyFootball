@@ -55,7 +55,8 @@ def picks(request, weekId="1", leagueName=""):
 
     weeks = leagueUtils.getWeekIds()
     
-    return render(request, 'picks/picks.html', {'pickData': pickData, 'userLeagues': userLeagues, 'currentWeek': currentWeek, 'activeLeague': activeLeague, 'weeks': weeks})
+    #Template always expects {week}, {weeks}, {activeLeague}, {userLeagues}
+    return render(request, 'picks/picks.html', {'pickData': pickData, 'userLeagues': userLeagues, 'week': currentWeek.id, 'activeLeague': activeLeague, 'weeks': weeks})
     
 #AJAX CALL - Save single pick
 def save_pick(request):

@@ -84,7 +84,7 @@ def dashboard(request, weekId="1", leagueName=""):
             'upcomingPickWarning' : upcomingPickWarning,
             'gameActive' : gameActive
         })
-
+    #Template always expects {week}, {weeks}, {activeLeague}, {userLeagues}
     return render(request, 'home/dashboard.html', 
     {
         'gameData': gameData, 

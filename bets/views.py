@@ -137,4 +137,5 @@ def betsHome(request, weekId="1", leagueName=""):
 
         weeks = leagueUtils.getWeekIds()
         userScore = getUserScore(request.user, activeLeague)
-        return render(request, 'bets/betsHome.html', {'betData': betData, 'userLeagues': userLeagues, 'currentWeek': currentWeek, 'activeLeague': activeLeague, 'weeks': weeks, 'userScore': userScore})
+        #Template always expects {week}, {weeks}, {activeLeague}, {userLeagues}
+        return render(request, 'bets/betsHome.html', {'betData': betData, 'userLeagues': userLeagues, 'week': currentWeek.id, 'activeLeague': activeLeague, 'weeks': weeks, 'userScore': userScore})
