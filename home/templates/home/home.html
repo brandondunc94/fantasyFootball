@@ -1,121 +1,45 @@
-{% extends "fantasyFootball/base.html" %} {% block page_content %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"> {% load static %}
+    <link href="{% static 'css/global.css' %}" rel="stylesheet">
+</head>
 
 <body>
-    <div class="container">
-        <!--Games and Leaderboard columns-->
-        <div class="row">
-            <!--Game column-->
-            <div class="col-lg-6">
-                <div class="d-flex flex-row justify-content-between mb-2">
-                    <div class="dropdown">
-                        <button class="btn btn-green btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Week {{ week }}</button>
-                        <div class="dropdown-menu">
-                            {% for week in weeks %}
-                            <a class="dropdown-item" href="/home/{{ week }}/">Week {{ week }}</a> {% endfor %}
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <button class="btn btn-sm btn-blue dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ activeLeague }}</button>
-                        <div class="dropdown-menu">
-                            {% for league in userLeagues %}
-                            <a class="dropdown-item" href="/home/1/{{ league.name }}/">{{ league.name }}</a> {% endfor %}
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <table class="table btn-table text-center" cellspacing="0" width="100%">
-                        <thead>
-                            <tr>
-                                <th scope="col">Home</th>
-                                <th scope="col">Score/Date</th>
-                                <th scope="col">Away</th>
-                                <th scope="col">Pick ({{ pickCount }}/{{ gameCount }})</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for currentGame in gameData %} {% if currentGame.game.winner != None %}
-                            <tr>
-                                <td>
-                                    <div>
-                                        <img src="/static/media/{{ currentGame.game.homeTeam.name }}.png" alt="{{ currentGame.game.homeTeam.name }}" class="img-fluid" width="50" height="50">
-                                    </div>
-                                    <div><small>{{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }}</small></div>
-                                </td>
-
-                                <td class="text">{{ currentGame.game.homeScore }} - {{ currentGame.game.awayScore }}</td>
-                                <td>
-                                    <div>
-                                        <img src="/static/media/{{ currentGame.game.awayTeam.name }}.png" alt="{{ currentGame.game.awayTeam.name }}" class="img-fluid" width="50" height="50">
-                                    </div>
-                                    <div><small>{{ currentGame.game.awayTeam.wins }} - {{ currentGame.game.awayTeam.losses }}</small></div>
-                                </td>
-                                {% if currentGame.pick == None %}
-                                <td>-</td>
-                                {% elif currentGame.pick == currentGame.game.winner %}
-                                <td class="text-success text-center align-middle">{{ currentGame.pick.name }}</td>
-                                {% else %}
-                                <td class="text-danger text-center align-middle">{{ currentGame.pick.name }}</td>
-                            </tr>{% endif %} {% else %}
-                            <tr>
-                                <td>
-                                    <div>
-                                        <img src="/static/media/{{ currentGame.game.homeTeam.name }}.png" alt="{{ currentGame.game.homeTeam.name }}" class="img-fluid" width="50" height="50">
-                                    </div>
-                                    <div><small>{{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }}</small></div>
-                                </td>
-                                <td class="text-center align-middle">
-                                    {% if currentGame.gameActive == True %}
-                                    <div>Game in Progress</div>
-                                    {% else %}
-                                    <div>{{ currentGame.date }} </div>
-                                    <div>{{ currentGame.time }}</div>
-                                    {% endif %}
-                                </td>
-                                <td>
-                                    <div>
-                                        <img src="/static/media/{{ currentGame.game.awayTeam.name }}.png" alt="{{ currentGame.game.awayTeam.name }}" class="img-fluid" width="50" height="50">
-                                    </div>
-                                    <div><small>{{ currentGame.game.awayTeam.wins }} - {{ currentGame.game.awayTeam.losses }}</small></div>
-                                </td>
-                                {% if currentGame.pick == None %} {% if currentGame.upcomingPickWarning == True %}
-                                <td class="text-danger">Pick locking soon!</td>
-                                {% else %}
-                                <td>-</td>{% endif %} {% else %}
-                                <td class="text-center align-middle">{{ currentGame.pick.name }}</td>
-                                {% endif %}
-                            </tr> {% endif %} {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
+    <div class="container-fluid">
+        <nav class="navbar navbar-light navbar-expand fixed-top bg-white">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="{% static 'media/logoSmall.png' %}" width="50" /></a>
+                <div><a class="btn mr-2 btn-green-outline" href="/login/">Login</a>
+                    <a class="btn mr-1" href="/account/create/" style="background-color: #19A404;color: #ffffff;">Join</a></div>
             </div>
-            <!--Leaderboard coulmn-->
-            <div class="col-lg-6">
-                <div class="d-flex flex-row justify-content-between mb-2">
-                    <h4 class="my-auto mr-4">Leaderboard</h4>
-                    <a href="/league/home/" class="btn btn-blue btn-sm">League Home</a>
-                </div>
-                <div class="row">
-                    <table class="table btn-table text-center" cellspacing="0" width="100%">
-                        <thead>
-                            <tr>
-                                <th scope="col">Player</th>
-                                <th scope="col">Score</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for currentUser in leagueUsers %}
-                            <tr>
-                                <td>{{ currentUser.user }}</td>
-                                <td>{{ currentUser.score }}</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
+        </nav>
+        <div class="row">
+            <div class="col text-center" style="background-image: url('static/media/mahomes.png');background-repeat: no-repeat;background-size: cover;padding: 0px;padding-bottom: 150px;background-position: top;">
+                <img class="img-fluid d-block m-auto title" src="{% static 'media/logoTitleWhite.png' %}" style="width: 505px;padding-top: 200px;max-height: 100%;" />
+                <h4 class="" style="color: #ffffff;">A new way to play.</h4>
             </div>
         </div>
-        <hr>
+        <div class="row">
+            <div class="col-lg-6 d-flex flex-column align-items-center" style="background-color: #33a1fd;padding-top: 30px;padding-bottom: 30px;">
+                <h1 class="text-center" style="color: rgb(255,255,255);font-size: 45px;">Make Picks</h1>
+                <h4 class="text-center" style="color: #ffffff;font-size: 20px;margin-bottom: 15px;">Select who you think will win each game throughout the season and earn points by selecting the winner.</h4>
+            </div>
+            <div class="col-lg-6 d-flex flex-column align-items-center" style="background-color: #3066be;padding-top: 30px;padding-bottom: 30px;">
+                <h1 class="text-center" style="color: rgb(255,255,255);font-size: 45px;">Make Bets</h1>
+                <h4 class="text-center" style="color: #ffffff;font-size: 20px;margin-bottom: 15px;">Use the points you earn from correct picks to bet on the spread of any game to earn even more points!</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col d-flex flex-column align-items-center" style="background-color: #1b2a41;padding-top: 30px;padding-bottom: 30px;">
+                <h1 class="text-center text-white" style="color: rgb(255,255,255);font-size: 45px;">Compete in Leagues</h1>
+                <h4 class="text-center" style="color: #ffffff;font-size: 20px;margin-bottom: 15px;">Manage your own private league with friends or join a public league and see if you have what it takes to win the season.</h4>
+            </div>
+        </div>
     </div>
-
 </body>
-{% endblock %}
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>

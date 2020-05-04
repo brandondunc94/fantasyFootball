@@ -29,8 +29,15 @@
 }
 
 .btn-blue {
-    background-color: #0419a4;
+    background-color: #1A1B41;
     color: white;
+}
+
+.btn-blue:hover {
+    background-color: white;
+    color: #1A1B41;
+    border-style: solid;
+    border-color: #1A1B41;
 }
 
 .btn-green {
@@ -38,11 +45,23 @@
     color: white;
 }
 
+.btn-green-outline {
+    border-style: solid;
+    border-color: #19A404;
+    color: #19A404
+}
+
 
 /*Font*/
 
 body {
     font-family: 'Montserrat', sans-serif;
+    padding-top: 65px;
+}
+
+a:hover {
+    color: inherit;
+    /* Inherits color property from its parent */
 }
 
 

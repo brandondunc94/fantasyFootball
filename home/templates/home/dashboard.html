@@ -1,0 +1,121 @@
+{% extends "fantasyFootball/base.html" %} {% block page_content %}
+
+<body>
+    <div class="container">
+        <!--Games and Leaderboard columns-->
+        <div class="row">
+            <!--Game column-->
+            <div class="col-lg-6">
+                <div class="d-flex flex-row justify-content-between mb-2">
+                    <div class="dropdown">
+                        <button class="btn btn-green btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Week {{ week }}</button>
+                        <div class="dropdown-menu">
+                            {% for week in weeks %}
+                            <a class="dropdown-item" href="/home/{{ week }}/">Week {{ week }}</a> {% endfor %}
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-blue dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ activeLeague }}</button>
+                        <div class="dropdown-menu">
+                            {% for league in userLeagues %}
+                            <a class="dropdown-item" href="/home/1/{{ league.name }}/">{{ league.name }}</a> {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="table btn-table text-center" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th scope="col">Home</th>
+                                <th scope="col">Score/Date</th>
+                                <th scope="col">Away</th>
+                                <th scope="col">Pick ({{ pickCount }}/{{ gameCount }})</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for currentGame in gameData %} {% if currentGame.game.winner != None %}
+                            <tr>
+                                <td>
+                                    <div>
+                                        <img src="/static/media/{{ currentGame.game.homeTeam.name }}.png" alt="{{ currentGame.game.homeTeam.name }}" class="img-fluid" width="50" height="50">
+                                    </div>
+                                    <div><small>{{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }}</small></div>
+                                </td>
+
+                                <td class="text">{{ currentGame.game.homeScore }} - {{ currentGame.game.awayScore }}</td>
+                                <td>
+                                    <div>
+                                        <img src="/static/media/{{ currentGame.game.awayTeam.name }}.png" alt="{{ currentGame.game.awayTeam.name }}" class="img-fluid" width="50" height="50">
+                                    </div>
+                                    <div><small>{{ currentGame.game.awayTeam.wins }} - {{ currentGame.game.awayTeam.losses }}</small></div>
+                                </td>
+                                {% if currentGame.pick == None %}
+                                <td>-</td>
+                                {% elif currentGame.pick == currentGame.game.winner %}
+                                <td class="text-success text-center align-middle">{{ currentGame.pick.name }}</td>
+                                {% else %}
+                                <td class="text-danger text-center align-middle">{{ currentGame.pick.name }}</td>
+                            </tr>{% endif %} {% else %}
+                            <tr>
+                                <td>
+                                    <div>
+                                        <img src="/static/media/{{ currentGame.game.homeTeam.name }}.png" alt="{{ currentGame.game.homeTeam.name }}" class="img-fluid" width="50" height="50">
+                                    </div>
+                                    <div><small>{{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }}</small></div>
+                                </td>
+                                <td class="text-center align-middle">
+                                    {% if currentGame.gameActive == True %}
+                                    <div>Game in Progress</div>
+                                    {% else %}
+                                    <div>{{ currentGame.date }} </div>
+                                    <div>{{ currentGame.time }}</div>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <div>
+                                        <img src="/static/media/{{ currentGame.game.awayTeam.name }}.png" alt="{{ currentGame.game.awayTeam.name }}" class="img-fluid" width="50" height="50">
+                                    </div>
+                                    <div><small>{{ currentGame.game.awayTeam.wins }} - {{ currentGame.game.awayTeam.losses }}</small></div>
+                                </td>
+                                {% if currentGame.pick == None %} {% if currentGame.upcomingPickWarning == True %}
+                                <td class="text-danger">Pick locking soon!</td>
+                                {% else %}
+                                <td>-</td>{% endif %} {% else %}
+                                <td class="text-center align-middle">{{ currentGame.pick.name }}</td>
+                                {% endif %}
+                            </tr> {% endif %} {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--Leaderboard coulmn-->
+            <div class="col-lg-6">
+                <div class="d-flex flex-row justify-content-between mb-2">
+                    <h4 class="my-auto mr-4">Leaderboard</h4>
+                    <a href="/league/home/" class="btn btn-blue btn-sm">League Home</a>
+                </div>
+                <div class="row">
+                    <table class="table btn-table text-center" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th scope="col">Player</th>
+                                <th scope="col">Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for currentUser in leagueUsers %}
+                            <tr>
+                                <td>{{ currentUser.user }}</td>
+                                <td>{{ currentUser.score }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+</body>
+{% endblock %}
