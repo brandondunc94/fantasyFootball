@@ -5,6 +5,7 @@ from league.models import League, LeagueMembership, Season, Week, Game, Team, Ga
 from league.utils import getUserLeagues
 import json, smtplib, ssl
 from datetime import datetime
+import pytz
 from django.http import JsonResponse
 
 # Create your views here.
@@ -17,13 +18,19 @@ def commandHome(request):
 def seasonSettings(request, seasonYear=""):
 
     season = Season.objects.get(year=seasonYear)
+    teams = Team.objects.all()
+    weeks = Week.objects.filter(season=season)
 
-    return render(request, 'command/seasonSettings.html', {'season': season})
+    return render(request, 'command/seasonSettings.html', {'season': season, 'teams': teams, 'weeks': weeks})
 
 def gameOptionsPage(request, seasonYear="2019-2020", weekId="1"):
 
     #Get season object for season passed in
     season = Season.objects.get(year=seasonYear)
+
+    #Get all weeks for current season
+    weeks = Week.objects.filter(season=season)
+
     #Try to fetch all games for week and season passed in
     currentWeek = Week.objects.get(id=weekId, season=season)
 
@@ -49,47 +56,7 @@ def gameOptionsPage(request, seasonYear="2019-2020", weekId="1"):
             'pickLocked' : currentGame.pickLocked
         })
 
-    return render(request, 'command/gameOptions.html', {'gameData': gameData, 'weekId': weekId, 'season' : season})
-
-def scoreWeek(request, weekId, seasonYear="2019-2020"):
-    
-    #Get season
-    season = Season.objects.get(year=seasonYear)
-
-    #Get all leagues
-    allLeagues = League.objects.all()
-    
-    for currentLeague in allLeagues:
-        #Get all users in current league
-        leagueUsers = LeagueMembership.objects.filter(league=currentLeague)
-
-        for currentMembership in leagueUsers:
-            #Get currentUser score
-            currentUser = currentMembership.user
-            userScore = currentMembership.score
-            #Get GameChoices for current user in current league for current week
-            weekPicks = GameChoice.objects.filter(league=currentLeague,week=weekId,user=currentUser,)
-            for currentPick in weekPicks:
-                #Get game data for current game
-                currentGame = Game.objects.get(id=currentPick.game_id)
-
-                if currentPick.correctFlag == None:
-                    #Check if the winner picked is the same as the winner of the actual game
-                    if currentPick.winner == currentGame.winner:
-                        #Set correct flag to True
-                        currentPick.correctFlag = True
-                        userScore += 100
-                    else:
-                        #Set correct flag to False
-                        currentPick.correctFlag = False
-                    #Save current pick back to db
-                    currentPick.save()
-            #Update user score on league membership model
-            currentMembership.score = userScore
-            currentMembership.save()
-    #Get all GameChoice objects for current user, current league, and current week
-
-    return render(request, 'command/command.html')
+    return render(request, 'command/gameOptions.html', {'gameData': gameData, 'weekId': weekId, 'season' : season, 'weeks': weeks})
 
 #AJAX CALL
 def saveScoreSpread(request):
@@ -142,18 +109,38 @@ def saveScoreSpread(request):
                 
                 for currentPick in picks:
                     membership = LeagueMembership.objects.get(user=currentUser, league=currentPick.league)
-
-                    #Check to see if this game has already been counted towards their score. If so, remove 1 and rescore them
-                    if currentPick.correctFlag == True:
-                        membership.score -= 100
                     
-                    #Give player 1 point if they got this game correct 
-                    if currentPick.winner == gameObject.winner:
-                        currentPick.correctFlag = True
-                        membership.score += 100
-                    else:
-                        currentPick.correctFlag = False
+                    if currentPick.scoredFlag == None: #This game choice has not yet been scored
+                        currentPick.scoredFlag = True #Mark this game as scored
+                        #Give player 50 points if they got this game correct 
+                        if currentPick.pickWinner == gameObject.winner:
+                            membership.score += 50
 
+                        #Check if spread bet was correct and give points accordingly
+                        if currentPick.betWinner:
+                            if currentPick.betWinner == gameObject.homeTeam: #User selected home team spread
+                                if gameObject.homeSpread < gameObject.awaySpread: #Home Team was supposed to win
+                                    if gameObject.homeScore - gameObject.awayScore >= gameObject.awaySpread: #Home team won by their spread, pay player
+                                        membership.score += currentPick.betAmount * .9
+                                    else:   #Home team did not win by their spread, take player's points
+                                        membership.score  -= currentPick.betAmount
+                                elif gameObject.awaySpread < gameObject.homeSpread: #Home team was supposed to lose
+                                    if gameObject.awayScore - gameObject.homeScore <= gameObject.homeSpread: #Home team lost within their spread margin, pay player
+                                        membership.score  += currentPick.betAmount * .9
+                                    else:   #Home team lost by too many points, take player's points
+                                        membership.score  -= currentPick.betAmount
+                            else: #User selected away team spread
+                                if gameObject.awaySpread < gameObject.homeSpread: #Away Team was supposed to win
+                                    if gameObject.awayScore - gameObject.homeScore >= gameObject.homeSpread: #Away team won by their spread, pay player
+                                        membership.score  += currentPick.betAmount * .9
+                                    else:   #Away team did not win by their spread, take player's points
+                                        membership.score  -= currentPick.betAmount
+                                elif gameObject.homeSpread < gameObject.awaySpread: #Away team was supposed to lose
+                                    if gameObject.homeScore - gameObject.awayScore <= gameObject.awaySpread: #Away team lost within their spread margin, pay player
+                                        membership.score  += currentPick.betAmount * .9
+                                    else:   #Away team lost by too many points, take player's points
+                                        membership.score  -= currentPick.betAmount
+                                
                     membership.save()
                     currentPick.save()
         
@@ -182,6 +169,7 @@ def saveScoreSpread(request):
         }
 
     return JsonResponse(data)
+
 #AJAX CALL
 def lockGame(request):
     seasonYear = request.GET.get('seasonYear', None)
@@ -294,3 +282,81 @@ def createTeams(season):
             season = season
         )
         newTeam.save()
+
+#AJAX CALL
+def addWeek(request):
+    seasonYear = request.GET.get('seasonYear', None)
+    weekType = request.GET.get('weekType', None)
+    
+    try:
+        #Get season object
+        season = Season.objects.get(year=seasonYear)
+        newWeek = Week(season=season, altName=weekType)
+        newWeek.save()
+        status = True
+    except:
+        print("Season " + seasonYear + " could not be found when trying to create a new week with type " + weekType)
+        status = False
+
+    data = {
+            'status': status
+        }
+
+    return JsonResponse(data)
+
+#AJAX CALL
+def addGame(request):
+    seasonYear = request.GET.get('seasonYear', None)
+    weekId = request.GET.get('weekId', None)
+    homeTeamName = request.GET.get('homeTeam', None)
+    awayTeamName = request.GET.get('awayTeam', None)
+    gameDate = request.GET.get('gameDate', None)
+    gameTime = request.GET.get('gameTime', None)
+    try:
+        #Get team objects
+        homeTeam = Team.objects.get(name=homeTeamName)
+        awayTeam = Team.objects.get(name=awayTeamName)
+
+        #Get week object
+        season = Season.objects.get(year=seasonYear)
+        week = Week.objects.get(id=weekId, season=season)
+
+        #Convert gameDateTime to a datetime object
+        gameDateTimeString = gameDate + " " + gameTime
+        gameDateTime = datetime.strptime(gameDateTimeString,'%Y-%m-%d %H:%M')
+        gameDateTime = gameDateTime.astimezone(pytz.utc) #Convert to utc before storing in database
+        newGame = Game( week=week, homeTeam=homeTeam, awayTeam=awayTeam, dateTime=gameDateTime)
+        newGame.save()
+        status = True
+    except:
+        print("Unable to create new game.")
+        status = False
+
+    data = {
+            'status': status
+        }
+
+    return JsonResponse(data)
+
+#AJAX CALL
+def deleteGame(request):
+    seasonYear = request.GET.get('seasonYear', None)
+    weekId = request.GET.get('weekId', None)
+    gameId = request.GET.get('gameId', None)
+    try:
+        #Get week object
+        season = Season.objects.get(year=seasonYear)
+        week = Week.objects.get(pk=weekId, season=season)
+
+        #Get game object
+        gameToDelete = Game.objects.get(week=week, id=gameId)
+        gameToDelete.delete()
+        status = True
+    except:
+        status = False
+
+    data = {
+            'status': status
+        }
+
+    return JsonResponse(data)

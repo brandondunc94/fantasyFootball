@@ -25,6 +25,7 @@ class Season(models.Model):
 
 class Week(models.Model):
     season = models.ForeignKey(Season,on_delete=models.CASCADE, default=None)
+    altName = models.TextField(max_length=100, default="Regular Season")
     picksLocked = models.BooleanField(default=False)
 
 class Team(models.Model):
@@ -49,7 +50,6 @@ class Game(models.Model):
     users = models.ManyToManyField(User, through="GameChoice")
     pickLocked = models.BooleanField(default=False)
 
-
 #This model governs the relationship between a game and a user and who they picked to win the game
 class GameChoice(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -59,7 +59,7 @@ class GameChoice(models.Model):
     pickWinner = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True,  related_name="pickWinner")
     betWinner = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True, related_name="betWinner")
     betAmount = models.IntegerField(default=0)
-    correctFlag = models.BooleanField(default=None,null=True)
+    scoredFlag = models.BooleanField(default=None,null=True)
 
 #This models governs the relationship between a User and a League they are associated with
 class LeagueMembership(models.Model):
