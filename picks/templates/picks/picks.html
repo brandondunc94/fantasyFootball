@@ -4,7 +4,17 @@
 <body>
     <div class="container">
         <!--Week and League List Selectors-->
-        {% include "fantasyFootball/weekList.html" %}
+        <div class="d-flex flex-row justify-content-between mb-2">
+            <div class="dropdown">
+                <button class="btn btn-green btn-sm dropdown-toggle" id="weekId" name="{{ week }}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Week {{ week }}
+                </button>
+                <div class="dropdown-menu">
+                    {% for week in weeks %}
+                    <a class="dropdown-item" href="/picks/{{ week }}/">Week {{ week }}</a> {% endfor %}
+                </div>
+            </div>
+        </div>
         <!--Picks-->
         <div class="row mt-1">
             <div class="col">
