@@ -104,3 +104,27 @@ $(".save-button").click(function() {
     }
 
 });
+
+/*Delete selected game*/
+$(".delete-button").click(function() {
+    var seasonYear = $('#seasonId').attr('value');
+    var weekId = $('#weekId').attr('value');
+    var gameId = $(this).parent().siblings('.game-id').attr('value');
+
+    $.ajax({
+        url: '/command/deleteGame/',
+        data: {
+            'seasonYear': seasonYear,
+            'weekId': weekId,
+            'gameId': gameId
+        },
+        dataType: 'json',
+        success: function(data) {
+            if (data.status == true) {
+                alert("Game deleted successfully.");
+            } else {
+                alert("Unable to delete game.");
+            }
+        }
+    });
+});
