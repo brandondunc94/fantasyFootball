@@ -85,13 +85,13 @@
                 <!-- Picks are locked -->
                 <div class="d-flex flex-row justify-content-center">
                     {% if currentPick.pick.name == currentPick.homeTeam.name %}
-                    <div class="col-lg-3 bet-box bet-box-selected text-center">
+                    <div class="col-lg-3 bet-box bet-box-selected locked text-center">
                         <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam.name }}" value="{{ currentPick.homeTeam.name }}" checked disabled>
                         <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam.name }}.png" width="60" height="60">
                         <div><small>{{ currentPick.homeTeam.wins }} - {{ currentPick.homeTeam.losses }}</small></div>
                     </div>
                     {% else %}
-                    <div class="col-lg-3 bet-box bet-box-unselected text-center">
+                    <div class="col-lg-3 bet-box bet-box-unselected locked text-center">
                         <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.homeTeam.name }}" value="{{ currentPick.homeTeam.name }}" disabled>
                         <img class="img-fluid" src="/static/media/{{ currentPick.homeTeam.name }}.png" width="60" height="60">
                         <div><small>{{ currentPick.homeTeam.wins }} - {{ currentPick.homeTeam.losses }}</small></div>
@@ -103,13 +103,13 @@
                         <div><small>{{ currentPick.time }}</small></div>
                     </div>
                     {% if currentPick.pick.name == currentPick.awayTeam.name %}
-                    <div class="col-lg-3 bet-box bet-box-selected text-center">
+                    <div class="col-lg-3 bet-box bet-box-selected locked text-center">
                         <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam.name }}" value="{{ currentPick.awayTeam.name }}" checked disabled>
                         <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam.name }}.png" width="60" height="60">
                         <div><small>{{ currentPick.awayTeam.wins }} - {{ currentPick.awayTeam.losses }}</small></div>
                     </div>
                     {% else %}
-                    <div class="col-lg-3 bet-box bet-box-unselected text-center">
+                    <div class="col-lg-3 bet-box bet-box-unselected locked text-center">
                         <input type="radio" name="{{ currentPick.game }}" id="{{ currentPick.awayTeam.name }}" value="{{ currentPick.awayTeam.name }}" disabled>
                         <img class="img-fluid" src="/static/media/{{ currentPick.awayTeam.name }}.png" width="60" height="60">
                         <div><small>{{ currentPick.awayTeam.wins }} - {{ currentPick.awayTeam.losses }}</small></div>

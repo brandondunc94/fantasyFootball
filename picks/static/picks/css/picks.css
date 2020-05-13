@@ -8,13 +8,17 @@
 }
 
 .bet-box-unselected {
-    background-color: #4d4b4b;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: black;
 }
 
 .bet-box-selected {
     background-color: #33A1FD;
     color: #ffffff;
+}
+
+.bet-box.locked {
+    opacity: .5;
 }
 
 
