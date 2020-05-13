@@ -1,25 +1,87 @@
-{% extends "fantasyFootball/base.html" %} {% block page_content %}
+{% extends "fantasyFootball/base.html" %} {% block page_content %}{% load static %}
+<link href="{% static 'home/dashboard.css' %}" rel="stylesheet">
 
 <body>
-    <div class="container">
-        <!--Games and Leaderboard columns-->
+    <div class="container-fluid">
+        <!--Games, League Updates, and Leaderboard columns-->
         <div class="row">
-            <!--Game column-->
-            <div class="col-lg-6">
-                <!-- Week List Picker -->
-                <div class="d-flex flex-row justify-content-between mb-2">
-                    <div class="dropdown">
-                        <button class="btn btn-green btn-sm dropdown-toggle" id="weekId" name="{{ week }}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Week {{ week }}
-                        </button>
-                        <div class="dropdown-menu">
-                            {% for week in weeks %}
-                            <a class="dropdown-item" href="/home/{{ week }}/">Week {{ week }}</a> {% endfor %}
+            <!--Games column-->
+            <div class="col-lg-6 no-padding">
+                <!-- Game drop down-->
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <div class="d-flex flex-row justify-content-between">
+                                <h5 class="mb-0 mr-2">
+                                    <button class="btn btn-blue btn-block tab-button" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <strong>Games</strong>
+                          </button>
+                                </h5>
+                                <div class="mb-0 dropdown">
+                                    <button class="btn btn-blue dropdown-toggle" id="weekId" name="{{ week }}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <strong>Week {{ week }}</strong>
+                                </button>
+                                    <div class="dropdown-menu">
+                                        {% for week in weeks %}
+                                        <a class="dropdown-item" href="/home/{{ week }}/">Week {{ week }}</a> {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6 text-center align-middle">
+                                        <h6><strong><u>Game</u></strong></h6>
+                                    </div>
+                                    <div class="col-3 text-center align-middle">
+                                        <h6><strong><u>Pick</u></strong></h6>
+                                    </div>
+                                    <div class="col-3 text-center align-middle">
+                                        <h6><strong><u>Bet</u></strong></h6>
+                                    </div>
+                                </div>
+                                {% for currentGame in gameData %}
+                                <div class="row text-center border-bottom border-gray mb-3 mt-3">
+                                    <div class="col-6 text-center">
+                                        <div class="d-flex justify-content-around align-items-center mb-2">
+                                            <div class="col">
+                                                <img class="" src="/static/media/{{ currentGame.game.homeTeam.name }}.png" width="50" height="50">
+                                                <h6><small>({{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }})</small></h6>
+                                            </div>
+                                            <h4>@</h4>
+                                            <div class="col">
+                                                <img class="" src="/static/media/{{ currentGame.game.awayTeam.name }}.png" width="50" height="50">
+                                                <h6><small>({{ currentGame.game.awayTeam.wins }} - {{ currentGame.game.awayTeam.losses }})</small></h6>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            <h6 class="mr-2"><small>{{ currentGame.date }}</small></h6>
+                                            <h6><small>{{ currentGame.time }}</small></h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 text-center">
+                                        {% if currentGame.pick.pickWinner != None %}
+                                        <img class="" src="/static/media/{{ currentGame.pick.pickWinner.name }}.png" width="50" height="50"> {% else %}
+                                        <h6>-</h6>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-3 text-center">
+                                        {% if currentGame.pick.betWinner != None %} {% if currentGame.pick.betWinner == currentGame.game.homeTeam.name %}}
+                                        <img class="" src="/static/media/{{ currentGame.pick.betWinner.name }}.png" width="50" height="50">
+                                        <h6>({{ currentGame.game.homeSpread }}) ${{ currentGame.pick.betAmount }}</h6> {% else %}
+                                        <img class="" src="/static/media/{{ currentGame.pick.betWinner.name }}.png" width="50" height="50">
+                                        <h6>({{ currentGame.game.awaySpread }}) ${{ currentGame.pick.betAmount }}</h6>{% endif %} {% else %}
+                                        <h6>-</h6>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- Games -->
-                <div class="row">
+                <!-- <div class="row">
                     <table class="table btn-table text-center" cellspacing="0" width="100%">
                         <thead>
                             <tr>
@@ -27,6 +89,7 @@
                                 <th scope="col">Score/Date</th>
                                 <th scope="col">Away</th>
                                 <th scope="col">Pick ({{ pickCount }}/{{ gameCount }})</th>
+                                <th scope="col">Bet</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,7 +102,7 @@
                                     <div><small>{{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }}</small></div>
                                 </td>
 
-                                <td class="text">{{ currentGame.game.homeScore }} - {{ currentGame.game.awayScore }}</td>
+                                <td class="text-center align-middle">{{ currentGame.game.homeScore }} - {{ currentGame.game.awayScore }}</td>
                                 <td>
                                     <div>
                                         <img src="/static/media/{{ currentGame.game.awayTeam.name }}.png" alt="{{ currentGame.game.awayTeam.name }}" class="img-fluid" width="50" height="50">
@@ -83,31 +146,72 @@
                             </tr> {% endif %} {% endfor %}
                         </tbody>
                     </table>
+                </div> -->
+            </div>
+            <!-- League Updates -->
+            <div class="col-lg-3 no-padding">
+                <div class="accordion" id="accordionExample2">
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <div class="d-flex flex-row justify-content-between">
+                                <h5 class="mb-0 mr-2">
+                                    <button class="btn btn-blue tab-button" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                        <strong>League Updates</strong>
+                                    </button>
+                                </h5>
+                            </div>
+                        </div>
+                        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample2">
+                            <div class="card-body">
+                                <!-- LEAGUE MESSAGE LOGIC HERE -->
+                                {% for currentMessage in leagueMessages %}
+                                <div class="media text-muted pt-3 ">
+                                    <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray ">
+                                        <strong class="d-block text-gray-dark ">@{{ currentMessage.user.username }}</strong>{{ currentMessage.message }}
+                                    </p>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!--Leaderboard coulmn-->
-            <div class="col-lg-6">
-                <div class="d-flex flex-row justify-content-between mb-2">
-                    <h4 class="my-auto mr-4">Leaderboard</h4>
-                    <a href="/league/home/" class="btn btn-blue btn-sm">League Home</a>
-                </div>
-                <div class="row">
-                    <table class="table btn-table text-center" cellspacing="0" width="100%">
-                        <thead>
-                            <tr>
-                                <th scope="col">Player</th>
-                                <th scope="col">Score</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for currentUser in leagueUsers %}
-                            <tr>
-                                <td>{{ currentUser.user }}</td>
-                                <td>{{ currentUser.score }}</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+            <!--Leaderboard column-->
+            <div class="col-lg-3 no-padding">
+                <div class="accordion" id="accordionExample3">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <div class="d-flex flex-row justify-content-between">
+                                <h5 class="mb-0 mr-2">
+                                    <button class="btn btn-blue tab-button" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                        <strong>Leaderboard</strong>
+                          </button>
+                                </h5>
+                            </div>
+                        </div>
+                        <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample3">
+                            <div class="card-body">
+                                <div class="row">
+                                    <table class="table btn-table text-center" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Player</th>
+                                                <th scope="col">Score</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for currentUser in leagueUsers %}
+                                            <tr>
+                                                <td>{{ currentUser.user }}</td>
+                                                <td>{{ currentUser.score }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
