@@ -50,13 +50,13 @@ def picks(request, weekId="1", leagueName=""):
             'date' : datetime.strftime(convertTimeToLocalTimezone(request.user, currentGame.dateTime), '%b %#d, %Y'),
             'time' : datetime.strftime(convertTimeToLocalTimezone(request.user, currentGame.dateTime), '%#I:%M %p'),
             'pick' : winnerSelected,
-            'pickLocked' : currentGame.pickLocked
+            'pickLocked' : currentGame.pickLocked,
         })
 
     weeks = leagueUtils.getWeekIds()
     
     #Template always expects {week}, {weeks}, {activeLeague}, {userLeagues}
-    return render(request, 'picks/picks.html', {'pickData': pickData, 'userLeagues': userLeagues, 'week': currentWeek.id, 'activeLeague': activeLeague, 'weeks': weeks})
+    return render(request, 'picks/picks.html', {'pickData': pickData, 'userLeagues': userLeagues, 'week': currentWeek.id, 'activeLeague': activeLeague, 'weeks': weeks, 'page': 'picks'})
     
 #AJAX CALL - Save single pick
 def save_pick(request):

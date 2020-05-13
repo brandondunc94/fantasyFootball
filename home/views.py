@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from datetime import datetime, timedelta
 from league import utils as leagueUtils
-from league.models import League, Team, LeagueMembership, Season, Week, Game, GameChoice
+from league.models import League, Team, LeagueMembership, Season, Week, Game, GameChoice, LeagueMessage
 from account.utils import convertTimeToLocalTimezone
 from fantasyFootball import settings
 import pytz
@@ -49,13 +49,11 @@ def dashboard(request, weekId="1", leagueName=""):
     for currentGame in currentWeekGames:
         #Check to see if there is pick data for this game
         try:
-            currentGamePick = GameChoice.objects.get(league=activeLeague,user=request.user,week=Week.objects.get(id=weekId, season=activeSeason),game=currentGame).pickWinner
-            if currentGamePick:
-                currentPick = currentGamePick
+            currentGamePick = GameChoice.objects.get(league=activeLeague,user=request.user,week=Week.objects.get(id=weekId, season=activeSeason),game=currentGame)
+            if currentGamePick.pickWinner:
                 pickCount += 1
                 upcomingPickWarning = False
-            else: #If we get here it means that the user has made a bet selection, but not a pick selection
-                currentPick = None
+            else: #If we get here it means that the user has not yet made a pick selection
                  #User has not yet made a pick, let's warn them if the game is going to lock soon. ( -6 hours -----if current time is here, warn user---- -3 hours ------ Game time)
                 if currentGame.dateTime - timedelta(hours=12) < datetime.utcnow().replace(tzinfo=pytz.utc) < currentGame.dateTime - timedelta(hours=1):
                     upcomingPickWarning = True
@@ -67,7 +65,7 @@ def dashboard(request, weekId="1", leagueName=""):
                 upcomingPickWarning = True
             else:
                 upcomingPickWarning = False
-            currentPick = None
+            currentGamePick = None
 
         #Check if the game is in progress
         if currentGame.dateTime < datetime.utcnow().replace(tzinfo=pytz.utc) < currentGame.dateTime + timedelta(hours=3): #This is assuming the game will be 3 hours or less
@@ -80,10 +78,14 @@ def dashboard(request, weekId="1", leagueName=""):
             'game' : currentGame,
             'date' : datetime.strftime(convertTimeToLocalTimezone(request.user, currentGame.dateTime), '%b %#d, %Y'),
             'time' : datetime.strftime(convertTimeToLocalTimezone(request.user, currentGame.dateTime), '%#I:%M %p'),
-            'pick' : currentPick,
+            'pick' : currentGamePick,
             'upcomingPickWarning' : upcomingPickWarning,
             'gameActive' : gameActive
         })
+
+    #Get all messages for current league to populate message board
+    leagueMessages = LeagueMessage.objects.filter(league=activeLeague)
+
     #Template always expects {week}, {weeks}, {activeLeague}, {userLeagues}
     return render(request, 'home/dashboard.html', 
     {
@@ -94,7 +96,9 @@ def dashboard(request, weekId="1", leagueName=""):
         'week': weekId,
         'weeks': weeks,
         'gameCount': gameCount,
-        'pickCount': pickCount
+        'pickCount': pickCount,
+        'leagueMessages': leagueMessages,
+        'page': 'dashboard'
     })
 
 def welcome(request):

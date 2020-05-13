@@ -132,10 +132,10 @@ def betsHome(request, weekId="1", leagueName=""):
                 'time' : datetime.strftime(convertTimeToLocalTimezone(request.user, currentGame.dateTime), '%#I:%M %p'),
                 'pick' : winnerSelected,
                 'betAmount' : betAmount,
-                'pickLocked' : currentGame.pickLocked
+                'pickLocked' : currentGame.pickLocked,
             })
 
         weeks = leagueUtils.getWeekIds()
         userScore = getUserScore(request.user, activeLeague)
         #Template always expects {week}, {weeks}, {activeLeague}, {userLeagues}
-        return render(request, 'bets/betsHome.html', {'betData': betData, 'userLeagues': userLeagues, 'week': currentWeek.id, 'activeLeague': activeLeague, 'weeks': weeks, 'userScore': userScore})
+        return render(request, 'bets/betsHome.html', {'betData': betData, 'userLeagues': userLeagues, 'week': currentWeek.id, 'activeLeague': activeLeague, 'weeks': weeks, 'userScore': userScore, 'page': 'bets'})
