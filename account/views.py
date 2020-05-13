@@ -12,7 +12,7 @@ from command.utils import sendEmailToAdmin
 
 @login_required
 def account_page(request):
-    return render(request, 'account/profile.html')
+    return render(request, 'account/profile.html', {'page':'profile'})
 
 def create_account(request):
     if request.method == "POST":
