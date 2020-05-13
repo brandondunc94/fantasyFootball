@@ -45,10 +45,22 @@
     color: white;
 }
 
+.btn-green:hover {
+    border-style: solid;
+    border-color: #19A404;
+    background-color: white;
+    color: #19A404;
+}
+
 .btn-green-outline {
     border-style: solid;
     border-color: #19A404;
     color: #19A404
+}
+
+.btn-green-outline:hover {
+    background-color: #19A404;
+    color: white;
 }
 
 
@@ -70,4 +82,58 @@ a:hover {
 .gray-table {
     background-color: #292727;
     color: white;
+}
+
+
+/* Nav bar custom changes */
+
+.dropdown-menu {
+    background-color: #292727;
+    border: none;
+}
+
+.dropdown-item {
+    color: white;
+}
+
+.dropdown-item:hover {
+    color: #292727;
+}
+
+a.nav-link {
+    color: white !important;
+}
+
+.nav-item {
+    border-radius: 5px;
+}
+
+.nav-link.active {
+    background-color: #19A404 !important;
+}
+
+.nav-league {
+    background-color: #33A1FD;
+    border-radius: 5px;
+}
+
+.dropdown-league:hover {
+    background-color: #33A1FD;
+    color: white;
+    transition: .3s;
+}
+
+.nav-account {
+    background-color: #292727;
+    border-radius: 5px;
+}
+
+.dropdown-account:hover {
+    background-color: white;
+    color: black;
+    transition: .3s;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
 }
