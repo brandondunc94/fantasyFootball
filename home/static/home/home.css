@@ -1,0 +1,20 @@
+.display-box {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.display-box:hover {
+    opacity: .8;
+    transition: .5s;
+}
+
+.display-box-header {
+    color: white;
+    font-size: 45px;
+}
+
+.display-box-description {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
