@@ -1,7 +1,7 @@
 env/
 fantasyFootball/settings.py
 __pycache__/
-static/
+/static/
 db.sqlite3
 migrations/
 fantasyFootball/celery.py
