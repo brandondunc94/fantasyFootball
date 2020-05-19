@@ -75,6 +75,11 @@ class LeagueMessage(models.Model):
     message = models.TextField(max_length=500, blank=True)
     createDate = models.DateTimeField(auto_now=True)
 
+class LeagueNotification(models.Model):
+    league = models.ForeignKey(League, on_delete=models.CASCADE)
+    message = models.TextField(max_length=500, blank=True)
+    createDate = models.DateTimeField(auto_now=True)
+
 class LeagueMembershipRequest(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     league = models.ForeignKey(League, on_delete=models.CASCADE)

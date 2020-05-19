@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from league.forms import NewLeagueForm
 from league import utils as leagueUtils
-from league.models import League, LeagueMembership, LeagueMessage, LeagueMembershipRequest
+from league.models import League, LeagueMembership, LeagueMessage, LeagueMembershipRequest, LeagueNotification
 from account.models import Profile
 from django.http import JsonResponse
 
@@ -104,6 +104,9 @@ def createLeague(request):
             #Set newLeague to active league for current user - THIS IS VERY IMPORTANT
             leagueUtils.setUserActiveLeague(request.user, newLeague)
 
+            #Create welcome message for league
+            leagueUtils.createLeagueNotification(newLeague.name, "Welcome to your new league! " + request.user.username + " is the league admin.")
+            
             #Return to home page
             return redirect('home')
             
@@ -189,6 +192,9 @@ def addUserToPrivateLeague(request):
         except:
             status = 'PARTIAL'
             print("Error - Could not delete league membership request.")
+        
+        #Add new league update to show new user joined
+        leagueUtils.createLeagueNotification(leagueAdmin.name, requestedUser.username + " has joined the league!")
 
     except:
         status = 'FAILED'
@@ -221,9 +227,13 @@ def addUserToPublicLeague(request):
                 #Set newly joined league to active league for requested user
                 leagueUtils.setUserActiveLeague(request.user, league)
                 status = 'SUCCESS'
+
             except:
                 status = 'FAILED'
                 print("Error - could not add user to the league.")
+        
+        #Add new league update to show new user joined
+        leagueUtils.createLeagueNotification(leagueName, request.user.username + " has joined the league!")
     except:
         status = 'FAILED'
 

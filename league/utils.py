@@ -1,4 +1,4 @@
-from league.models import League, LeagueMembership, Season, Week, Game
+from league.models import League, LeagueMembership, Season, Week, Game, LeagueNotification
 from account.models import Profile
 from django.contrib.auth.models import User
 from django.http import JsonResponse
@@ -67,3 +67,14 @@ def getWeekIds():
     for week in weekObjects:
         weeks.append(week.id)
     return weeks
+
+#Post new update to league updates
+def createLeagueNotification(leagueName, message):
+    try:
+        league = League.objects.get(name=leagueName)
+        newLeagueNotification = LeagueNotification.objects.create(league=league, message=message)
+        newLeagueNotification.save()
+    except:
+        print("Could not post league update.")
+    
+    return

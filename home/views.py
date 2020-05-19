@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from datetime import datetime, timedelta
 from league import utils as leagueUtils
-from league.models import League, Team, LeagueMembership, Season, Week, Game, GameChoice, LeagueMessage
+from league.models import League, Team, LeagueMembership, Season, Week, Game, GameChoice, LeagueMessage, LeagueNotification, LeagueMembershipRequest
 from account.utils import convertTimeToLocalTimezone
 from fantasyFootball import settings
 import pytz
@@ -83,9 +83,14 @@ def dashboard(request, weekId="1", leagueName=""):
             'gameActive' : gameActive
         })
 
-    #Get all messages for current league to populate message board
+    #Get all messages, notifications, and league requests for current league
     leagueMessages = LeagueMessage.objects.filter(league=activeLeague)
+    leagueNotifications = LeagueNotification.objects.filter(league=activeLeague)
 
+    if activeLeague.isPublic == False:
+        leagueRequests = LeagueMembershipRequest.objects.filter(league=activeLeague)
+    else:
+        leagueRequests = None
     #Template always expects {week}, {weeks}, {activeLeague}, {userLeagues}
     return render(request, 'home/dashboard.html', 
     {
@@ -98,6 +103,8 @@ def dashboard(request, weekId="1", leagueName=""):
         'gameCount': gameCount,
         'pickCount': pickCount,
         'leagueMessages': leagueMessages,
+        'leagueNotifications': leagueNotifications,
+        'leagueRequests': leagueRequests,
         'page': 'dashboard'
     })
 
