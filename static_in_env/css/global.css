@@ -74,11 +74,9 @@
 body {
     font-family: 'Lato', sans-serif;
     padding-top: 60px;
-}
-
-a:hover {
-    color: inherit;
-    /* Inherits color property from its parent */
+    /*background-color: #edeef0;*/
+    background-color: white;
+    max-width: 100%;
 }
 
 
@@ -107,22 +105,24 @@ a:hover {
 
 a.nav-link {
     color: white !important;
+    font-weight: bold;
 }
 
 .nav-item {
     border-radius: 5px;
 }
 
-.nav-link.active {
-    border-bottom-color: #19A404 !important;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    background-color: none;
+.active-menu-item {
+    border-bottom: 2px solid #19A404;
 }
 
 .nav-league {
     background-color: #33A1FD;
     border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #33A1FD;
+    z-index: 1;
 }
 
 .nav-account {
@@ -130,6 +130,11 @@ a.nav-link {
     border-width: 1px;
     border-color: white;
     border-radius: 5px;
+    z-index: 1;
+}
+
+.dropdown-league {
+    z-index: 999;
 }
 
 .dropdown-league:hover {
