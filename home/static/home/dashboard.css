@@ -45,14 +45,8 @@ a.dashboard-menu-item {
     margin-top: 70px;
 }
 
-.tabs {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
 .notification-board {
     background-color: #212529;
-    border-radius: 10px;
 }
 
 .notification-box {
@@ -83,11 +77,31 @@ a.league-menu-item {
     color: black !important;
     transition: .3s;
     border: 1px #212529 solid;
-    padding:
 }
 
 a.league-menu-item:hover {
     background-color: #33A1FD;
     color: white !important;
     transition: .3s;
+}
+
+@media (max-width: 767px) {
+    /* CSS that should be displayed if width is equal to or less than 767px goes here */
+    .league-dashboard {
+        margin: 0;
+    }
+    .league-col {
+        padding: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    /* CSS that should be displayed if width is equal to or greater than 768px goes here */
+    .tabs {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    .notification-board {
+        border-radius: 10px;
+    }
 }

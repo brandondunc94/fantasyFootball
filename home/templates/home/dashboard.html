@@ -17,7 +17,7 @@
             <!-- League tab -->
             <div class="tab-pane fade rounded show active" id="nav-league" role="tabpanel" aria-labelledby="nav-league-tab">
                 <div class="row league-dashboard">
-                    <div class="col-md-8 mb-3 p-0 pr-1">
+                    <div class="col-md-8 mb-3 league-col">
                         <!-- League Navigation -->
                         <ul class="nav nav-fill w-100" id="myTab" role="tablist">
                             <li class="nav-item">
@@ -67,7 +67,7 @@
                                     <!-- LEAGUE MESSAGE LOGIC HERE -->
                                     <div class="message-board">
                                         {% if leagueMessages %} {% for currentMessage in leagueMessages %}
-                                        <div class="media text-muted pl-3 pr-3">
+                                        <div class="media text-muted pl-3 pr-3 pt-3">
                                             <p class="media-body border-bottom border-gray">
                                                 <strong class="d-block">@{{ currentMessage.user.username }}</strong>{{ currentMessage.message }}
                                             </p>
@@ -116,7 +116,7 @@
                         </div>
                     </div>
                     <!-- League Notifications -->
-                    <div class="col-md-4 mb-3 p-0 pr-1">
+                    <div class="col-md-4 mb-3 league-col">
                         <div class="notification-board h-100 shadow">
                             <div class="row justify-content-center">
                                 <h5 class="pt-2 text-white"><strong>League News</strong></h5>
@@ -146,7 +146,7 @@
                         <a class="dropdown-item" href="/home/{{ week }}/">Week {{ week }}</a> {% endfor %}
                     </div>
                 </div>
-                <div class="row">
+                <div class="row no-gutters">
                     <div class="col-6 text-center align-middle">
                         <h6><strong>Game</strong></h6>
                     </div>
@@ -178,18 +178,14 @@
                     </div>
                     <div class="col-3 text-center">
                         {% if currentGame.pick.pickWinner != None %}
-                        <img class="" src="/static/media/{{ currentGame.pick.pickWinner.name }}.png" width="50" height="50"> {% else %}
-                        <h6>-</h6>
-                        {% endif %}
+                        <img class="" src="/static/media/{{ currentGame.pick.pickWinner.name }}.png" width="50" height="50"> {% endif %}
                     </div>
                     <div class="col-3 text-center">
                         {% if currentGame.pick.betWinner != None %} {% if currentGame.pick.betWinner == currentGame.game.homeTeam.name %}}
                         <img class="" src="/static/media/{{ currentGame.pick.betWinner.name }}.png" width="50" height="50">
                         <h6>({{ currentGame.game.homeSpread }}) ${{ currentGame.pick.betAmount }}</h6> {% else %}
                         <img class="" src="/static/media/{{ currentGame.pick.betWinner.name }}.png" width="50" height="50">
-                        <h6>({{ currentGame.game.awaySpread }}) ${{ currentGame.pick.betAmount }}</h6>{% endif %} {% else %}
-                        <h6>-</h6>
-                        {% endif %}
+                        <h6>({{ currentGame.game.awaySpread }}) ${{ currentGame.pick.betAmount }}</h6>{% endif %} {% endif %}
                     </div>
                 </div>
                 {% endfor %}
