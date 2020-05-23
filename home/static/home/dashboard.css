@@ -72,11 +72,19 @@ a.league-menu-item.active {
     color: white !important;
 }
 
+a.league-menu-item-left {
+    border-top-left-radius: 10px;
+}
+
 a.league-menu-item {
     background-color: white;
     color: black !important;
     transition: .3s;
     border: 1px #212529 solid;
+}
+
+a.league-menu-item-right {
+    border-top-right-radius: 10px;
 }
 
 a.league-menu-item:hover {
@@ -92,6 +100,9 @@ a.league-menu-item:hover {
     }
     .league-col {
         padding: 0;
+    }
+    a.league-menu-item {
+        border-radius: 0px;
     }
 }
 
