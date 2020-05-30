@@ -324,7 +324,13 @@ def addGame(request):
         #Convert gameDateTime to a datetime object
         gameDateTimeString = gameDate + " " + gameTime
         gameDateTime = datetime.strptime(gameDateTimeString,'%Y-%m-%d %H:%M')
+
+        #Add US/Pacific timezone to gameDateTime since it is originally a naive datetime object
+        pst = pytz.timezone('US/Pacific')
+        gameDateTime = pst.localize(gameDateTime)
+        
         gameDateTime = gameDateTime.astimezone(pytz.utc) #Convert to utc before storing in database
+        
         newGame = Game( week=week, homeTeam=homeTeam, awayTeam=awayTeam, dateTime=gameDateTime)
         newGame.save()
         status = True
