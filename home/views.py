@@ -7,10 +7,6 @@ from league.models import League, Team, LeagueMembership, Season, Week, Game, Ga
 from account.utils import convertTimeToLocalTimezone
 from fantasyFootball import settings
 import pytz
-
-# Create your views here.
-def default(request):
-    return render(request, 'home/welcome.html')
     
 @login_required
 def dashboard(request, weekId="1", leagueName=""):
@@ -49,8 +45,8 @@ def dashboard(request, weekId="1", leagueName=""):
     for currentGame in currentWeekGames:
         #Check to see if there is pick data for this game
         try:
-            currentGamePick = GameChoice.objects.get(league=activeLeague,user=request.user,week=Week.objects.get(id=weekId, season=activeSeason),game=currentGame)
-            if currentGamePick.pickWinner:
+            currentGameChoice = GameChoice.objects.get(league=activeLeague,user=request.user,week=Week.objects.get(id=weekId, season=activeSeason),game=currentGame)
+            if currentGameChoice.pickWinner:
                 pickCount += 1
                 upcomingPickWarning = False
             else: #If we get here it means that the user has not yet made a pick selection
@@ -65,7 +61,7 @@ def dashboard(request, weekId="1", leagueName=""):
                 upcomingPickWarning = True
             else:
                 upcomingPickWarning = False
-            currentGamePick = None
+            currentGameChoice = None
 
         #Check if the game is in progress
         if currentGame.dateTime < datetime.utcnow().replace(tzinfo=pytz.utc) < currentGame.dateTime + timedelta(hours=3): #This is assuming the game will be 3 hours or less
@@ -78,7 +74,7 @@ def dashboard(request, weekId="1", leagueName=""):
             'game' : currentGame,
             'date' : datetime.strftime(convertTimeToLocalTimezone(request.user, currentGame.dateTime), '%b %#d, %Y'),
             'time' : datetime.strftime(convertTimeToLocalTimezone(request.user, currentGame.dateTime), '%#I:%M %p'),
-            'pick' : currentGamePick,
+            'gameChoice' : currentGameChoice,
             'upcomingPickWarning' : upcomingPickWarning,
             'gameActive' : gameActive
         })
@@ -87,15 +83,28 @@ def dashboard(request, weekId="1", leagueName=""):
     leagueMessages = LeagueMessage.objects.filter(league=activeLeague)
     leagueNotifications = LeagueNotification.objects.filter(league=activeLeague)
 
-    if activeLeague.isPublic == False:
-        leagueRequests = LeagueMembershipRequest.objects.filter(league=activeLeague)
+    #Get user score from league membership
+    userScore = LeagueMembership.objects.get(league=activeLeague, user=request.user).score
+
+    #Determine if user is the league admin and get league join requests
+    if request.user == activeLeague.admin:
+        isAdmin = True
+        #Get league membership requests if the league is private
+        if activeLeague.isPublic == False:
+            leagueRequests = LeagueMembershipRequest.objects.filter(league=activeLeague)
+        else:
+            leagueRequests = None
     else:
+        isAdmin = False
         leagueRequests = None
+
     #Template always expects {week}, {weeks}, {activeLeague}, {userLeagues}
     return render(request, 'home/dashboard.html', 
     {
         'gameData': gameData, 
-        'userLeagues': userLeagues, 
+        'userLeagues': userLeagues,
+        'userScore': userScore,
+        'isAdmin': isAdmin,
         'leagueUsers': leagueUsers, 
         'activeLeague': activeLeague.name, 
         'week': weekId,

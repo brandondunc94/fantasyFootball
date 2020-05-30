@@ -1,7 +1,7 @@
 $(document).ready(function() {
     /*Auto scroll to botton of message board*/
     $(".message-board").animate({
-        scrollTop: $('.message-board')[0].scrollHeight - $('.message-board')[0].clientHeight
+        scrollBottom: $('.message-board')[0].scrollHeight - $('.message-board')[0].clientHeight
     }, 1000);
 
     // Get the input field
@@ -28,7 +28,7 @@ $("#messageBox").keypress(function(event) {
 
 /*Post message to league message board*/
 $(".post-button").click(function() {
-    var leagueName = $('.league-title').html();
+    var leagueName = $('#leagueName').attr('name');
     var message = $('#messageBox').val();
     var csrftoken = $.cookie('csrftoken');
     if (message) {

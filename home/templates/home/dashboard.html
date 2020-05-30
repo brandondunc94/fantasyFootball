@@ -1,200 +1,222 @@
 {% extends "fantasyFootball/base.html" %} {% block page_content %}{% load static %}
 <link href="{% static 'home/dashboard.css' %}" rel="stylesheet">
+<link href="{% static 'picks/css/picks.css' %}" rel="stylesheet">
+<link href="{% static 'bets/css/bets.css' %}" rel="stylesheet">
 
-<body>
-    <div class="container-fluid no-padding">
-        <!-- Games and League Menu Navbar -->
-        <div class="fixed-top navbar-dashboard shadow">
-            <nav class="nav-fill w-100">
-                <div class="nav" id="nav-tab" role="tablist">
-                    <a class="nav-item dashboard-menu-item nav-link active" id="nav-league-tab" data-toggle="tab" href="#nav-league" role="tab" aria-controls="nav-league" aria-selected="false"><strong>League</strong></a>
-                    <a class="nav-item dashboard-menu-item nav-link" id="nav-games-tab" data-toggle="tab" href="#nav-games" role="tab" aria-controls="nav-games" aria-selected="true"><strong>Games</strong></a>
-                    <!--<a class="nav-item nav-link dashboard-menu-item" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>-->
-                </div>
-            </nav>
+
+<!-- Games and League Menu Navbar -->
+<div class="navbar-dashboard shadow">
+    <nav class="nav-fill w-100">
+        <div class="nav main-nav" id="nav-tab" role="tablist">
+            <a class="nav-item dashboard-menu-item nav-link active" id="nav-league-tab" data-toggle="tab" href="#nav-league" role="tab" aria-controls="nav-league" aria-selected="false">Home</a>
+            <a class="nav-item dashboard-menu-item nav-link" id="nav-games-tab" data-toggle="tab" href="#nav-games" role="tab" aria-controls="nav-games" aria-selected="true">Summary</a>
+            <a class="nav-item dashboard-menu-item nav-link" id="nav-picks-tab" data-toggle="tab" href="#nav-picks" role="tab" aria-controls="nav-picks" aria-selected="false">My Picks</a>
+            <a class="nav-item dashboard-menu-item nav-link" id="nav-bets-tab" data-toggle="tab" href="#nav-bets" role="tab" aria-controls="nav-bets" aria-selected="false">My Bets</a>
         </div>
-        <div class="row double-nav-margin justify-content-center">
-            <h1><strong>{{ activeLeague }}</strong></h1>
-        </div>
-        <div class="tab-content" id="nav-tabContent">
-            <!-- League tab -->
-            <div class="tab-pane fade rounded show active" id="nav-league" role="tabpanel" aria-labelledby="nav-league-tab">
-                <div class="row league-dashboard">
-                    <div class="col-md-6 mb-3 league-col">
-                        <!-- League Navigation -->
-                        <ul class="nav nav-fill w-100" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active league-menu-item league-menu-item-left border-right-0" id="leaderboard-tab" data-toggle="tab" href="#leaderboard" role="tab" aria-controls="leaderboard" aria-selected="true">Leaderboard</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link league-menu-item" id="messageboard-tab" data-toggle="tab" href="#messageboard" role="tab" aria-controls="messageboard" aria-selected="false">Message Board</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link league-menu-item league-menu-item-right border-left-0" id="leaguesettings-tab" data-toggle="tab" href="#leaguesettings" role="tab" aria-controls="leaguesettings" aria-selected="false">Settings</a>
-                            </li>
-                        </ul>
-                        <!-- League Nav Content -->
-                        <div class="tab-content tabs shadow h-100" id="myTabContent">
-                            <!-- League Leaderboard -->
-                            <div class="tab-pane tabs fade show active leader-board h-100" id="leaderboard" role="tabpanel" aria-labelledby="leaderboard-tab">
-                                <table class="table text-center table-striped table-dark leaderboard-table" cellspacing="0" width="100%">
-                                    <thead class="thead">
-                                        <tr>
-                                            <th scope="col">Position</th>
-                                            <th scope="col">Player</th>
-                                            <th scope="col">Score</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {% for currentUser in leagueUsers %}
-                                        <tr>
-                                            {% if forloop.counter == 1 %}
-                                            <td><img class="" src="{% static 'media/gold.png' %}" width="auto" height="30"></td>
-                                            {% elif forloop.counter == 2 %}
-                                            <td><img class="" src="{% static 'media/silver.png' %}" width="auto" height="30"></td>
-                                            {% elif forloop.counter == 3 %}
-                                            <td><img class="" src="{% static 'media/bronze.png' %}" width="auto" height="30"></td>
-                                            {% else %}
-                                            <td>{{ forloop.counter }}</td>
+    </nav>
+</div>
+<div class="container-fluid p-0">
+    <div class="d-flex mt-2 mr-3 ml-3">
+        <h1 class="flex-grow-1 text-center"><strong>{{ activeLeague }}</strong></h1>
+        <a class="mt-3" href="/league/admin/{{ activeLeague }}/">
+            <img class="rounded img-fluid" src="{% static 'media/settings.jpg' %}" width="30" height="auto">
+        </a>
+    </div>
+    <div class="row m-0">
+        <div class="col p-0">
+            <div class="tab-content" id="nav-tabContent">
+                <!-- League Home tab -->
+                <div class="tab-pane fade rounded show active" id="nav-league" role="tabpanel" aria-labelledby="nav-league-tab">
+                    <div class="row league-dashboard">
+                        <div class="col-md-6 mb-3 league-col">
+                            <!-- League Navigation -->
+                            <ul class="nav nav-fill w-100" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active league-menu-item league-menu-item-left border-right-0" id="leaderboard-tab" data-toggle="tab" href="#leaderboard" role="tab" aria-controls="leaderboard" aria-selected="true">Leaderboard</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link league-menu-item league-menu-item-right" id="messageboard-tab" data-toggle="tab" href="#messageboard" role="tab" aria-controls="messageboard" aria-selected="false">Message Board</a>
+                                </li>
+                            </ul>
+                            <!-- League Nav Content -->
+                            <div class="tab-content tabs shadow h-100" id="myTabContent">
+                                <!-- League Leaderboard -->
+                                <div class="tab-pane tabs fade show active leader-board h-100" id="leaderboard" role="tabpanel" aria-labelledby="leaderboard-tab">
+                                    <table class="table text-center table-striped table-dark leaderboard-table" cellspacing="0" width="100%">
+                                        <thead class="thead">
+                                            <tr>
+                                                <th scope="col">Position</th>
+                                                <th scope="col">Player</th>
+                                                <th scope="col">Score</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for currentUser in leagueUsers %}
+                                            <tr>
+                                                {% if forloop.counter == 1 %}
+                                                <td><img class="" src="{% static 'media/gold.png' %}" width="auto" height="30"></td>
+                                                {% elif forloop.counter == 2 %}
+                                                <td><img class="" src="{% static 'media/silver.png' %}" width="auto" height="30"></td>
+                                                {% elif forloop.counter == 3 %}
+                                                <td><img class="" src="{% static 'media/bronze.png' %}" width="auto" height="30"></td>
+                                                {% else %}
+                                                <td>{{ forloop.counter }}</td>
+                                                {% endif %}
+                                                <td>{{ currentUser.user }}</td>
+                                                <td>{{ currentUser.score }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- League Message Board -->
+                                <div class="tab-pane fade" id="messageBoard" role="tabpanel" aria-labelledby="messageBoard-tab">
+                                    <div class="d-flex flex-column h-100">
+                                        <!-- LEAGUE MESSAGE LOGIC HERE -->
+                                        <div class="message-board">
+                                            <div class="media text-muted pl-3 pr-3 pt-3">
+                                                <p class="media-body border-bottom border-gray text-center">
+                                                    <strong class="d-block">Please reload the page to see new messages.</strong>
+                                                </p>
+                                            </div>
+                                            {% if leagueMessages %} {% for currentMessage in leagueMessages %}
+                                            <div class="media text-muted pl-3 pr-3 pt-3">
+                                                <p class="media-body border-bottom border-gray">
+                                                    <strong class="d-block">@{{ currentMessage.user.username }} <small class="d-block">{{ currentMessage.createDate }}</small> </strong>{{ currentMessage.message }}
+                                                </p>
+                                            </div>
+                                            {% endfor %} {% else %}
+                                            <div class="media text-muted pt-3 text-center">
+                                                <p class="media-body">
+                                                    <strong class="d-block">No messages yet..</strong>
+                                                </p>
+                                            </div>
                                             {% endif %}
-                                            <td>{{ currentUser.user }}</td>
-                                            <td>{{ currentUser.score }}</td>
-                                        </tr>
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- League Message Board -->
-                            <div class="tab-pane fade" id="messageBoard" role="tabpanel" aria-labelledby="messageBoard-tab">
-                                <div class="d-flex flex-column h-100">
-                                    <!-- LEAGUE MESSAGE LOGIC HERE -->
-                                    <div class="message-board">
-                                        {% if leagueMessages %} {% for currentMessage in leagueMessages %}
-                                        <div class="media text-muted pl-3 pr-3 pt-3">
-                                            <p class="media-body border-bottom border-gray">
-                                                <strong class="d-block">@{{ currentMessage.user.username }}</strong>{{ currentMessage.message }}
-                                            </p>
                                         </div>
-                                        {% endfor %} {% else %}
-                                        <div class="media text-muted pt-3 text-center">
-                                            <p class="media-body">
-                                                <strong class="d-block">No messages yet..</strong>
-                                            </p>
-                                        </div>
-                                        {% endif %}
-                                    </div>
-                                    <div class="input-group mt-auto p-2">
-                                        {% csrf_token %}
-                                        <input type="text" class="form-control rounded" id="messageBox" placeholder="Type Message.." aria-label="Message" aria-describedby="MaterialButton-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-md btn-secondary post-button" type="submit" id="MaterialButton-addon2">Post</button>
+                                        <div class="input-group mt-auto p-2">
+                                            {% csrf_token %}
+                                            <input type="text" class="form-control rounded" id="messageBox" placeholder="Type Message.." aria-label="Message" aria-describedby="MaterialButton-addon2">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-md btn-secondary post-button" type="submit" id="MaterialButton-addon2">Post</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- League Settings -->
-                            <div class="tab-pane fade white-board" id="leaguesettings" role="tabpanel" aria-labelledby="leaguesettings-tab">
-                                {% if activeLeague.isPublic == False %}
-                                <table class="table">
-                                    <thead class="thead-dark">
-                                        <tr>
-                                            <th colspan="2">Pending League Requests</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {% for currentRequest in leagueRequests %}
-                                        <tr>
-                                            <td value="{{ currentRequest.user.username }}" class="user-name">{{ currentRequest.user.username }}</td>
-                                            <td>
-                                                <input type="submit" class="btn btn-danger btn-sm m-0 reject-button float-right" value="Reject" />
-                                                <input type="submit" class="btn btn-success btn-sm m-0 accept-button float-right mr-1" value="Accept" />
-                                            </td>
-                                        </tr>
-                                        {% endfor %}
-                                    </tbody>
-                                    </tbody>
-                                </table>
-                                {% endif %}
+                                <!-- League Settings -->
+                                <div class="tab-pane fade white-board" id="leaguesettings" role="tabpanel" aria-labelledby="leaguesettings-tab">
+                                    {% if activeLeague.isPublic == False %}
+                                    <table class="table">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th colspan="2">Pending League Requests</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for currentRequest in leagueRequests %}
+                                            <tr>
+                                                <td value="{{ currentRequest.user.username }}" class="user-name">{{ currentRequest.user.username }}</td>
+                                                <td>
+                                                    <input type="submit" class="btn btn-danger btn-sm m-0 reject-button float-right" value="Reject" />
+                                                    <input type="submit" class="btn btn-success btn-sm m-0 accept-button float-right mr-1" value="Accept" />
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                        </tbody>
+                                    </table>
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- League Notifications -->
-                    <div class="col-md-6 mb-3 league-col">
-                        <div class="notification-board h-100 shadow">
-                            <div class="row justify-content-center">
-                                <h5 class="pt-2 text-white"><strong>League News</strong></h5>
-                            </div>
-                            <!-- LEAGUE NOTIFICATION LOGIC HERE -->
-                            <div class="overflow-auto">
-                                {% for currentNotification in leagueNotifications %}
-                                <div class="m-3 p-1 media text-muted notification-box rounded">
-                                    <p class="media-body pb-2 mb-0 lh-125 text-white">
-                                        <small>{{ currentNotification.createDate }}</small><strong class="d-block">{{ currentNotification.message }}</strong>
-                                    </p>
+                        <!-- League Notifications -->
+                        <div class="col-md-6 mb-3 league-col">
+                            <div class="notification-board h-100 shadow">
+                                <div class="row justify-content-center">
+                                    <h5 class="pt-2 text-white"><strong>League News</strong></h5>
                                 </div>
-                                {% endfor %}
+                                <!-- LEAGUE NOTIFICATION LOGIC HERE -->
+                                <div class="overflow-auto">
+                                    {% for currentNotification in leagueNotifications %}
+                                    <div class="m-3 p-1 media text-muted notification-box rounded">
+                                        <p class="media-body pb-2 mb-0 lh-125 text-white">
+                                            <small>{{ currentNotification.createDate }}</small><strong class="d-block">{{ currentNotification.message }}</strong>
+                                        </p>
+                                    </div>
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Games tab -->
-            <div class="tab-pane fade" id="nav-games" role="tabpanel" aria-labelledby="nav-games-tab">
-                <div class="dropdown">
-                    <button class="m-2 btn btn-blue dropdown-toggle" id="weekId" name="{{ week }}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <!-- Game Summary tab -->
+                <div class="tab-pane fade" id="nav-games" role="tabpanel" aria-labelledby="nav-games-tab">
+                    <div class="dropdown">
+                        <button class="m-2 btn btn-blue dropdown-toggle" id="weekId" name="{{ week }}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <strong>Week {{ week }}</strong>
                     </button>
-                    <div class="dropdown-menu">
-                        {% for week in weeks %}
-                        <a class="dropdown-item" href="/home/{{ week }}/">Week {{ week }}</a> {% endfor %}
-                    </div>
-                </div>
-                <div class="row no-gutters">
-                    <div class="col-6 text-center align-middle">
-                        <h6><strong>Game</strong></h6>
-                    </div>
-                    <div class="col-3 text-center align-middle">
-                        <h6><strong>Pick</strong></h6>
-                    </div>
-                    <div class="col-3 text-center align-middle">
-                        <h6><strong>Bet</strong></h6>
-                    </div>
-                </div>
-                {% for currentGame in gameData %}
-                <div class="row text-center border-bottom border-gray no-gutters">
-                    <div class="col-6 text-center">
-                        <div class="d-flex justify-content-around align-items-center mb-2">
-                            <div class="col">
-                                <img class="" src="/static/media/{{ currentGame.game.homeTeam.name }}.png" width="50" height="50">
-                                <h6><small>({{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }})</small></h6>
-                            </div>
-                            <h4>@</h4>
-                            <div class="col">
-                                <img class="" src="/static/media/{{ currentGame.game.awayTeam.name }}.png" width="50" height="50">
-                                <h6><small>({{ currentGame.game.awayTeam.wins }} - {{ currentGame.game.awayTeam.losses }})</small></h6>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <h6 class="mr-2"><small>{{ currentGame.date }}</small></h6>
-                            <h6><small>{{ currentGame.time }}</small></h6>
+                        <div class="dropdown-menu">
+                            {% for week in weeks %}
+                            <a class="dropdown-item" href="/home/{{ week }}/">Week {{ week }}</a> {% endfor %}
                         </div>
                     </div>
-                    <div class="col-3 text-center">
-                        {% if currentGame.pick.pickWinner != None %}
-                        <img class="" src="/static/media/{{ currentGame.pick.pickWinner.name }}.png" width="50" height="50"> {% endif %}
+                    <div class="row no-gutters">
+                        <div class="col-6 text-center align-middle">
+                            <h6><strong>Game</strong></h6>
+                        </div>
+                        <div class="col-3 text-center align-middle">
+                            <h6><strong>Pick</strong></h6>
+                        </div>
+                        <div class="col-3 text-center align-middle">
+                            <h6><strong>Bet</strong></h6>
+                        </div>
                     </div>
-                    <div class="col-3 text-center">
-                        {% if currentGame.pick.betWinner != None %} {% if currentGame.pick.betWinner == currentGame.game.homeTeam.name %}}
-                        <img class="" src="/static/media/{{ currentGame.pick.betWinner.name }}.png" width="50" height="50">
-                        <h6>({{ currentGame.game.homeSpread }}) ${{ currentGame.pick.betAmount }}</h6> {% else %}
-                        <img class="" src="/static/media/{{ currentGame.pick.betWinner.name }}.png" width="50" height="50">
-                        <h6>({{ currentGame.game.awaySpread }}) ${{ currentGame.pick.betAmount }}</h6>{% endif %} {% endif %}
+                    {% for currentGame in gameData %}
+                    <div class="row text-center border-bottom border-gray no-gutters" id="{{ currentGame.game.id }}">
+                        <div class="col-6 text-center">
+                            <div class="d-flex justify-content-around align-items-center mb-2">
+                                <div class="col">
+                                    <img class="" src="/static/media/{{ currentGame.game.homeTeam.name }}.png" width="50" height="50">
+                                    <h6><small>({{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }})</small></h6>
+                                </div>
+                                <h4>@</h4>
+                                <div class="col">
+                                    <img class="" src="/static/media/{{ currentGame.game.awayTeam.name }}.png" width="50" height="50">
+                                    <h6><small>({{ currentGame.game.awayTeam.wins }} - {{ currentGame.game.awayTeam.losses }})</small></h6>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <h6 class="mr-2"><small>{{ currentGame.date }}</small></h6>
+                                <h6><small>{{ currentGame.time }}</small></h6>
+                            </div>
+                        </div>
+                        <div class="col-3 text-center pick">
+                            {% if currentGame.gameChoice.pickWinner != None %}
+                            <img src="/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png" width="50" height="50"> {% endif %}
+                        </div>
+                        <div class="col-3 text-center bet">
+                            {% if currentGame.gameChoice.betWinner != None %} {% if currentGame.gameChoice.betWinner == currentGame.game.homeTeam.name %}}
+                            <img src="/static/media/{{ currentGame.gameChoice.betWinner.name }}.png" width="50" height="50">
+                            <h6>({{ currentGame.game.homeSpread }}) ${{ currentGame.gameChoice.betAmount }}</h6> {% else %}
+                            <img src="/static/media/{{ currentGame.gameChoice.betWinner.name }}.png" width="50" height="50">
+                            <h6>({{ currentGame.game.awaySpread }}) ${{ currentGame.gameChoice.betAmount }}</h6>{% endif %} {% endif %}
+                        </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
+                <!-- Picks tab -->
+                <div class="tab-pane fade rounded m-1" id="nav-picks" role="tabpanel" aria-labelledby="nav-picks-tab">
+                    {% include "picks/picks.html" %}
+                </div>
+                <!-- Bets tab -->
+                <div class="tab-pane fade rounded m-1" id="nav-bets" role="tabpanel" aria-labelledby="nav-bets-tab">
+                    {% include "bets/bets.html" %}
+                </div>
             </div>
         </div>
     </div>
-</body>
+</div>
 <script src="{% static 'home/js/dashboard.js' %}"></script>
+<script src="{% static 'picks/js/picks.js' %}"></script>
+<script src="{% static 'bets/js/betting.js' %}"></script>
+<script src="{% static 'league/js/leagueMessages.js' %}"></script>
 {% endblock %}

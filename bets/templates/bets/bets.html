@@ -1,0 +1,205 @@
+{% load static %}
+<div class="d-flex flex-row justify-content-center">
+    <div class="col-lg-3 no-padding shadow">
+        <div class="dropdown">
+            <button class="btn btn-blue dropdown-toggle w-100" id="weekId" name="{{ week }}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Week {{ week }}
+        </button>
+            <div class="dropdown-menu">
+                {% for week in weeks %}
+                <a class="dropdown-item" href="/bets/{{ week }}/">Week {{ week }}</a> {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 no-padding"></div>
+    <div class="col-lg-3 no-padding shadow">
+        <button class="btn btn-blue w-100" id="saveBets">Save Bets</button>
+    </div>
+</div>
+<!-- Total Points Display -->
+<div class="d-flex flex-row justify-content-center mt-2 mb-2">
+    <div class="col-lg-3 point-box text-center">
+        <div class="d-flex flex-row justify-content-center">
+            <small>Point total: </small>
+        </div>
+        <div class="d-flex flex-row justify-content-center">
+            <h6 id="totalPoints"> {{ userScore }}</h6>
+        </div>
+    </div>
+    <div class="col-lg-2"></div>
+    <div class="col-lg-3 point-box text-center">
+        <div class="d-flex flex-row justify-content-center">
+            <small>Available: </small>
+        </div>
+        <div class="d-flex flex-row justify-content-center">
+            <h6 id="pointsToBet"> {{ userScore }}</h6>
+        </div>
+    </div>
+</div>
+<!--Bets-->
+<div class="d-flex flex-row justify-content-center">
+    <div class="col-lg-3 text-muted text-center">
+        <h6>Home Spread</h6>
+    </div>
+    <div class="col-lg-2 text-muted text-center">
+        <h6>Bet Amount</h6>
+    </div>
+    <div class="col-lg-3 text-muted text-center">
+        <h6>Away Spread</h6>
+    </div>
+</div>
+
+{% for currentGame in gameData %} {% if currentGame.game.pickLocked == False %}
+<div class="d-flex flex-row justify-content-center bet-game">
+    <!--Display logic for if a winner has already been selected-->
+    {% if currentGame.gameChoice.betWinner != None %} {% if currentGame.gameChoice.betWinner == currentGame.game.homeTeam %}
+    <div class="col-lg-3 bet-box bet-box-selected text-center">
+        {% if currentGame.game.homeSpread > 0 %}
+        <div>
+            <h6>+{{ currentGame.game.homeSpread }}</h6>
+        </div>
+        {% else %}
+        <div>
+            <h6>{{ currentGame.game.homeSpread }}</h6>
+        </div>
+        {% endif %}
+        <input type="radio" name="{{ currentGame.game.id }}" id="{{ currentGame.game.homeTeam.name }}-bet" value="{{ currentGame.game.homeTeam.name }}" checked="checked">
+        <img class="img-fluid" src="/static/media/{{ currentGame.game.homeTeam.name }}.png" width="60" height="60">
+        <div><small>{{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }}</small></div>
+    </div>
+    {% else %}
+    <div class="col-lg-3 bet-box bet-box-unselected text-center">
+        {% if currentGame.game.homeSpread > 0 %}
+        <div>
+            <h6>+{{ currentGame.game.homeSpread }}</h6>
+        </div>
+        {% else %}
+        <div>
+            <h6>{{ currentGame.game.homeSpread }}</h6>
+        </div>
+        {% endif %}
+        <input type="radio" name="{{ currentGame.game.id }}" id="{{ currentGame.game.homeTeam.name }}-bet" value="{{ currentGame.game.homeTeam.name }}">
+        <img class="img-fluid" src="/static/media/{{ currentGame.game.homeTeam.name }}.png" width="60" height="60">
+        <div><small>{{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }}</small></div>
+    </div>
+    {% endif %}
+    <div class="col-lg-2 text-center mt-4">
+        <input type="hidden" class="game-bet-amount-input" name="{{ currentGame.game.id }}" id="{{ currentGame.game.id }}-bet" value="{{ currentGame.gameChoice.betAmount }}">
+        <h6 class="game-bet-amount">{{ currentGame.gameChoice.betAmount }}</h6>
+        {% if currentGame.gameChoice.betWinner == None %}
+        <button class="btn btn-outline-success mr-1 increase-bet-button" type="button" disabled>+</button>
+        <button class="btn btn-outline-danger decrease-bet-button" type="button" disabled>-</button> {% else %}
+        <button class="btn btn-outline-success mr-1 increase-bet-button" type="button">+</button>
+        <button class="btn btn-outline-danger decrease-bet-button" type="button">-</button> {% endif %}
+    </div>
+    {% if currentGame.gameChoice.betWinner == currentGame.game.awayTeam %}
+    <div class="col-lg-3 bet-box bet-box-selected text-center">
+        {% if currentGame.game.awaySpread > 0 %}
+        <div>
+            <h6>+{{ currentGame.game.awaySpread }}</h6>
+        </div>
+        {% else %}
+        <div>
+            <h6>{{ currentGame.game.awaySpread }}</h6>
+        </div>
+        {% endif %}
+        <input type="radio" name="{{ currentGame.game.id }}" id="{{ currentGame.game.awayTeam.name }}-bet" value="{{ currentGame.game.awayTeam.name }}" checked="checked">
+        <img class="img-fluid" src="/static/media/{{ currentGame.game.awayTeam.name }}.png" width="60" height="60">
+        <div><small>{{ currentGame.game.awayTeam.wins }} - {{ currentGame.game.awayTeam.losses }}</small></div>
+    </div>
+    {% else %}
+    <div class="col-lg-3 bet-box bet-box-unselected text-center">
+        {% if currentGame.game.awaySpread > 0 %}
+        <div>
+            <h6>+{{ currentGame.game.awaySpread }}</h6>
+        </div>
+        {% else %}
+        <div>
+            <h6>{{ currentGame.game.awaySpread }}</h6>
+        </div>
+        {% endif %}
+        <input type="radio" name="{{ currentGame.game.id }}" id="{{ currentGame.game.awayTeam.name }}-bet" value="{{ currentGame.game.awayTeam.name }}">
+        <img class="img-fluid" src="/static/media/{{ currentGame.game.awayTeam.name }}.png" width="60" height="60">
+        <div><small>{{ currentGame.game.awayTeam.wins }} - {{ currentGame.game.awayTeam.losses }}</small></div>
+    </div>
+    {% endif %}
+    <!--Display logic for if a winner has not been selected, this is the default view-->
+    {% else %}
+    <div class="col-lg-3 bet-box text-center">
+        {% if currentGame.game.homeSpread > 0 %}
+        <div>
+            <h6>+{{ currentGame.game.homeSpread }}</h6>
+        </div>
+        {% else %}
+        <div>
+            <h6>{{ currentGame.game.homeSpread }}</h6>
+        </div>
+        {% endif %}
+        <input type="radio" name="{{ currentGame.game.id }}" id="{{ currentGame.game.homeTeam.name }}-bet" value="{{ currentGame.game.homeTeam.name }}">
+        <img class="img-fluid" src="/static/media/{{ currentGame.game.homeTeam.name }}.png" width="60" height="60">
+        <div><small>{{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }}</small></div>
+    </div>
+    <div class="col-lg-2 text-center mt-4">
+        <input type="hidden" class="game-bet-amount-input" name="{{ currentGame.game.id }}" id="{{ currentGame.game.id }}-bet" value="{{ currentGame.gameChoice.betAmount }}"> {% if currentGame.gameChoice.betAmount != None %}
+        <h6 class="game-bet-amount">{{ currentGame.gameChoice.betAmount }}</h6>
+        {% else %}
+        <h6 class="game-bet-amount">0</h6>
+        {% endif %} {% if currentGame.gameChoice.betWinner == None %}
+        <button class="btn btn-outline-success mr-1 increase-bet-button" type="button" disabled>+</button>
+        <button class="btn btn-outline-danger decrease-bet-button" type="button" disabled>-</button> {% else %}
+        <button class="btn btn-outline-success mr-1 increase-bet-button" type="button">+</button>
+        <button class="btn btn-outline-danger decrease-bet-button" type="button">-</button> {% endif %}
+    </div>
+    <div class="col-lg-3 bet-box text-center">
+        {% if currentGame.game.awaySpread > 0 %}
+        <div>
+            <h6>+{{ currentGame.game.awaySpread }}</h6>
+        </div>
+        {% else %}
+        <div>
+            <h6>{{ currentGame.game.awaySpread }}</h6>
+        </div>
+        {% endif %}
+        <input type="radio" name="{{ currentGame.game.id }}" id="{{ currentGame.game.awayTeam.name }}-bet" value="{{ currentGame.game.awayTeam.name }}">
+        <img class="img-fluid" src="/static/media/{{ currentGame.game.awayTeam.name }}.png" width="60" height="60">
+        <div><small>{{ currentGame.game.awayTeam.wins }} - {{ currentGame.game.awayTeam.losses }}</small></div>
+    </div>
+    {% endif %}
+</div>
+{% else %}
+<!-- Betting is locked for the current game if we make it here -->
+<div class="d-flex flex-row justify-content-center">
+    <div class="col-lg-3  bet-box text-center">
+        {% if currentGame.game.homeSpread > 0 %}
+        <div>
+            <h6>+{{ currentGame.game.homeSpread }}</h6>
+        </div>
+        {% else %}
+        <div>
+            <h6>{{ currentGame.game.homeSpread }}</h6>
+        </div>
+        {% endif %}
+        <input type="radio" name="{{ currentGame.game.id }}" id="{{ currentGame.game.homeTeam.name }}-bet" value="{{ currentGame.game.homeTeam.name }}" disabled>
+        <img class="img-fluid" src="/static/media/{{ currentGame.game.homeTeam.name }}.png" width="60" height="60">
+        <div><small>{{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }}</small></div>
+    </div>
+    <div class="col-lg-2 d-flex flex-column align-items-center justify-content-center">
+        <h6 class="game-bet-amount ">{{ currentGame.gameChoice.betAmount }}</h6>
+        <img class="img-fluid" src="{% static 'media/lock.png' %}" width="30" height="auto">
+    </div>
+    <div class="col-lg-3  bet-box text-center">
+        {% if currentGame.game.awaySpread > 0 %}
+        <div>
+            <h6>+{{ currentGame.game.awaySpread }}</h6>
+        </div>
+        {% else %}
+        <div>
+            <h6>{{ currentGame.game.awaySpread }}</h6>
+        </div>
+        {% endif %}
+        <input type="radio" name="{{ currentGame.game.id }}" id="{{ currentGame.game.awayTeam.name }}-bet" value="{{ currentGame.game.awayTeam.name }}" disabled>
+        <img class="img-fluid" src="/static/media/{{ currentGame.game.awayTeam.name }}.png" width="60" height="60">
+        <div><small>{{ currentGame.game.awayTeam.wins }} - {{ currentGame.game.awayTeam.losses }}</small></div>
+    </div>
+</div>
+{% endif %} {% endfor %}

@@ -1,40 +1,22 @@
-/* Bet Box Styles */
+/* Pick Box Styles */
 
-.bet-box {
+.pick-box {
     margin-bottom: 25px;
     cursor: pointer;
     border-radius: 5px;
     box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.bet-box-unselected {
+.pick-box-unselected {
     background-color: #ffffff;
     color: black;
 }
 
-.bet-box-selected {
+.pick-box-selected {
     background-color: #33A1FD;
     color: #ffffff;
 }
 
-.bet-box.locked {
+.pick-box.locked {
     opacity: .5;
-}
-
-
-/* Hide radio buttons */
-
-input[type=radio]+label::before {
-    content: '';
-    display: inline-block;
-    border: 2px solid #000;
-    border-radius: 25%;
-    margin: 0 0em;
-}
-
-[type=radio] {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
 }
