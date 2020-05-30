@@ -234,8 +234,12 @@ def createSeason(request):
         print("Teams have already been populated, continuing...")
 
     #Open current season JSON file
-    with open('./static_in_env/season20192020AllTimes.json', 'r') as seasonFile:
+    with open('./static_in_env/season20192020.json', 'r') as seasonFile:
         seasonData = json.load(seasonFile)
+    
+    #Initialize timezone to US/Pacific. This is the time zone used on the season json file
+    pst = pytz.timezone('US/Pacific')
+
     try:
         for week in seasonData:
             newWeek = Week(season=season)
@@ -244,7 +248,12 @@ def createSeason(request):
                 homeTeam = Team.objects.get(name=game['homeTeam'])
                 awayTeam = Team.objects.get(name=game['awayTeam'])
                 try:
-                    gameDateTime = datetime.strptime(game['date'],'%Y%m%d %I:%M %p')  
+                    gameDateTime = datetime.strptime(game['date'],'%Y%m%d %I:%M %p')
+
+                    #Add US/Pacific timezone to gameDateTime since it is originally a naive datetime object
+                    gameDateTime = pst.localize(gameDateTime)
+                    gameDateTime = gameDateTime.astimezone(pytz.utc) #Convert to utc before storing in database
+
                 except:
                     gameDateTime = None
 

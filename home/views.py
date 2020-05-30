@@ -31,9 +31,41 @@ def dashboard(request, weekId="1", leagueName=""):
     #Get all users for active league
     leagueUsers = LeagueMembership.objects.filter(league=activeLeague).order_by('-score')
     
+    #Get all messages, notifications, and league requests for current league
+    leagueMessages = LeagueMessage.objects.filter(league=activeLeague)
+    leagueNotifications = LeagueNotification.objects.filter(league=activeLeague)
+
+    #Get user score from league membership
+    userScore = LeagueMembership.objects.get(league=activeLeague, user=request.user).score
+
+    #Determine if user is the league admin and get league join requests
+    if request.user == activeLeague.admin:
+        isAdmin = True
+        #Get league membership requests if the league is private
+        if activeLeague.isPublic == False:
+            leagueRequests = LeagueMembershipRequest.objects.filter(league=activeLeague)
+        else:
+            leagueRequests = None
+    else:
+        isAdmin = False
+        leagueRequests = None
+
     #Get game data for weekId passed in
-    currentWeekGames = Game.objects.filter(week_id=Week.objects.get(id=weekId, season=activeSeason)).order_by('id')
-    
+    try:
+        currentWeekGames = Game.objects.filter(week_id=Week.objects.get(id=weekId, season=activeSeason)).order_by('dateTime').order_by('id')
+    except:
+        #No games are currently available. Open up the home page with no data.
+        return render(request, 'home/dashboard.html', {
+        'userLeagues': userLeagues,
+        'leagueUsers': leagueUsers, 
+        'activeLeague': activeLeague.name,
+        'leagueMessages': leagueMessages,
+        'leagueNotifications': leagueNotifications,
+        'leagueRequests': leagueRequests,
+        'userScore': userScore,
+        'page': 'dashboard'
+    })
+
     #Initialize empty dictionary for gameData and weeks string list to be passed to template
     gameData = []
     weeks = leagueUtils.getWeekIds()
@@ -78,25 +110,6 @@ def dashboard(request, weekId="1", leagueName=""):
             'upcomingPickWarning' : upcomingPickWarning,
             'gameActive' : gameActive
         })
-
-    #Get all messages, notifications, and league requests for current league
-    leagueMessages = LeagueMessage.objects.filter(league=activeLeague)
-    leagueNotifications = LeagueNotification.objects.filter(league=activeLeague)
-
-    #Get user score from league membership
-    userScore = LeagueMembership.objects.get(league=activeLeague, user=request.user).score
-
-    #Determine if user is the league admin and get league join requests
-    if request.user == activeLeague.admin:
-        isAdmin = True
-        #Get league membership requests if the league is private
-        if activeLeague.isPublic == False:
-            leagueRequests = LeagueMembershipRequest.objects.filter(league=activeLeague)
-        else:
-            leagueRequests = None
-    else:
-        isAdmin = False
-        leagueRequests = None
 
     #Template always expects {week}, {weeks}, {activeLeague}, {userLeagues}
     return render(request, 'home/dashboard.html', 

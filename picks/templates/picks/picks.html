@@ -1,4 +1,4 @@
-{% load static %}{% for currentGame in gameData %} {% if currentGame.game.pickLocked == False %} {% if currentGame.gameChoice.pickWinner != None %}
+{% load static %} {% if gameData %} {% for currentGame in gameData %} {% if currentGame.game.pickLocked == False %} {% if currentGame.gameChoice.pickWinner != None %}
 <!-- Picks have been made -->
 <div class="d-flex flex-row justify-content-center">
     {% if currentGame.gameChoice.pickWinner == currentGame.game.homeTeam %}
@@ -85,4 +85,10 @@
     </div>
     {% endif %}
 </div>
-{% endif %} {% endfor %}
+{% endif %} {% endfor %} {% else %}
+<div class="row">
+    <div class="col text-center">
+        <h5>The upcoming season's games have not yet been entered. Until then, please continue making sure that the league is ready to go with all players registered.</h5>
+    </div>
+</div>
+{% endif %}

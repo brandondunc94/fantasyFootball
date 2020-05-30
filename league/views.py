@@ -35,9 +35,12 @@ def createLeague(request):
             #Set newLeague to active league for current user - THIS IS VERY IMPORTANT
             leagueUtils.setUserActiveLeague(request.user, newLeague)
 
-            #Create welcome message for league
-            leagueUtils.createLeagueNotification(newLeague.name, "Welcome to your new league! " + request.user.username + " is the league admin.")
-            
+            #Create welcome messages for league
+            welcomeMessage = 'Welcome to your new league on OnsidePick! ' + request.user.username + ' is the administrator of your league.'
+            infoMessage = 'Once games are available, begin making your picks and bets for upcoming games. You have been given 500 points to start which you may use to place bets on the spread of any game you choose. Game choices will lock 1 hour prior to kickoff, so be sure that you have submitted your picks and bets by then. Good luck!'
+            leagueUtils.createLeagueNotification(newLeague.name, welcomeMessage)
+            leagueUtils.createLeagueNotification(newLeague.name, infoMessage)
+
             #Return to home page
             return redirect('home')
             

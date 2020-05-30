@@ -150,6 +150,7 @@
                 </div>
                 <!-- Game Summary tab -->
                 <div class="tab-pane fade" id="nav-games" role="tabpanel" aria-labelledby="nav-games-tab">
+                    {% if gameData %}
                     <div class="dropdown">
                         <button class="m-2 btn btn-blue dropdown-toggle" id="weekId" name="{{ week }}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <strong>Week {{ week }}</strong>
@@ -201,7 +202,13 @@
                             <h6>({{ currentGame.game.awaySpread }}) ${{ currentGame.gameChoice.betAmount }}</h6>{% endif %} {% endif %}
                         </div>
                     </div>
-                    {% endfor %}
+                    {% endfor %} {% else %}
+                    <div class="row">
+                        <div class="col text-center">
+                            <h5>The upcoming season's games have not yet been entered. Until then, please continue making sure that the league is ready to go with all players registered.</h5>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
                 <!-- Picks tab -->
                 <div class="tab-pane fade rounded m-1" id="nav-picks" role="tabpanel" aria-labelledby="nav-picks-tab">

@@ -2,20 +2,20 @@
         "id": 1,
         "games": [{
                 "location": "Chicago",
-                "date": "20200410 8:00 AM",
+                "date": "20200604 6:00 PM",
                 "homeTeam": "Bears",
                 "awayTeam": "Packers"
             },
             {
                 "location": "Cleveland",
-                "date": "20200410 9:00 AM",
+                "date": "20200607 11:00 AM",
                 "homeTeam": "Browns",
                 "awayTeam": "Titans"
             },
             {
 
                 "location": "Minnesota",
-                "date": "20200410 10:00 AM",
+                "date": "20200607 11:00 AM",
 
                 "homeTeam": "Vikings",
                 "awayTeam": "Falcons"
@@ -23,7 +23,7 @@
             {
 
                 "location": "Philadelphia",
-                "date": "20190908 11:00 AM",
+                "date": "20200607 11:00 AM",
 
                 "homeTeam": "Eagles",
                 "awayTeam": "Redskins"
@@ -31,7 +31,7 @@
             {
 
                 "location": "Carolina",
-                "date": "20190908 12:00 PM",
+                "date": "20200607 11:00 AM",
 
                 "homeTeam": "Panthers",
                 "awayTeam": "Rams"
@@ -39,7 +39,7 @@
             {
 
                 "location": "Buffalo",
-                "date": "20190908 1:00 PM",
+                "date": "20200607 11:00 AM",
 
                 "homeTeam": "Jets",
                 "awayTeam": "Bills"
@@ -47,7 +47,7 @@
             {
 
                 "location": "Jacksonville",
-                "date": "20190908 2:00 PM",
+                "date": "20200607 11:00 AM",
 
                 "homeTeam": "Jaguars",
                 "awayTeam": "Chiefs"
@@ -55,7 +55,7 @@
             {
 
                 "location": "Miami",
-                "date": "20190908 3:00 PM",
+                "date": "20200607 11:00 AM",
 
                 "homeTeam": "Dolphins",
                 "awayTeam": "Ravens"
@@ -63,7 +63,7 @@
             {
 
                 "location": "Los Angeles",
-                "date": "20190908 4:00PM",
+                "date": "20200607 3:00 PM",
 
                 "homeTeam": "Chargers",
                 "awayTeam": "Colts"
@@ -71,7 +71,7 @@
             {
 
                 "location": "Seattle",
-                "date": "20190908 5:00 PM",
+                "date": "20200607 3:00 PM",
 
                 "homeTeam": "Seahawks",
                 "awayTeam": "Bengals"
@@ -79,7 +79,7 @@
             {
 
                 "location": "Dallas",
-                "date": "20190908 6:00 PM",
+                "date": "20200607 3:00 PM",
 
                 "homeTeam": "Cowboys",
                 "awayTeam": "Giants"
@@ -87,7 +87,7 @@
             {
 
                 "location": "Arizona",
-                "date": "20190908 7:00 PM",
+                "date": "20200607 3:00 PM",
 
                 "homeTeam": "Cardinals",
                 "awayTeam": "Lions"
@@ -95,7 +95,7 @@
             {
 
                 "location": "Tampa Bay",
-                "date": "20190908 8:00 PM",
+                "date": "20200607 3:00 PM",
 
                 "homeTeam": "Buccaneers",
                 "awayTeam": "49ers"
@@ -103,7 +103,7 @@
             {
 
                 "location": "New England",
-                "date": "20190908 9:00 PM",
+                "date": "20200607 3:00 PM",
 
                 "homeTeam": "Patriots",
                 "awayTeam": "Steelers"
@@ -111,7 +111,7 @@
             {
 
                 "location": "New Orleans",
-                "date": "20190909 10:00 PM",
+                "date": "20200607 3:00 PM",
 
                 "homeTeam": "Saints",
                 "awayTeam": "Texans"
@@ -119,7 +119,7 @@
             {
 
                 "location": "Oakland",
-                "date": "20190909 11:00 PM",
+                "date": "20200607 6:00 PM",
 
                 "homeTeam": "Raiders",
                 "awayTeam": "Broncos"
@@ -131,7 +131,7 @@
         "games": [{
 
                 "location": "Carolina",
-                "date": "20190912 12:00 PM",
+                "date": "20200611 6:00 PM",
 
                 "homeTeam": "Buccaneers",
                 "awayTeam": "Panthers"
@@ -139,7 +139,7 @@
             {
 
                 "location": "New York",
-                "date": "20190915 12:00 PM",
+                "date": "20200614 11:00 AM",
 
                 "homeTeam": "Giants",
                 "awayTeam": "Bills"
@@ -147,7 +147,7 @@
             {
 
                 "location": "Green Bay",
-                "date": "20190915 12:00 PM",
+                "date": "20200614 11:00 AM",
 
                 "homeTeam": "Packers",
                 "awayTeam": "Vikings"
@@ -155,7 +155,7 @@
             {
 
                 "location": "Houston",
-                "date": "20190915 12:00 PM",
+                "date": "20200614 11:00 AM",
 
                 "homeTeam": "Texans",
                 "awayTeam": "Jaguars"
@@ -163,7 +163,7 @@
             {
 
                 "location": "Baltimore",
-                "date": "20190915 12:00 PM",
+                "date": "20200614 11:00 AM",
 
                 "homeTeam": "Ravens",
                 "awayTeam": "Cardinals"
@@ -171,7 +171,7 @@
             {
 
                 "location": "Cincinnati",
-                "date": "20190915 12:00 PM",
+                "date": "20200614 11:00 AM",
 
                 "homeTeam": "Bengals",
                 "awayTeam": "49ers"
@@ -179,7 +179,7 @@
             {
 
                 "location": "Detroit",
-                "date": "20190915 12:00 PM",
+                "date": "20200614 11:00 AM",
 
                 "homeTeam": "Lions",
                 "awayTeam": "Chargers"
@@ -187,7 +187,7 @@
             {
 
                 "location": "Miami",
-                "date": "20190915 12:00 PM",
+                "date": "20200614 11:00 AM",
 
                 "homeTeam": "Dolphins",
                 "awayTeam": "Patriots"
@@ -195,7 +195,7 @@
             {
 
                 "location": "Tennessee",
-                "date": "20190915 12:00 PM",
+                "date": "20200614 11:00 AM",
 
                 "homeTeam": "Titans",
                 "awayTeam": "Colts"
@@ -203,7 +203,7 @@
             {
 
                 "location": "Pittsburgh",
-                "date": "20190915 12:00 PM",
+                "date": "20200614 3:00 PM",
 
                 "homeTeam": "Steelers",
                 "awayTeam": "Seahawks"
@@ -211,7 +211,7 @@
             {
 
                 "location": "Washington",
-                "date": "20190915 12:00 PM",
+                "date": "20200614 3:00 PM",
 
                 "homeTeam": "Redskins",
                 "awayTeam": "Cowboys"
@@ -219,7 +219,7 @@
             {
 
                 "location": "Oakland",
-                "date": "20190915 12:00 PM",
+                "date": "20200614 3:00 PM",
 
                 "homeTeam": "Raiders",
                 "awayTeam": "Chiefs"
@@ -227,7 +227,7 @@
             {
 
                 "location": "Los Angeles",
-                "date": "20190915 12:00 PM",
+                "date": "20200614 3:00 PM",
 
                 "homeTeam": "Rams",
                 "awayTeam": "Saints"
@@ -235,7 +235,7 @@
             {
 
                 "location": "Denver",
-                "date": "20190915 12:00 PM",
+                "date": "20200614 3:00 PM",
 
                 "homeTeam": "Broncos",
                 "awayTeam": "Bears"
@@ -243,7 +243,7 @@
             {
 
                 "location": "Atlanta",
-                "date": "20190915 12:00 PM",
+                "date": "20200614 3:00 PM",
 
                 "homeTeam": "Falcons",
                 "awayTeam": "Eagles"
@@ -251,7 +251,7 @@
             {
 
                 "location": "New York",
-                "date": "20190915 12:00 PM",
+                "date": "20200614 6:00 PM",
 
                 "homeTeam": "Jets",
                 "awayTeam": "Browns"
@@ -262,7 +262,7 @@
         "games": [{
 
                 "location": "Jacksonville",
-                "date": "20190919 12:00 PM",
+                "date": "20200618 6:00 PM",
 
                 "homeTeam": "Jaguars",
                 "awayTeam": "Titans"
@@ -270,7 +270,7 @@
             {
 
                 "location": "Philadelphia ",
-                "date": "20190922 12:00 PM",
+                "date": "20200621 11:00 AM",
 
                 "homeTeam": "Eagles",
                 "awayTeam": "Lions"
@@ -278,7 +278,7 @@
             {
 
                 "location": "Dallas",
-                "date": "20190922 12:00 PM",
+                "date": "20200621 11:00 AM",
 
                 "homeTeam": "Cowboys",
                 "awayTeam": "Dolphins"
@@ -286,7 +286,7 @@
             {
 
                 "location": "Kansas City",
-                "date": "20190922 12:00 PM",
+                "date": "20200621 11:00 AM",
 
                 "homeTeam": "Chiefs",
                 "awayTeam": "Ravens"
@@ -294,7 +294,7 @@
             {
 
                 "location": "Buffalo",
-                "date": "20190922 12:00 PM",
+                "date": "20200621 11:00 AM",
 
                 "homeTeam": "Bills",
                 "awayTeam": "Bengals"
@@ -302,7 +302,7 @@
             {
 
                 "location": "Indianapolis",
-                "date": "20190922 12:00 PM",
+                "date": "20200621 11:00 AM",
 
                 "homeTeam": "Colts",
                 "awayTeam": "Falcons"
@@ -310,7 +310,7 @@
             {
 
                 "location": "New England",
-                "date": "20190922 12:00 PM",
+                "date": "20200621 11:00 AM",
 
                 "homeTeam": "Patriots",
                 "awayTeam": "Jets"
@@ -318,7 +318,7 @@
             {
 
                 "location": "Green Bay",
-                "date": "20190922 12:00 PM",
+                "date": "20200621 11:00 AM",
 
                 "homeTeam": "Packers",
                 "awayTeam": "Broncos"
@@ -326,7 +326,7 @@
             {
 
                 "location": "Arizona ",
-                "date": "20190922 12:00 PM",
+                "date": "20200621 11:00 AM",
 
                 "homeTeam": "Cardinals",
                 "awayTeam": "Panthers"
@@ -334,7 +334,7 @@
             {
 
                 "location": "Tampa Bay",
-                "date": "20190922 12:00 PM",
+                "date": "20200621 3:00 PM",
 
                 "homeTeam": "Buccaneers",
                 "awayTeam": "Giants"
@@ -342,7 +342,7 @@
             {
 
                 "location": "Los Angeles",
-                "date": "20190922 12:00 PM",
+                "date": "20200621 3:00 PM",
 
                 "homeTeam": "Chargers",
                 "awayTeam": "Texans"
@@ -350,7 +350,7 @@
             {
 
                 "location": "Seattle ",
-                "date": "20190922 12:00 PM",
+                "date": "20200621 3:00 PM",
 
                 "homeTeam": "Seahawks",
                 "awayTeam": "Saints"
@@ -358,7 +358,7 @@
             {
 
                 "location": "San Francisco",
-                "date": "20190922 12:00 PM",
+                "date": "20200621 3:00 PM",
 
                 "homeTeam": "49ers",
                 "awayTeam": "Steelers"
@@ -366,7 +366,7 @@
             {
 
                 "location": "Cleveland",
-                "date": "20190922 12:00 PM",
+                "date": "20200621 3:00 PM",
 
                 "homeTeam": "Browns",
                 "awayTeam": "Rams"
@@ -374,1921 +374,12 @@
             {
 
                 "location": "Washington",
-                "date": "20190923 12:00 PM",
+                "date": "20200621 6:00 PM",
 
                 "homeTeam": "Redskins",
                 "awayTeam": "Bears"
             }
 
-        ]
-    }, {
-        "id": 4,
-        "games": [{
-
-                "location": "Green Bay",
-                "date": "20190926 12:00 PM",
-
-                "homeTeam": "Packers",
-                "awayTeam": "Eagles"
-            },
-            {
-
-                "location": "Miami ",
-                "date": "20190929 12:00 PM",
-
-                "homeTeam": "Dolphins",
-                "awayTeam": "Chargers"
-            },
-            {
-
-                "location": "Houston ",
-                "date": "20190929 12:00 PM",
-
-                "homeTeam": "Texans",
-                "awayTeam": "Panthers"
-            },
-            {
-
-                "location": "Baltimore ",
-                "date": "20190929 12:00 PM",
-
-                "homeTeam": "Ravens",
-                "awayTeam": "Browns"
-            },
-            {
-
-                "location": "Buffalo ",
-                "date": "20190929 12:00 PM",
-
-                "homeTeam": "Bills",
-                "awayTeam": "Patriots"
-            },
-            {
-
-                "location": "Detroit ",
-                "date": "20190929 12:00 PM",
-
-                "homeTeam": "Lions",
-                "awayTeam": "Chiefs"
-            },
-            {
-
-                "location": "Indianapolis ",
-                "date": "20190929 12:00 PM",
-
-                "homeTeam": "Colts",
-                "awayTeam": "Raiders"
-            },
-            {
-
-                "location": "Atlanta",
-                "date": "20190929 12:00 PM",
-
-                "homeTeam": "Falcons",
-                "awayTeam": "Titans"
-            },
-            {
-
-                "location": "New York",
-                "date": "20190929 12:00 PM",
-
-                "homeTeam": "Giants",
-                "awayTeam": "Redskins"
-            },
-            {
-
-                "location": "Arizona ",
-                "date": "20190929 12:00 PM",
-
-                "homeTeam": "Cardinals",
-                "awayTeam": "Seahawks"
-            },
-            {
-
-                "location": "Los Angeles",
-                "date": "20190929 12:00 PM",
-
-                "homeTeam": "Rams",
-                "awayTeam": "Buccaneers"
-            },
-            {
-
-                "location": "Denver ",
-                "date": "20190929 12:00 PM",
-
-                "homeTeam": "Broncos",
-                "awayTeam": "Jaguars"
-            },
-            {
-
-                "location": "Chicago",
-                "date": "20190929 12:00 PM",
-
-                "homeTeam": "Bears",
-                "awayTeam": "Vikings"
-            },
-            {
-
-                "location": "New Orleans",
-                "date": "20190929 12:00 PM",
-
-                "homeTeam": "Saints",
-                "awayTeam": "Cowboys"
-            },
-            {
-
-                "location": "Pittsburgh",
-                "date": "20190930 12:00 PM",
-
-                "homeTeam": "Steelers",
-                "awayTeam": "Bengals"
-            }
-        ]
-    }, {
-        "id": 5,
-        "games": [{
-
-                "location": "Seattle ",
-                "date": "20191003 12:00 PM",
-
-                "homeTeam": "Seahawks",
-                "awayTeam": "Rams"
-            },
-            {
-
-                "location": "Philadelphia",
-                "date": "20191006 12:00 PM",
-
-                "homeTeam": "Eagles",
-                "awayTeam": "Jets"
-            },
-            {
-
-                "location": "Houston ",
-                "date": "20191006 12:00 PM",
-
-                "homeTeam": "Texans",
-                "awayTeam": "Falcons"
-            },
-            {
-
-                "location": "Tennessee ",
-                "date": "20191006 12:00 PM",
-
-                "homeTeam": "Titans",
-                "awayTeam": "Bills"
-            },
-            {
-
-                "location": "Carolina ",
-                "date": "20191006 12:00 PM",
-
-                "homeTeam": "Panthers",
-                "awayTeam": "Jaguars"
-            },
-            {
-
-                "location": "Cincinnati",
-                "date": "20191006 12:00 PM",
-
-                "homeTeam": "Bengals",
-                "awayTeam": "Cardinals"
-            },
-            {
-
-                "location": "New York",
-                "date": "20191006 12:00 PM",
-
-                "homeTeam": "Giants",
-                "awayTeam": "Vikings"
-            },
-            {
-
-                "location": "New Orleans",
-                "date": "20191006 12:00 PM",
-
-                "homeTeam": "Saints",
-                "awayTeam": "Buccaneers"
-            },
-            {
-
-                "location": "Pittsburgh",
-                "date": "20191006 12:00 PM",
-
-                "homeTeam": "Steelers",
-                "awayTeam": "Ravens"
-            },
-            {
-
-                "location": "Washington",
-                "date": "20191006 12:00 PM",
-
-                "homeTeam": "Redskins",
-                "awayTeam": "Patriots"
-            },
-            {
-
-                "location": "Oakland",
-                "date": "20191006 12:00 PM",
-
-                "homeTeam": "Raiders",
-                "awayTeam": "Bears"
-            },
-            {
-
-                "location": "Los Angeles",
-                "date": "20191006 12:00 PM",
-
-                "homeTeam": "Chargers",
-                "awayTeam": "Broncos"
-            },
-            {
-
-                "location": "Dallas",
-                "date": "20191006 12:00 PM",
-
-                "homeTeam": "Cowboys",
-                "awayTeam": "Packers"
-            },
-            {
-
-                "location": "Kansas City",
-                "date": "20191006 12:00 PM",
-
-                "homeTeam": "Chiefs",
-                "awayTeam": "Colts"
-            },
-            {
-
-                "location": "San Francisco",
-                "date": "20191006 12:00 PM",
-
-                "homeTeam": "49ers",
-                "awayTeam": "Browns"
-            }
-        ]
-    }, {
-        "id": 6,
-        "games": [{
-
-                "location": "New England",
-                "date": "20191010 12:00 PM",
-
-                "homeTeam": "Patriots",
-                "awayTeam": "Giants"
-            },
-            {
-
-                "location": "Tampa Bay",
-                "date": "20191013 12:00 PM",
-
-                "homeTeam": "Buccaneers",
-                "awayTeam": "Panthers"
-            },
-            {
-
-                "location": "Miami",
-                "date": "20191013 12:00 PM",
-
-                "homeTeam": "Dolphins",
-                "awayTeam": "Redskins"
-            },
-            {
-
-                "location": "Minnesota",
-                "date": "20191013 12:00 PM",
-
-                "homeTeam": "Vikings",
-                "awayTeam": "Eagles"
-            },
-            {
-
-                "location": "Baltimore",
-                "date": "20191013 12:00 PM",
-
-                "homeTeam": "Ravens",
-                "awayTeam": "Bengals"
-            },
-            {
-
-                "location": "Cleveland",
-                "date": "20191013 12:00 PM",
-
-                "homeTeam": "Browns",
-                "awayTeam": "Seahawks"
-            },
-            {
-
-                "location": "Jacksonville",
-                "date": "20191013 12:00 PM",
-
-                "homeTeam": "Jaguars",
-                "awayTeam": "Saints"
-            },
-            {
-
-                "location": "Kansas City",
-                "date": "20191013 12:00 PM",
-
-                "homeTeam": "Chiefs",
-                "awayTeam": "Texans"
-            },
-            {
-
-                "location": "Arizona",
-                "date": "20191013 12:00 PM",
-
-                "homeTeam": "Cardinals",
-                "awayTeam": "Falcons"
-            },
-            {
-
-                "location": "Los Angeles",
-                "date": "20191013 12:00 PM",
-
-                "homeTeam": "Los Angeles",
-                "awayTeam": "49ers"
-            },
-            {
-
-                "location": "Denver",
-                "date": "20191013 12:00 PM",
-
-                "homeTeam": "Broncos",
-                "awayTeam": "Titans"
-            },
-            {
-
-                "location": "New York",
-                "date": "20191013 12:00 PM",
-
-                "homeTeam": "Jets",
-                "awayTeam": "Cowboys"
-            },
-            {
-
-                "location": "Los Angeles",
-                "date": "20191013 12:00 PM",
-
-                "homeTeam": "Chargers",
-                "awayTeam": "Steelers"
-            },
-            {
-
-                "location": "Green Bay",
-                "date": "20191014 12:00 PM",
-
-                "homeTeam": "Packers",
-                "awayTeam": "Lions"
-            }
-        ]
-    }, {
-        "id": 7,
-        "games": [{
-
-                "location": "Denver ",
-                "date": "20191017 12:00 PM",
-
-                "homeTeam": "Broncos",
-                "awayTeam": "Chiefs"
-            },
-            {
-
-                "location": "Buffalo ",
-                "date": "20191020 12:00 PM",
-
-                "homeTeam": "Bills",
-                "awayTeam": "Dolphins"
-            },
-            {
-
-                "location": "Green Bay",
-                "date": "20191020 12:00 PM",
-
-                "homeTeam": "Packers",
-                "awayTeam": "Raiders"
-            },
-            {
-
-                "location": "New York",
-                "date": "20191020 12:00 PM",
-
-                "homeTeam": "Giants",
-                "awayTeam": "Cardinals"
-            },
-            {
-
-                "location": "Indianapolis",
-                "date": "20191020 12:00 PM",
-
-                "homeTeam": "Colts",
-                "awayTeam": "Texans"
-            },
-            {
-
-                "location": "Detroit",
-                "date": "20191020 12:00 PM",
-
-                "homeTeam": "Lions",
-                "awayTeam": "Vikings"
-            },
-            {
-
-                "location": "Cincinnati",
-                "date": "20191020 12:00 PM",
-
-                "homeTeam": "Bengals",
-                "awayTeam": "Jaguars"
-            },
-            {
-
-                "location": "Washington",
-                "date": "20191020 12:00 PM",
-
-                "homeTeam": "Redskins",
-                "awayTeam": "49ers"
-            },
-            {
-
-                "location": "Atlanta",
-                "date": "20191020 12:00 PM",
-
-                "homeTeam": "Falcons",
-                "awayTeam": "Rams"
-            },
-            {
-
-                "location": "Tennessee",
-                "date": "20191020 12:00 PM",
-
-                "homeTeam": "Titans",
-                "awayTeam": "Chargers"
-            },
-            {
-
-                "location": "Seattle",
-                "date": "20191020 12:00 PM",
-
-                "homeTeam": "Seahawks",
-                "awayTeam": "Ravens"
-            },
-            {
-
-                "location": "Chicago",
-                "date": "20191020 12:00 PM",
-
-                "homeTeam": "Bears",
-                "awayTeam": "Saints"
-            },
-            {
-
-                "location": "Dallas",
-                "date": "20191020 12:00 PM",
-
-                "homeTeam": "Cowboys",
-                "awayTeam": "Eagles"
-            },
-            {
-
-                "location": "New York",
-                "date": "20191021 12:00 PM",
-
-                "homeTeam": "Jets",
-                "awayTeam": "Patriots"
-            }
-        ]
-    }, {
-        "id": 8,
-        "games": [{
-
-                "location": "Minnesota",
-                "date": "20191024 12:00 PM",
-
-                "homeTeam": "Vikings",
-                "awayTeam": "Redskins"
-            },
-            {
-
-                "location": "Detroit",
-                "date": "20191027 12:00 PM",
-
-                "homeTeam": "Lions",
-                "awayTeam": "Giants"
-            },
-            {
-
-                "location": "Chicago",
-                "date": "20191027 12:00 PM",
-
-                "homeTeam": "Bears",
-                "awayTeam": "Chargers"
-            },
-            {
-
-                "location": "Tennessee",
-                "date": "20191027 12:00 PM",
-
-                "homeTeam": "Titans",
-                "awayTeam": "Buccaneers"
-            },
-            {
-
-                "location": "",
-                "date": "20191027 12:00 PM",
-
-                "homeTeam": "Falcons",
-                "awayTeam": "Seahawks"
-            },
-            {
-
-                "location": "Buffalo",
-                "date": "20191027 12:00 PM",
-
-                "homeTeam": "Bills",
-                "awayTeam": "Eagles"
-            },
-            {
-
-                "location": "Jacksonville",
-                "date": "20191027 12:00 PM",
-
-                "homeTeam": "Jaguars",
-                "awayTeam": "Jets"
-            },
-            {
-
-                "location": "New Orleans",
-                "date": "20191027 12:00 PM",
-
-                "homeTeam": "Saints",
-                "awayTeam": "Cardinals"
-            },
-            {
-
-                "location": "Los Angeles",
-                "date": "20191027 12:00 PM",
-
-                "homeTeam": "Rams",
-                "awayTeam": "Bengals"
-            },
-            {
-
-                "location": "Indianapolis",
-                "date": "20191027 12:00 PM",
-
-                "homeTeam": "Colts",
-                "awayTeam": "Broncos"
-            },
-            {
-
-                "location": "San Francisco",
-                "date": "20191027 12:00 PM",
-
-                "homeTeam": "49ers",
-                "awayTeam": "Panthers"
-            },
-            {
-
-                "location": "Houston",
-                "date": "20191027 12:00 PM",
-
-                "homeTeam": "Texans",
-                "awayTeam": "Raiders"
-            },
-            {
-
-                "location": "New England",
-                "date": "20191027 12:00 PM",
-
-                "homeTeam": "Patriots",
-                "awayTeam": "Browns"
-            },
-            {
-
-                "location": "Kansas City",
-                "date": "20191027 12:00 PM",
-
-                "homeTeam": "Chiefs",
-                "awayTeam": "Packers"
-            },
-            {
-
-                "location": "20191028",
-                "date": "20191027 12:00 PM",
-
-                "homeTeam": "Steelers",
-                "awayTeam": "Dolphins"
-            }
-        ]
-    }, {
-        "id": 9,
-        "games": [{
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            }
-        ]
-    }, {
-        "id": 10,
-        "games": [{
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            }
-        ]
-    }, {
-        "id": 11,
-        "games": [{
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            }
-        ]
-    }, {
-        "id": 12,
-        "games": [{
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            }
-        ]
-    }, {
-        "id": 13,
-        "games": [{
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            }
-        ]
-    }, {
-        "id": 14,
-        "games": [{
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            }
-        ]
-    }, {
-        "id": 15,
-        "games": [{
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            }
-        ]
-    }, {
-        "id": 16,
-        "games": [{
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            }
-        ]
-    }, {
-        "id": 17,
-        "games": [{
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            }
-        ]
-    }, {
-        "id": 18,
-        "games": [{
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            },
-            {
-
-                "location": "",
-                "date": " 12:00 PM",
-
-                "homeTeam": "",
-                "awayTeam": ""
-            }
         ]
     }
 ]

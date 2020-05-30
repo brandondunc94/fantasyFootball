@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %} {% if gameData %}
 <div class="d-flex flex-row justify-content-center">
     <div class="col-lg-3 no-padding shadow">
         <div class="dropdown">
@@ -13,7 +13,7 @@
     </div>
     <div class="col-lg-2 no-padding"></div>
     <div class="col-lg-3 no-padding shadow">
-        <button class="btn btn-blue w-100" id="saveBets">Save Bets</button>
+        <button class="btn btn-green w-100" id="saveBets">Save Bets</button>
     </div>
 </div>
 <!-- Total Points Display -->
@@ -202,4 +202,10 @@
         <div><small>{{ currentGame.game.awayTeam.wins }} - {{ currentGame.game.awayTeam.losses }}</small></div>
     </div>
 </div>
-{% endif %} {% endfor %}
+{% endif %} {% endfor %} {% else %}
+<div class="row">
+    <div class="col text-center">
+        <h5>The upcoming season's games have not yet been entered. Until then, please continue making sure that the league is ready to go with all players registered.</h5>
+    </div>
+</div>
+{% endif %}
