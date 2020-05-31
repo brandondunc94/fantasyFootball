@@ -17,8 +17,16 @@
     <div class="row">
         <form action="createseason/">
             {% csrf_token %}
-            <!-- <input type="text" value="Season Year"> -->
             <input type="submit" class="btn btn-sm btn-indigo" value="Create new season">
+        </form>
+    </div>
+    <hr>
+    <h4>League Management</h4>
+    <div class="row">
+        <form action="leaguemanage/">
+            {% csrf_token %}
+
+            <a class="btn btn-blue" href="leaguemanage/">Manage Leagues</a>
         </form>
     </div>
 </div>

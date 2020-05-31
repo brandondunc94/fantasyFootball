@@ -23,6 +23,10 @@ def seasonSettings(request, seasonYear=""):
 
     return render(request, 'command/seasonSettings.html', {'season': season, 'teams': teams, 'weeks': weeks})
 
+def leagueManage(request):
+    leagues = League.objects.all()
+    return render(request, 'command/leagueManage.html', {'leagues': leagues})
+
 def gameOptionsPage(request, seasonYear="2019-2020", weekId="1"):
 
     #Get season object for season passed in
@@ -371,6 +375,21 @@ def deleteGame(request):
         status = False
 
     data = {
+            'status': status
+        }
+
+    return JsonResponse(data)
+
+#AJAX CALL
+def deleteLeague(request):
+    leagueName = request.GET.get('leagueName', None)
+    try:
+        league = League.objects.get(name=leagueName)
+        league.delete()
+        status = True
+    except:
+        status = False
+        data = {
             'status': status
         }
 

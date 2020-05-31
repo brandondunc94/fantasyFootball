@@ -1,0 +1,43 @@
+{% extends "fantasyFootball/base.html" %} {% block page_content %} {% load static %}
+
+<div class="container">
+    <h1>Manage Leagues</h1>
+    <input class="form-control" id="searchLeagues" type="text" placeholder="Search Leagues..">
+    <hr> {% if leagues %}
+    <table id="leagueTable" class="table table-responsive-md btn-table" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th class="th-sm">Name</th>
+                <th class="th-sm">Visibility</th>
+                <th class="th-sm">Delete</th>
+            </tr>
+        </thead>
+        <div class="btn-group">
+            <tbody>
+                {% for currentLeague in leagues %}
+                <tr>
+                    <td value="{{ currentLeague.league.name }}" class="league-name">{{ currentLeague.name }}</td>
+                    {% if currentLeague.league.isPublic == False %}
+                    <td>Private</td>
+                    {% else %}
+                    <td>Public</td>
+                    {% endif %}
+                    <td><input type="submit" class="btn btn-danger btn-sm m-0 btn-block Delete-button" value="Delete" /></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </div>
+    </table>
+    {% else %}
+    <div class="row">
+        <div class="col">
+            <div class="text-center">
+                <h4>There are currently no leagues to manage.</h4>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    {% load static %}
+    <script src="{% static 'command/js/leagueManage.js' %}"></script>
+</div>
+{% endblock %}
