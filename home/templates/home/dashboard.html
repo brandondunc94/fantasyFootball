@@ -1,4 +1,4 @@
-{% extends "fantasyFootball/base.html" %} {% block page_content %}{% load static %}
+{% extends "fantasyFootball/base.html" %} {% block page_content %}{% load static %}{% load tz %}
 <link href="{% static 'home/dashboard.css' %}" rel="stylesheet">
 <link href="{% static 'picks/css/picks.css' %}" rel="stylesheet">
 <link href="{% static 'bets/css/bets.css' %}" rel="stylesheet">
@@ -79,10 +79,10 @@
                                                     <strong class="d-block">Please reload the page to see new messages.</strong>
                                                 </p>
                                             </div>
-                                            {% if leagueMessages %} {% for currentMessage in leagueMessages %}
+                                            {% localtime off %} {% if leagueMessages %} {% for currentMessage in leagueMessages %}
                                             <div class="media text-muted pl-3 pr-3 pt-3">
                                                 <p class="media-body border-bottom border-gray">
-                                                    <strong class="d-block">@{{ currentMessage.user.username }} <small class="d-block">{{ currentMessage.createDate }}</small> </strong>{{ currentMessage.message }}
+                                                    <strong class="d-block">@{{ currentMessage.username }} <small class="d-block">{{ currentMessage.createDate }}</small> </strong>{{ currentMessage.message }}
                                                 </p>
                                             </div>
                                             {% endfor %} {% else %}
@@ -91,7 +91,7 @@
                                                     <strong class="d-block">No messages yet..</strong>
                                                 </p>
                                             </div>
-                                            {% endif %}
+                                            {% endif %} {% endlocaltime %}
                                         </div>
                                         <div class="input-group mt-auto p-2">
                                             {% csrf_token %}
@@ -136,13 +136,13 @@
                                 </div>
                                 <!-- LEAGUE NOTIFICATION LOGIC HERE -->
                                 <div class="overflow-auto">
-                                    {% for currentNotification in leagueNotifications %}
+                                    {% localtime off %} {% for currentNotification in leagueNotifications %}
                                     <div class="m-3 p-1 media text-muted notification-box rounded">
                                         <p class="media-body pb-2 mb-0 lh-125 text-white">
                                             <small>{{ currentNotification.createDate }}</small><strong class="d-block">{{ currentNotification.message }}</strong>
                                         </p>
                                     </div>
-                                    {% endfor %}
+                                    {% endfor %} {% endlocaltime %}
                                 </div>
                             </div>
                         </div>
@@ -225,5 +225,4 @@
 <script src="{% static 'home/js/dashboard.js' %}"></script>
 <script src="{% static 'picks/js/picks.js' %}"></script>
 <script src="{% static 'bets/js/betting.js' %}"></script>
-<script src="{% static 'league/js/leagueMessages.js' %}"></script>
 {% endblock %}

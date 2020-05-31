@@ -31,9 +31,27 @@ def dashboard(request, weekId="1", leagueName=""):
     #Get all users for active league
     leagueUsers = LeagueMembership.objects.filter(league=activeLeague).order_by('-score')
     
-    #Get all messages, notifications, and league requests for current league
-    leagueMessages = LeagueMessage.objects.filter(league=activeLeague)
-    leagueNotifications = LeagueNotification.objects.filter(league=activeLeague)
+    #Get all league messages, notifications and convert the date/times to user's timezone
+    leagueMessages = []
+    leagueNotifications = []
+
+    leagueMessagesObjects = LeagueMessage.objects.filter(league=activeLeague)
+    leagueNotificationsObjects = LeagueNotification.objects.filter(league=activeLeague)
+
+    for currentMessage in leagueMessagesObjects:
+        messageDateTime = convertTimeToLocalTimezone(request.user, currentMessage.createDate)
+        leagueMessages.append(
+        {
+            'createDate': messageDateTime,
+            'message': currentMessage.message,
+            'username': currentMessage.user.username
+        })
+    for currentNotification in leagueNotificationsObjects:
+        notificationDateTime = convertTimeToLocalTimezone(request.user, currentNotification.createDate)
+        leagueNotifications.append({
+            'createDate': notificationDateTime,
+            'message': currentNotification.message,
+        })
 
     #Get user score from league membership
     userScore = LeagueMembership.objects.get(league=activeLeague, user=request.user).score
