@@ -1,4 +1,17 @@
-{% load static %} {% if gameData %} {% for currentGame in gameData %} {% if currentGame.game.pickLocked == False %} {% if currentGame.gameChoice.pickWinner != None %}
+{% load static %} {% if gameData %}
+<div class="d-flex flex-row justify-content-start">
+    <div class="dropdown">
+        <button class="m-2 btn btn-blue dropdown-toggle" id="weekId" name="{{ week }}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <strong>Week {{ week }}</strong>
+</button>
+        <div class="dropdown-menu">
+            {% for week in weeks %}
+            <a class="dropdown-item" href="/home/{{ week }}/">Week {{ week }}</a> {% endfor %}
+        </div>
+    </div>
+</div>
+{% for currentGame in gameData %} {% if currentGame.game.pickLocked == False %} {% if currentGame.gameChoice.pickWinner != None %}
+
 <!-- Picks have been made -->
 <div class="d-flex flex-row justify-content-center">
     {% if currentGame.gameChoice.pickWinner == currentGame.game.homeTeam %}
