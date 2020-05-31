@@ -29,9 +29,10 @@ def createLeague(request):
             #Create new league model in db
             newLeague = League.objects.create(name=form.cleaned_data['name'], admin=request.user, description=form.cleaned_data['description'], isPublic=leagueIsPublic)
 
-            #Assign current user to new league
+            #Add current user to new league - They will be the admin
             leagueMembership = LeagueMembership.objects.create(user=request.user,league=newLeague)
-            
+            leagueMembership.save()
+
             #Set newLeague to active league for current user - THIS IS VERY IMPORTANT
             leagueUtils.setUserActiveLeague(request.user, newLeague)
 
