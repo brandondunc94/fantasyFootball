@@ -28,13 +28,18 @@
     color: white;
 }
 
+.btn-grey {
+    background-color: #4d4b4b;
+    color: white;
+}
+
 .btn-blue {
-    background-color: #1A1B41;
+    background-color: #33A1FD;
     color: white;
 }
 
 .btn-blue-outline {
-    background-color: #1A1B41;
+    background-color: #33A1FD;
     color: white;
 }
 

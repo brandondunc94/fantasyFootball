@@ -1,9 +1,7 @@
 {% load static %} {% if gameData %}
 <div class="d-flex flex-row justify-content-start">
     <div class="dropdown">
-        <button class="m-2 btn btn-blue dropdown-toggle" id="weekId" name="{{ week }}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <strong>Week {{ week }}</strong>
-</button>
+        <button class="m-2 btn btn-grey dropdown-toggle" id="weekId" name="{{ week }}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Week {{ week }}</button>
         <div class="dropdown-menu">
             {% for week in weeks %}
             <a class="dropdown-item" href="/home/{{ week }}/">Week {{ week }}</a> {% endfor %}

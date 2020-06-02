@@ -1,6 +1,67 @@
-{% load static %} {% if gameData %}
-<div class="d-flex flex-row justify-content-center">
-    <div class="col-lg-3 no-padding shadow">
+{% load static %}
+
+<!-- Modal -->
+<div class="modal fade" id="deleteConfirm" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="deleteModalLabel">How to bet on the spread</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+            </div>
+            <div class="modal-body">
+                <h6>The spread shows what the expected point outcome of the game is.</h6>
+                <hr>
+                <h6>Example</h6>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="bet-box text-center">
+                            <div>
+                                <h6>+7</h6>
+                            </div>
+                            <img class="img-fluid" src="/static/media/Seahawks.png" width="60" height="60">
+                            <div><small>(5-6)</small></div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="bet-box text-center">
+                            <div>
+                                <h6>-7</h6>
+                            </div>
+                            <img class="img-fluid" src="/static/media/Rams.png" width="60" height="60">
+                            <div><small>(7-4)</small></div>
+                        </div>
+                    </div>
+                </div>
+                <h6 class="mb-2">In this game scenario, the Rams have a spread of <strong>-7</strong>, which means that they are <strong>favored</strong> to win by 7 points or more.</h6>
+                <h6 class="mb-2">If you were to bet points on the Rams spread, then you are saying that the Rams will win by 7 points or more. If they do, you will win the bet. If they lose the game or win by 6 points or less, you lose the bet.</h6>
+                <hr>
+                <h6 class="mb-2">The Seahawks have a spread of <strong>+7</strong>, which means that they are the <strong>underdog</strong> in this game and are projected to lose by 7 points or more.</h6>
+                <h6 class="mb-2">If you were to bet points on the Seahawks spread, then you are saying that the Seahawks will lose by 7 points or more. If they do, you will win the bet. If they win the game or lose by 6 points or less, you lose the bet.</h6>
+                <hr>
+                <h6>The Payout</h6>
+                <h6>All payouts are 90% of your bet. So a bet of 100 points would generate a reward of 90 additional points. Likewise a bet of 20 points would generate a reward of 18 points.</h6>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% if gameData %}
+<div class="d-flex flex-row justify-content-start">
+    <div class="dropdown flex-grow-1">
+        <button class="btn btn-grey dropdown-toggle mr-2" id="weekId" name="{{ week }}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Week {{ week }}</button>
+        <div class="dropdown-menu">
+            {% for week in weeks %}
+            <a class="dropdown-item" href="/bets/{{ week }}/">Week {{ week }}</a> {% endfor %}
+        </div>
+    </div>
+    <button class="btn btn-green mr-2" id="saveBets">Save Bets</button>
+    <button class="btn btn-sm btn-grey" data-toggle="modal" data-target="#deleteCOnfirm">Help</button>
+</div>
+<!--<div class="col-lg-3 no-padding shadow">
         <div class="dropdown">
             <button class="btn btn-blue dropdown-toggle w-100" id="weekId" name="{{ week }}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Week {{ week }}
@@ -14,8 +75,7 @@
     <div class="col-lg-2 no-padding"></div>
     <div class="col-lg-3 no-padding shadow">
         <button class="btn btn-green w-100" id="saveBets">Save Bets</button>
-    </div>
-</div>
+    </div>-->
 <!-- Total Points Display -->
 <div class="d-flex flex-row justify-content-center mt-2 mb-2">
     <div class="col-lg-3 point-box text-center">
