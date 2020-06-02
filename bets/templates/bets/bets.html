@@ -55,7 +55,7 @@
         <button class="btn btn-grey dropdown-toggle mr-2" id="weekId" name="{{ week }}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Week {{ week }}</button>
         <div class="dropdown-menu">
             {% for week in weeks %}
-            <a class="dropdown-item" href="/bets/{{ week }}/">Week {{ week }}</a> {% endfor %}
+            <a class="dropdown-item" href="/home/{{ week }}/">Week {{ week }}</a> {% endfor %}
         </div>
     </div>
     <button class="btn btn-green mr-2" id="saveBets">Save Bets</button>
