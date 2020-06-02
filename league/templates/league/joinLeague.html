@@ -1,7 +1,14 @@
 {% extends "fantasyFootball/base.html" %} {% block page_content %}
 
 <div class="container">
-    <h1>Join a League</h1>
+    <div class="d-flex flex-row">
+        <div class="col-6">
+            <h1>Join a League</h1>
+        </div>
+        <div class="d-flex col-6 justify-content-end align-items-center">
+            <a class="btn btn-blue" href="/home/">Home</a>
+        </div>
+    </div>
     <input class="form-control" id="searchLeagues" type="text" placeholder="Search Leagues..">
     <hr> {% if leagueData %}
     <table id="leagueTable" class="table table-responsive-md btn-table" cellspacing="0" width="100%">
