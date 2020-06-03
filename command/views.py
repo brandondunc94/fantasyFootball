@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from league.models import League, LeagueMembership, Season, Week, Game, Team, GameChoice
-from league.utils import getUserLeagues
+from league.utils import getUserLeagues, createLeagueNotification
 import json, smtplib, ssl
 from datetime import datetime
 import pytz
@@ -77,76 +77,97 @@ def saveScoreSpread(request):
         season = Season.objects.get(year=seasonYear)
         gameObject = Game.objects.get(week= Week.objects.get(season=season,id=week), id=game)
 
-        #Update scores if passed in and score players
-        try:
-            homeScore = int(homeScore)
-            awayScore = int(awayScore)
-        except:
-            homeScore = None
-            awayScore = None
+        if gameObject.winner == None: #Only score game if it hasnt already been scored
+            #Update scores if passed in and score players
+            try:
+                homeScore = int(homeScore)
+                awayScore = int(awayScore)
+            except:
+                homeScore = None
+                awayScore = None
 
-        if homeScore and awayScore:
-            gameObject.homeScore = homeScore
-            gameObject.awayScore = awayScore
+            if homeScore and awayScore:
+                gameObject.homeScore = homeScore
+                gameObject.awayScore = awayScore
 
-            if (homeScore > awayScore):
-                gameObject.winner = gameObject.homeTeam
-                gameObject.homeTeam.wins += 1
-                gameObject.awayTeam.losses += 1
-            elif (awayScore > homeScore):
-                gameObject.winner = gameObject.awayTeam
-                gameObject.homeTeam.losses += 1
-                gameObject.awayTeam.wins += 1
-            else:
-                gameObject.winner = None
-            
-            #Save home and away wins/losses update, save gameObject changes
-            gameObject.homeTeam.save()
-            gameObject.awayTeam.save()
-
-            #Update user scores
-            allUsers = User.objects.all()   #Get all users
-
-            for currentUser in allUsers:
-                #Get game choices for current game and current user (1 per league that the user is in)
-                picks = GameChoice.objects.filter(user=currentUser, game=gameObject)
+                if (homeScore > awayScore):
+                    gameObject.winner = gameObject.homeTeam
+                    gameObject.homeTeam.wins += 1
+                    gameObject.awayTeam.losses += 1
+                elif (awayScore > homeScore):
+                    gameObject.winner = gameObject.awayTeam
+                    gameObject.homeTeam.losses += 1
+                    gameObject.awayTeam.wins += 1
+                else:
+                    gameObject.winner = None
                 
-                for currentPick in picks:
-                    membership = LeagueMembership.objects.get(user=currentUser, league=currentPick.league)
-                    
-                    if currentPick.scoredFlag == None: #This game choice has not yet been scored
-                        currentPick.scoredFlag = True #Mark this game as scored
-                        #Give player 50 points if they got this game correct 
-                        if currentPick.pickWinner == gameObject.winner:
-                            membership.score += 50
+                #Save home and away wins/losses update, save gameObject changes
+                gameObject.homeTeam.save()
+                gameObject.awayTeam.save()
 
-                        #Check if spread bet was correct and give points accordingly
-                        if currentPick.betWinner:
-                            if currentPick.betWinner == gameObject.homeTeam: #User selected home team spread
-                                if gameObject.homeSpread < gameObject.awaySpread: #Home Team was supposed to win
-                                    if gameObject.homeScore - gameObject.awayScore >= gameObject.awaySpread: #Home team won by their spread, pay player
-                                        membership.score += currentPick.betAmount * .9
-                                    else:   #Home team did not win by their spread, take player's points
-                                        membership.score  -= currentPick.betAmount
-                                elif gameObject.awaySpread < gameObject.homeSpread: #Home team was supposed to lose
-                                    if gameObject.awayScore - gameObject.homeScore <= gameObject.homeSpread: #Home team lost within their spread margin, pay player
-                                        membership.score  += currentPick.betAmount * .9
-                                    else:   #Home team lost by too many points, take player's points
-                                        membership.score  -= currentPick.betAmount
-                            else: #User selected away team spread
-                                if gameObject.awaySpread < gameObject.homeSpread: #Away Team was supposed to win
-                                    if gameObject.awayScore - gameObject.homeScore >= gameObject.homeSpread: #Away team won by their spread, pay player
-                                        membership.score  += currentPick.betAmount * .9
-                                    else:   #Away team did not win by their spread, take player's points
-                                        membership.score  -= currentPick.betAmount
-                                elif gameObject.homeSpread < gameObject.awaySpread: #Away team was supposed to lose
-                                    if gameObject.homeScore - gameObject.awayScore <= gameObject.awaySpread: #Away team lost within their spread margin, pay player
-                                        membership.score  += currentPick.betAmount * .9
-                                    else:   #Away team lost by too many points, take player's points
-                                        membership.score  -= currentPick.betAmount
-                                
-                    membership.save()
-                    currentPick.save()
+                #Update user scores
+                allUsers = User.objects.all()   #Get all users
+
+                for currentUser in allUsers:
+                    #Get game choices for current game and current user (1 per league that the user is in)
+                    picks = GameChoice.objects.filter(user=currentUser, game=gameObject)
+                    
+                    for currentPick in picks:
+                        membership = LeagueMembership.objects.get(user=currentUser, league=currentPick.league)
+                        
+                        if currentPick.scoredFlag == None: #This game choice has not yet been scored
+                            currentPick.scoredFlag = True #Mark this game as scored
+                            #Give player 50 points if they got this game correct 
+                            if currentPick.pickWinner == gameObject.winner:
+                                membership.score += 50
+                                currentPick.correctPickFlag = True
+
+                            #Check if spread bet was correct and give points accordingly
+                            if currentPick.betWinner:
+                                if currentPick.betWinner == gameObject.homeTeam: #User selected home team spread
+                                    if gameObject.homeSpread < gameObject.awaySpread: #Home Team was supposed to win
+                                        if gameObject.homeScore - gameObject.awayScore >= gameObject.awaySpread: #Home team won by their spread, pay player
+                                            currentPick.amountWon += currentPick.betAmount * .9
+                                            membership.score += currentPick.amountWon
+                                            currentPick.correctBetFlag = True
+                                        else:   #Home team did not win by their spread, take player's points
+                                            currentPick.amountWon -= currentPick.betAmount
+                                            membership.score -= currentPick.amountWon
+                                            currentPick.correctBetFlag = False
+                                    elif gameObject.awaySpread < gameObject.homeSpread: #Home team was supposed to lose
+                                        if gameObject.awayScore - gameObject.homeScore <= gameObject.homeSpread: #Home team lost within their spread margin or won, pay player
+                                            currentPick.amountWon += currentPick.betAmount * .9
+                                            membership.score += currentPick.amountWon
+                                            currentPick.correctBetFlag = True
+                                        else:   #Home team lost by too many points, take player's points
+                                            currentPick.amountWon -= currentPick.betAmount
+                                            membership.score -= currentPick.amountWon
+                                            currentPick.correctBetFlag = False
+                                else: #User selected away team spread
+                                    if gameObject.awaySpread < gameObject.homeSpread: #Away Team was supposed to win
+                                        if gameObject.awayScore - gameObject.homeScore >= gameObject.homeSpread: #Away team won by their spread, pay player
+                                            currentPick.amountWon += currentPick.betAmount * .9
+                                            membership.score += currentPick.amountWon
+                                            currentPick.correctBetFlag = True
+                                        else:   #Away team did not win by their spread, take player's points
+                                            currentPick.amountWon -= currentPick.betAmount
+                                            membership.score -= currentPick.amountWon
+                                            currentPick.correctBetFlag = False
+                                    elif gameObject.homeSpread < gameObject.awaySpread: #Away team was supposed to lose
+                                        if gameObject.homeScore - gameObject.awayScore <= gameObject.awaySpread: #Away team lost within their spread margin or won, pay player
+                                            currentPick.amountWon += currentPick.betAmount * .9
+                                            membership.score += currentPick.amountWon
+                                            currentPick.correctBetFlag = True
+                                        else:   #Away team lost by too many points, take player's points
+                                            currentPick.amountWon -= currentPick.betAmount
+                                            membership.score -= currentPick.amountWon
+                                            currentPick.correctBetFlag = False
+                                if currentPick.amountWon > 100:
+                                    #Player scored a boat load of points, create a league notification about it
+                                    createLeagueNotification(currentPick.league.name, currentUser.username + " scored " + currentPick.amountWon + " points by betting on the " + currentPick.betWinner.name + "!")
+                                    
+                        membership.save()
+                        currentPick.save()
         
         #Update spreads if they were passed in
         try:    #Convert spreads to integers

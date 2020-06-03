@@ -59,6 +59,9 @@ class GameChoice(models.Model):
     pickWinner = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True,  related_name="pickWinner")
     betWinner = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True, related_name="betWinner")
     betAmount = models.IntegerField(default=0)
+    amountWon = models.IntegerField(default=0)
+    correctPickFlag = models.BooleanField(default=None,null=True)
+    correctBetFlag = models.BooleanField(default=None,null=True)
     scoredFlag = models.BooleanField(default=None,null=True)
 
 #This models governs the relationship between a User and a League they are associated with
