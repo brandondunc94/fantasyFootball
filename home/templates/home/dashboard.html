@@ -221,9 +221,9 @@
                             <img src="/static/media/{{ currentGame.gameChoice.betWinner.name }}.png" width="50" height="50">
                             <h6 class="text-danger"><strong>-{{ currentGame.gameChoice.amountWon }}</strong></h6>
                             {% endif %} {% if currentGame.gameChoice.betWinner == currentGame.game.homeTeam %}
-                            <h6>({{ currentGame.game.homeSpread }}) ${{ currentGame.gameChoice.betAmount }}</h6>
+                            <h6>({{ currentGame.game.homeSpread }}) {{ currentGame.gameChoice.betAmount }}</h6>
                             {% else %}
-                            <h6>({{ currentGame.game.awaySpread }}) ${{ currentGame.gameChoice.betAmount }}</h6> {% endif %} {% endif %} {% endif %}
+                            <h6>({{ currentGame.game.awaySpread }}) {{ currentGame.gameChoice.betAmount }}</h6> {% endif %} {% endif %} {% endif %}
                         </div>
                     </div>
                     {% endfor %} {% else %}
