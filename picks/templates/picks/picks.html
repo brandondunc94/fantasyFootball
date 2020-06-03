@@ -64,7 +64,7 @@
 {% endif %} {% else %}
 <!-- Picks are locked -->
 <div class="d-flex flex-row justify-content-center">
-    {% if currentGame.gameChoice.pickWinner == currentGame.game.homeTeam.name %}
+    {% if currentGame.gameChoice.pickWinner == currentGame.game.homeTeam %}
     <div class="col-lg-3 pick-box pick-box-selected locked text-center">
         <input type="radio" name="{{ currentGame.game.id }}" id="{{ currentGame.game.homeTeam.name }}-pick" value="{{ currentGame.game.homeTeam.name }}" checked disabled>
         <img class="img-fluid" src="/static/media/{{ currentGame.game.homeTeam.name }}.png" width="60" height="60">
@@ -82,7 +82,7 @@
         <div><small>{{ currentGame.date }}</small></div>
         <div><small>{{ currentGame.time }}</small></div>
     </div>
-    {% if currentGame.gameChoice.pickWinner == currentGame.game.awayTeam.name %}
+    {% if currentGame.gameChoice.pickWinner == currentGame.game.awayTeam %}
     <div class="col-lg-3 pick-box pick-box-selected locked text-center">
         <input type="radio" name="{{ currentGame.game.id }}" id="{{ currentGame.game.awayTeam.name }}-pick" value="{{ currentGame.game.awayTeam.name }}" checked disabled>
         <img class="img-fluid" src="/static/media/{{ currentGame.game.awayTeam.name }}.png" width="60" height="60">
