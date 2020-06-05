@@ -46,6 +46,8 @@ a.dashboard-menu-item {
 
 .notification-board {
     background-color: #212529;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .notification-box {

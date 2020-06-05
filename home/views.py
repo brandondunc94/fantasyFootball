@@ -36,7 +36,7 @@ def dashboard(request, weekId="1", leagueName=""):
     leagueNotifications = []
 
     leagueMessagesObjects = LeagueMessage.objects.filter(league=activeLeague)
-    leagueNotificationsObjects = LeagueNotification.objects.filter(league=activeLeague)
+    leagueNotificationsObjects = LeagueNotification.objects.filter(league=activeLeague).order_by('-createDate')
 
     for currentMessage in leagueMessagesObjects:
         messageDateTime = convertTimeToLocalTimezone(request.user, currentMessage.createDate)
