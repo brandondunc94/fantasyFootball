@@ -18,3 +18,66 @@
     font-size: 20px;
     margin-bottom: 15px;
 }
+
+.title-img {
+    max-width: 60%;
+    margin-top: 200px;
+}
+
+.one {
+    height: 100vh;
+}
+
+.two {
+    background-color: #33a1fd;
+    height: 100vh;
+}
+
+.three {
+    background-color: #1b2a41;
+    height: 100vh;
+}
+
+.four {
+    background-color: #33a1fd;
+    height: 100vh;
+}
+
+body::-webkit-scrollbar {
+    width: 0 !important
+}
+
+span {
+    position: absolute;
+    left: 50%;
+    width: 46px;
+    height: 46px;
+    margin-left: -23px;
+    border: 1px solid #fff;
+    border-radius: 100%;
+    box-sizing: border-box;
+}
+
+span::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: '';
+    width: 16px;
+    height: 16px;
+    margin: -12px 0 0 -8px;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    box-sizing: border-box;
+}
+
+.return-top {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.bet-img {
+    max-width: 1000px;
+}
