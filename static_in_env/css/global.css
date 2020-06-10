@@ -83,7 +83,13 @@ html {
 body {
     font-family: 'Lato', sans-serif;
     background-color: white;
-    overflow-x: hidden;
+}
+
+
+/*Remove scroll bar*/
+
+body::-webkit-scrollbar {
+    width: 0 !important
 }
 
 
