@@ -248,7 +248,7 @@ def createSeason(request):
 
     #Create new season object in db
     try:
-        season = Season(year="2019-2020")
+        season = Season(year="2020-2021")
         season.save()
     except:
         print("Season already exists, continuing..")
