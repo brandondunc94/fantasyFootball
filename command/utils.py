@@ -1,5 +1,6 @@
 from league.models import Season, Week, Game
 from datetime import datetime
+from django.core.mail import send_mail
 
 def lockOldGames():
     #Get all game objects older than today's date
