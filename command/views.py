@@ -132,7 +132,7 @@ def saveScoreSpread(request):
                                             currentPick.correctBetFlag = True
                                         else:   #Home team did not win by their spread, take player's points
                                             currentPick.amountWon -= currentPick.betAmount
-                                            membership.score = currentPick.amountWon
+                                            membership.score += currentPick.amountWon #This will be negative
                                             currentPick.correctBetFlag = False
                                     elif gameObject.awaySpread < gameObject.homeSpread: #Home team was supposed to lose
                                         if gameObject.awayScore - gameObject.homeScore <= gameObject.homeSpread: #Home team lost within their spread margin or won, pay player
@@ -141,7 +141,7 @@ def saveScoreSpread(request):
                                             currentPick.correctBetFlag = True
                                         else:   #Home team lost by too many points, take player's points
                                             currentPick.amountWon -= currentPick.betAmount
-                                            membership.score = currentPick.amountWon
+                                            membership.score += currentPick.amountWon #This will be negative
                                             currentPick.correctBetFlag = False
                                 else: #User selected away team spread
                                     if gameObject.awaySpread < gameObject.homeSpread: #Away Team was supposed to win
@@ -151,7 +151,7 @@ def saveScoreSpread(request):
                                             currentPick.correctBetFlag = True
                                         else:   #Away team did not win by their spread, take player's points
                                             currentPick.amountWon -= currentPick.betAmount
-                                            membership.score = currentPick.amountWon
+                                            membership.score += currentPick.amountWon #This will be negative
                                             currentPick.correctBetFlag = False
                                     elif gameObject.homeSpread < gameObject.awaySpread: #Away team was supposed to lose
                                         if gameObject.homeScore - gameObject.awayScore <= gameObject.awaySpread: #Away team lost within their spread margin or won, pay player
@@ -160,9 +160,9 @@ def saveScoreSpread(request):
                                             currentPick.correctBetFlag = True
                                         else:   #Away team lost by too many points, take player's points
                                             currentPick.amountWon -= currentPick.betAmount
-                                            membership.score = currentPick.amountWon
+                                            membership.score += currentPick.amountWon #This will be negative
                                             currentPick.correctBetFlag = False
-                                if currentPick.amountWon > 100:
+                                if currentPick.amountWon > 70:
                                     #Player scored a boat load of points, create a league notification about it
                                     message = currentUser.username + " scored " + str(int(currentPick.amountWon)) + " points by betting on the " + currentPick.betWinner.name + "!"
                                     createLeagueNotification(currentPick.league.name, message)
