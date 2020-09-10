@@ -174,21 +174,21 @@
                         <div class="col-6 text-center">
                             <div class="d-flex justify-content-around align-items-center mb-2">
                                 <div class="col-5">
-                                    <img class="" src="/static/media/{{ currentGame.game.homeTeam.name }}.png" width="50" height="50"> {% if currentGame.game.winner %} {% if currentGame.game.winner == currentGame.game.homeTeam %}
-                                    <h6><strong class="text-success">{{ currentGame.game.homeScore }}</strong></h6> {% else %}
-                                    <h6><strong class="text-danger">{{ currentGame.game.homeScore }}</strong></h6> {% endif %} {% else %}
-                                    <h5>-</h5>{% endif %}
-                                    <h6><small>({{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }})</small></h6>
-                                </div>
-                                <div class="col-2">
-                                    <h4>@</h4>
-                                </div>
-                                <div class="col-5">
                                     <img class="" src="/static/media/{{ currentGame.game.awayTeam.name }}.png" width="50" height="50"> {% if currentGame.game.winner %} {% if currentGame.game.winner == currentGame.game.awayTeam %}
                                     <h6><strong class="text-success">{{ currentGame.game.awayScore }}</strong></h6> {% else %}
                                     <h6><strong class="text-danger">{{ currentGame.game.awayScore }}</strong></h6> {% endif %} {% else %}
                                     <h5>-</h5>{% endif %}
                                     <h6><small>({{ currentGame.game.awayTeam.wins }} - {{ currentGame.game.awayTeam.losses }})</small></h6>
+                                </div>
+                                <div class="col-2">
+                                    <h4>@</h4>
+                                </div>
+                                <div class="col-5">
+                                    <img class="" src="/static/media/{{ currentGame.game.homeTeam.name }}.png" width="50" height="50"> {% if currentGame.game.winner %} {% if currentGame.game.winner == currentGame.game.homeTeam %}
+                                    <h6><strong class="text-success">{{ currentGame.game.homeScore }}</strong></h6> {% else %}
+                                    <h6><strong class="text-danger">{{ currentGame.game.homeScore }}</strong></h6> {% endif %} {% else %}
+                                    <h5>-</h5>{% endif %}
+                                    <h6><small>({{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }})</small></h6>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center">
