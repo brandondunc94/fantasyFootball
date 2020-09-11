@@ -17,25 +17,8 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div id="navbarNavDropdown" class="navbar-collapse collapse">
-        <!--<ul class="navbar-nav mr-auto">
-            <li class="nav-item main-menu mr-1">
-                {% if page == 'dashboard' %}
-                <a class="nav-link active-menu-item" href="/home/">Dashboard</a> {% else %}
-                <a class="nav-link" href="/home/">Dashboard</a> {% endif %}
-            </li>
-            <li class="nav-item main-menu mr-1">
-                {% if page == 'picks' %}
-                <a class="nav-link active-menu-item" href="/picks/">Picks</a> {% else %}
-                <a class="nav-link" href="/picks/">Picks</a> {% endif %}
-            </li>
-            <li class="nav-item main-menu">
-                {% if page == 'bets' %}
-                <a class="nav-link active-menu-item" href="/bets/">Bets</a> {% else %}
-                <a class="nav-link" href="/bets/">Bets</a> {% endif %}
-            </li>
-        </ul>-->
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown mr-2">
+            <li class="nav-item dropdown mr-2 mb-1 mt-1">
                 {% if activeLeague %}
                 <a class="dropdown-toggle nav-link nav-league" data-toggle="dropdown" aria-expanded="false" href="#">
                     <img class="mr-2" src="{% static 'media/leagueIcon.png' %}" width="auto" height="25" />
@@ -51,7 +34,7 @@
                 {% endif %}
             </li>
 
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown mr-2 mb-1 mt-1">
                 <a class="dropdown-toggle nav-link nav-account" data-toggle="dropdown" aria-expanded="false" href="#">
                     <img class="mr-2" src="{% static 'media/avatarWhite.png' %}" width="25" height="auto" />
                     <span class="username-nav">Account</span>
