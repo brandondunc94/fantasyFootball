@@ -65,7 +65,8 @@
 .btn-green-outline {
     border-style: solid;
     border-color: #19A404;
-    color: #19A404
+    color: #19A404;
+    background-color: white;
 }
 
 .btn-green-outline:hover {
@@ -169,4 +170,22 @@ a.nav-link {
 
 .navbar .navbar-collapse {
     text-align: center;
+}
+
+
+/* Bold Font everything */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+small,
+td {
+    font-weight: bold;
+}
+
+.btn {
+    font-weight: bold;
 }
