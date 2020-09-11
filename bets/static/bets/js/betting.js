@@ -153,7 +153,9 @@ function calculatePointsAvailable() {
 
     /*Sum up all points that have already been bet on other games*/
     $('.game-bet-amount').each(function(index) {
-        pointsAvailable -= (parseInt($(this).html()));
+        if ($(this).html() != undefined) {
+            pointsAvailable -= (parseInt($(this).html()));
+        }
     });
 
     /*Set display at top of page to reflect # of points available to bet*/
