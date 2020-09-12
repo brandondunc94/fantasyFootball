@@ -210,9 +210,9 @@
 <!-- Betting is locked for the current game if we make it here -->
 <div class="d-flex flex-row justify-content-center">
     {% if currentGame.gameChoice.betWinner == currentGame.game.homeTeam %}
-        <div class="col-lg-3 bet-box bet-box-selected text-center">
+        <div class="col-lg-3 bet-box-locked bet-box-selected text-center">
         {% else %}
-        <div class="col-lg-3 bet-box text-center">
+        <div class="col-lg-3 bet-box-locked text-center">
         {% endif %} 
         {% if currentGame.game.homeSpread > 0 %}
             <div>
@@ -238,9 +238,9 @@
             <img class="img-fluid" src="{% static 'media/lock.png' %}" width="30" height="auto">
         </div>
     {% if currentGame.gameChoice.betWinner == currentGame.game.awayTeam %}
-        <div class="col-lg-3 bet-box bet-box-selected text-center"> 
+        <div class="col-lg-3 bet-box-locked bet-box-selected text-center"> 
         {% else %}
-        <div class="col-lg-3 bet-box text-center">
+        <div class="col-lg-3 bet-box-locked text-center">
         {% endif %} 
         {% if currentGame.game.awaySpread > 0 %}
                 <div>
