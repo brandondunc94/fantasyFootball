@@ -64,9 +64,10 @@ $("#saveBets").click(function() {
 
     });
     if (status == true) {
-        alert("Bets saved successfully.");
+        /*alert("Bets saved successfully.");*/
+        $.notify("Bets saved successfully", "success");
     } else {
-        alert("Unable to save bets. The Onside Pick team has been notified. We apologize for the inconvenience.");
+        $.notify("Unable to save bets. Please try again later.", "error");
     }
 
 });
