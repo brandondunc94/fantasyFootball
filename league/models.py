@@ -50,7 +50,7 @@ class Game(models.Model):
     users = models.ManyToManyField(User, through="GameChoice")
     pickLocked = models.BooleanField(default=False)
 
-#This model governs the relationship between a game and a user and who they picked to win the game
+#This model governs the relationship between a game and a user and who they picked/betted on to win the game
 class GameChoice(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     league = models.ForeignKey(League, on_delete=models.CASCADE)
@@ -69,6 +69,7 @@ class LeagueMembership(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     league = models.ForeignKey(League, on_delete=models.CASCADE)
     score = models.IntegerField(default=500)
+    weeklyScores = models.TextField(max_length=1000, blank=True, default="") #Comma separated list of weekly scores starting with week 1
     class Meta:
         unique_together = ["user", "league"]
 
