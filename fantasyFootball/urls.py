@@ -19,6 +19,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import url
 from django.contrib.auth import views as auth_views
 from account.views import login_redirect
+from home.views import redirect_home
 from django.views.generic import TemplateView
 
 urlpatterns = [
@@ -32,7 +33,7 @@ urlpatterns = [
     url(r'^league/', include('league.urls')),
     url(r'^picks/', include('picks.urls')),
     url(r'^bets/', include('bets.urls')),
-    path('', TemplateView.as_view(template_name='home/home.html'))
+    path('', redirect_home) #This redirects user to home page if already logged in, otherwise send to login page
 ]
 
 urlpatterns += staticfiles_urlpatterns()
