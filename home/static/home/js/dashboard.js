@@ -26,6 +26,23 @@ $("#messageBox").keypress(function(event) {
     }
 });
 
+$(".dashboard-menu-item").click(function() {
+
+    var lastSelectedTab = $(this).html();
+
+    $.ajax({
+        url: '/account/lastAccess/',
+        data: {
+            'lastAccessedPage': lastSelectedTab
+        },
+        dataType: 'json',
+        success: function(data) {
+
+        }
+    });
+});
+
+
 /*Post message to league message board*/
 $(".post-button").click(function() {
     var leagueName = $('#leagueName').html();
