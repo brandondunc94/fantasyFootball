@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from datetime import datetime, timedelta
@@ -149,6 +149,13 @@ def dashboard(request, weekId="1", leagueName=""):
         'lastAccessedPage': getUserProfile(request.user).lastPageAccessed,
         'page': 'dashboard'
     })
+
+def redirect_home(request):
+    if request.user.is_authenticated:
+        return dashboard(request)
+    else:
+        response = redirect('/login/')
+        return response
 
 def welcome(request):
     return render(request, 'home/welcome.html')
