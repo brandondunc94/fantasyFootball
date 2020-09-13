@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.account_page, name='Account Home'),
     path('create/', views.create_account, name="New Account"),
     path('delete/', views.delete_account, name="Delete Account"),
+    path('lastAccess/', views.update_last_accessed_page, name="Update last accessed page"),
 ]
