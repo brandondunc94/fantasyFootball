@@ -19,3 +19,7 @@ def getUserScore(user, league):
         return userScore
     except:
         return 0
+
+def getUserProfile(user):
+    userProfile = Profile.objects.get(user=user)
+    return userProfile
