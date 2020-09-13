@@ -4,12 +4,12 @@ from django.contrib.auth.models import User
 from datetime import datetime, timedelta
 from league import utils as leagueUtils
 from league.models import League, Team, LeagueMembership, Season, Week, Game, GameChoice, LeagueMessage, LeagueNotification, LeagueMembershipRequest
-from account.utils import convertTimeToLocalTimezone
+from account.utils import convertTimeToLocalTimezone, getUserProfile
 from fantasyFootball import settings
 import pytz
     
 @login_required
-def dashboard(request, weekId="1", leagueName=""):
+def dashboard(request, weekId="2", leagueName=""):
     
     #Do a lookup to find all leagues for current user. If none, default to home page with no data
     userLeagues = leagueUtils.getUserLeagues(request.user)
@@ -73,6 +73,7 @@ def dashboard(request, weekId="1", leagueName=""):
         currentWeekGames = Game.objects.filter(week_id=Week.objects.get(id=weekId, season=activeSeason)).order_by('dateTime').order_by('id')
     except:
         #No games are currently available. Open up the home page with no data.
+        #THIS SHOULD BE A HOME PAGE FOR OFFSEASON
         return render(request, 'home/dashboard.html', {
         'userLeagues': userLeagues,
         'leagueUsers': leagueUsers, 
@@ -145,6 +146,7 @@ def dashboard(request, weekId="1", leagueName=""):
         'leagueMessages': leagueMessages,
         'leagueNotifications': leagueNotifications,
         'leagueRequests': leagueRequests,
+        'lastAccessedPage': getUserProfile(request.user).lastPageAccessed,
         'page': 'dashboard'
     })
 
