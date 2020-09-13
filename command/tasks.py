@@ -6,6 +6,8 @@ from datetime import datetime, timedelta
 
 @shared_task
 def lockPicks():
+
+    print("Attempting to lock any upcoming games...")
     try:
         #Get current active season
         activeSeason = Season.objects.get(active=True)
@@ -20,7 +22,7 @@ def lockPicks():
         #Lock picks for this game which is within a hour from start time
         game.pickLocked=True
         game.save()
-        print("Locking an upcoming game: " + game.homeTeam.name + " VS " + game.awayTeam.name)
+        print("Locked an upcoming game: " + game.homeTeam.name + " VS " + game.awayTeam.name)
         
     return True
 
