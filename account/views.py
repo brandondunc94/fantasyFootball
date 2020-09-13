@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
+from django.http import JsonResponse
 from .forms import RegisterForm
 from account.models import Profile
 from django.core.mail import send_mail
@@ -13,6 +14,29 @@ from command.utils import sendEmailToAdmin
 @login_required
 def account_page(request):
     return render(request, 'account/profile.html', {'page':'profile'})
+
+def update_last_accessed_page(request):
+
+    lastAccess = request.GET.get('lastAccessedPage', None)
+
+    #Save the last page the user accessed
+    try:
+        #Get user profile
+        userProfile = Profile.objects.get(user=request.user)
+
+        #Set last accessed page with page passed in
+        userProfile.lastPageAccessed = lastAccess
+        userProfile.save()
+
+        status = 'SUCCESS'
+    except:
+        status = 'FAILED'
+
+    data = {
+            'status': status
+        }
+    
+    return JsonResponse(data)
 
 def create_account(request):
     if request.method == "POST":
