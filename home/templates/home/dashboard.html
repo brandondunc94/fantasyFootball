@@ -8,10 +8,24 @@
 <div class="navbar-dashboard shadow">
     <nav class="nav-fill w-100">
         <div class="nav main-nav" id="nav-tab" role="tablist">
-            <a class="nav-item dashboard-menu-item nav-link active" id="nav-league-tab" data-toggle="tab" href="#nav-league" role="tab" aria-controls="nav-league" aria-selected="false">Home</a>
-            <a class="nav-item dashboard-menu-item nav-link" id="nav-games-tab" data-toggle="tab" href="#nav-games" role="tab" aria-controls="nav-games" aria-selected="true">Summary</a>
-            <a class="nav-item dashboard-menu-item nav-link" id="nav-picks-tab" data-toggle="tab" href="#nav-picks" role="tab" aria-controls="nav-picks" aria-selected="false">My Picks</a>
-            <a class="nav-item dashboard-menu-item nav-link" id="nav-bets-tab" data-toggle="tab" href="#nav-bets" role="tab" aria-controls="nav-bets" aria-selected="false">My Bets</a>
+
+            {% if lastAccessedPage == None or lastAccessedPage == 'Home' %}
+            <a class="nav-item dashboard-menu-item nav-link active" id="nav-league-tab" data-toggle="tab" href="#nav-league" role="tab" aria-controls="nav-league" aria-selected="false">Home</a> {% else %}
+            <a class="nav-item dashboard-menu-item nav-link" id="nav-league-tab" data-toggle="tab" href="#nav-league" role="tab" aria-controls="nav-league" aria-selected="false">Home</a> {% endif %}
+            
+            {% if lastAccessedPage == 'Summary' %}
+            <a class="nav-item dashboard-menu-item nav-link active" id="nav-games-tab" data-toggle="tab" href="#nav-games" role="tab" aria-controls="nav-games" aria-selected="true">Summary</a>{% else %} 
+            <a class="nav-item dashboard-menu-item nav-link" id="nav-games-tab" data-toggle="tab" href="#nav-games" role="tab" aria-controls="nav-games" aria-selected="true">Summary</a>{% endif %}
+            
+            {% if lastAccessedPage == 'My Picks' %} 
+            <a class="nav-item dashboard-menu-item nav-link active" id="nav-picks-tab" data-toggle="tab" href="#nav-picks" role="tab" aria-controls="nav-picks" aria-selected="false">My Picks</a>{% else %}
+            <a class="nav-item dashboard-menu-item nav-link" id="nav-picks-tab" data-toggle="tab" href="#nav-picks" role="tab" aria-controls="nav-picks" aria-selected="false">My Picks</a>{% endif %}
+            
+
+            {% if lastAccessedPage == 'My Bets' %}
+            <a class="nav-item dashboard-menu-item nav-link active" id="nav-bets-tab" data-toggle="tab" href="#nav-bets" role="tab" aria-controls="nav-bets" aria-selected="false">My Bets</a>{% else %}
+            <a class="nav-item dashboard-menu-item nav-link" id="nav-bets-tab" data-toggle="tab" href="#nav-bets" role="tab" aria-controls="nav-bets" aria-selected="false">My Bets</a>{% endif %}
+            
         </div>
     </nav>
 </div>
@@ -32,7 +46,9 @@
         <div class="col p-0">
             <div class="tab-content" id="nav-tabContent">
                 <!-- League Home tab -->
-                <div class="tab-pane fade rounded show active" id="nav-league" role="tabpanel" aria-labelledby="nav-league-tab">
+                {% if lastAccessedPage == None or lastAccessedPage == 'Home' %}
+                <div class="tab-pane fade rounded active show" id="nav-league" role="tabpanel" aria-labelledby="nav-league-tab">{% else %}
+                <div class="tab-pane fade rounded" id="nav-league" role="tabpanel" aria-labelledby="nav-league-tab">{% endif %}
                     <div class="row league-dashboard">
                         <div class="col-md-6 mb-3 league-col">
                             <!-- League Navigation -->
@@ -155,7 +171,9 @@
                     </div>
                 </div>
                 <!-- Game Summary tab -->
-                <div class="tab-pane fade" id="nav-games" role="tabpanel" aria-labelledby="nav-games-tab">
+                {% if lastAccessedPage == 'Summary' %}
+                <div class="tab-pane fade active show" id="nav-games" role="tabpanel" aria-labelledby="nav-games-tab">{% else %}
+                <div class="tab-pane fade" id="nav-games" role="tabpanel" aria-labelledby="nav-games-tab">{% endif %}
                     {% if gameData %}
                     <div class="row no-gutters">
                         <div class="col-6 text-center align-middle">
@@ -196,9 +214,7 @@
                             </div>
                         </div>
                         <div class="col-3 text-center pick">
-                            {% if currentGame.game.winner %} 
-                            {% if currentGame.gameChoice.pickWinner %} 
-                            {% if currentGame.gameChoice.correctPickFlag == True %}
+                            {% if currentGame.game.winner %} {% if currentGame.gameChoice.pickWinner %} {% if currentGame.gameChoice.correctPickFlag == True %}
                             <img src="/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png" width="50" height="50">
                             <h6 class="text-success"><strong>+50</strong></h6>
                             {% else %}
@@ -211,31 +227,22 @@
                             <img class="" src="/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png" width="50" height="50">{% endif %} {% endif %}
                         </div>
                         <div class="col-3 text-center bet">
-                            {% if currentGame.game.winner %} 
-                                {% if currentGame.gameChoice.betWinner %} 
-                                    {% if currentGame.gameChoice.correctBetFlag == True %}
-                                    <img src="/static/media/{{ currentGame.gameChoice.betWinner.name }}.png" width="50" height="50">
-                                    <h6 class="text-success"><strong>+{{ currentGame.gameChoice.amountWon }}</strong></h6>
-                                    {% else %}
-                                    <img src="/static/media/{{ currentGame.gameChoice.betWinner.name }}.png" width="50" height="50">
-                                    <h6 class="text-danger"><strong>{{ currentGame.gameChoice.amountWon }}</strong></h6>
-                                    {% endif %} 
-                                    {% if currentGame.gameChoice.betWinner == currentGame.game.homeTeam %}
-                                    <h6>({{ currentGame.game.homeSpread }}) {{ currentGame.gameChoice.betAmount }}</h6>
-                                    {% else %}
-                                    <h6>({{ currentGame.game.awaySpread }}) {{ currentGame.gameChoice.betAmount }}</h6> 
-                                    {% endif %} 
-                                {% endif %}
+                            {% if currentGame.game.winner %} {% if currentGame.gameChoice.betWinner %} {% if currentGame.gameChoice.correctBetFlag == True %}
+                            <img src="/static/media/{{ currentGame.gameChoice.betWinner.name }}.png" width="50" height="50">
+                            <h6 class="text-success"><strong>+{{ currentGame.gameChoice.amountWon }}</strong></h6>
                             {% else %}
-                                {% if currentGame.gameChoice.betWinner %} 
-                                <img src="/static/media/{{ currentGame.gameChoice.betWinner.name }}.png" width="50" height="50">
-                                {% if currentGame.gameChoice.betWinner == currentGame.game.homeTeam %}
-                                    <h6>({{ currentGame.game.homeSpread }}) {{ currentGame.gameChoice.betAmount }}</h6>
-                                    {% else %}
-                                    <h6>({{ currentGame.game.awaySpread }}) {{ currentGame.gameChoice.betAmount }}</h6> 
-                                    {% endif %}
-                                {% endif %}
-                            {% endif %}
+                            <img src="/static/media/{{ currentGame.gameChoice.betWinner.name }}.png" width="50" height="50">
+                            <h6 class="text-danger"><strong>{{ currentGame.gameChoice.amountWon }}</strong></h6>
+                            {% endif %} {% if currentGame.gameChoice.betWinner == currentGame.game.homeTeam %}
+                            <h6>({{ currentGame.game.homeSpread }}) {{ currentGame.gameChoice.betAmount }}</h6>
+                            {% else %}
+                            <h6>({{ currentGame.game.awaySpread }}) {{ currentGame.gameChoice.betAmount }}</h6>
+                            {% endif %} {% endif %} {% else %} {% if currentGame.gameChoice.betWinner %}
+                            <img src="/static/media/{{ currentGame.gameChoice.betWinner.name }}.png" width="50" height="50"> {% if currentGame.gameChoice.betWinner == currentGame.game.homeTeam %}
+                            <h6>({{ currentGame.game.homeSpread }}) {{ currentGame.gameChoice.betAmount }}</h6>
+                            {% else %}
+                            <h6>({{ currentGame.game.awaySpread }}) {{ currentGame.gameChoice.betAmount }}</h6>
+                            {% endif %} {% endif %} {% endif %}
                         </div>
                     </div>
                     {% endfor %} {% else %}
@@ -247,11 +254,15 @@
                     {% endif %}
                 </div>
                 <!-- Picks tab -->
-                <div class="tab-pane fade rounded m-1" id="nav-picks" role="tabpanel" aria-labelledby="nav-picks-tab">
+                {% if lastAccessedPage == 'My Picks' %}
+                <div class="tab-pane fade rounded m-1 active show" id="nav-picks" role="tabpanel" aria-labelledby="nav-picks-tab">{% else %}
+                <div class="tab-pane fade rounded m-1" id="nav-picks" role="tabpanel" aria-labelledby="nav-picks-tab">{% endif %}
                     {% include "picks/picks.html" %}
                 </div>
                 <!-- Bets tab -->
-                <div class="tab-pane fade rounded m-1" id="nav-bets" role="tabpanel" aria-labelledby="nav-bets-tab">
+                {% if lastAccessedPage == 'My Bets' %}
+                <div class="tab-pane fade rounded m-1 active show" id="nav-bets" role="tabpanel" aria-labelledby="nav-bets-tab">{% else %}
+                <div class="tab-pane fade rounded m-1" id="nav-bets" role="tabpanel" aria-labelledby="nav-bets-tab">{% endif %}
                     {% include "bets/bets.html" %}
                 </div>
             </div>
