@@ -157,5 +157,8 @@ def redirect_home(request):
         response = redirect('/login/')
         return response
 
+def about(request):
+    return render(request, 'home/about.html')
+
 def welcome(request):
     return render(request, 'home/welcome.html')
