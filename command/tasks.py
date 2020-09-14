@@ -56,9 +56,12 @@ def sendReminderEmail():  #This gets run every Thursday afternoon. Schedule can 
     message = """\
     <html>
         <head>
-        <img src="http://onsidepick.com/static/media/logoTitle.png" width="150" height="auto">
+            <style>
+                img  {background-color: #ffffff;}
+            </style>
         </head>
         <body>
+            <img src="http://onsidepick.com/static/media/logoTitle.png" width="150" height="auto" background-color: #cccccc>
             <p>Be sure to make your picks and bets for the upcoming week!</p>
             <a class="btn btn-blue" href="http://onsidepick.com/">Make Picks</a>
             <br><br>
