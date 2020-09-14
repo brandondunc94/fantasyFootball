@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 import pytz
 
 @shared_task
-def lockPicks():
+def lockPicks():  #This gets run every 5 minutes. Schedule can be found in fantasyFootball/settings.py
 
     print("Attempting to lock any upcoming games...")
     try:
@@ -30,7 +30,7 @@ def lockPicks():
     return True
 
 @shared_task
-def saveWeeklyScores():
+def saveWeeklyScores(): #This gets run every Tuesday morning. Schedule can be found in fantasyFootball/settings.py
     try:
         #Get current active season
         activeSeason = Season.objects.get(active=True)
@@ -46,13 +46,22 @@ def saveWeeklyScores():
         currentMembership.save()
 
 @shared_task
-def sendReminderEmail():
-    allUsers = User.objects.all()
+def sendReminderEmail():  #This gets run every Thursday afternoon. Schedule can be found in fantasyFootball/settings.py
+    #Get all user objects and their emails and put into emailList
+    #allUsers = User.objects.all()
+    allUsers = User.objects.get(username='bdunc')
+    
+    emailList = [user.email for user in allUsers]
 
-    emailList = ''
-    #Create email list
-    #for currentUser in allUsers:
-        #emailList += currentUser.email + ','
+    message = """\
+    <html>
+        <head>ONSIDEPICK</head>
+        <body>
+            <p>Be sure to make your picks!
+            <br>
+                Here is the <a href="https://www.python.org">link</a> you wanted.
+            </p>
+        </body>
+    </html>"""
 
-    emailList = 'brandon.douglas.duncan@gmail.com, bro_duncan18@yahoo.com,'
-    sendEmailToUser('Make your picks!', 'Be sure to make your picks and bets for this week\'s upcoming games!', emailList)
+    sendEmailToUser(subject='OnsidePick - Make your picks', message=message, userEmailList=emailList)
