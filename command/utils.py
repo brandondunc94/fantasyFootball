@@ -34,6 +34,7 @@ def sendEmailToUser(subject, message, userEmailList):
             'onsidepickfootball@gmail.com',
             [userEmailList],
             fail_silently=False,
+            html_message=message,
         )
         print('Email successfully sent to user(s): Subject: ' + subject + ' Message: ' + message)
         return True
