@@ -17,8 +17,8 @@ def sendEmailToAdmin(subject, message):
         send_mail(
             subject,
             message,
-            'brandon.douglas.duncan@gmail.com',
-            ['brandon.douglas.duncan@gmail.com'],
+            'onsidepickfootball@gmail.com',
+            ['brandon.douglas.duncan@gmail.com'], #Admin email goes here
             fail_silently=False,
         )
         return True
@@ -26,4 +26,16 @@ def sendEmailToAdmin(subject, message):
         print('Email could not be sent to admin: Subject: ' + subject + ' Message: ' + message)
         return False
     
-    
+'''def sendEmailToUser(subject, message):
+    try:
+        send_mail(
+            subject,
+            message,
+            'brandon.douglas.duncan@gmail.com',
+            ['brandon.douglas.duncan@gmail.com'],
+            fail_silently=False,
+        )
+        return True
+    except:
+        print('Email could not be sent to admin: Subject: ' + subject + ' Message: ' + message)
+        return False'''
