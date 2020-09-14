@@ -27,8 +27,8 @@ def sendEmailToAdmin(subject, message):
         return False
     
 def sendEmailToUser(subject, message, userEmailList):
-    try:
-        send_mail(
+    #try:
+    send_mail(
             subject,
             message,
             'onsidepickfootball@gmail.com',
@@ -36,8 +36,8 @@ def sendEmailToUser(subject, message, userEmailList):
             fail_silently=False,
             html_message=message,
         )
-        print('Email successfully sent to user(s): Subject: ' + subject + ' Message: ' + message)
-        return True
-    except:
-        print('Email could not be sent to user(s): Subject: ' + subject + ' Message: ' + message)
-        return False
+    #print('Email successfully sent to user(s): Subject: ' + subject + ' Message: ' + message)
+    return True
+    #except:
+        #print('Email could not be sent to user(s): Subject: ' + subject + ' Message: ' + message)
+        #return False
