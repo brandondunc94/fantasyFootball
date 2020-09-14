@@ -166,9 +166,9 @@ def saveScoreSpread(request):
                                             currentPick.amountWon -= currentPick.betAmount
                                             membership.score += currentPick.amountWon #This will be negative
                                             currentPick.correctBetFlag = False
-                                if currentPick.amountWon > 70:
+                                if currentPick.amountWon > 100:
                                     #Player scored a boat load of points, create a league notification about it
-                                    message = currentUser.username + " scored " + str(int(currentPick.amountWon)) + " points by betting on the " + currentPick.betWinner.name + "!"
+                                    message = 'Score Update - ' + currentUser.username + " scored " + str(int(currentPick.amountWon)) + " points by betting on the " + currentPick.betWinner.name + "!"
                                     createLeagueNotification(currentPick.league.name, message)
                                     
                         membership.save()
