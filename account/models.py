@@ -8,4 +8,4 @@ class Profile(models.Model):
     firstName = models.TextField(max_length=50, blank=True)
     lastName = models.TextField(max_length=50, blank=True)
     timezone = models.CharField(max_length=50, blank=True, default="US/Pacific")
-    lastPageAccessed = models.TextField(max_length=20, blank=True, default="Home")
+    lastPageAccessed = models.TextField(max_length=20, blank=True, default="League")
