@@ -2,6 +2,8 @@ from __future__ import absolute_import, unicode_literals
 
 from celery import shared_task
 from league.models import Season, Week, Game, LeagueMembership
+from command.utils import sendEmailToUser
+from django.contrib.auth.models import User
 from datetime import datetime, timedelta
 import pytz
 
@@ -43,6 +45,14 @@ def saveWeeklyScores():
         currentMembership.weeklyScores = currentMembership.weeklyScores + str(currentMembership.score) + ','
         currentMembership.save()
 
-#@shared_task
-#def sendReminderEmail():
-    
+@shared_task
+def sendReminderEmail():
+    allUsers = User.objects.all()
+
+    emailList = ''
+    #Create email list
+    #for currentUser in allUsers:
+        #emailList += currentUser.email + ','
+
+    emailList = 'brandon.douglas.duncan@gmail.com, bro_duncan18@yahoo.com,'
+    sendEmailToUser('Make your picks!', 'Be sure to make your picks and bets for this week\'s upcoming games!', emailList)
