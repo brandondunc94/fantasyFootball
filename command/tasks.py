@@ -55,12 +55,16 @@ def sendReminderEmail():  #This gets run every Thursday afternoon. Schedule can 
     emailList = allUsers.email
     message = """\
     <html>
-        <head>ONSIDEPICK</head>
+        <head>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+        <img class="rounded img-fluid" src="/static/media/logoTitle.png" width="150" height="auto">
+        </head>
         <body>
-            <p>Be sure to make your picks!
+            <h6>Be sure to make your picks and bets for the upcoming week!</h6>
+            <a class="btn btn-blue" href="http://onsidepick.com/">Make Picks</a>
+
             <br>
-                Here is the <a href="https://www.python.org">link</a> you wanted.
-            </p>
+            <p>Not sure how the rules work? Be sure to visit the About section located under the Account menu for the game rules.</p>
         </body>
     </html>"""
 
