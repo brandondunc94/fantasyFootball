@@ -3,6 +3,7 @@ from __future__ import absolute_import, unicode_literals
 from celery import shared_task
 from league.models import Season, Week, Game, LeagueMembership
 from datetime import datetime, timedelta
+import pytz
 
 @shared_task
 def lockPicks():
@@ -15,8 +16,8 @@ def lockPicks():
         #Season has not been created, just quit this task
         return True
 
-    #Get all games that are within a hour from start time
-    upcomingGames = Game.objects.filter(dateTime__range=[datetime.now(), datetime.now() + timedelta(hours=1)])
+    #Get all games that are within 15 minutes of start time
+    upcomingGames = Game.objects.filter(dateTime__range=[datetime.now(pytz.utc), datetime.now(pytz.utc) + timedelta(minutes=15)])
 
     for game in upcomingGames:
         #Lock picks for this game which is within a hour from start time
@@ -41,3 +42,7 @@ def saveWeeklyScores():
     for currentMembership in allLeagueMemberships:
         currentMembership.weeklyScores = currentMembership.weeklyScores + str(currentMembership.score) + ','
         currentMembership.save()
+
+#@shared_task
+#def sendReminderEmail():
+    
