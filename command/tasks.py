@@ -51,8 +51,8 @@ def sendReminderEmail():  #This gets run every Thursday afternoon. Schedule can 
     #allUsers = User.objects.all()
     allUsers = User.objects.get(username='bdunc')
     
-    emailList = [user.email for user in allUsers]
-
+    #emailList = [user.email for user in allUsers]
+    emailList = [allUsers.email]
     message = """\
     <html>
         <head>ONSIDEPICK</head>
