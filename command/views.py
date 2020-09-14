@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib.admin.views.decorators import staff_member_required
 from league.models import League, LeagueMembership, Season, Week, Game, Team, GameChoice
 from league.utils import getUserLeagues, createLeagueNotification
 import json, smtplib, ssl
@@ -9,12 +10,14 @@ import pytz
 from django.http import JsonResponse
 
 # Create your views here.
+@staff_member_required
 def commandHome(request):
     #Get seasons
     seasons = Season.objects.all()
 
     return render(request, 'command/command.html', {'seasons': seasons})
 
+@staff_member_required
 def seasonSettings(request, seasonYear=""):
 
     season = Season.objects.get(year=seasonYear)
@@ -23,10 +26,7 @@ def seasonSettings(request, seasonYear=""):
 
     return render(request, 'command/seasonSettings.html', {'season': season, 'teams': teams, 'weeks': weeks})
 
-def leagueManage(request):
-    leagues = League.objects.all()
-    return render(request, 'command/leagueManage.html', {'leagues': leagues})
-
+@staff_member_required
 def gameOptionsPage(request, seasonYear="2019-2020", weekId="1"):
 
     #Get season object for season passed in
@@ -61,6 +61,10 @@ def gameOptionsPage(request, seasonYear="2019-2020", weekId="1"):
         })
 
     return render(request, 'command/gameOptions.html', {'gameData': gameData, 'weekId': weekId, 'season' : season, 'weeks': weeks})
+
+def leagueManage(request):
+    leagues = League.objects.all()
+    return render(request, 'command/leagueManage.html', {'leagues': leagues})
 
 #AJAX CALL
 def saveScoreSpread(request):
