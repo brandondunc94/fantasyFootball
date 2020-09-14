@@ -56,14 +56,12 @@ def sendReminderEmail():  #This gets run every Thursday afternoon. Schedule can 
     message = """\
     <html>
         <head>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-        <img class="rounded img-fluid" src="/static/media/logoTitle.png" width="150" height="auto">
+        <img src="http://onsidepick.com/static/media/logoTitle.png" width="150" height="auto">
         </head>
         <body>
-            <h6>Be sure to make your picks and bets for the upcoming week!</h6>
+            <p>Be sure to make your picks and bets for the upcoming week!</p>
             <a class="btn btn-blue" href="http://onsidepick.com/">Make Picks</a>
-
-            <br>
+            <br><br>
             <p>Not sure how the rules work? Be sure to visit the About section located under the Account menu for the game rules.</p>
         </body>
     </html>"""
