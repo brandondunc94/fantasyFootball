@@ -207,7 +207,7 @@
                                 </div>
                                 <div class="col-3 text-center pick">
                                     {% if currentGame.game.winner %} {% if currentGame.gameChoice.pickWinner %} {% if currentGame.gameChoice.correctPickFlag == True %}
-                                    <img src="/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png" width="50" height="50"> {% if week == '1' %}
+                                    <img src="/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png" width="50" height="50"> {% if week == 1 %}
                                     <h6 class="text-success"><strong>+50</strong></h6>
                                     {% else %}
                                     <h6 class="text-success"><strong>+25</strong></h6>
