@@ -1,4 +1,5 @@
-from league.models import Season, Week, Game
+from league.models import Season, Week, Game, League, LeagueNotification
+from league.utils import createLeagueNotification
 from datetime import datetime
 from django.core.mail import send_mail
 
@@ -11,6 +12,16 @@ def lockOldGames():
         game.save()
 
     return True
+
+def logSystemNotification():
+    #Get all leagues
+    allLeagues = League.objects.all()
+
+    message = input("Enter league message: ") 
+    for currentLeague in allLeagues:
+        #Create leagueNotification for current league
+        newLeagueNotification = LeagueNotification.objects.create(league=currentLeague, message=message)
+        newLeagueNotification.save()
 
 def sendEmailToAdmin(subject, message):
     try:
