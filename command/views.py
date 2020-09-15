@@ -123,7 +123,7 @@ def saveScoreSpread(request):
                             currentPick.scoredFlag = True #Mark this game as scored
                             #Give player 50 points if they got this game correct 
                             if currentPick.pickWinner == gameObject.winner:
-                                membership.score += 50
+                                membership.score += 25
                                 currentPick.correctPickFlag = True
 
                             #Check if spread bet was correct and give points accordingly
