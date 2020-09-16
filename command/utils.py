@@ -1,7 +1,7 @@
 from league.models import Season, Week, Game, League, LeagueNotification
 from league.utils import createLeagueNotification
 from datetime import datetime
-from django.core.mail import send_mail
+from django.core import mail
 
 def lockOldGames():
     #Get all game objects older than today's date
@@ -37,18 +37,13 @@ def sendEmailToAdmin(subject, message):
         print('Email could not be sent to admin: Subject: ' + subject + ' Message: ' + message)
         return False
     
-def sendEmailToUser(subject, message, userEmailList):
-    #try:
-    send_mail(
-            subject,
-            message,
-            'onsidepickfootball@gmail.com',
-            [userEmailList],
-            fail_silently=False,
-            html_message=message,
-        )
-    #print('Email successfully sent to user(s): Subject: ' + subject + ' Message: ' + message)
-    return True
-    #except:
-        #print('Email could not be sent to user(s): Subject: ' + subject + ' Message: ' + message)
-        #return False
+def sendEmailToUser(emailMessages, userEmailList):
+    try:
+        connection = mail.get_connection()
+        connection.send_messages([emailMessages])
+
+        print('Email successfully sent to user(s).')
+        return True
+    except:
+        print('Email could not be sent to user(s).')
+        return False

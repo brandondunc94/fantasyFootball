@@ -4,6 +4,8 @@ from celery import shared_task
 from league.models import Season, Week, Game, LeagueMembership
 from command.utils import sendEmailToUser
 from django.contrib.auth.models import User
+from django.core import mail
+
 from datetime import datetime, timedelta
 import pytz
 
@@ -48,11 +50,9 @@ def saveWeeklyScores(): #This gets run every Tuesday morning. Schedule can be fo
 @shared_task
 def sendReminderEmail():  #This gets run every Thursday afternoon. Schedule can be found in fantasyFootball/settings.py
     #Get all user objects and their emails and put into emailList
-    #allUsers = User.objects.all()
-    allUsers = User.objects.get(username='bdunc')
-    
-    #emailList = [user.email for user in allUsers]
-    emailList = allUsers.email
+    allUsers = User.objects.all()
+    emailList = [user.email for user in allUsers]
+
     message = """\
     <html>
         <head>
@@ -66,4 +66,18 @@ def sendReminderEmail():  #This gets run every Thursday afternoon. Schedule can 
         </body>
     </html>"""
 
-    sendEmailToUser(subject='OnsidePick - Make your picks', message=message, userEmailList=emailList)
+
+    email = mail.EmailMessage(
+                'Make your picks!',
+                message,
+                'onsidepickfootball@gmail.com',
+                [],
+                emailList,
+                reply_to=['onsidepickfootball@gmail.com'],
+                headers={'OnsidePick': 'Reminder'},
+        
+        )
+    email.content_subtype = "html"
+    
+    
+    sendEmailToUser(emailMessages=email, userEmailList=emailList)
