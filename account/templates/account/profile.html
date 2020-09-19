@@ -1,21 +1,98 @@
-{% extends "fantasyFootball/base.html" %} {% block page_content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <h5>My Account</h5>
+{% extends "fantasyFootball/base.html" %} {% block page_content %}{% load static %}
+<link href="{% static 'account/css/profile.css' %}" rel="stylesheet">
+
+<div class="main-content">
+    <div class="container mt-5">
+        <!-- Table -->
+        <div class="card card-profile shadow">
+            <div class="row mt-3">
+                <div class="col text-center">
+                    <h3>{{ user.username }}</h3>
+                    {% if profile.favoriteTeam %}
+                    <img id="favTeamImage" src="/static/media/{{ profile.favoriteTeam_id }}.png" class="img-fluid" width="150" height="auto"> {% else %}
+                    <img id="favTeamImage" src="{% static 'media/seahawks.png' %}" class="img-fluid" width="150" height="auto"> {% endif %}
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="card-profile-stats d-flex justify-content-center">
+                            <div>
+                                <span class="heading">0</span>
+                                <span class="description">Season Wins</span>
+                            </div>
+                            <div>
+                                <span class="heading">N/A</span>
+                                <span class="description">Highest Season Total</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h5>Active Leagues</h5>
+                    {% if leagueMemberships %}
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <h6>League</h6>
+                            <h6>Score</h6>
+                        </li>
+                        {% for currentLeague in leagueMemberships %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ currentLeague.league_id }}
+                            <span class="badge badge-primary badge-pill">{{ currentLeague.score }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    <br>
+                    <h5>Info</h5>
+                    <form>
+                        <div class="form-group row">
+                            <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control" id="firstName" value="{{ user.first_name }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control" id="lastName" value="{{ user.last_name }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control" id="email" value="{{ user.email }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="favoriteTeam" class="col-sm-2 col-form-label">Favorite Team</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" readonly id="favoriteTeam">
+                                    <option>{{ profile.favoriteTeam.name }}</option>
+                                    {% for currentTeam in teams %}
+                                    <option>{{ currentTeam.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button id="edit-button" class="btn btn-sm btn-success">Edit Account</button>
+                    <button id="save-button" class="btn btn-sm btn-success" style="display:none;">Save Changes</button>
+                </div>
+                <hr>
+                <div class="d-flex mt-5 justify-content-end">
+                    <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteCOnfirm">Delete Account</button>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <p>Welcome, {{ user.get_username }}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteCOnfirm">Delete Account</button>
-        </div>
-    </div>
-    <!-- Modal -->
+
+
+
     <div class="modal fade" id="deleteConfirm" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -36,5 +113,6 @@
         </div>
     </div>
 </div>
-</div>
+
+<script src="{% static 'account/js/profile.js' %} "></script>
 {% endblock %}
