@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
 from .forms import RegisterForm
 from account.models import Profile
+from league.models import LeagueMembership, Team
 from django.core.mail import send_mail
 from command.utils import sendEmailToAdmin
 
@@ -13,8 +14,55 @@ from command.utils import sendEmailToAdmin
 
 @login_required
 def account_page(request):
-    return render(request, 'account/profile.html', {'page':'profile'})
+    leagueMemberships = LeagueMembership.objects.filter(user=request.user)
+    userLeagues = [leagueMembership.league for leagueMembership in leagueMemberships]
+    userProfile = Profile.objects.get(user=request.user)
+    allTeams = Team.objects.all()
 
+    return render(request, 'account/profile.html', 
+    {
+        'page':'profile',
+        'leagueMemberships': leagueMemberships,
+        'activeLeague': userProfile.currentActiveLeague,
+        'userLeagues': userLeagues,
+        'profile': userProfile,
+        'teams': allTeams,
+    })
+
+#AJAX CALL
+def update_profile(request):
+    updatedFirstName = request.GET.get('firstName', None)
+    updatedLastName = request.GET.get('lastName', None)
+    updatedEmail = request.GET.get('email', None)
+    updatedFavoriteTeam = request.GET.get('favoriteTeam', None)
+
+    try:
+        #Update user
+        request.user.first_name = updatedFirstName
+        request.user.last_name = updatedLastName
+        request.user.email = updatedEmail
+
+        #Updated user profile
+        userProfile = Profile.objects.get(user=request.user)
+        userProfile.firstName = updatedFirstName
+        userProfile.lastName = updatedLastName
+        if updatedFavoriteTeam:
+            userProfile.favoriteTeam = Team.objects.get(name=updatedFavoriteTeam)
+
+        request.user.save()
+        userProfile.save()
+
+        status = 'SUCCESS'
+    except:
+        status = 'FAILED'
+
+    data = {
+            'status': status
+        }
+    
+    return JsonResponse(data)
+
+#AJAX CALL
 def update_last_accessed_page(request):
 
     lastAccess = request.GET.get('lastAccessedPage', None)
