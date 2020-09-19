@@ -119,7 +119,6 @@ body::-webkit-scrollbar {
 
 a.nav-link {
     color: white !important;
-    font-weight: bold;
 }
 
 .nav-item {
@@ -182,10 +181,11 @@ h4,
 h5,
 h6,
 small,
-td {
-    font-weight: bold;
+td,
+a {
+    font-weight: bold !important;
 }
 
 .btn {
-    font-weight: bold;
+    font-weight: bold !important;
 }
