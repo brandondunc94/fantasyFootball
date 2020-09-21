@@ -17,6 +17,7 @@ $(document).ready(function() {
             $(".post-button").click();
         }
     });
+
 });
 
 /*Try to post message when enter key is hit*/
@@ -26,6 +27,7 @@ $("#messageBox").keypress(function(event) {
     }
 });
 
+/*Save last accessed page*/
 $(".dashboard-menu-item").click(function() {
 
     var lastSelectedTab = $(this).html();
@@ -73,5 +75,21 @@ $(".post-button").click(function() {
             }
         });
     }
+
+});
+
+/*Collapse column logic*/
+$(".collapse-col").click(function() {
+
+    //getting the next element
+    cardContent = $(this).next('div');
+    $(this).next('div').toggleClass('max-height-650');
+    $(this).find('i').toggleClass('arrow-down');
+    //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+    cardContent.slideToggle(0, function() {
+        //execute this after slideToggle is done
+        //remove max-height-650 so the the column no longer takes up its height
+
+    });
 
 });
