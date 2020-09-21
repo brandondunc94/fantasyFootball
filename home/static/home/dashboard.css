@@ -43,39 +43,57 @@ a.dashboard-menu-item {
 
 /*League Page Style*/
 
-.league-dashboard {
-    height: 700px;
-    margin-right: 10;
-    margin-left: 10;
+.card-header {
+    background-color: #292727;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.max-height-650 {
+    max-height: 650px;
 }
 
 .double-nav-margin {
     margin-top: 70px;
 }
 
-.notification-board {
-    background-color: #212529;
+.news-board {
     overflow-y: auto;
     overflow-x: hidden;
+}
+
+.message-board {
+    height: 100%;
+    overflow-y: scroll;
 }
 
 .notification-box {
     background-color: #33A1FD;
 }
 
-.message-board {
-    background-color: white;
-    height: 100%;
+.leaderboard {
     overflow-y: scroll;
 }
 
-.leader-board {
-    background-color: #212529;
+.arrow {
+    box-sizing: border-box;
+    height: 15px;
+    width: 15px;
+    border-style: solid;
+    border-color: white;
+    transform: rotate(225deg);
+    border-width: 0px 1px 1px 0px;
+    transition: border-width 150ms ease-in-out;
+    margin-top: 10px;
 }
 
-.leaderboard-table {
-    border-top: none;
+.arrow-down {
+    transform: rotate(45deg) !important;
+    margin-top: 0px;
 }
+
+
+/*Link styles*/
 
 a.league-menu-item.active {
     background-color: #33A1FD;
@@ -103,14 +121,39 @@ a.league-menu-item:hover {
     transition: .3s;
 }
 
+
+/*Scrollbar styles*/
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: #33A1FD;
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 @media (max-width: 767px) {
     /* CSS that should be displayed if width is equal to or less than 767px goes here */
-    .league-dashboard {
-        margin: 0;
-    }
-    .league-col {
-        padding: 0;
-    }
     a.league-menu-item {
         border-radius: 0px;
     }
@@ -121,8 +164,5 @@ a.league-menu-item:hover {
     .tabs {
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
-    }
-    .notification-board {
-        border-radius: 10px;
     }
 }
