@@ -50,7 +50,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for currentUser in leagueUsers %}
+                                    {% for currentUser in leagueUserData %}
                                     <tr>
                                         {% if forloop.counter == 1 %}
                                         <td><img class="" src="{% static 'media/gold.png' %}" width="auto" height="30"></td>
@@ -61,8 +61,8 @@
                                         {% else %}
                                         <td>{{ forloop.counter }}</td>
                                         {% endif %}
-                                        <td>{{ currentUser.user }}</td>
-                                        <td>{{ currentUser.score }}</td>
+                                        <td>{{ currentUser.username }}</td>
+                                        <td>{{ currentUser.totalScore }}</td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
@@ -125,6 +125,13 @@
                                 <button class="btn btn-md btn-secondary post-button" type="submit" id="MaterialButton-addon2">Post</button>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <div class="chart-container">
+                        <canvas id="pointsChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -227,4 +234,72 @@
 <script src="{% static 'picks/js/picks.js' %}"></script>
 <script src="{% static 'bets/js/betting.js' %}"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+{{ leagueUserData|json_script:"leagueUserData" }}
+<script>
+    const pointsData = JSON.parse(document.getElementById('leagueUserData').textContent);
+
+    var ctx = document.getElementById('pointsChart').getContext('2d');
+    var userData = []
+    pointsData.forEach((item) => {
+        var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+        userData.push({
+            label: item.username,
+            borderColor: randomColor,
+            backgroundColor: randomColor,
+            data: item.weeklyScores
+        })
+    });
+    Chart.defaults.global.elements.line.fill = false;
+    Chart.defaults.global.elements.line.tension = 0;
+
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17'],
+            datasets: userData
+        },
+
+        // Configuration options go here
+        options: {
+            responsive: true,
+            title: {
+                display: true,
+                text: 'Points by Week'
+            },
+            tooltips: {
+                mode: 'index',
+                intersect: false,
+            },
+            hover: {
+                mode: 'nearest',
+                intersect: true
+            },
+            scales: {
+                xAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Week'
+                    },
+                    gridLines: {
+                        display: false,
+                    }
+                }],
+                yAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Points'
+                    },
+                    gridLines: {
+                        display: false,
+                    }
+                }]
+            }
+        }
+    });
+</script>
 {% endblock %}
