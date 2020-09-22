@@ -29,8 +29,22 @@ def dashboard(request, weekId="2", leagueName=""):
     activeSeason = leagueUtils.getActiveSeason()
     
     #Get all users for active league
-    leagueUsers = LeagueMembership.objects.filter(league=activeLeague).order_by('-score')
-    
+    leagueMembers = LeagueMembership.objects.filter(league=activeLeague).order_by('-score')
+    leagueUserData = []
+    #Create json list of users and their weekly scores
+    for currentUserMembership in leagueMembers:
+
+        #Split weeklyScores by comma
+        weeklyScores = currentUserMembership.weeklyScores.rstrip(',').split(',')
+
+        leagueUserData.append(
+        {
+            'totalScore': currentUserMembership.score,
+            'weeklyScores': weeklyScores,
+            'username': currentUserMembership.user.username
+        })
+
+
     #Get all league messages, notifications and convert the date/times to user's timezone
     leagueMessages = []
     leagueNotifications = []
@@ -76,7 +90,7 @@ def dashboard(request, weekId="2", leagueName=""):
         #THIS SHOULD BE A HOME PAGE FOR OFFSEASON
         return render(request, 'home/dashboard.html', {
         'userLeagues': userLeagues,
-        'leagueUsers': leagueUsers, 
+        'leagueUserData': leagueUserData, 
         'activeLeague': activeLeague.name,
         'leagueMessages': leagueMessages,
         'leagueNotifications': leagueNotifications,
@@ -137,7 +151,7 @@ def dashboard(request, weekId="2", leagueName=""):
         'userLeagues': userLeagues,
         'userScore': userScore,
         'isAdmin': isAdmin,
-        'leagueUsers': leagueUsers, 
+        'leagueUserData': leagueUserData, 
         'activeLeague': activeLeague.name, 
         'week': weekId,
         'weeks': weeks,
