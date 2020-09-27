@@ -7,7 +7,7 @@ from league.models import League, Team, LeagueMembership, Season, Week, Game, Ga
 from account.utils import convertTimeToLocalTimezone, getUserProfile
 from fantasyFootball import settings
 import pytz
-    
+
 @login_required
 def dashboard(request, weekId="3", leagueName=""):
     
@@ -36,6 +36,7 @@ def dashboard(request, weekId="3", leagueName=""):
 
         #Split weeklyScores by comma
         weeklyScores = currentUserMembership.weeklyScores.rstrip(',').split(',')
+        weeklyScores.append(str(currentUserMembership.score))
         try:
             weeklyGain = currentUserMembership.score - int(weeklyScores[-1])
         except:
