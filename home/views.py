@@ -36,11 +36,13 @@ def dashboard(request, weekId="3", leagueName=""):
 
         #Split weeklyScores by comma
         weeklyScores = currentUserMembership.weeklyScores.rstrip(',').split(',')
-        weeklyScores.append(str(currentUserMembership.score))
+        
         try:
             weeklyGain = currentUserMembership.score - int(weeklyScores[-1])
         except:
             weeklyGain = 0
+        
+        weeklyScores.append(str(currentUserMembership.score))
         leagueUserData.append(
         {
             'totalScore': currentUserMembership.score,
