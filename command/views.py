@@ -442,7 +442,10 @@ def recalculatePlayersScores():
 
                 #Add 25 points if pickCorrectFlag == True
                 if currentGameChoice.correctPickFlag == True:
-                    currentLeagueMembership.score += 25
+                    if currentGameChoice.week_id == 1:
+                        currentLeagueMembership.score += 50
+                    else:
+                        currentLeagueMembership.score += 25
                 
                 #Add/subtract bet amount won/lost
                 currentLeagueMembership.score += currentGameChoice.amountWon
