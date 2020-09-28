@@ -33,6 +33,7 @@ class Team(models.Model):
     city = models.TextField(max_length=50, blank=True)
     wins = models.IntegerField(default=0)
     losses = models.IntegerField(default=0)
+    ties = models.IntegerField(default=0)
     season = models.ForeignKey(Season,on_delete=models.CASCADE, default=None)
 
 class Game(models.Model):
