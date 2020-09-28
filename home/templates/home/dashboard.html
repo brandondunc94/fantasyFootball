@@ -167,7 +167,7 @@
                             <h6><strong class="text-success">{{ currentGame.game.awayScore }}</strong></h6> {% else %}
                             <h6><strong class="text-danger">{{ currentGame.game.awayScore }}</strong></h6> {% endif %} {% else %}
                             <h5>-</h5>{% endif %}
-                            <h6><small>({{ currentGame.game.awayTeam.wins }} - {{ currentGame.game.awayTeam.losses }})</small></h6>
+                            <h6><small>({{ currentGame.game.awayTeam.wins }} - {{ currentGame.game.awayTeam.losses }} {% if currentGame.game.homeTeam.ties > 0 %} - {{ currentGame.game.homeTeam.ties }} {% endif %})</small></h6>
                         </div>
                         <div class="col-2">
                             <h4>@</h4>
@@ -177,7 +177,7 @@
                             <h6><strong class="text-success">{{ currentGame.game.homeScore }}</strong></h6> {% else %}
                             <h6><strong class="text-danger">{{ currentGame.game.homeScore }}</strong></h6> {% endif %} {% else %}
                             <h5>-</h5>{% endif %}
-                            <h6><small>({{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }})</small></h6>
+                            <h6><small>({{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }} {% if currentGame.game.awayTeam.ties > 0 %} - {{ currentGame.game.awayTeam.ties }} {% endif %})</small></h6>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
