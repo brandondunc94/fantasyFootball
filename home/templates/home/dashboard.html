@@ -163,7 +163,7 @@
                 <div class="col-6 text-center">
                     <div class="d-flex justify-content-around align-items-center mb-2">
                         <div class="col-5">
-                            <img class="" src="/static/media/{{ currentGame.game.awayTeam.name }}.png" width="50" height="50"> {% if currentGame.game.winner %} {% if currentGame.game.winner == currentGame.game.awayTeam %}
+                            <img class="" src="/static/media/{{ currentGame.game.awayTeam.name }}.png" width="50" height="50"> {% if currentGame.game.awayScore %} {% if currentGame.game.winner == currentGame.game.awayTeam %}
                             <h6><strong class="text-success">{{ currentGame.game.awayScore }}</strong></h6> {% else %}
                             <h6><strong class="text-danger">{{ currentGame.game.awayScore }}</strong></h6> {% endif %} {% else %}
                             <h5>-</h5>{% endif %}
@@ -173,7 +173,7 @@
                             <h4>@</h4>
                         </div>
                         <div class="col-5">
-                            <img class="" src="/static/media/{{ currentGame.game.homeTeam.name }}.png" width="50" height="50"> {% if currentGame.game.winner %} {% if currentGame.game.winner == currentGame.game.homeTeam %}
+                            <img class="" src="/static/media/{{ currentGame.game.homeTeam.name }}.png" width="50" height="50"> {% if currentGame.game.homeScore %} {% if currentGame.game.winner == currentGame.game.homeTeam %}
                             <h6><strong class="text-success">{{ currentGame.game.homeScore }}</strong></h6> {% else %}
                             <h6><strong class="text-danger">{{ currentGame.game.homeScore }}</strong></h6> {% endif %} {% else %}
                             <h5>-</h5>{% endif %}
@@ -186,7 +186,7 @@
                     </div>
                 </div>
                 <div class="col-3 text-center pick">
-                    {% if currentGame.game.winner %} {% if currentGame.gameChoice.pickWinner %} {% if currentGame.gameChoice.correctPickFlag == True %}
+                    {% if currentGame.game.homeScore %} {% if currentGame.gameChoice.pickWinner %} {% if currentGame.gameChoice.correctPickFlag == True %}
                     <img src="/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png" width="50" height="50"> {% if week == 1 or week == '1' %}
                     <h6 class="text-success"><strong>+50</strong></h6>
                     {% else %}
@@ -201,7 +201,7 @@
                     <img class="" src="/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png" width="50" height="50">{% endif %} {% endif %}
                 </div>
                 <div class="col-3 text-center bet">
-                    {% if currentGame.game.winner %} {% if currentGame.gameChoice.betWinner %} {% if currentGame.gameChoice.correctBetFlag == True %}
+                    {% if currentGame.game.homeScore %} {% if currentGame.gameChoice.betWinner %} {% if currentGame.gameChoice.correctBetFlag == True %}
                     <img src="/static/media/{{ currentGame.gameChoice.betWinner.name }}.png" width="50" height="50">
                     <h6 class="text-success"><strong>+{{ currentGame.gameChoice.amountWon }}</strong></h6>
                     {% else %}
