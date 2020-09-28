@@ -420,3 +420,34 @@ def deleteLeague(request):
         }
 
     return JsonResponse(data)
+
+def recalculatePlayersScores():
+
+    allUsers = User.objects.all()
+
+    for currentUser in allUsers:
+
+        #Get all leagues current user is a part of
+        userLeagueMemberships = LeagueMembership.objects.filter(user=currentUser)
+
+        for currentLeagueMembership in userLeagueMemberships:
+
+            #Reset league membership score to 500
+            currentLeagueMembership.score = 500
+
+            #Get all league choice objects for current season
+            allGameChoices = GameChoice.objects.filter(league=currentLeagueMembership.league, user=currentUser)
+
+            for currentGameChoice in allGameChoices:
+
+                #Add 25 points if pickCorrectFlag == True
+                if currentGameChoice.correctPickFlag == True:
+                    currentLeagueMembership.score += 25
+                
+                #Add/subtract bet amount won/lost
+                currentLeagueMembership.score += currentGameChoice.amountWon
+            
+            #Save score
+            print(currentUser.username + ' score has been recalculated to be ' + str(currentLeagueMembership.score))
+            currentLeagueMembership.save()
+
