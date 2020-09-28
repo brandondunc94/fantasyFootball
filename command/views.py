@@ -81,7 +81,7 @@ def saveScoreSpread(request):
         season = Season.objects.get(year=seasonYear)
         gameObject = Game.objects.get(week= Week.objects.get(season=season,id=week), id=game)
 
-        if gameObject.winner == None: #Only score game if it hasnt already been scored
+        if gameObject.homeScore == '': #Only score game if it hasnt already been scored
             #Update scores if passed in and score players
             try:
                 homeScore = int(homeScore)
@@ -104,6 +104,8 @@ def saveScoreSpread(request):
                     gameObject.awayTeam.wins += 1
                 else:
                     gameObject.winner = None
+                    gameObject.homeTeam.ties += 1
+                    gameObject.awayTeam.ties += 1
                 
                 #Save home and away wins/losses update, save gameObject changes
                 gameObject.homeTeam.save()
