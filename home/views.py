@@ -9,7 +9,7 @@ from fantasyFootball import settings
 import pytz
 
 @login_required
-def dashboard(request, weekId="4", leagueName=""):
+def dashboard(request, weekId="5", leagueName=""):
     
     #Do a lookup to find all leagues for current user. If none, default to home page with no data
     userLeagues = leagueUtils.getUserLeagues(request.user)
@@ -91,7 +91,7 @@ def dashboard(request, weekId="4", leagueName=""):
 
     #Get game data for weekId passed in
     try:
-        currentWeekGames = Game.objects.filter(week_id=Week.objects.get(id=weekId, season=activeSeason)).order_by('dateTime').order_by('id')
+        currentWeekGames = Game.objects.filter(week_id=Week.objects.get(id=weekId, season=activeSeason)).order_by('dateTime')
     except:
         #No games are currently available. Open up the home page with no data.
         #THIS SHOULD BE A HOME PAGE FOR OFFSEASON
