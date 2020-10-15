@@ -62,7 +62,7 @@ def sendReminderEmail():  #This gets run every Thursday afternoon. Schedule can 
             <h4>This is a friendly reminder to make your picks and bets for the upcoming week!</h4>
             <a class="btn btn-blue" href="http://onsidepick.com/">Make Picks</a>
             <br><br>
-            <p>Not sure how the rules work? Be sure to visit the About section located under the Account menu for the game rules.</p>
+            <p>Want to turn off email notifications? Visit the Account page and remove your email from your profile.</p>
         </body>
     </html>"""
 
@@ -81,3 +81,5 @@ def sendReminderEmail():  #This gets run every Thursday afternoon. Schedule can 
     
     
     sendEmailToUser(emailMessages=email, userEmailList=emailList)
+
+
