@@ -9,7 +9,7 @@ from fantasyFootball import settings
 import pytz
 
 @login_required
-def dashboard(request, weekId="5", leagueName=""):
+def dashboard(request, weekId="6", leagueName=""):
     
     #Do a lookup to find all leagues for current user. If none, default to home page with no data
     userLeagues = leagueUtils.getUserLeagues(request.user)
