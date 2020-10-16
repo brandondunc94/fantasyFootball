@@ -37,31 +37,31 @@
                     <td class="game-id" value="{{ currentGame.id }}">{{ currentGame.date }} - {{ currentGame.awayTeam.name }} @ {{ currentGame.homeTeam.name }}</td>
                     {% if currentGame.pickLocked == False %}
                     <td>
-                        <input type="number" class="form-control home-score" size="3" value="{{ currentGame.homeScore }}">
+                        <input type="number" class="form-control home-score" size="3" value="{{ currentGame.homeScore }}" placeholder="{{ currentGame.homeTeam.name }}">
                     </td>
                     <td>
-                        <input type="number" class="form-control home-spread" size="3" value="{{ currentGame.homeSpread }}">
+                        <input type="number" class="form-control home-spread" size="3" value="{{ currentGame.homeSpread }}" placeholder="{{ currentGame.homeTeam.name }}">
                     </td>
                     <td>
-                        <input type="number" class="form-control away-score" size="3" value="{{ currentGame.awayScore }}">
+                        <input type="number" class="form-control away-score" size="3" value="{{ currentGame.awayScore }}" placeholder="{{ currentGame.awayTeam.name }}">
                     </td>
                     <td>
-                        <input type="number" class="form-control away-spread" size="3" value="{{ currentGame.awaySpread }}">
+                        <input type="number" class="form-control away-spread" size="3" value="{{ currentGame.awaySpread }}" placeholder="{{ currentGame.awayTeam.name }}">
                     </td>
                     <td><input type="submit" class="btn btn-indigo btn-sm m-0 lock-button" value="Lock" /></td>
                     <td><input type="submit" class="btn btn-indigo btn-sm m-0 unlock-button" value="Unlocked" disabled/></td>
                     {% else %}
                     <td>
-                        <input type="number" class="form-control home-score" size="3" value="{{ currentGame.homeScore }}">
+                        <input type="number" class="form-control home-score" size="3" value="{{ currentGame.homeScore }}" placeholder="{{ currentGame.homeTeam.name }}">
                     </td>
                     <td>
-                        <input type="number" class="form-control home-spread" size="3" value="{{ currentGame.homeSpread }}">
+                        <input type="number" class="form-control home-spread" size="3" value="{{ currentGame.homeSpread }}" placeholder="{{ currentGame.homeTeam.name }}">
                     </td>
                     <td>
-                        <input type="number" class="form-control away-score" size="3" value="{{ currentGame.awayScore }}">
+                        <input type="number" class="form-control away-score" size="3" value="{{ currentGame.awayScore }}" placeholder="{{ currentGame.awayTeam.name }}">
                     </td>
                     <td>
-                        <input type="number" class="form-control away-spread" size="3" value="{{ currentGame.awaySpread }}">
+                        <input type="number" class="form-control away-spread" size="3" value="{{ currentGame.awaySpread }}" placeholder="{{ currentGame.awayTeam.name }}">
                     </td>
                     <td><input type="submit" class="btn btn-indigo btn-sm m-0 lock-button" value="Locked" disabled/></td>
                     <td><input type="submit" class="btn btn-indigo btn-sm m-0 unlock-button" value="Unlock" /></td>{% endif %}
