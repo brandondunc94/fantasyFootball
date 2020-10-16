@@ -120,7 +120,7 @@
     </div>
     {% endif %}
     <div class="col-lg-2 text-center mt-3 p-0">
-        <input type="text" class="bet-amount-input m-2 text-center" aria-label="Point Amount" value="{% if currentGame.gameChoice.betAmount != 0 %}{{ currentGame.gameChoice.betAmount }}{% else%}Bet Amount{%endif %}">
+        <input type="text" class="bet-amount-input m-2 text-center" aria-label="Point Amount" value="{% if currentGame.gameChoice.betAmount != 0 %}{{ currentGame.gameChoice.betAmount }}{% else%}Bet{%endif %}">
     </div>
     {% if currentGame.gameChoice.betWinner == currentGame.game.awayTeam %}
     <div class="col-lg-3 bet-box bet-box-selected text-center">
@@ -170,7 +170,7 @@
         <div><small>{{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }} {% if currentGame.game.homeTeam.ties > 0 %} - {{ currentGame.game.homeTeam.ties }} {% endif %}</small></div>
     </div>
     <div class="col-lg-2 text-center mt-3 p-0">
-        <input type="text" class="bet-amount-input m-2 text-center" aria-label="Point Amount" value="{% if currentGame.gameChoice.betAmount != 0 %}{{ currentGame.gameChoice.betAmount }}{% endif %}" placeholder="Bet Amount" disabled>
+        <input type="text" class="bet-amount-input m-2 text-center" aria-label="Point Amount" value="{% if currentGame.gameChoice.betAmount != 0 %}{{ currentGame.gameChoice.betAmount }}{% endif %}" placeholder="Bet" disabled>
     </div>
     <div class="col-lg-3 bet-box text-center">
         {% if currentGame.game.awaySpread > 0 %}
