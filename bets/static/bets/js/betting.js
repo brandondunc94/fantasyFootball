@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    calculatePointsAvailable();
+    updatePointsAvailable(calculatePointsAvailable());
 });
 
 /*Save Bets*/
@@ -12,56 +12,53 @@ $("#saveBets").click(function() {
     $('.bet-game').each(function(index) {
         var currentBet = $(this);
         var pick = $(this).children('.bet-box-selected').find('input').val();
-        var betAmount = $(this).find('.game-bet-amount').html();
+        var betAmount = $(this).find('.bet-amount-input').val();
         var gameId = $(this).children('.bet-box').find('input').attr('name');
-        if (pick == undefined) {
-            pick = null;
-        }
-
-        $.ajax({
-            url: '/bets/save/',
-            data: {
-                'leagueName': leagueName,
-                'weekId': weekId,
-                'gameId': gameId,
-                'pick': pick,
-                'betAmount': betAmount
-            },
-            dataType: 'json',
-            success: function(data) {
-                if (data.status == false) {
-                    status = false;
-                } else {
-                    /*Get new values, get game id and new bet amount*/
-                    var gameRow = $('#' + gameId);
-                    var betSpread = currentBet.children('.bet-box-selected').find('h6').html();
-
-                    /*Update game summary page*/
-                    var existingBet = gameRow.children('.bet').find('img');
-
-                    if (pick == null) {
-                        /*Remove from game summary page if the bet currently exists*/
-                        if (existingBet.length > 0) {
-                            gameRow.children('.bet').find('img').remove();
-                            gameRow.children('.bet').find('h6').html('');
-                        }
-
+        if (pick == undefined & betAmount != "") {
+            $.notify("Please make sure you have made a spread selection before betting points.", "error");
+        } else(
+            $.ajax({
+                url: '/bets/save/',
+                data: {
+                    'leagueName': leagueName,
+                    'weekId': weekId,
+                    'gameId': gameId,
+                    'pick': pick,
+                    'betAmount': betAmount
+                },
+                dataType: 'json',
+                success: function(data) {
+                    if (data.status == false) {
+                        status = false;
                     } else {
-                        /*Check if bet already existed, add/change image and add/update betAmount*/
-                        if (existingBet.length > 0) {
-                            gameRow.children('.bet').find('img').attr('src', '/static/media/' + pick + '.png');
-                            gameRow.children('.bet').find('h6').html('(' + betSpread + ') $' + betAmount);
+                        /*Get new values, get game id and new bet amount*/
+                        var gameRow = $('#' + gameId);
+                        var betSpread = currentBet.children('.bet-box-selected').find('h6').html();
+
+                        /*Update game summary page*/
+                        var existingBet = gameRow.children('.bet').find('img');
+
+                        if (pick == null) {
+                            /*Remove from game summary page if the bet currently exists*/
+                            if (existingBet.length > 0) {
+                                gameRow.children('.bet').find('img').remove();
+                                gameRow.children('.bet').find('h6').html('');
+                            }
+
                         } else {
-                            gameRow.children('.bet').append(`<img class=\"\" src=\"/static/media/` + pick + `.png\" width=\"50\" height=\"50\"> <h6>(` + betSpread + `) $` + betAmount + `</h6>`);
+                            /*Check if bet already existed, add/change image and add/update betAmount*/
+                            if (existingBet.length > 0) {
+                                gameRow.children('.bet').find('img').attr('src', '/static/media/' + pick + '.png');
+                                gameRow.children('.bet').find('h6').html('(' + betSpread + ') $' + betAmount);
+                            } else {
+                                gameRow.children('.bet').append(`<img class=\"\" src=\"/static/media/` + pick + `.png\" width=\"50\" height=\"50\"> <h6>(` + betSpread + `) $` + betAmount + `</h6>`);
+                            }
+
                         }
 
                     }
-
                 }
-            }
-        });
-
-
+            }));
     });
     if (status == true) {
         /*alert("Bets saved successfully.");*/
@@ -84,11 +81,10 @@ $(".bet-box").click(function() {
         var oppositeDiv = $(this).siblings('.bet-box');
         oppositeDiv.removeClass('bet-box-unselected')
 
-        /*Disable +/- buttons and set bet amount to 0*/
-        $(this).siblings().children('.increase-bet-button').prop('disabled', true);
-        $(this).siblings().children('.decrease-bet-button').prop('disabled', true);
-        $(this).siblings().children('.game-bet-amount').html('0').val('0');
-        calculatePointsAvailable();
+        /*Set bet amount to 0*/
+        $(this).siblings().children('.bet-amount-input').prop('disabled', true).val('').attr('placeholder', 'Bet Amount');
+
+        updatePointsAvailable(calculatePointsAvailable());
     } else {
         /*Select child radio button and div to mark as checked*/
         $(this).toggleClass(function() {
@@ -105,60 +101,61 @@ $(".bet-box").click(function() {
         oppositeRadioButton = oppositeDiv.find("input");
         oppositeRadioButton.attr('checked', false);
 
-        /*Enable +/- buttons*/
-        $(this).siblings().children('.increase-bet-button').prop('disabled', false);
-        $(this).siblings().children('.decrease-bet-button').prop('disabled', false);
+        /*Enable input box*/
+        $(this).siblings().children('.bet-amount-input').prop('disabled', false);
+        updatePointsAvailable(calculatePointsAvailable());
     }
 });
 
-/*Increase bet amount*/
-$(".increase-bet-button").click(function() {
-    /*Get total points available to bet*/
-    var pointsAvailable = parseInt($('#totalPoints').html());
-
-    /*Sum up all points that have already been bet on other games*/
-    $('.game-bet-amount').each(function(index) {
-        pointsAvailable -= (parseInt($(this).html()));
-    });
-
-    if (pointsAvailable >= 10) {
-        /*Add 10 points to current game bet*/
-        var gameBetAmountDisplay = $(this).siblings('.game-bet-amount');
-        var gameBetAmount = parseInt(gameBetAmountDisplay.html());
-        gameBetAmount += 10;
-        gameBetAmountDisplay.html(gameBetAmount.toString());
-        gameBetAmountDisplay.siblings('.game-bet-amount-input').val(gameBetAmount);
-
-        calculatePointsAvailable();
-    }
+var timer = null;
+$('.bet-amount-input').keyup(function() {
+    clearTimeout(timer);
+    timer = setTimeout(checkBetAmount, 750)
 });
 
-/*Decrease bet amount*/
-$(".decrease-bet-button").click(function() {
-    /*Decrease 10 points to current game bet*/
-    var gameBetAmountDisplay = $(this).siblings('.game-bet-amount');
-    var gameBetAmount = parseInt(gameBetAmountDisplay.html());
-    if (gameBetAmount > 0) {
-        gameBetAmount -= 10;
-        gameBetAmountDisplay.html(gameBetAmount.toString());
-        gameBetAmountDisplay.siblings('.game-bet-amount-input').val(gameBetAmount);
+function checkBetAmount() {
+    var betAmount = $(this);
+    var leftOverPointsAvailable = calculatePointsAvailable();
 
-        calculatePointsAvailable();
+    if (leftOverPointsAvailable >= 0) {
+        $('#saveBets').prop('disabled', false);
+    } else {
+        /*User is trying to bet too many points, disabled save button and all input boxes with red border*/
+        $.notify("Bet amount is too high.", "error");
+        leftOverPointsAvailable = calculatePointsAvailable();
+        $('#saveBets').prop('disabled', true);
     }
-});
+    updatePointsAvailable(leftOverPointsAvailable);
+}
 
 /*Calculate points available to bet*/
 function calculatePointsAvailable() {
     /*Get total user points*/
-    var pointsAvailable = parseInt($('#totalPoints').html());
+    var pointsAvailableTotal = parseInt($('#totalPoints').html());
 
     /*Sum up all points that have already been bet on other games*/
-    $('.game-bet-amount').each(function(index) {
-        if ($(this).html() != undefined) {
-            pointsAvailable -= (parseInt($(this).html()));
+    $('.bet-amount-input').each(function(index) {
+        if ($(this).val() != "") {
+            pointsAvailableTotal -= (parseInt($(this).val()));
         }
     });
+    return pointsAvailableTotal;
+}
 
-    /*Set display at top of page to reflect # of points available to bet*/
+function updatePointsAvailable(pointsAvailable) {
     $('#pointsToBet').html(pointsAvailable.toString());
 }
+
+(function($) {
+    var element = $('.float-div'),
+        originalY = element.offset().top;
+    // Space between element and top of screen (when scrolling)
+    var topMargin = 20;
+    $(window).on('scroll', function(event) {
+        var scrollTop = $(window).scrollTop();
+        element.stop(false, false).animate({
+            top: scrollTop < originalY ?
+                0 : scrollTop - originalY + topMargin
+        }, 400);
+    });
+})(jQuery);

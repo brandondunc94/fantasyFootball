@@ -182,7 +182,8 @@ h5,
 h6,
 small,
 td,
-a {
+a,
+input {
     font-weight: bold !important;
 }
 

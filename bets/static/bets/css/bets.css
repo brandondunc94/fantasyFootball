@@ -25,38 +25,40 @@
 }
 
 
-/* Point +/- Button Style */
+/* Bet Amount Input Box*/
 
-.increase-bet-button {
-    touch-action: manipulation;
-}
-
-.decrease-bet-button {
-    touch-action: manipulation;
-}
-
-button:disabled,
-button[disabled] {
-    border: 1px solid #999999;
-    background-color: #cccccc;
-    color: #666666;
-}
-
-.btn-outline-success:disabled {
-    color: #666666;
-}
-
-.btn-outline-danger:disabled {
-    color: #666666;
-}
-
-
-/* Point Display at top */
-
-.point-box {
-    background-color: #4d4b4b;
-    color: #ffffff;
+.bet-amount-input {
+    max-width: 100px;
+    min-height: 40px;
+    border: 2px solid #19A404;
     border-radius: 5px;
+    font-size: 1em;
+}
+
+.bet-amount-input:focus {
+    outline: none;
+}
+
+.bet-amount-input:disabled {
+    opacity: 50%;
+}
+
+.save-button {
+    background-color: #33A1FD;
+    color: white;
+}
+
+
+/* Floating Display at top */
+
+.float-div {
+    z-index: 999;
+    position: relative;
+    background-color: #4d4b4b;
+    border: 2px solid #19A404;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 5px;
 }
 
 
