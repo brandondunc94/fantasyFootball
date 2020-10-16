@@ -215,7 +215,7 @@
             <h6>Pending Score</h6>
             {% endif %}
             <h6>{{ currentGame.gameChoice.betAmount }}</h6>
-            <img class="img-fluid" src="{% static 'media/lock.png ' %}" width="30" height="auto">
+            <img class="img-fluid" src="{% static 'media/lock.png' %}" width="30" height="auto">
         </div>
         {% if currentGame.gameChoice.betWinner == currentGame.game.awayTeam %}
         <div class="col-lg-3 bet-box-locked bet-box-selected text-center">
