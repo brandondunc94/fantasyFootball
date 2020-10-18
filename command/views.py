@@ -90,7 +90,7 @@ def saveScoreSpread(request):
                 homeScore = None
                 awayScore = None
 
-            if homeScore and awayScore:
+            if homeScore != None and awayScore != None:
                 gameObject.homeScore = homeScore
                 gameObject.awayScore = awayScore
 
