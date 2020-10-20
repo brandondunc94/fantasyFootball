@@ -13,7 +13,7 @@ A new fantasy football based solely on picking game winners
 
 ## Color Scheme
 Green: #19A404
-Grey: #3A506B
+Grey: #4d4b4b
 White: #ffffff
 Light Blue: #33A1FD
 Medium Blue: #3066be
@@ -30,7 +30,7 @@ Dark Blue: #1B2A41
 7. Restart Nginx and gunicorn using:  'sudo systemctl restart nginx' and 'sudo systemctl restart gunicorn'
 
 ## Postgres commands
-1. Enter into postgres with: 'su - postgres' then 'psql'
+1. Enter into postgres with root user and type: 'su - postgres' then 'psql'
 2. 'DROP DATABASE dbname;' If there are live connections, kill them with
     SELECT pg_terminate_backend(pg_stat_activity.pid)
     FROM pg_stat_activity
@@ -46,20 +46,53 @@ Dark Blue: #1B2A41
  2. Start celery beat with 'celery -A fantasyFootball beat'
 
  # Celery (With supervisor)
- 1. 
+ 1. supervisor stop celerybeat (as root)
+ 2. supervisor stop celeryworker
+ 3. supervisorctl reload
 
  ## Things to add
- 1. Add betting on game spread using points
- 2. Add ability to edit games and add new games/weeks/seasons
+ 1. Add more timezones and ability for user to pick on profile creation
+ 2. Edit account page
  3. Enforce strong password when creating account
- 4. Clean up pick page, beautify UI like the betting page
  5. User profile images
  6. Make default home page when season is not active
+ 7. Add Bet payout when score is entered
+ 8. Turn into mobile app
+ 9. Import picks to bet page
 
-League selection in nav bar with join league and create league
 
-Change 'home' to 'dashboard'
+1. If user picked home team
+    If home team was supposed to win by # points
+      If the home team won by at least # points
+        Pay player 90% of their bet (betAmount * 1.9)
+      else
+        Take player's bet amount and pay 0
+    If home team was supposed to lost by # points
+      If the home team lost by less than the spread
+        Pay player 90% of their bet (betAmount * 1.9)
+      else
+        Take player's bet amount and pay 0
+  If user picked away team
+    If away team was supposed to win by # points
+      If away team won by at least # points
+        Pay player 90% of their bet (betAmount * 1.9)
+      else
+        Take player's bet amount and pay 0
+    If away team was supposed to lost by # points
+      If away team lost by at least # points
+        Pay player 90% of their bet (betAmount * 1.9)
+      else
+        Take player's bet amount and pay 0
+      
+How Celery Works:
+1. __init__.py uses celery.py to load in Celery app
+2. celery.py initializes celery app with predefined settings located in settings.py
 
-Dashboard Picks Bets
+Adding a new scheduled task:
+1. Add task to settings.py in CELERY_BEAT_SCHEDULE
+2. Restart supervisor using 'supervisorctl reload' as root user
 
-Make league home contents in dashboard
+
+To run shell on server
+1. 'source env/bin/activate'
+2. Run 'python3 manage.py shell'
