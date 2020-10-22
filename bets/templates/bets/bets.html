@@ -92,11 +92,11 @@
     <div class="col-lg-3 bet-box bet-box-selected text-center">
         {% if currentGame.game.homeSpread > 0 %}
         <div>
-            <h6>+{{ currentGame.game.homeSpread }}</h6>
+            <h6>+{{ currentGame.game.homeSpread|floatformat }}</h6>
         </div>
         {% else %}
         <div>
-            <h6>{{ currentGame.game.homeSpread }}</h6>
+            <h6>{{ currentGame.game.homeSpread|floatformat }}</h6>
         </div>
         {% endif %}
         <input type="radio" name="{{ currentGame.game.id }}" id="{{ currentGame.game.homeTeam.name }}-bet" value="{{ currentGame.game.homeTeam.name }}" checked="checked">
@@ -107,11 +107,11 @@
     <div class="col-lg-3 bet-box bet-box-unselected text-center">
         {% if currentGame.game.homeSpread > 0 %}
         <div>
-            <h6>+{{ currentGame.game.homeSpread }}</h6>
+            <h6>+{{ currentGame.game.homeSpread|floatformat }}</h6>
         </div>
         {% else %}
         <div>
-            <h6>{{ currentGame.game.homeSpread }}</h6>
+            <h6>{{ currentGame.game.homeSpread|floatformat }}</h6>
         </div>
         {% endif %}
         <input type="radio" name="{{ currentGame.game.id }}" id="{{ currentGame.game.homeTeam.name }}-bet" value="{{ currentGame.game.homeTeam.name }}">
@@ -126,11 +126,11 @@
     <div class="col-lg-3 bet-box bet-box-selected text-center">
         {% if currentGame.game.awaySpread > 0 %}
         <div>
-            <h6>+{{ currentGame.game.awaySpread }}</h6>
+            <h6>+{{ currentGame.game.awaySpread|floatformat }}</h6>
         </div>
         {% else %}
         <div>
-            <h6>{{ currentGame.game.awaySpread }}</h6>
+            <h6>{{ currentGame.game.awaySpread|floatformat }}</h6>
         </div>
         {% endif %}
         <input type="radio" name="{{ currentGame.game.id }}" id="{{ currentGame.game.awayTeam.name }}-bet" value="{{ currentGame.game.awayTeam.name }}" checked="checked">
@@ -141,11 +141,11 @@
     <div class="col-lg-3 bet-box bet-box-unselected text-center">
         {% if currentGame.game.awaySpread > 0 %}
         <div>
-            <h6>+{{ currentGame.game.awaySpread }}</h6>
+            <h6>+{{ currentGame.game.awaySpread|floatformat }}</h6>
         </div>
         {% else %}
         <div>
-            <h6>{{ currentGame.game.awaySpread }}</h6>
+            <h6>{{ currentGame.game.awaySpread|floatformat }}</h6>
         </div>
         {% endif %}
         <input type="radio" name="{{ currentGame.game.id }}" id="{{ currentGame.game.awayTeam.name }}-bet" value="{{ currentGame.game.awayTeam.name }}">
@@ -158,11 +158,11 @@
     <div class="col-lg-3 bet-box text-center">
         {% if currentGame.game.homeSpread > 0 %}
         <div>
-            <h6>+{{ currentGame.game.homeSpread }}</h6>
+            <h6>+{{ currentGame.game.homeSpread|floatformat }}</h6>
         </div>
         {% else %}
         <div>
-            <h6>{{ currentGame.game.homeSpread }}</h6>
+            <h6>{{ currentGame.game.homeSpread|floatformat }}</h6>
         </div>
         {% endif %}
         <input type="radio" name="{{ currentGame.game.id }}" id="{{ currentGame.game.homeTeam.name }}-bet" value="{{ currentGame.game.homeTeam.name }}">
@@ -175,11 +175,11 @@
     <div class="col-lg-3 bet-box text-center">
         {% if currentGame.game.awaySpread > 0 %}
         <div>
-            <h6>+{{ currentGame.game.awaySpread }}</h6>
+            <h6>+{{ currentGame.game.awaySpread|floatformat }}</h6>
         </div>
         {% else %}
         <div>
-            <h6>{{ currentGame.game.awaySpread }}</h6>
+            <h6>{{ currentGame.game.awaySpread|floatformat }}</h6>
         </div>
         {% endif %}
         <input type="radio" name="{{ currentGame.game.id }}" id="{{ currentGame.game.awayTeam.name }}-bet" value="{{ currentGame.game.awayTeam.name }}">
@@ -197,11 +197,11 @@
         <div class="col-lg-3 bet-box-locked text-center">
             {% endif %} {% if currentGame.game.homeSpread > 0 %}
             <div>
-                <h6>+{{ currentGame.game.homeSpread }}</h6>
+                <h6>+{{ currentGame.game.homeSpread|floatformat }}</h6>
             </div>
             {% else %}
             <div>
-                <h6>{{ currentGame.game.homeSpread }}</h6>
+                <h6>{{ currentGame.game.homeSpread|floatformat }}</h6>
             </div>
             {% endif %}
             <input type="radio" name="{{ currentGame.game.id }}" id="{{ currentGame.game.homeTeam.name }}-bet" value="{{ currentGame.game.homeTeam.name }}" disabled>
@@ -223,11 +223,11 @@
             <div class="col-lg-3 bet-box-locked text-center">
                 {% endif %} {% if currentGame.game.awaySpread > 0 %}
                 <div>
-                    <h6>+{{ currentGame.game.awaySpread }}</h6>
+                    <h6>+{{ currentGame.game.awaySpread|floatformat }}</h6>
                 </div>
                 {% else %}
                 <div>
-                    <h6>{{ currentGame.game.awaySpread }}</h6>
+                    <h6>{{ currentGame.game.awaySpread|floatformat }}</h6>
                 </div>
                 {% endif %}
                 <input type="radio" name="{{ currentGame.game.id }}" id="{{ currentGame.game.awayTeam.name }}-bet" value="{{ currentGame.game.awayTeam.name }}" disabled>
