@@ -178,8 +178,8 @@ def saveScoreSpread(request):
         
         #Update spreads if they were passed in
         try:    #Convert spreads to integers
-            homeSpread = int(homeSpread)
-            awaySpread = int(awaySpread)
+            homeSpread = float(homeSpread)
+            awaySpread = float(awaySpread)
         except:
             homeSpread = None
             awaySpread = None
