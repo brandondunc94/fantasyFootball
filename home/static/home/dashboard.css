@@ -47,6 +47,8 @@ a.dashboard-menu-item {
     background-color: #292727;
     color: #ffffff;
     cursor: pointer;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
 }
 
 .max-height-650 {
