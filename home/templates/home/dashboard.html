@@ -90,7 +90,7 @@
                             {% localtime off %} {% for currentNotification in leagueNotifications %}
                             <div class="m-3 p-1 media text-muted notification-box rounded">
                                 <p class="media-body pb-2 mb-0 lh-125 text-white">
-                                    <small>{{ currentNotification.createDate }}</small><strong class="d-block">{{ currentNotification.message }}</strong>
+                                    <small>{{ currentNotification.createDate|date:"D n/d/y" }}</small><strong class="d-block">{{ currentNotification.message }}</strong>
                                 </p>
                             </div>
                             {% endfor %} {% endlocaltime %}
@@ -110,7 +110,7 @@
                             {% localtime off %} {% if leagueMessages %} {% for currentMessage in leagueMessages %}
                             <div class="media text-muted pl-3 pr-3 pt-3">
                                 <p class="media-body border-bottom border-gray">
-                                    <strong class="d-block">@{{ currentMessage.username }} <small class="d-block">{{ currentMessage.createDate }}</small> </strong>{{ currentMessage.message }}
+                                    <strong class="d-block"><small class="d-block">{{ currentMessage.createDate|date:"D n/d/y" }}</small>{{ currentMessage.username }} - {{ currentMessage.message }}
                                 </p>
                             </div>
                             {% endfor %} {% else %}
