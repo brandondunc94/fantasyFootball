@@ -248,12 +248,12 @@
 
     var ctx = document.getElementById('pointsChart').getContext('2d');
     var userData = []
-    pointsData.forEach((item) => {
-        var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+    var colors = ['#ffd700', '#bec2cb', '#cd7f32', '#add9fe', '#70bdfd', '#33a1fd', '#2880ca', '#1e6097', '#144065', '#0a2032', '#051019', '#000000', '#052000', '#0a4101', '#0f6202', '#148303', '#19a404']
+    pointsData.forEach((item, index) => {
         userData.push({
             label: item.username,
-            borderColor: randomColor,
-            backgroundColor: randomColor,
+            borderColor: colors[index],
+            backgroundColor: colors[index],
             data: item.weeklyScores
         })
     });
