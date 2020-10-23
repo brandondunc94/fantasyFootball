@@ -110,7 +110,7 @@
                             {% localtime off %} {% if leagueMessages %} {% for currentMessage in leagueMessages %}
                             <div class="media text-muted pl-3 pr-3 pt-3">
                                 <p class="media-body border-bottom border-gray">
-                                    <strong class="d-block"><small class="d-block">{{ currentMessage.createDate|date:"D n/d/y" }}</small>{{ currentMessage.username }} - {{ currentMessage.message }}
+                                    <strong class="d-block"><small class="d-block">{{ currentMessage.createDate|date:"D n/d/y" }}</small>{{ currentMessage.username }} - {{ currentMessage.message }}</strong>
                                 </p>
                             </div>
                             {% endfor %} {% else %}
