@@ -157,6 +157,9 @@ a.league-menu-item:hover {
     a.league-menu-item {
         border-radius: 0px;
     }
+    .team-logo {
+        width: 50px;
+    }
 }
 
 @media (min-width: 768px) {
@@ -164,5 +167,8 @@ a.league-menu-item:hover {
     .tabs {
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
+    }
+    .team-logo {
+        width: 70px;
     }
 }
