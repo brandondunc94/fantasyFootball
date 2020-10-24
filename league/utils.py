@@ -60,6 +60,14 @@ def getActiveSeason():
         
     return activeSeason
 
+def getActiveWeekId():
+    try:
+        activeWeekId = getActiveSeason().currentActiveWeek
+    except:
+        activeWeekId = 0
+    
+    return activeWeekId
+    
 #Returns string list of week ids for active season
 def getWeekIds():
     weekObjects = Week.objects.filter(season=getActiveSeason())

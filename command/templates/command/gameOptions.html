@@ -10,12 +10,13 @@
                 </button>
                 <div class="dropdown-menu">
                     {% for week in weeks %}
-                    <a class="dropdown-item" href="/command/{{ season.year }}/{{ week.id}}/">Week {{ week.id }}</a> {% endfor %}
+                    <a class="dropdown-item" href="/command/{{ season.year }}/games/{{ week.id}}/">Week {{ week.id }}</a> {% endfor %}
                 </div>
             </div>
         </div>
         <div class="col-lg-6">
-            <input type="submit" class="btn btn-green btn-sm mt-1 save-button" value="Save Scores" />
+            <input type="submit" class="btn btn-green btn-sm mt-1 save-button" value="Save" />
+            <input type="submit" class="btn btn-green btn-sm mt-1 activate-week-button" value="Activate Week" />
         </div>
     </div>
     <div class="row">

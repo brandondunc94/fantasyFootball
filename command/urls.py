@@ -13,6 +13,8 @@ urlpatterns = [
     path('addGame/', views.addGame, name="AJAX - Create new game for current selected season"),
     path('deleteGame/', views.deleteGame, name="AJAX - Delete game"),
     path('saveScoreSpread/', views.saveScoreSpread, name="AJAX - Save game score and game spreads and score players"),
+    path('activateWeek/', views.activateWeek, name="AJAX - Save game score and game spreads and score players"),
     path('<seasonYear>/', views.seasonSettings, name="Command Central with specific season"),
-    path('<seasonYear>/<int:weekId>/', views.gameOptionsPage, name="Lock and score games"),
+    path('<seasonYear>/games/', views.gameOptionsPage, name="Lock and score games"),
+    path('<seasonYear>/games/<int:weekId>/', views.gameOptionsPage, name="Lock and score games"),
 ]

@@ -9,7 +9,7 @@ from fantasyFootball import settings
 import pytz
 
 @login_required
-def dashboard(request, weekId="7", leagueName=""):
+def dashboard(request, weekId='', leagueName=''):
     
     #Do a lookup to find all leagues for current user. If none, default to home page with no data
     userLeagues = leagueUtils.getUserLeagues(request.user)
@@ -25,9 +25,11 @@ def dashboard(request, weekId="7", leagueName=""):
         #Set current league to user's active league in Profile
         leagueUtils.setUserActiveLeague(request.user, activeLeague)
     
-    #Get current active season
+    #Get current active season and active week
     activeSeason = leagueUtils.getActiveSeason()
-    
+    if weekId == '': #Use weekId passed in if user wants to view a different week than the active week
+        weekId = leagueUtils.getActiveWeekId()
+
     #Get all users for active league
     leagueMembers = LeagueMembership.objects.filter(league=activeLeague).order_by('-score')
     leagueUserData = []

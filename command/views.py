@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.admin.views.decorators import staff_member_required
 from league.models import League, LeagueMembership, Season, Week, Game, Team, GameChoice
-from league.utils import getUserLeagues, createLeagueNotification
+from league.utils import getUserLeagues, createLeagueNotification, getActiveWeekId
 import json, smtplib, ssl
 from datetime import datetime
 import pytz
@@ -18,7 +18,7 @@ def commandHome(request):
     return render(request, 'command/command.html', {'seasons': seasons})
 
 @staff_member_required
-def seasonSettings(request, seasonYear=""):
+def seasonSettings(request, seasonYear=''):
 
     season = Season.objects.get(year=seasonYear)
     teams = Team.objects.all()
@@ -27,7 +27,7 @@ def seasonSettings(request, seasonYear=""):
     return render(request, 'command/seasonSettings.html', {'season': season, 'teams': teams, 'weeks': weeks})
 
 @staff_member_required
-def gameOptionsPage(request, seasonYear="2019-2020", weekId="1"):
+def gameOptionsPage(request, seasonYear='2019-2020', weekId=''):
 
     #Get season object for season passed in
     season = Season.objects.get(year=seasonYear)
@@ -35,9 +35,11 @@ def gameOptionsPage(request, seasonYear="2019-2020", weekId="1"):
     #Get all weeks for current season
     weeks = Week.objects.filter(season=season)
 
-    #Try to fetch all games for week and season passed in
+    #Get active week if the admin has not passed in a week id
+    if weekId == '':
+        weekId = getActiveWeekId()
     currentWeek = Week.objects.get(id=weekId, season=season)
-
+    
     #Get game data for weekId passed in
     currentWeekGames = Game.objects.filter(week=currentWeek).order_by('id')
     
@@ -62,6 +64,7 @@ def gameOptionsPage(request, seasonYear="2019-2020", weekId="1"):
 
     return render(request, 'command/gameOptions.html', {'gameData': gameData, 'weekId': weekId, 'season' : season, 'weeks': weeks})
 
+@staff_member_required
 def leagueManage(request):
     leagues = League.objects.all()
     return render(request, 'command/leagueManage.html', {'leagues': leagues})
@@ -418,6 +421,25 @@ def deleteLeague(request):
     except:
         status = False
         data = {
+            'status': status
+        }
+
+    return JsonResponse(data)
+
+#AJAX CALL
+def activateWeek(request):
+    seasonYear = request.GET.get('season', None)
+    week = request.GET.get('week', None)
+
+    try:
+        season = Season.objects.get(year=seasonYear)
+        season.currentActiveWeek = week
+        season.save()
+        status = 'SUCCESS'
+    except:
+        status = 'FAILED'
+
+    data = {
             'status': status
         }
 
