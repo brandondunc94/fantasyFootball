@@ -22,7 +22,8 @@ $(".lock-button").click(function() {
                 unlockButtonObject.prop("disabled", false);
                 unlockButtonObject.prop('value', 'Unlock');
             } else {
-                alert("Unable to lock game.");
+
+                $.notify("Unable to lock game.", "error");
             }
         }
     });
@@ -53,7 +54,7 @@ $(".unlock-button").click(function() {
                 lockButtonObject.prop("disabled", false);
                 lockButtonObject.prop('value', 'Lock');
             } else {
-                alert("Unable to unlock game.");
+                $.notify("Unable to unlock game", "error");
             }
         }
     });
@@ -64,7 +65,6 @@ $(".save-button").click(function() {
     var seasonYear = $('#seasonId').attr('value');
     var weekId = $('#weekId').attr('value');
     var statusFlag = true;
-    /*var saveButtonObject = $(this);*/
 
     $(".score-input").each(function(index) {
         var homeScore = $(this).children().children('.home-score').val();
@@ -98,9 +98,9 @@ $(".save-button").click(function() {
     });
 
     if (statusFlag == true) {
-        alert("All game scores saved successfully.");
+        $.notify("All game scores saved successfully.", "success");
     } else {
-        alert("Unable to save all game scores.");
+        $.notify("Unable to save all game scores.", "error");
     }
 
 });
@@ -121,9 +121,30 @@ $(".delete-button").click(function() {
         dataType: 'json',
         success: function(data) {
             if (data.status == true) {
-                alert("Game deleted successfully.");
+                $.notify("Game deleted successfully.", "success");
             } else {
-                alert("Unable to delete game.");
+                $.notify("Unable to delete game.", "error");
+            }
+        }
+    });
+});
+
+/*Activate current week to be the default*/
+$(".activate-week-button").click(function() {
+    var seasonYear = $('#seasonId').attr('value');
+    var weekId = $('#weekId').attr('value');
+    $.ajax({
+        url: '/command/activateWeek/',
+        data: {
+            'season': seasonYear,
+            'week': weekId,
+        },
+        dataType: 'json',
+        success: function(data) {
+            if (data.status == "FAILED") {
+                $.notify("Unable to activate week", "error");
+            } else {
+                $.notify("Week " + weekId + " has been activated.", "success");
             }
         }
     });
