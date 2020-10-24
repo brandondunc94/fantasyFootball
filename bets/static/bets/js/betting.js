@@ -61,7 +61,6 @@ $("#saveBets").click(function() {
             }));
     });
     if (status == true) {
-        /*alert("Bets saved successfully.");*/
         $.notify("Bets saved successfully", "success");
     } else {
         $.notify("Unable to save bets. Please try again later.", "error");
