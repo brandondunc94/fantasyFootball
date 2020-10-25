@@ -146,7 +146,7 @@ def dashboard(request, weekId='', leagueName=''):
         gameData.append(
         {
             'game' : currentGame,
-            'date' : datetime.strftime(convertTimeToLocalTimezone(request.user, currentGame.dateTime), '%b %#d, %Y'),
+            'date' : datetime.strftime(convertTimeToLocalTimezone(request.user, currentGame.dateTime), '%a %m/%d/%y'),
             'time' : datetime.strftime(convertTimeToLocalTimezone(request.user, currentGame.dateTime), '%#I:%M %p'),
             'gameChoice' : currentGameChoice,
             'upcomingPickWarning' : upcomingPickWarning,
