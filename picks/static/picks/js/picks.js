@@ -72,7 +72,7 @@ function savePick(gameId, pick) {
                     if (existingBet.length > 0) {
                         gameRow.children('.pick').find('img').attr('src', '/static/media/' + pick + '.png');
                     } else {
-                        gameRow.children('.pick').append(`<img src="/static/media/` + pick + `.png" width="50" height="50">`);
+                        gameRow.children('.pick').append(`<img class=\"team-logo\"src="/static/media/` + pick + `.png">`);
                     }
 
                 }

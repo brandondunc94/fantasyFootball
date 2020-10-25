@@ -51,7 +51,7 @@ $("#saveBets").click(function() {
                                 gameRow.children('.bet').find('img').attr('src', '/static/media/' + pick + '.png');
                                 gameRow.children('.bet').find('h6').html('(' + betSpread + ') $' + betAmount);
                             } else {
-                                gameRow.children('.bet').append(`<img class=\"\" src=\"/static/media/` + pick + `.png\" width=\"50\" height=\"50\"> <h6>(` + betSpread + `) $` + betAmount + `</h6>`);
+                                gameRow.children('.bet').append(`<img class=\"team-logo\" src=\"/static/media/` + pick + `.png\"> <h6>(` + betSpread + `) $` + betAmount + `</h6>`);
                             }
 
                         }
