@@ -1,5 +1,14 @@
 $(document).ready(function() {
-    /*Auto scroll to botton of message board*/
+
+    //Use last accessed tab cookie to determine which tab is active
+    var lastAccessedTab = getCookie('lastAccessedTab');
+    if (lastAccessedTab) {
+        $('#' + lastAccessedTab).addClass('active');
+    } else {
+        $("#nav-league-tab").addClass('active');
+    }
+
+    //Auto scroll to botton of message board
     $(".message-board").animate({
         scrollTop: $('.message-board')[0].scrollHeight - $('.message-board')[0].clientHeight
     }, 1000);
@@ -42,6 +51,8 @@ $(".dashboard-menu-item").click(function() {
 
         }
     });
+
+    setCookie('lastAccessedTab', $(this).attr('id'));
 });
 
 
@@ -61,17 +72,7 @@ $(".post-button").click(function() {
             type: 'POST',
             dataType: 'json',
             success: function(data) {
-                if (data.status == 'SUCCESS') {
-                    /*Append message to message board*/
-                    var username = $('.username-nav').html().replace("Welcome, ", "");
-                    var newMessage = `
-                                    <div class='media text-muted pt-3'>
-                                    <p class='media-body pb-3 mb-0 small lh-125 border-bottom border-gray'><strong class='d-block text-gray-dark'>@` + username + `</strong>` + message + `</p>
-                                    </div>`
-                    $('.messages-div').append(newMessage);
-                    $('#messageBox').val("");
-                    $('.message-board').scrollTop($('.message-board')[0].scrollHeight - $('.message-board')[0].clientHeight);
-                }
+                if (data.status == 'SUCCESS') {}
             }
         });
     }
@@ -88,8 +89,25 @@ $(".collapse-col").click(function() {
     //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
     cardContent.slideToggle(0, function() {
         //execute this after slideToggle is done
-        //remove max-height-650 so the the column no longer takes up its height
-
     });
 
 });
+
+function setCookie(cname, cvalue) {
+    document.cookie = cname + "=" + cvalue + ";";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}

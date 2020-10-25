@@ -8,10 +8,10 @@
 <div class="navbar-dashboard shadow">
     <nav class="nav-fill w-100">
         <div class="nav main-nav" id="nav-tab" role="tablist">
-            <a class="nav-item dashboard-menu-item nav-link  {% if lastAccessedPage == None or lastAccessedPage == 'League' %} active {% endif %}" id="nav-league-tab" data-toggle="tab" href="#nav-league" role="tab" aria-controls="nav-league" aria-selected="false">League</a>
-            <a class="nav-item dashboard-menu-item nav-link {% if lastAccessedPage == 'Games' %} active {% endif %}" id="nav-games-tab" data-toggle="tab" href="#nav-games" role="tab" aria-controls="nav-games" aria-selected="true">Games</a>
-            <a class="nav-item dashboard-menu-item nav-link {% if lastAccessedPage == 'My Picks' %} active {% endif %}" id="nav-picks-tab" data-toggle="tab" href="#nav-picks" role="tab" aria-controls="nav-picks" aria-selected="false">My Picks</a>
-            <a class="nav-item dashboard-menu-item nav-link {% if lastAccessedPage == 'My Bets' %} active {% endif %}" id="nav-bets-tab" data-toggle="tab" href="#nav-bets" role="tab" aria-controls="nav-bets" aria-selected="false">My Bets</a>
+            <a class="nav-item dashboard-menu-item nav-link" id="nav-league-tab" data-toggle="tab" href="#nav-league" role="tab" aria-controls="nav-league" aria-selected="false">League</a>
+            <a class="nav-item dashboard-menu-item nav-link" id="nav-games-tab" data-toggle="tab" href="#nav-games" role="tab" aria-controls="nav-games" aria-selected="false">Games</a>
+            <a class="nav-item dashboard-menu-item nav-link" id="nav-picks-tab" data-toggle="tab" href="#nav-picks" role="tab" aria-controls="nav-picks" aria-selected="false">My Picks</a>
+            <a class="nav-item dashboard-menu-item nav-link" id="nav-bets-tab" data-toggle="tab" href="#nav-bets" role="tab" aria-controls="nav-bets" aria-selected="false">My Bets</a>
         </div>
     </nav>
 </div>
@@ -120,11 +120,11 @@
                                 </p>
                             </div>
                             {% endif %} {% endlocaltime %}
-                            <div class="media text-muted">
-                                <p class="media-body text-center">
-                                    <strong class="d-block">Please reload the page to see new messages.</strong>
-                                </p>
-                            </div>
+                        </div>
+                        <div class="media text-muted">
+                            <p class="media-body text-center">
+                                <strong class="d-block">Please reload the page to see new messages.</strong>
+                            </p>
                         </div>
                         <div class="input-group mt-auto p-2">
                             {% csrf_token %}
