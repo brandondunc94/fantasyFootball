@@ -6,6 +6,7 @@ $(document).ready(function() {
         $('#' + lastAccessedTab).addClass('active');
     } else {
         $("#nav-league-tab").addClass('active');
+        setCookie('lastAccessedTab', 'nav-league-tab');
     }
 
     //Auto scroll to botton of message board
@@ -38,20 +39,6 @@ $("#messageBox").keypress(function(event) {
 
 /*Save last accessed page*/
 $(".dashboard-menu-item").click(function() {
-
-    var lastSelectedTab = $(this).html();
-
-    $.ajax({
-        url: '/account/lastAccess/',
-        data: {
-            'lastAccessedPage': lastSelectedTab
-        },
-        dataType: 'json',
-        success: function(data) {
-
-        }
-    });
-
     setCookie('lastAccessedTab', $(this).attr('id'));
 });
 
