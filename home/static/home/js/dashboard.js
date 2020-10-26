@@ -4,8 +4,10 @@ $(document).ready(function() {
     var lastAccessedTab = getCookie('lastAccessedTab');
     if (lastAccessedTab) {
         $('#' + lastAccessedTab).addClass('active');
+        $('#' + lastAccessedTab.replace('-tab', "")).addClass('active show');
     } else {
         $("#nav-league-tab").addClass('active');
+        $("#nav-league").addClass('active show');
         setCookie('lastAccessedTab', 'nav-league-tab');
     }
 

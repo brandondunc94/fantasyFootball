@@ -30,12 +30,12 @@
     </div>
     <div class="tab-content" id="nav-tabContent">
         <!-- League Home tab -->
-        <div class="tab-pane fade rounded {% if lastAccessedPage == None or lastAccessedPage == 'League' %} active show {% endif %}" id="nav-league" role="tabpanel" aria-labelledby="nav-league-tab">
+        <div class="tab-pane fade rounded" id="nav-league" role="tabpanel" aria-labelledby="nav-league-tab">
             <div class="row mb-3">
                 <div class="col-xl-4 col-md-6 mt-3">
                     <div class="card-header collapse-col text-center">
                         <div class="d-flex justify-content-between">
-                            <strong>Leaderboard</strong>
+                            <strong>Standings</strong>
                             <i class="arrow"></i>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                 <div class="col-xl-4 col-md-6 mt-3">
                     <div class="card-header collapse-col text-center">
                         <div class="d-flex justify-content-between">
-                            <strong>League News</strong>
+                            <strong>News</strong>
                             <i class="arrow"></i>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                 <div class="col-xl-4 mt-3">
                     <div class="card-header collapse-col text-center">
                         <div class="d-flex justify-content-between">
-                            <strong>Message Board</strong>
+                            <strong>Messages</strong>
                             <i class="arrow"></i>
                         </div>
                     </div>
@@ -146,7 +146,7 @@
             </div>
         </div>
         <!-- Game Summary tab -->
-        <div class="tab-pane fade  {% if lastAccessedPage == 'Games' %} active show {% endif %}" id="nav-games" role="tabpanel" aria-labelledby="nav-games-tab">
+        <div class="tab-pane fade" id="nav-games" role="tabpanel" aria-labelledby="nav-games-tab">
             {% if gameData %}
             <div class="row no-gutters">
                 <div class="col-6 text-center align-middle">
@@ -229,11 +229,11 @@
             {% endif %}
         </div>
         <!-- Picks tab -->
-        <div class="tab-pane fade rounded m-1 {% if lastAccessedPage == 'My Picks' %} active show {% endif %}" id="nav-picks" role="tabpanel" aria-labelledby="nav-picks-tab">
+        <div class="tab-pane fade rounded m-1" id="nav-picks" role="tabpanel" aria-labelledby="nav-picks-tab">
             {% include "picks/picks.html" %}
         </div>
         <!-- Bets tab -->
-        <div class="tab-pane fade rounded m-1 {% if lastAccessedPage == 'My Bets' %} active show {% endif %}" id="nav-bets" role="tabpanel" aria-labelledby="nav-bets-tab">
+        <div class="tab-pane fade rounded m-1" id="nav-bets" role="tabpanel" aria-labelledby="nav-bets-tab">
             {% include "bets/bets.html" %}
         </div>
     </div>
