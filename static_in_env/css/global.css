@@ -18,6 +18,10 @@
     color: #292727;
 }
 
+a {
+    color: #33A1FD;
+}
+
 
 /*Button colors*/
 
@@ -130,7 +134,6 @@ a.nav-link {
 }
 
 .nav-league {
-    /*background-color: #33A1FD;*/
     border-radius: 5px;
     border-style: solid;
     border-width: 1px;
