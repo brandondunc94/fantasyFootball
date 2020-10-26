@@ -4,11 +4,12 @@ from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
+from django.core.mail import send_mail
+from command.utils import sendEmailToAdmin
 from .forms import RegisterForm
 from account.models import Profile
 from league.models import LeagueMembership, Team
-from django.core.mail import send_mail
-from command.utils import sendEmailToAdmin
+from home.views import dashboard
 
 # Create your views here.
 
@@ -28,6 +29,28 @@ def account_page(request):
         'profile': userProfile,
         'teams': allTeams,
     })
+
+@login_required
+def public_account_page(request, username):
+    if username:
+        try:
+            requestedUser = User.objects.get(username=username)
+            leagueMemberships = LeagueMembership.objects.filter(user=requestedUser)
+            userLeagues = [leagueMembership.league for leagueMembership in leagueMemberships]
+            userProfile = Profile.objects.get(user=requestedUser)
+            return render(request, 'account/publicProfile.html', 
+            {
+                'username': username,
+                'leagueMemberships': leagueMemberships,
+                'activeLeague': userProfile.currentActiveLeague,
+                'userLeagues': userLeagues,
+                'profile': userProfile,
+            })
+        except:
+            #Could not retrieve user by username, default to the dashboard
+            return dashboard(request)
+    else:
+        return dashboard(request)
 
 #AJAX CALL
 def update_profile(request):

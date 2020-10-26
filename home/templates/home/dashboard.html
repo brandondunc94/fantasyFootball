@@ -62,7 +62,8 @@
                                         {% else %}
                                         <td>{{ forloop.counter }}</td>
                                         {% endif %}
-                                        <td>{{ currentUser.username }}</td>
+                                        <td>
+                                            <a href="/account/{{ currentUser.username }}/">{{ currentUser.username }}</a></td>
                                         <td>{{ currentUser.totalScore }}</td>
                                         {% if currentUser.weeklyGain > 0 %}
                                         <td class="text-success">+{{ currentUser.weeklyGain }}</td>
