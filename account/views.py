@@ -33,22 +33,25 @@ def account_page(request):
 @login_required
 def public_account_page(request, username):
     if username:
-        try:
-            requestedUser = User.objects.get(username=username)
-            leagueMemberships = LeagueMembership.objects.filter(user=requestedUser)
-            userLeagues = [leagueMembership.league for leagueMembership in leagueMemberships]
-            userProfile = Profile.objects.get(user=requestedUser)
-            return render(request, 'account/publicProfile.html', 
-            {
-                'username': username,
-                'leagueMemberships': leagueMemberships,
-                'activeLeague': userProfile.currentActiveLeague,
-                'userLeagues': userLeagues,
-                'profile': userProfile,
-            })
-        except:
-            #Could not retrieve user by username, default to the dashboard
-            return dashboard(request)
+        if username == request.user.username:
+            return account_page(request) #Send user to their own profile page
+        else:
+            try:
+                requestedUser = User.objects.get(username=username)
+                leagueMemberships = LeagueMembership.objects.filter(user=requestedUser)
+                userLeagues = [leagueMembership.league for leagueMembership in leagueMemberships]
+                userProfile = Profile.objects.get(user=requestedUser)
+                return render(request, 'account/publicProfile.html', 
+                {
+                    'username': username,
+                    'leagueMemberships': leagueMemberships,
+                    'activeLeague': userProfile.currentActiveLeague,
+                    'userLeagues': userLeagues,
+                    'profile': userProfile,
+                })
+            except:
+                #Could not retrieve user by username, default to the dashboard
+                return dashboard(request)
     else:
         return dashboard(request)
 
