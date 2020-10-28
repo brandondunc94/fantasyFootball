@@ -81,7 +81,7 @@ $(".bet-box").click(function() {
         oppositeDiv.removeClass('bet-box-unselected')
 
         /*Set bet amount to 0*/
-        $(this).siblings().children('.bet-amount-input').prop('disabled', true).val('').attr('placeholder', 'Bet Amount');
+        $(this).siblings().children('.bet-amount-input').prop('disabled', true).val('').attr('placeholder', 'Bet');
 
         updatePointsAvailable(calculatePointsAvailable());
     } else {

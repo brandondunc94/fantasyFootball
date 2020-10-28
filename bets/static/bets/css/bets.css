@@ -5,6 +5,7 @@
     cursor: pointer;
     border-radius: 5px;
     box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: 2px solid #ffffff;
 }
 
 .bet-box-locked {
@@ -22,6 +23,7 @@
 .bet-box-selected {
     background-color: #33A1FD;
     color: #ffffff;
+    border: 2px solid #2066a1;
 }
 
 
@@ -33,6 +35,10 @@
     border: 2px solid #19A404;
     border-radius: 5px;
     font-size: 1em;
+}
+
+.bet-amount-input:disabled {
+    border: 2px solid grey;
 }
 
 .bet-amount-input:focus {
@@ -54,8 +60,8 @@
 .float-div {
     z-index: 999;
     position: relative;
-    background-color: #4d4b4b;
-    border: 2px solid #19A404;
+    background-color: #292727;
+    border: 2px solid #33A1FD;
     border-radius: 5px;
     color: #ffffff;
     padding: 5px;
