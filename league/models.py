@@ -26,7 +26,7 @@ class Season(models.Model):
 class Week(models.Model):
     season = models.ForeignKey(Season,on_delete=models.CASCADE, default=None)
     altName = models.TextField(max_length=100, default="Regular Season")
-    picksLocked = models.BooleanField(default=False)
+    isLocked = models.BooleanField(default=True)
 
 class Team(models.Model):
     name = models.TextField(primary_key=True, max_length=50, blank=True)
@@ -50,6 +50,7 @@ class Game(models.Model):
     awaySpread = models.FloatField(default=0)
     users = models.ManyToManyField(User, through="GameChoice")
     pickLocked = models.BooleanField(default=False)
+    isComplete = models.BooleanField(default=False)
 
 #This model governs the relationship between a game and a user and who they picked/betted on to win the game
 class GameChoice(models.Model):
