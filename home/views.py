@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from datetime import datetime, timedelta
 from league import utils as leagueUtils
 from league.models import League, Team, LeagueMembership, Season, Week, Game, GameChoice, LeagueMessage, LeagueNotification, LeagueMembershipRequest
+from bets.utils import determineCorrectBetFlag
 from account.utils import convertTimeToLocalTimezone, getUserProfile
 from fantasyFootball import settings
 import pytz
@@ -143,12 +144,18 @@ def dashboard(request, weekId='', leagueName=''):
         else:
             gameActive = False
 
+        if currentGame.pickLocked:
+            inProgressCorrectBetFlag = determineCorrectBetFlag(game=currentGame,gameChoice=currentGameChoice)
+        else:
+            inProgressCorrectBetFlag = False
+            
         gameData.append(
         {
             'game' : currentGame,
             'date' : datetime.strftime(convertTimeToLocalTimezone(request.user, currentGame.dateTime), '%a %m/%d/%y'),
             'time' : datetime.strftime(convertTimeToLocalTimezone(request.user, currentGame.dateTime), '%#I:%M %p'),
             'gameChoice' : currentGameChoice,
+            'inProgressCorrectBetFlag': inProgressCorrectBetFlag,
             'upcomingPickWarning' : upcomingPickWarning,
             'gameActive' : gameActive
         })
