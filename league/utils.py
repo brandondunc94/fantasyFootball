@@ -71,7 +71,7 @@ def getActiveWeekId():
     
 #Returns string list of week ids for active season
 def getWeekIds():
-    weekObjects = Week.objects.filter(season=getActiveSeason())
+    weekObjects = Week.objects.filter(season=getActiveSeason()).order_by('id')
     weeks = []
     for week in weekObjects:
         weeks.append(week.id)
@@ -173,7 +173,7 @@ def updateGame(game, homeSpread='', awaySpread='', gameDate='', gameTime='', tim
                 game.homeScore = 0
                 game.awayScore = 0
 
-        #If game is complete, set winner/loser & score players
+        #If game is marked as complete, set winner/loser & score players
         if isComplete:
             game.isComplete = True
             determineWinner(game)
@@ -222,9 +222,9 @@ def scoreGame(game):
         for currentPick in picks:
             membership = LeagueMembership.objects.get(user=currentUser, league=currentPick.league)
             
-            if currentPick.scoredFlag == None: #This game choice has not yet been scored
+            if currentPick.scoredFlag == None: #This game choice object has not yet been scored
                 currentPick.scoredFlag = True #Mark this game as scored
-                #Give player 25 points if they got this game correct 
+                #Give player 25 points if they got this pick correct 
                 if currentPick.pickWinner == game.winner:
                     membership.score += 25
                     currentPick.correctPickFlag = True
@@ -235,47 +235,43 @@ def scoreGame(game):
                         if game.homeSpread < game.awaySpread: #Home Team was supposed to win
                             if game.homeScore - game.awayScore >= game.awaySpread: #Home team won by their spread, pay player
                                 currentPick.amountWon += currentPick.betAmount * .9
-                                membership.score += currentPick.amountWon
                                 currentPick.correctBetFlag = True
                             else:   #Home team did not win by their spread, take player's points
                                 currentPick.amountWon -= currentPick.betAmount
-                                membership.score += currentPick.amountWon #This will be negative
                                 currentPick.correctBetFlag = False
                         elif game.awaySpread < game.homeSpread: #Home team was supposed to lose
                             if game.awayScore - game.homeScore <= game.homeSpread: #Home team lost within their spread margin or won, pay player
                                 currentPick.amountWon += currentPick.betAmount * .9
-                                membership.score += currentPick.amountWon
                                 currentPick.correctBetFlag = True
                             else:   #Home team lost by too many points, take player's points
                                 currentPick.amountWon -= currentPick.betAmount
-                                membership.score += currentPick.amountWon #This will be negative
                                 currentPick.correctBetFlag = False
                     else: #User selected away team spread
                         if game.awaySpread < game.homeSpread: #Away Team was supposed to win
                             if game.awayScore - game.homeScore >= game.homeSpread: #Away team won by their spread, pay player
                                 currentPick.amountWon += currentPick.betAmount * .9
-                                membership.score += currentPick.amountWon
                                 currentPick.correctBetFlag = True
                             else:   #Away team did not win by their spread, take player's points
                                 currentPick.amountWon -= currentPick.betAmount
-                                membership.score += currentPick.amountWon #This will be negative
                                 currentPick.correctBetFlag = False
                         elif game.homeSpread < game.awaySpread: #Away team was supposed to lose
                             if game.homeScore - game.awayScore <= game.awaySpread: #Away team lost within their spread margin or won, pay player
                                 currentPick.amountWon += currentPick.betAmount * .9
-                                membership.score += currentPick.amountWon
                                 currentPick.correctBetFlag = True
                             else:   #Away team lost by too many points, take player's points
                                 currentPick.amountWon -= currentPick.betAmount
-                                membership.score += currentPick.amountWon #This will be negative
                                 currentPick.correctBetFlag = False
+
+                    #Add amount won to players score, this can be either positive or negative points
+                    membership.score = membership.score + currentPick.amountWon
+
                     if currentPick.amountWon > 100:
                         #Player scored a boat load of points, create a league notification about it
                         message = 'Score Update - ' + currentUser.username + " scored " + str(int(currentPick.amountWon)) + " points by betting on the " + currentPick.betWinner.name + "!"
                         createLeagueNotification(currentPick.league.name, message)
                         
-            membership.save()
-            currentPick.save()
+                membership.save()
+                currentPick.save()
 
 def convertGameDateTimeToDB(gameDate, gameTime, timezone):
     #Convert gameDateTime to a datetime object in format yyyy-MM-dd HH:mm
