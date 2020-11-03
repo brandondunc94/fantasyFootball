@@ -69,7 +69,7 @@
                         <div class="form-group row">
                             <label for="favoriteTeam" class="col-sm-2 col-form-label">Favorite Team</label>
                             <div class="col-sm-10">
-                                <select class="form-control" readonly id="favoriteTeam">
+                                <select class="form-control" disabled id="favoriteTeam">
                                     <option>{{ profile.favoriteTeam.name }}</option>
                                     {% for currentTeam in teams %}
                                     <option>{{ currentTeam.name }}</option>

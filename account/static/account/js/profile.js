@@ -3,7 +3,7 @@ $("#edit-button").click(function() {
     $("#firstName").attr("readonly", false);
     $("#lastName").attr("readonly", false);
     $("#email").attr("readonly", false);
-    $("#favoriteTeam").attr("readonly", false);
+    $("#favoriteTeam").attr("disabled", false);
 
     $(this).attr('style', 'display:none;');
     $("#save-button").attr("style", "");
@@ -38,7 +38,7 @@ $("#save-button").click(function() {
     $("#firstName").attr("readonly", true);
     $("#lastName").attr("readonly", true);
     $("#email").attr("readonly", true);
-    $("#favoriteTeam").attr("readonly", true);
+    $("#favoriteTeam").attr("disabled", true);
     $("#favTeamImage").attr("src", "/static/media/" + updatedFavTeam + ".png");
 
     $(this).attr('style', 'display:none;');
