@@ -40,6 +40,18 @@ a.dashboard-menu-item {
     color: #ffffff;
 }
 
+.team-logo.correct {
+    border: 2px solid green;
+    border-radius: 5px;
+    background-color: #94fc84;
+}
+
+.team-logo.incorrect {
+    border: 2px solid red;
+    border-radius: 5px;
+    background-color: #ff7676;
+}
+
 
 /*League Page Style*/
 
