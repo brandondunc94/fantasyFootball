@@ -41,36 +41,35 @@ def getWeekSchedule():
 def getInProgressScores():
     
     weekGames = queryApi(querystring={"status":"in progress","league":"NFL","date":date.today()})
-
+    status = True
     #Get current active week
     weekId = leagueUtils.getActiveWeekId()
     for currentGame in weekGames['results']:
-
-        homeTeamName = currentGame['teams']['home']['mascot'] #Ex. 'Seahawks'
-        awayTeamName = currentGame['teams']['away']['mascot']
-
-        #Handle Redskins/ Football Team name change
-        if homeTeamName == 'Football Team':
-            homeTeamName = 'Redskins'
-        
         try:
-            homeScore = currentGame['scoreboard']['score']['home']
-            awayScore = currentGame['scoreboard']['score']['away']
-        except:
-            homeScore = 0
-            awayScore = 0
-        try:
-            quarter = currentGame['scoreboard']['currentPeriod']
-            quarterTimeRemaining = currentGame['scoreboard']['periodTimeRemaining']
-        except:
-            quarter = '1'
-            quarterTimeRemaining = '15:00'
+            homeTeamName = currentGame['teams']['home']['mascot'] #Ex. 'Seahawks'
+            awayTeamName = currentGame['teams']['away']['mascot']
 
-        game = leagueUtils.getGame(homeTeamName=homeTeamName, awayTeamName=awayTeamName, weekId=weekId)
-        leagueUtils.updateGame(game=game, homeScore=homeScore, awayScore=awayScore, quarter=quarter, quarterTimeRemaining=quarterTimeRemaining, isComplete=False)
-    
-    print('In progress games have been retrieved and updated.')
-    status = 'SUCCESS'
+            #Handle Redskins/ Football Team name change
+            if homeTeamName == 'Football Team':
+                homeTeamName = 'Redskins'
+            
+            try:
+                homeScore = currentGame['scoreboard']['score']['home']
+                awayScore = currentGame['scoreboard']['score']['away']
+            except:
+                homeScore = 0
+                awayScore = 0
+            try:
+                quarter = currentGame['scoreboard']['currentPeriod']
+                quarterTimeRemaining = currentGame['scoreboard']['periodTimeRemaining']
+            except:
+                quarter = '1'
+                quarterTimeRemaining = '15:00'
+
+            game = leagueUtils.getGame(homeTeamName=homeTeamName, awayTeamName=awayTeamName, weekId=weekId)
+            leagueUtils.updateGame(game=game, homeScore=homeScore, awayScore=awayScore, quarter=quarter, quarterTimeRemaining=quarterTimeRemaining, isComplete=False)
+        except:
+            status = False
     return status
 
 def getFinalLiveScores():
@@ -78,34 +77,31 @@ def getFinalLiveScores():
 
     #Get current active week
     weekId = leagueUtils.getActiveWeekId()
+    status = True
     for currentGame in weekGames['results']:
-
-        homeTeamName = currentGame['teams']['home']['mascot'] #Ex. 'Seahawks'
-        awayTeamName = currentGame['teams']['away']['mascot']
-
-        #Handle Redskins/ Football Team name change
-        if homeTeamName == 'Football Team':
-            homeTeamName = 'Redskins'
-        
         try:
+            homeTeamName = currentGame['teams']['home']['mascot'] #Ex. 'Seahawks'
+            awayTeamName = currentGame['teams']['away']['mascot']
+
+            #Handle Redskins/ Football Team name change
+            if homeTeamName == 'Football Team':
+                homeTeamName = 'Redskins'
+            
             homeScore = currentGame['scoreboard']['score']['home']
             awayScore = currentGame['scoreboard']['score']['away']
+
+            try:
+                quarter = currentGame['scoreboard']['currentPeriod']
+                quarterTimeRemaining = currentGame['scoreboard']['periodTimeRemaining']
+            except:
+                quarter = 4
+                quarterTimeRemaining='00:00'
+
+            game = leagueUtils.getGame(homeTeamName=homeTeamName, awayTeamName=awayTeamName, weekId=weekId)
+            leagueUtils.updateGame(game=game, homeScore=homeScore, awayScore=awayScore, quarter=quarter, quarterTimeRemaining=quarterTimeRemaining, isComplete=True)
         except:
-            homeScore = 0
-            awayScore = 0
+            status = False #Failed to either extract data from api response or retrieve/update the game object
 
-        try:
-            quarter = currentGame['scoreboard']['currentPeriod']
-            quarterTimeRemaining = currentGame['scoreboard']['periodTimeRemaining']
-        except:
-            quarter = 4
-            quarterTimeRemaining='00:00'
-
-        game = leagueUtils.getGame(homeTeamName=homeTeamName, awayTeamName=awayTeamName, weekId=weekId)
-        leagueUtils.updateGame(game=game, homeScore=homeScore, awayScore=awayScore, quarter=quarter, quarterTimeRemaining=quarterTimeRemaining, isComplete=True)
-
-    print('Final scores retrieved and players have been scored.')
-    status = 'SUCCESS'
     return status
 
 def queryApi(querystring):
@@ -125,7 +121,9 @@ def getWeekDatesList():
     today = date.today()
 
     weekDates = []
-    for x in range(1,8):
-        weekDates.append(today+ timedelta(days=x))
-    
+    #Get dates in pairs of two of next 6 days
+    weekDates.append((today + timedelta(days=1)).strftime("%Y-%m-%d") + ',' + (today + timedelta(days=2)).strftime("%Y-%m-%d"))
+    weekDates.append((today + timedelta(days=3)).strftime("%Y-%m-%d") + ',' + (today + timedelta(days=4)).strftime("%Y-%m-%d"))
+    weekDates.append((today + timedelta(days=5)).strftime("%Y-%m-%d") + ',' + (today + timedelta(days=6)).strftime("%Y-%m-%d"))
+
     return weekDates
