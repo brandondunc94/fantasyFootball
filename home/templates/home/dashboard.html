@@ -10,8 +10,8 @@
         <div class="nav main-nav" id="nav-tab" role="tablist">
             <a class="nav-item dashboard-menu-item nav-link" id="nav-league-tab" data-toggle="tab" href="#nav-league" role="tab" aria-controls="nav-league" aria-selected="false">League</a>
             <a class="nav-item dashboard-menu-item nav-link" id="nav-games-tab" data-toggle="tab" href="#nav-games" role="tab" aria-controls="nav-games" aria-selected="false">Games</a>
-            <a class="nav-item dashboard-menu-item nav-link" id="nav-picks-tab" data-toggle="tab" href="#nav-picks" role="tab" aria-controls="nav-picks" aria-selected="false">My Picks</a>
-            <a class="nav-item dashboard-menu-item nav-link" id="nav-bets-tab" data-toggle="tab" href="#nav-bets" role="tab" aria-controls="nav-bets" aria-selected="false">My Bets</a>
+            <a class="nav-item dashboard-menu-item nav-link" id="nav-picks-tab" data-toggle="tab" href="#nav-picks" role="tab" aria-controls="nav-picks" aria-selected="false">Picks</a>
+            <a class="nav-item dashboard-menu-item nav-link" id="nav-bets-tab" data-toggle="tab" href="#nav-bets" role="tab" aria-controls="nav-bets" aria-selected="false">Bets</a>
         </div>
     </nav>
 </div>
@@ -168,9 +168,9 @@
                             {% if currentGame.game.isComplete %} <!--Display final score-->
                                 <h6><strong class="{% if currentGame.game.winner == currentGame.game.awayTeam %}text-success{% else %}text-danger{% endif %}">{{ currentGame.game.awayScore }}</strong></h6>
                             {% elif currentGame.game.pickLocked %} <!--Display in progress stats-->
-                                <h6><strong class="">{{ currentGame.game.awayScore }}</strong></h6>
+                                <h6><strong class="text-primary">{{ currentGame.game.awayScore }}</strong></h6>
                             {% else %}
-                            <h6><strong class="">-</strong></h6>
+                            <h6><strong>-</strong></h6>
                             {% endif %}
                             <h6><small>({{ currentGame.game.awayTeam.wins }} - {{ currentGame.game.awayTeam.losses }} {% if currentGame.game.homeTeam.ties > 0 %} - {{ currentGame.game.homeTeam.ties }} {% endif %})</small></h6>
                         </div>
@@ -182,19 +182,24 @@
                             {% if currentGame.game.isComplete %} <!--Display final score-->
                                 <h6><strong class="{% if currentGame.game.winner == currentGame.game.homeTeam %}text-success{% else %}text-danger{% endif %}">{{ currentGame.game.homeScore }}</strong></h6>
                             {% elif currentGame.game.pickLocked %} <!--Display in progress stats-->
-                                <h6><strong class="">{{ currentGame.game.homeScore }}</strong></h6>
+                                <h6><strong class="text-primary">{{ currentGame.game.homeScore }}</strong></h6>
                             {% else %}
-                            <h6><strong class="">-</strong></h6>
+                            <h6><strong>-</strong></h6>
                             {% endif %}
                             <h6><small>({{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }} {% if currentGame.game.homeTeam.ties > 0 %} - {{ currentGame.game.homeTeam.ties }} {% endif %})</small></h6>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center mb-1">
                         {% if currentGame.game.isComplete %}
                             <h6 class="text-primary">Final</h6>
                         {% elif currentGame.game.pickLocked == True %}
                             <!--Game in progress-->
-                            <h6 class="text-primary">Q{{ currentGame.game.quarter }} - {{ currentGame.game.timeRemaining }}</h6>
+                            <div class='col'>
+                                <h6 class="text-primary">Q{{ currentGame.game.quarter }} - {{ currentGame.game.timeRemaining }}</h6>
+                                <div class='d-flex justify-content-center'>
+                                    <div id='in-progress-game-animation' class='text-center'></div>
+                                </div>
+                            </div>
                         {% else %}
                             <h6 class="mr-2"><small>{{ currentGame.date }}</small></h6>
                             <h6><small>{{ currentGame.time }}</small></h6>
