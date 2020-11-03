@@ -38,7 +38,7 @@ def createLeague(request):
 
             #Create welcome messages for league
             welcomeMessage = 'Welcome to your new league on OnsidePick! ' + request.user.username + ' is the administrator of your league.'
-            infoMessage = 'Once games are available, begin making your picks and bets for upcoming games. You have been given 500 points to start which you may use to place bets on the spread of any game you choose. Game choices will lock 1 hour prior to kickoff, so be sure that you have submitted your picks and bets by then. Good luck!'
+            infoMessage = 'Once games are available, begin making your picks and bets for upcoming games. You have been given 500 points to start which you may use to place bets on the spread of any game you choose. Picks and bets will lock at kickoff, so be sure that you have submitted your choices by then. Good luck!'
             leagueUtils.createLeagueNotification(newLeague.name, welcomeMessage)
             leagueUtils.createLeagueNotification(newLeague.name, infoMessage)
 
@@ -179,6 +179,7 @@ def addUserToPublicLeague(request):
     return JsonResponse(data)
 
 #AJAX CALL
+@login_required
 def postLeagueMessage(request):
     #Log message
     newMessage = request.POST.get("message", "")
@@ -200,7 +201,7 @@ def postLeagueMessage(request):
         return JsonResponse(data)
 
 @login_required
-def leagueAdmin(request, leagueName=""):
+def leagueAdmin(request, leagueName=''):
     
     if leagueName:
         try:
