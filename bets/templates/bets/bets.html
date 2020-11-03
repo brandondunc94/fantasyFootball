@@ -209,13 +209,13 @@
             <div><small>{{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }} {% if currentGame.game.homeTeam.ties > 0 %} - {{ currentGame.game.homeTeam.ties }} {% endif %}</small></div>
         </div>
         <div class="col-lg-3 d-flex flex-column align-items-center justify-content-center text-center p-0">
-            {% if currentGame.game.homeScore %}
+            <img class="img-fluid" src="{% static 'media/lock.png' %}" width="25" height="auto">
+            {% if currentGame.game.isComplete %}
             <h6>Game Complete</h6>
             {% else %}
-            <h6>Pending Score</h6>
+            <h6>In Progress</h6>
             {% endif %}
-            <h6>{{ currentGame.gameChoice.betAmount }}</h6>
-            <img class="img-fluid" src="{% static 'media/lock.png' %}" width="30" height="auto">
+            <h6 class='blue'>{{ currentGame.gameChoice.betAmount }}</h6>
         </div>
         {% if currentGame.gameChoice.betWinner == currentGame.game.awayTeam %}
         <div class="col-lg-3 bet-box-locked bet-box-selected text-center">
