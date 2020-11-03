@@ -119,7 +119,7 @@
         <div><small>{{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }} {% if currentGame.game.homeTeam.ties > 0 %} - {{ currentGame.game.homeTeam.ties }} {% endif %}</small></div>
     </div>
     {% endif %}
-    <div class="col-lg-2 text-center mt-3 p-0">
+    <div class="col-lg-3 text-center mt-3 p-0">
         <input type="text" class="bet-amount-input m-2 text-center" aria-label="Point Amount" value="{% if currentGame.gameChoice.betAmount != 0 %}{{ currentGame.gameChoice.betAmount }}{% else%}Bet{%endif %}">
     </div>
     {% if currentGame.gameChoice.betWinner == currentGame.game.awayTeam %}
@@ -169,7 +169,7 @@
         <img class="team-logo" src="/static/media/{{ currentGame.game.homeTeam.name }}.png">
         <div><small>{{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }} {% if currentGame.game.homeTeam.ties > 0 %} - {{ currentGame.game.homeTeam.ties }} {% endif %}</small></div>
     </div>
-    <div class="col-lg-2 text-center mt-3 p-0">
+    <div class="col-lg-3 text-center mt-3 p-0">
         <input type="text" class="bet-amount-input m-2 text-center" aria-label="Point Amount" value="{% if currentGame.gameChoice.betAmount != 0 %}{{ currentGame.gameChoice.betAmount }}{% endif %}" placeholder="Bet" disabled>
     </div>
     <div class="col-lg-3 bet-box text-center">
@@ -208,7 +208,7 @@
             <img class="team-logo" src="/static/media/{{ currentGame.game.homeTeam.name }}.png">
             <div><small>{{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }} {% if currentGame.game.homeTeam.ties > 0 %} - {{ currentGame.game.homeTeam.ties }} {% endif %}</small></div>
         </div>
-        <div class="col-lg-2 d-flex flex-column align-items-center justify-content-center text-center p-0">
+        <div class="col-lg-3 d-flex flex-column align-items-center justify-content-center text-center p-0">
             {% if currentGame.game.homeScore %}
             <h6>Game Complete</h6>
             {% else %}
