@@ -29,6 +29,8 @@ $("#addGame").click(function() {
     var location = $('#location').val();
     var gameDate = $('#gameDate').val();
     var gameTime = $('#gameTime').val();
+    var homeSpread = $('#homeSpread').val();
+    var awaySpread = $('#awaySpread').val();
     $.ajax({
         url: '/command/addGame/',
         data: {
@@ -38,7 +40,9 @@ $("#addGame").click(function() {
             'awayTeam': awayTeam,
             'location': location,
             'gameDate': gameDate,
-            'gameTime': gameTime
+            'gameTime': gameTime,
+            'homeSpread': homeSpread,
+            'awaySpread': awaySpread
         },
         dataType: 'json',
         success: function(data) {

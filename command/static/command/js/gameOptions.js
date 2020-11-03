@@ -62,8 +62,6 @@ $(".unlock-button").click(function() {
 
 /*Save all game scores*/
 $(".save-button").click(function() {
-    var seasonYear = $('#seasonId').attr('value');
-    var weekId = $('#weekId').attr('value');
     var statusFlag = true;
 
     $(".score-input").each(function(index) {
@@ -72,33 +70,28 @@ $(".save-button").click(function() {
         var awayScore = $(this).children().children('.away-score').val();
         var awaySpread = $(this).children().children('.away-spread').val();
         var gameId = $(this).children('.game-id').attr('value');
-        if (homeScore | homeSpread | awayScore | awaySpread) {
-            $.ajax({
-                url: '/command/saveScoreSpread/',
-                data: {
-                    'season': seasonYear,
-                    'weekId': weekId,
-                    'gameId': gameId,
-                    'homeScore': homeScore,
-                    'homeSpread': homeSpread,
-                    'awayScore': awayScore,
-                    'awaySpread': awaySpread
-                },
-                dataType: 'json',
-                success: function(data) {
-                    if (data.status == "FAILED") {
-                        statusFlag = false;
-                    } else {
+        $.ajax({
+            url: '/command/saveScoreSpread/',
+            data: {
+                'gameId': gameId,
+                'homeScore': homeScore,
+                'homeSpread': homeSpread,
+                'awayScore': awayScore,
+                'awaySpread': awaySpread
+            },
+            dataType: 'json',
+            success: function(data) {
+                if (data.status == "FAILED") {
+                    statusFlag = false;
+                } else {
 
-                    }
                 }
-            });
-        }
-
+            }
+        });
     });
 
     if (statusFlag == true) {
-        $.notify("All game scores saved successfully.", "success");
+        $.notify("All game scores and spreads saved successfully.", "success");
     } else {
         $.notify("Unable to save all game scores.", "error");
     }
@@ -145,6 +138,59 @@ $(".activate-week-button").click(function() {
                 $.notify("Unable to activate week", "error");
             } else {
                 $.notify("Week " + weekId + " has been activated.", "success");
+            }
+        }
+    });
+});
+
+/*Go retrieve upcoming schedule for current week*/
+$("#get-week-schedule-button").click(function() {
+    var seasonYear = $('#seasonId').attr('value');
+    var weekId = $('#weekId').attr('value');
+    $.ajax({
+        url: '/command/getWeekSchedule/',
+        data: {
+            'season': seasonYear,
+            'week': weekId,
+        },
+        dataType: 'json',
+        success: function(data) {
+            if (data.status == "FAILED") {
+                $.notify("Unable to retrieve or save upcoming games", "error");
+            } else {
+                $.notify("Upcoming games added/updated. Please refresh the page.", "success");
+            }
+        }
+    });
+});
+
+/*Go get latest live scores*/
+$("#get-live-scores-button").click(function() {
+    $.ajax({
+        url: '/command/getLatestScores/',
+        data: {},
+        dataType: 'json',
+        success: function(data) {
+            if (data.status == "FAILED") {
+                $.notify("Unable to get latest scores.", "error");
+            } else {
+                $.notify("Latest scores have been updated.", "success");
+            }
+        }
+    });
+});
+
+/*Go get latest live scores*/
+$("#get-final-scores-button").click(function() {
+    $.ajax({
+        url: '/command/getFinalScores/',
+        data: {},
+        dataType: 'json',
+        success: function(data) {
+            if (data.status == "FAILED") {
+                $.notify("Unable to get latest scores.", "error");
+            } else {
+                $.notify("Final scores have been updated and games have been scored.", "success");
             }
         }
     });

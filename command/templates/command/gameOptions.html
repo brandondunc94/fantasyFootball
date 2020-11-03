@@ -5,8 +5,8 @@
     <div class="d-flex flex-row justify-content-between mb-2">
         <div class="col-lg-6">
             <div class="dropdown">
-                <button class="btn btn-green btn-sm dropdown-toggle" type="button" id="weekId" value="{{ weekId }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Week {{ weekId }}
+                <button class="btn btn-green btn-sm dropdown-toggle" type="button" id="weekId" value="{{ currentWeek.id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Week {{ currentWeek.id }}
                 </button>
                 <div class="dropdown-menu">
                     {% for week in weeks %}
@@ -16,7 +16,10 @@
         </div>
         <div class="col-lg-6">
             <input type="submit" class="btn btn-green btn-sm mt-1 save-button" value="Save" />
-            <input type="submit" class="btn btn-green btn-sm mt-1 activate-week-button" value="Activate Week" />
+            <input type="submit" class="btn btn-green btn-sm mt-1 activate-week-button" value="Activate Week" /> {% if currentWeek.isLocked == False %}
+            <input type="submit" id='get-week-schedule-button' class="btn btn-green btn-sm mt-1" value="Get Week Schedule" />
+            <input type="submit" id='get-live-scores-button' class="btn btn-green btn-sm mt-1" value="Get Latest Scores" />
+            <input type="submit" id='get-final-scores-button' class="btn btn-green btn-sm mt-1" value="Get Final Scores" />{% endif %}
         </div>
     </div>
     <div class="row">
@@ -35,7 +38,7 @@
             <tbody>
                 {% for currentGame in gameData %}
                 <tr class="score-input" value="">
-                    <td class="game-id" value="{{ currentGame.id }}">{{ currentGame.date }} - {{ currentGame.awayTeam.name }} @ {{ currentGame.homeTeam.name }}</td>
+                    <td class="game-id" value="{{ currentGame.id }}">{{ currentGame.date|date:"D n/d/y H:i" }} - {{ currentGame.awayTeam.name }} @ {{ currentGame.homeTeam.name }}</td>
                     {% if currentGame.pickLocked == False %}
                     <td>
                         <input type="number" class="form-control home-score" size="3" value="{{ currentGame.homeScore }}" placeholder="{{ currentGame.homeTeam.name }}">
