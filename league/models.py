@@ -87,6 +87,17 @@ class LeagueNotification(models.Model):
     league = models.ForeignKey(League, on_delete=models.CASCADE)
     message = models.TextField(max_length=500, blank=True)
     createDate = models.DateTimeField(auto_now=True)
+    SCORE = 'SCR'
+    SYSTEM = 'SYS'
+    NOTIFICATION_TYPES = [
+        (SCORE, 'Score'),
+        (SYSTEM, 'System'),
+    ]
+    notificationType = models.CharField(
+        max_length=3,
+        choices=NOTIFICATION_TYPES,
+        default=SCORE,
+    )
 
 class LeagueMembershipRequest(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
