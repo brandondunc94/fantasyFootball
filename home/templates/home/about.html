@@ -1,90 +1,90 @@
-{% extends "fantasyFootball/base.html" %} {% block page_content %}{% load static %}
+{% extends 'fantasyFootball/base.html' %} {% block page_content %}{% load static %}
 
-<div class="modal fade" id="deleteConfirm" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="deleteModalLabel">How to bet on the spread</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
+<div class='modal fade' id='deleteConfirm' tabindex='-1' role='dialog' aria-labelledby='deleteModalLabel' aria-hidden='true'>
+    <div class='modal-dialog' role='document'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h4 class='modal-title' id='deleteModalLabel'>How to bet on the spread</h4>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+        <span aria-hidden='true'>&times;</span>
       </button>
             </div>
-            <div class="modal-body">
+            <div class='modal-body'>
                 <h6>The spread shows what the expected point outcome of the game is.</h6>
                 <hr>
                 <h6>Example</h6>
-                <div class="row">
-                    <div class="col-6">
-                        <div class="bet-box text-center">
+                <div class='row'>
+                    <div class='col-6'>
+                        <div class='bet-box text-center'>
                             <div>
                                 <h6>+7</h6>
                             </div>
-                            <img class="img-fluid" src="/static/media/Seahawks.png" width="60" height="60">
+                            <img class='img-fluid' src='/static/media/Seahawks.png' width='60' height='60'>
                             <div><small>(5-6)</small></div>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <div class="bet-box text-center">
+                    <div class='col-6'>
+                        <div class='bet-box text-center'>
                             <div>
                                 <h6>-7</h6>
                             </div>
-                            <img class="img-fluid" src="/static/media/Rams.png" width="60" height="60">
+                            <img class='img-fluid' src='/static/media/Rams.png' width='60' height='60'>
                             <div><small>(7-4)</small></div>
                         </div>
                     </div>
                 </div>
-                <h6 class="mb-2">In this game scenario, the Rams have a spread of <strong>-7</strong>, which means that they are <strong>favored</strong> to win by 7 points or more.</h6>
-                <h6 class="mb-2">If you were to bet points on the Rams spread, then you are saying that the Rams will win by 7 points or more. If they do, you will win the bet. If they lose the game or win by 6 points or less, you lose the bet.</h6>
+                <h6 class='mb-2'>In this game scenario, the Rams have a spread of <strong>-7</strong>, which means that they are <strong>favored</strong> to win by 7 points or more.</h6>
+                <h6 class='mb-2'>If you were to bet points on the Rams spread, then you are saying that the Rams will win by 7 points or more. If they do, you will win the bet. If they lose the game or win by 6 points or less, you lose the bet.</h6>
                 <hr>
-                <h6 class="mb-2">The Seahawks have a spread of <strong>+7</strong>, which means that they are the <strong>underdog</strong> in this game and are projected to lose by 7 points or more.</h6>
-                <h6 class="mb-2">If you were to bet points on the Seahawks spread, then you are saying that the Seahawks will either win or lose by 7 points or fewer. If they do, you will win the bet. If they lose by more than 7 points, you lose the bet.</h6>
+                <h6 class='mb-2'>The Seahawks have a spread of <strong>+7</strong>, which means that they are the <strong>underdog</strong> in this game and are projected to lose by 7 points or more.</h6>
+                <h6 class='mb-2'>If you were to bet points on the Seahawks spread, then you are saying that the Seahawks will either win or lose by 7 points or fewer. If they do, you will win the bet. If they lose by more than 7 points, you lose the bet.</h6>
                 <hr>
                 <h6>The Payout</h6>
                 <h6>All payouts are 90% of your bet. So a bet of 100 points would generate a reward of 90 additional points. Likewise a bet of 20 points would generate a reward of 18 points.</h6>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-grey" data-dismiss="modal">Close</button>
+            <div class='modal-footer'>
+                <button type='button' class='btn btn-sm btn-grey' data-dismiss='modal'>Close</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="container">
-    <div class="d-flex flex-row mt-2 mb-2">
-        <div class="col-6">
+<div class='container'>
+    <div class='d-flex flex-row mt-2 mb-2'>
+        <div class='col-6'>
             <h1></h1>
         </div>
 
     </div>
-    <div class="card">
-        <div class="card-header">
-            <div class="d-flex justify-content-between">
+    <div class='card'>
+        <div class='card-header'>
+            <div class='d-flex justify-content-between'>
                 <h2>How to Play</h2>
-                <a class="btn btn-blue" href="/home/">Home</a>
+                <a class='btn btn-blue' href='/home/'>Home</a>
             </div>
         </div>
-        <div class="card-body">
-            <h5 class="card-title">Make Picks</h5>
-            <p class="card-text">Each week, select who you think will win each game. Each pick you guess correctly earns you <strong>25</strong> points. You always want to make your picks because this a free way to earn points without any risk of losing them. Picks will lock
-                15 minutes before the game starts.</p>
+        <div class='card-body'>
+            <h5 class='card-title'>Make Picks</h5>
+            <p class='card-text'>Each week, select who you think will win each game. Each pick you guess correctly earns you <strong>25</strong> points. You always want to make your picks because this a free way to earn points without any risk of losing them. Picks will lock
+                1 minute before the game starts.</p>
         </div>
-        <div class="card-body">
-            <h5 class="card-title">Place Bets</h5>
-            <p class="card-text">This is where you can use your hard earned points from correct picks to bet on the spread of the game. If you're not sure how to bet on the spread of the game, click the link below. Bet as much or as little as you would like, and keep in mind
-                you do not need to bet on every game. The payout is equal to 1.9X your bet (Multiply bet amount by 1.9). If your bet is incorrect though, you lose the points you put down. Bets will lock 15 minutes before the game starts.
+        <div class='card-body'>
+            <h5 class='card-title'>Place Bets</h5>
+            <p class='card-text'>This is where you can use your hard earned points from correct picks to bet on the spread of the game. If you're not sure how to bet on the spread of the game, click the link below. Bet as much or as little as you would like, and keep in mind
+                you do not need to bet on every game. The payout is equal to 1.9X your bet (Multiply bet amount by 1.9). If your bet is incorrect though, you lose the points you put down. Bets will lock 1 minute before the game starts.
             </p>
-            <button class="btn btn-green" data-toggle="modal" data-target="#deleteCOnfirm">How to bet</button>
+            <button class='btn btn-green' data-toggle='modal' data-target='#deleteCOnfirm'>How to bet</button>
         </div>
-        <div class="card-body">
-            <h5 class="card-title">Compete in Your League</h5>
-            <p class="card-text">Throughout the season you will be competing with your league to see who can score the most amount of points. The winner of each league will get special account accolades which you can flaunt the following season!
+        <div class='card-body'>
+            <h5 class='card-title'>Compete in Your League</h5>
+            <p class='card-text'>Throughout the season you will be competing with your league to see who can score the most amount of points. The winner of each league will get special account accolades which you can flaunt the following season!
             </p>
         </div>
-        <div class="card-body">
-            <p class="card-text">Good luck!</p>
+        <div class='card-body'>
+            <p class='card-text'>Good luck!</p>
         </div>
-        <div class="card-body">
-            <p class="card-text">Questions/Issues? Reach out to onsidepickfootball@gmail.com for help.</p>
+        <div class='card-body'>
+            <p class='card-text'>Questions/Issues? Reach out to onsidepickfootball@gmail.com for help.</p>
         </div>
     </div>
 </div>

@@ -1,66 +1,66 @@
 <!-- Custom styles for this template -->
-{% extends "fantasyFootball/base.html" %} {% block page_content %}
+{% extends 'fantasyFootball/base.html' %} {% block page_content %}
 
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Welcome!</h1>
-    <p class="lead">Create or join a league and take part in a season-long competition to determine who can score the most points through picks and spread bets.</p>
+<div class='pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center'>
+    <h1 class='display-4'>Welcome!</h1>
+    <p class='lead'>Create or join a league and take part in a season-long competition to determine who can score the most points through picks and spread bets.</p>
 </div>
 
-<div class="container">
-    <div class="card-deck mb-3 text-center">
-        <div class="card mb-4 box-shadow">
-            <div class="card-header">
-                <h4 class="my-0 font-weight-normal">Start a New League</h4>
+<div class='container'>
+    <div class='card-deck mb-3 text-center'>
+        <div class='card mb-4 box-shadow'>
+            <div class='card-header'>
+                <h4 class='my-0 font-weight-normal'>Start a New League</h4>
             </div>
-            <div class="card-body">
-                <h1 class="card-title pricing-card-title"><small class="text-muted"></small></h1>
-                <div class="my-2 my-md-0 mr-md-3">
+            <div class='card-body'>
+                <h1 class='card-title pricing-card-title'><small class='text-muted'></small></h1>
+                <div class='my-2 my-md-0 mr-md-3'>
                     <p>Create and invite your friends to a private league, or set up a public league of your own for anyone to join.</p>
                 </div>
-                <a href="/league/create/" class="btn btn-lg btn-block btn-green">Create one now</a>
+                <a href='/league/create/' class='btn btn-lg btn-block btn-green'>Create one now</a>
             </div>
         </div>
-        <div class="card mb-4 box-shadow">
-            <div class="card-header">
-                <h4 class="my-0 font-weight-normal">Join an Existing League</h4>
+        <div class='card mb-4 box-shadow'>
+            <div class='card-header'>
+                <h4 class='my-0 font-weight-normal'>Join an Existing League</h4>
             </div>
-            <div class="card-body">
-                <h1 class="card-title pricing-card-title"><small class="text-muted"></small></h1>
-                <div class="my-2 my-md-0 mr-md-3">
+            <div class='card-body'>
+                <h1 class='card-title pricing-card-title'><small class='text-muted'></small></h1>
+                <div class='my-2 my-md-0 mr-md-3'>
                     <p>Join either a private or public league. Private leagues will require an Administrator to accept you.</p>
                 </div>
-                <a href="/league/join/" class="btn btn-lg btn-block btn-green">Join one now</a>
+                <a href='/league/join/' class='btn btn-lg btn-block btn-green'>Join one now</a>
             </div>
         </div>
     </div>
-    <div class="card mb-5">
-        <div class="card-header">
-            <div class="d-flex justify-content-center">
+    <div class='card mb-5'>
+        <div class='card-header'>
+            <div class='d-flex justify-content-center'>
                 <h2>How to Play</h2>
             </div>
         </div>
-        <div class="card-body">
-            <h5 class="card-title">Make Picks</h5>
-            <p class="card-text">Each week, select who you think will win each game. Each pick you guess correctly earns you <strong>25</strong> points. You always want to make your picks because this a free way to earn points without any risk of losing them. Picks will lock
-                15 minutes before the game starts.</p>
+        <div class='card-body'>
+            <h5 class='card-title'>Make Picks</h5>
+            <p class='card-text'>Each week, select who you think will win each game. Each pick you guess correctly earns you <strong>25</strong> points. You always want to make your picks because this a free way to earn points without any risk of losing them. Picks will lock
+                1 minute before the game starts.</p>
         </div>
-        <div class="card-body">
-            <h5 class="card-title">Place Bets</h5>
-            <p class="card-text">This is where you can use your hard earned points from correct picks to bet on the spread of the game. If you're not sure how to bet on the spread of the game, click the link below. Bet as much or as little as you would like, and keep in mind
-                you do not need to bet on every game. The payout is equal to 1.9X your bet (Multiply bet amount by 1.9). If your bet is incorrect though, you lose the points you put down. Bets will lock 15 minutes before the game starts.
+        <div class='card-body'>
+            <h5 class='card-title'>Place Bets</h5>
+            <p class='card-text'>This is where you can use your hard earned points from correct picks to bet on the spread of the game. If you're not sure how to bet on the spread of the game, click the link below. Bet as much or as little as you would like, and keep in mind
+                you do not need to bet on every game. The payout is equal to 1.9X your bet (Multiply bet amount by 1.9). If your bet is incorrect though, you lose the points you put down. Bets will lock 1 minute before the game starts.
             </p>
-            <button class="btn btn-green" data-toggle="modal" data-target="#deleteCOnfirm">How to bet</button>
+            <button class='btn btn-green' data-toggle='modal' data-target='#deleteCOnfirm'>How to bet</button>
         </div>
-        <div class="card-body">
-            <h5 class="card-title">Compete in Your League</h5>
-            <p class="card-text">Throughout the season you will be competing with your league to see who can score the most amount of points. The winner of each league will get special account accolades which you can flaunt the following season!
+        <div class='card-body'>
+            <h5 class='card-title'>Compete in Your League</h5>
+            <p class='card-text'>Throughout the season you will be competing with your league to see who can score the most amount of points. The winner of each league will get special account accolades which you can flaunt the following season!
             </p>
         </div>
-        <div class="card-body">
-            <p class="card-text">Good luck!</p>
+        <div class='card-body'>
+            <p class='card-text'>Good luck!</p>
         </div>
-        <div class="card-body">
-            <p class="card-text">Questions/Issues? Reach out to onsidepickfootball@gmail.com for help.</p>
+        <div class='card-body'>
+            <p class='card-text'>Questions/Issues? Reach out to onsidepickfootball@gmail.com for help.</p>
         </div>
     </div>
 </div>

@@ -1,76 +1,76 @@
-{% extends "fantasyFootball/base.html" %} {% block page_content %}{% load static %}{% load tz %}
-<link href="{% static 'home/dashboard.css' %}" rel="stylesheet">
-<link href="{% static 'picks/css/picks.css' %}" rel="stylesheet">
-<link href="{% static 'bets/css/bets.css' %}" rel="stylesheet">
+{% extends 'fantasyFootball/base.html' %} {% block page_content %}{% load static %}{% load tz %}
+<link href='{% static 'home/dashboard.css' %}' rel='stylesheet'>
+<link href='{% static 'picks/css/picks.css' %}' rel='stylesheet'>
+<link href='{% static 'bets/css/bets.css' %}' rel='stylesheet'>
 
 
 <!-- Games and League Menu Navbar -->
-<div class="navbar-dashboard shadow">
-    <nav class="nav-fill w-100">
-        <div class="nav main-nav" id="nav-tab" role="tablist">
-            <a class="nav-item dashboard-menu-item nav-link" id="nav-league-tab" data-toggle="tab" href="#nav-league" role="tab" aria-controls="nav-league" aria-selected="false">League</a>
-            <a class="nav-item dashboard-menu-item nav-link" id="nav-games-tab" data-toggle="tab" href="#nav-games" role="tab" aria-controls="nav-games" aria-selected="false">Games</a>
-            <a class="nav-item dashboard-menu-item nav-link" id="nav-picks-tab" data-toggle="tab" href="#nav-picks" role="tab" aria-controls="nav-picks" aria-selected="false">Picks</a>
-            <a class="nav-item dashboard-menu-item nav-link" id="nav-bets-tab" data-toggle="tab" href="#nav-bets" role="tab" aria-controls="nav-bets" aria-selected="false">Bets</a>
+<div class='navbar-dashboard shadow'>
+    <nav class='nav-fill w-100'>
+        <div class='nav main-nav' id='nav-tab' role='tablist'>
+            <a class='nav-item dashboard-menu-item nav-link' id='nav-league-tab' data-toggle='tab' href='#nav-league' role='tab' aria-controls='nav-league' aria-selected='false'>League</a>
+            <a class='nav-item dashboard-menu-item nav-link' id='nav-games-tab' data-toggle='tab' href='#nav-games' role='tab' aria-controls='nav-games' aria-selected='false'>Games</a>
+            <a class='nav-item dashboard-menu-item nav-link' id='nav-picks-tab' data-toggle='tab' href='#nav-picks' role='tab' aria-controls='nav-picks' aria-selected='false'>Picks</a>
+            <a class='nav-item dashboard-menu-item nav-link' id='nav-bets-tab' data-toggle='tab' href='#nav-bets' role='tab' aria-controls='nav-bets' aria-selected='false'>Bets</a>
         </div>
     </nav>
 </div>
-<div class="container-fluid">
-    <div class="d-flex mt-2 mr-3 ml-3">
-        <h2 class="w-100 text-center"><strong>{{ activeLeague }}</strong></h2>
+<div class='container-fluid'>
+    <div class='d-flex mt-2 mr-3 ml-3'>
+        <h2 class='w-100 text-center'><strong>{{ activeLeague }}</strong></h2>
         {% if weeks %}
-        <div class="dropdown">
-            <button class="btn week-pick dropdown-toggle" id="weekId" name="{{ week }}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>Week {{ week }}</strong></button>
-            <div class="dropdown-menu">
+        <div class='dropdown'>
+            <button class='btn week-pick dropdown-toggle' id='weekId' name='{{ week }}' type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><strong>Week {{ week }}</strong></button>
+            <div class='dropdown-menu'>
                 {% for week in weeks %}
-                <a class="dropdown-item" href="/home/{{ week }}/"><strong>{{ week }}</strong></a> {% endfor %}
+                <a class='dropdown-item' href='/home/{{ week }}/'><strong>{{ week }}</strong></a> {% endfor %}
             </div>
         </div>
         {% endif %}
     </div>
-    <div class="tab-content" id="nav-tabContent">
+    <div class='tab-content' id='nav-tabContent'>
         <!-- League Home tab -->
-        <div class="tab-pane fade rounded" id="nav-league" role="tabpanel" aria-labelledby="nav-league-tab">
-            <div class="row mb-3">
-                <div class="col-xl-4 col-md-6 mt-3">
-                    <div class="card-header collapse-col text-center">
-                        <div class="d-flex justify-content-between">
+        <div class='tab-pane fade rounded' id='nav-league' role='tabpanel' aria-labelledby='nav-league-tab'>
+            <div class='row mb-3'>
+                <div class='col-xl-4 col-md-6 mt-3'>
+                    <div class='card-header collapse-col text-center'>
+                        <div class='d-flex justify-content-between'>
                             <strong>Standings</strong>
-                            <i class="arrow"></i>
+                            <i class='arrow'></i>
                         </div>
                     </div>
-                    <div class="card shadow max-height-650">
-                        <div class="leaderboard">
-                            <table class="table text-center" cellspacing="0" width="100%">
-                                <thead class="thead">
+                    <div class='card shadow max-height-650'>
+                        <div class='leaderboard'>
+                            <table class='table text-center' cellspacing='0' width='100%'>
+                                <thead class='thead'>
                                     <tr>
-                                        <th scope="col">Position</th>
-                                        <th scope="col">Player</th>
-                                        <th scope="col">Score</th>
-                                        <th scope="col">Week Change</th>
+                                        <th scope='col'>Position</th>
+                                        <th scope='col'>Player</th>
+                                        <th scope='col'>Score</th>
+                                        <th scope='col'>Week Change</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {% for currentUser in leagueUserData %}
                                     <tr>
                                         {% if forloop.counter == 1 %}
-                                        <td><img class="" src="{% static 'media/gold.png' %}" width="auto" height="30"></td>
+                                        <td><img class='' src='{% static 'media/gold.png' %}' width='auto' height='30'></td>
                                         {% elif forloop.counter == 2 %}
-                                        <td><img class="" src="{% static 'media/silver.png' %}" width="auto" height="30"></td>
+                                        <td><img class='' src='{% static 'media/silver.png' %}' width='auto' height='30'></td>
                                         {% elif forloop.counter == 3 %}
-                                        <td><img class="" src="{% static 'media/bronze.png' %}" width="auto" height="30"></td>
+                                        <td><img class='' src='{% static 'media/bronze.png' %}' width='auto' height='30'></td>
                                         {% else %}
                                         <td>{{ forloop.counter }}</td>
                                         {% endif %}
                                         <td>
-                                            <a href="/account/{{ currentUser.username }}/">{{ currentUser.username }}</a></td>
+                                            <a href='/account/{{ currentUser.username }}/'>{{ currentUser.username }}</a></td>
                                         <td>{{ currentUser.totalScore }}</td>
                                         {% if currentUser.weeklyGain > 0 %}
-                                        <td class="text-success">+{{ currentUser.weeklyGain }}</td>
+                                        <td class='text-success'>+{{ currentUser.weeklyGain }}</td>
                                         {% elif currentUser.weeklyGain == 0 %}
-                                        <td class="text">+{{ currentUser.weeklyGain }}</td>
+                                        <td class='text'>+{{ currentUser.weeklyGain }}</td>
                                         {% else %}
-                                        <td class="text-danger">{{ currentUser.weeklyGain }}</td>
+                                        <td class='text-danger'>{{ currentUser.weeklyGain }}</td>
                                         {% endif %}
                                     </tr>
                                     {% endfor %}
@@ -79,185 +79,185 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-md-6 mt-3">
-                    <div class="card-header collapse-col text-center">
-                        <div class="d-flex justify-content-between">
+                <div class='col-xl-4 col-md-6 mt-3'>
+                    <div class='card-header collapse-col text-center'>
+                        <div class='d-flex justify-content-between'>
                             <strong>News</strong>
-                            <i class="arrow"></i>
+                            <i class='arrow'></i>
                         </div>
                     </div>
-                    <div class="card shadow max-height-650">
-                        <div class="news-board">
+                    <div class='card shadow max-height-650'>
+                        <div class='news-board'>
                             {% localtime off %} {% for currentNotification in leagueNotifications %}
-                            <div class="m-3 p-1 media text-muted notification-box rounded">
-                                <p class="media-body pb-2 mb-0 lh-125 text-white">
-                                    <small>{{ currentNotification.createDate|date:"D n/d/y" }}</small><strong class="d-block">{{ currentNotification.message }}</strong>
+                            <div class='m-3 p-1 media text-muted notification-box rounded'>
+                                <p class='media-body pb-2 mb-0 lh-125 text-white'>
+                                    <small>{{ currentNotification.createDate|date:'D n/d/y' }}</small><strong class='d-block'>{{ currentNotification.message }}</strong>
                                 </p>
                             </div>
                             {% endfor %} {% endlocaltime %}
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 mt-3">
-                    <div class="card-header collapse-col text-center">
-                        <div class="d-flex justify-content-between">
+                <div class='col-xl-4 mt-3'>
+                    <div class='card-header collapse-col text-center'>
+                        <div class='d-flex justify-content-between'>
                             <strong>Messages</strong>
-                            <i class="arrow"></i>
+                            <i class='arrow'></i>
                         </div>
                     </div>
-                    <div class="card shadow max-height-650">
+                    <div class='card shadow max-height-650'>
                         <!-- LEAGUE MESSAGE LOGIC HERE -->
-                        <div class="message-board">
+                        <div class='message-board'>
                             {% localtime off %} {% if leagueMessages %} {% for currentMessage in leagueMessages %}
-                            <div class="media text-muted pl-3 pr-3 pt-3">
-                                <p class="media-body border-bottom border-gray">
-                                    <strong class="d-block"><small class="d-block">{{ currentMessage.createDate|date:"D n/d/y" }}</small>{{ currentMessage.username }} - {{ currentMessage.message }}</strong>
+                            <div class='media text-muted pl-3 pr-3 pt-3'>
+                                <p class='media-body border-bottom border-gray'>
+                                    <strong class='d-block'><small class='d-block'>{{ currentMessage.createDate|date:'D n/d/y' }}</small>{{ currentMessage.username }} - {{ currentMessage.message }}</strong>
                                 </p>
                             </div>
                             {% endfor %} {% else %}
-                            <div class="media text-muted pt-3 text-center">
-                                <p class="media-body">
-                                    <strong class="d-block">No messages yet..</strong>
+                            <div class='media text-muted pt-3 text-center'>
+                                <p class='media-body'>
+                                    <strong class='d-block'>No messages yet..</strong>
                                 </p>
                             </div>
                             {% endif %} {% endlocaltime %}
                         </div>
-                        <div class="media text-muted">
-                            <p class="media-body text-center">
-                                <strong class="d-block">Please reload the page to see new messages.</strong>
+                        <div class='media text-muted'>
+                            <p class='media-body text-center'>
+                                <strong class='d-block'>Please reload the page to see new messages.</strong>
                             </p>
                         </div>
-                        <div class="input-group mt-auto p-2">
+                        <div class='input-group mt-auto p-2'>
                             {% csrf_token %}
-                            <input type="text" class="form-control rounded" id="messageBox" placeholder="Type Message.." aria-label="Message" aria-describedby="MaterialButton-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-md btn-secondary post-button" type="submit" id="MaterialButton-addon2">Post</button>
+                            <input type='text' class='form-control rounded' id='messageBox' placeholder='Type Message..' aria-label='Message' aria-describedby='MaterialButton-addon2'>
+                            <div class='input-group-append'>
+                                <button class='btn btn-md btn-secondary post-button' type='submit' id='MaterialButton-addon2'>Post</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col text-center">
-                    <div class="chart-container">
-                        <canvas id="pointsChart"></canvas>
+            <div class='row'>
+                <div class='col text-center'>
+                    <div class='chart-container'>
+                        <canvas id='pointsChart'></canvas>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Game Summary tab -->
-        <div class="tab-pane fade" id="nav-games" role="tabpanel" aria-labelledby="nav-games-tab">
+        <div class='tab-pane fade' id='nav-games' role='tabpanel' aria-labelledby='nav-games-tab'>
             {% if gameData %}
-            <div class="row no-gutters">
-                <div class="col-6 text-center align-middle">
+            <div class='row no-gutters'>
+                <div class='col-6 text-center align-middle'>
                     <h5><strong>Game</strong></h5>
                 </div>
-                <div class="col-3 text-center align-middle">
+                <div class='col-3 text-center align-middle'>
                     <h5><strong>Pick</strong></h5>
                 </div>
-                <div class="col-3 text-center align-middle">
+                <div class='col-3 text-center align-middle'>
                     <h5><strong>Bet</strong></h5>
                 </div>
             </div>
             {% for currentGame in gameData %}
-            <div class="row text-center border-bottom border-gray no-gutters mt-2" id="{{ currentGame.game.id }}">
-                <div class="col-6 text-center">
-                    <div class="d-flex justify-content-around align-items-center mb-2">
-                        <div class="col-5 p-0">
-                            <img class="team-logo" src="/static/media/{{ currentGame.game.awayTeam.name }}.png"> 
+            <div class='row text-center border-bottom border-gray no-gutters mt-2' id='{{ currentGame.game.id }}'>
+                <div class='col-6 text-center'>
+                    <div class='d-flex justify-content-around align-items-center mb-2'>
+                        <div class='col-5 p-0'>
+                            <img class='team-logo' src='/static/media/{{ currentGame.game.awayTeam.name }}.png'> 
                             {% if currentGame.game.isComplete %} <!--Display final score-->
-                                <h6><strong class="{% if currentGame.game.winner == currentGame.game.awayTeam %}text-success{% else %}text-danger{% endif %}">{{ currentGame.game.awayScore }}</strong></h6>
+                                <h6><strong class='{% if currentGame.game.winner == currentGame.game.awayTeam %}text-success{% else %}text-danger{% endif %}'>{{ currentGame.game.awayScore }}</strong></h6>
                             {% elif currentGame.game.pickLocked %} <!--Display in progress stats-->
-                                <h6><strong class="text-primary">{{ currentGame.game.awayScore }}</strong></h6>
+                                <h6><strong class='text-primary'>{{ currentGame.game.awayScore }}</strong></h6>
                             {% else %}
                             <h6><strong>-</strong></h6>
                             {% endif %}
                             <h6><small>({{ currentGame.game.awayTeam.wins }} - {{ currentGame.game.awayTeam.losses }} {% if currentGame.game.homeTeam.ties > 0 %} - {{ currentGame.game.homeTeam.ties }} {% endif %})</small></h6>
                         </div>
-                        <div class="col p-0">
+                        <div class='col p-0'>
                             <h4>@</h4>
                         </div>
-                        <div class="col-5 p-0">
-                            <img class="team-logo" src="/static/media/{{ currentGame.game.homeTeam.name }}.png"> 
+                        <div class='col-5 p-0'>
+                            <img class='team-logo' src='/static/media/{{ currentGame.game.homeTeam.name }}.png'> 
                             {% if currentGame.game.isComplete %} <!--Display final score-->
-                                <h6><strong class="{% if currentGame.game.winner == currentGame.game.homeTeam %}text-success{% else %}text-danger{% endif %}">{{ currentGame.game.homeScore }}</strong></h6>
+                                <h6><strong class='{% if currentGame.game.winner == currentGame.game.homeTeam %}text-success{% else %}text-danger{% endif %}'>{{ currentGame.game.homeScore }}</strong></h6>
                             {% elif currentGame.game.pickLocked %} <!--Display in progress stats-->
-                                <h6><strong class="text-primary">{{ currentGame.game.homeScore }}</strong></h6>
+                                <h6><strong class='text-primary'>{{ currentGame.game.homeScore }}</strong></h6>
                             {% else %}
                             <h6><strong>-</strong></h6>
                             {% endif %}
                             <h6><small>({{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }} {% if currentGame.game.homeTeam.ties > 0 %} - {{ currentGame.game.homeTeam.ties }} {% endif %})</small></h6>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-center mb-1">
+                    <div class='d-flex justify-content-center mb-1'>
                         {% if currentGame.game.isComplete %}
-                            <h6 class="text-primary">Final</h6>
+                            <h6 class='text-primary'>Final</h6>
                         {% elif currentGame.game.pickLocked == True %}
                             <!--Game in progress-->
                             <div class='col'>
-                                <h6 class="text-primary">Q{{ currentGame.game.quarter }} - {{ currentGame.game.timeRemaining }}</h6>
+                                <h6 class='text-primary'>Q{{ currentGame.game.quarter }} - {{ currentGame.game.timeRemaining }}</h6>
                                 <div class='d-flex justify-content-center'>
                                     <div id='in-progress-game-animation' class='text-center'></div>
                                 </div>
                             </div>
                         {% else %}
-                            <h6 class="mr-2"><small>{{ currentGame.date }}</small></h6>
+                            <h6 class='mr-2'><small>{{ currentGame.date }}</small></h6>
                             <h6><small>{{ currentGame.time }}</small></h6>
                         {% endif %}
                     </div>
                 </div>
-                <div class="col-3 text-center pick">
+                <div class='col-3 text-center pick'>
                     {% if currentGame.gameChoice.pickWinner %} 
                         {% if currentGame.game.isComplete %}
                         <!--Game is complete, display score-->
                             {% if currentGame.gameChoice.correctPickFlag == True %}
-                                <img class="team-logo" src="/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png"> 
+                                <img class='team-logo' src='/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png'> 
                                 {% if week == 1 or week == '1' %}
-                                <h6 class="text-success"><strong>+50</strong></h6>
+                                <h6 class='text-success'><strong>+50</strong></h6>
                                 {% else %}
-                                <h6 class="text-success"><strong>+25</strong></h6>
+                                <h6 class='text-success'><strong>+25</strong></h6>
                                 {% endif %} 
                             {% else %}
-                                <img class="team-logo" src="/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png">
-                                <h6 class="text-danger"><strong>+0</strong></h6>
+                                <img class='team-logo' src='/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png'>
+                                <h6 class='text-danger'><strong>+0</strong></h6>
                             {% endif %}
                         {% else %}
                             {% if currentGame.game.pickLocked %}
                             <!--Display in progress game stats -->
                                 {% if currentGame.game.homeScore > currentGame.game.awayScore %} {% if currentGame.gameChoice.pickWinner == currentGame.game.homeTeam %}
                                 <!--User's pick is currently correct-->
-                                <img class="team-logo correct" src="/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png">{% else %}
+                                <img class='team-logo correct' src='/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png'>{% else %}
                                 <!--User's pick is currently not correct-->
-                                <img class="team-logo incorrect" src="/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png">{% endif %} 
+                                <img class='team-logo incorrect' src='/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png'>{% endif %} 
                                 {% elif currentGame.game.awayScore > currentGame.game.homeScore %} {% if currentGame.gameChoice.pickWinner == currentGame.game.awayTeam %}
                                 <!--User's pick is currently correct-->
-                                <img class="team-logo correct" src="/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png">{% else %}
+                                <img class='team-logo correct' src='/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png'>{% else %}
                                 <!--User's pick is currently not correct-->
-                                <img class="team-logo incorrect" src="/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png">{% endif %} 
+                                <img class='team-logo incorrect' src='/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png'>{% endif %} 
                                 {% else %}
-                                <img class="team-logo incorrect" src="/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png">
+                                <img class='team-logo incorrect' src='/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png'>
                                 {% endif %}
                             {% else %}
                             <!--Game has not started, display user's pick-->
-                            <img class="team-logo" src="/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png">
+                            <img class='team-logo' src='/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png'>
                             {% endif %}
                         {% endif %}
                     {% else %}
                         {% if currentGame.isComplete %}
                             <h6>No Pick</h6>
-                            <h6 class="text-danger"><strong>+0</strong></h6>
+                            <h6 class='text-danger'><strong>+0</strong></h6>
                         {% endif %}
                     {% endif %}
                 </div>
-                <div class="col-3 text-center bet">
+                <div class='col-3 text-center bet'>
                     {% if currentGame.gameChoice.betWinner %}
                         {% if currentGame.game.isComplete %}
                             {% if currentGame.gameChoice.correctBetFlag == True %}
-                                <img class="team-logo" src="/static/media/{{ currentGame.gameChoice.betWinner.name }}.png">
-                                <h6 class="text-success"><strong>+{{ currentGame.gameChoice.amountWon }}</strong></h6>
+                                <img class='team-logo' src='/static/media/{{ currentGame.gameChoice.betWinner.name }}.png'>
+                                <h6 class='text-success'><strong>+{{ currentGame.gameChoice.amountWon }}</strong></h6>
                             {% else %}
-                                <img class="team-logo" src="/static/media/{{ currentGame.gameChoice.betWinner.name }}.png">
-                                <h6 class="text-danger"><strong>{{ currentGame.gameChoice.amountWon }}</strong></h6>
+                                <img class='team-logo' src='/static/media/{{ currentGame.gameChoice.betWinner.name }}.png'>
+                                <h6 class='text-danger'><strong>{{ currentGame.gameChoice.amountWon }}</strong></h6>
                             {% endif %} 
                             {% if currentGame.gameChoice.betWinner == currentGame.game.homeTeam %}
                                 <h6>({{ currentGame.game.homeSpread|floatformat }}) {{ currentGame.gameChoice.betAmount }}</h6>
@@ -266,14 +266,14 @@
                             {% endif %}
                         {% elif currentGame.game.pickLocked %}
                             <!--Display in progress game stats-->
-                            <img class="team-logo {% if currentGame.inProgressCorrectBetFlag == True %}correct {% else %}incorrect{% endif %}" src="/static/media/{{ currentGame.gameChoice.betWinner.name }}.png">
+                            <img class='team-logo {% if currentGame.inProgressCorrectBetFlag == True %}correct {% else %}incorrect{% endif %}' src='/static/media/{{ currentGame.gameChoice.betWinner.name }}.png'>
                             {% if currentGame.gameChoice.betWinner == currentGame.game.homeTeam %}
                                 <h6>({{ currentGame.game.homeSpread|floatformat }}) {{ currentGame.gameChoice.betAmount }}</h6>
                             {% else %}
                                 <h6>({{ currentGame.game.awaySpread|floatformat }}) {{ currentGame.gameChoice.betAmount }}</h6>
                             {% endif %}
                         {% else %} 
-                            <img class="team-logo" src="/static/media/{{ currentGame.gameChoice.betWinner.name }}.png"> 
+                            <img class='team-logo' src='/static/media/{{ currentGame.gameChoice.betWinner.name }}.png'> 
                             {% if currentGame.gameChoice.betWinner == currentGame.game.homeTeam %}
                                 <h6>({{ currentGame.game.homeSpread|floatformat }}) {{ currentGame.gameChoice.betAmount }}</h6>
                             {% else %}
@@ -284,29 +284,29 @@
                 </div>
             </div>
             {% endfor %} {% else %}
-            <div class="row">
-                <div class="col text-center">
+            <div class='row'>
+                <div class='col text-center'>
                     <h5>This week's games have not yet been entered.</h5>
                 </div>
             </div>
             {% endif %}
         </div>
         <!-- Picks tab -->
-        <div class="tab-pane fade rounded m-1" id="nav-picks" role="tabpanel" aria-labelledby="nav-picks-tab">
-            {% include "picks/picks.html" %}
+        <div class='tab-pane fade rounded m-1' id='nav-picks' role='tabpanel' aria-labelledby='nav-picks-tab'>
+            {% include 'picks/picks.html' %}
         </div>
         <!-- Bets tab -->
-        <div class="tab-pane fade rounded m-1" id="nav-bets" role="tabpanel" aria-labelledby="nav-bets-tab">
-            {% include "bets/bets.html" %}
+        <div class='tab-pane fade rounded m-1' id='nav-bets' role='tabpanel' aria-labelledby='nav-bets-tab'>
+            {% include 'bets/bets.html' %}
         </div>
     </div>
 </div>
 </div>
-<script src="{% static 'home/js/dashboard.js' %}"></script>
-<script src="{% static 'picks/js/picks.js' %}"></script>
-<script src="{% static 'bets/js/betting.js' %}"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-{{ leagueUserData|json_script:"leagueUserData" }}
+<script src='{% static 'home/js/dashboard.js' %}'></script>
+<script src='{% static 'picks/js/picks.js' %}'></script>
+<script src='{% static 'bets/js/betting.js' %}'></script>
+<script src='https://cdn.jsdelivr.net/npm/chart.js@2.8.0'></script>
+{{ leagueUserData|json_script:'leagueUserData' }}
 <script>
     const pointsData = JSON.parse(document.getElementById('leagueUserData').textContent);
 

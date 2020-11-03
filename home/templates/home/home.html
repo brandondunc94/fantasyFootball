@@ -1,53 +1,53 @@
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, shrink-to-fit=no'>
     <title>Home</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"> {% load static %}
-    <link href="{% static 'css/global.css' %}" rel="stylesheet">
-    <link href="{% static 'home/home.css' %}" rel="stylesheet">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css' rel='stylesheet'> {% load static %}
+    <link href='{% static 'css/global.css' %}' rel='stylesheet'>
+    <link href='{% static 'home/home.css' %}' rel='stylesheet'>
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class='container-fluid'>
         
-            <nav class="navbar navbar-light navbar-expand bg-white pr-0" id="zero">
-                    <a class="navbar-brand"><img src="{% static 'media/logoSmallBlack.png' %}" width="50" /></a>
-                    <a class="btn mr-2 btn-green-outline ml-auto" href="/login/">Login</a>
-                    <a class="btn mr-1 btn-green" href="/account/create/">Join</a>
+            <nav class='navbar navbar-light navbar-expand bg-white pr-0' id='zero'>
+                    <a class='navbar-brand'><img src='{% static 'media/logoSmallBlack.png' %}' width='50' /></a>
+                    <a class='btn mr-2 btn-green-outline ml-auto' href='/login/'>Login</a>
+                    <a class='btn mr-1 btn-green' href='/account/create/'>Join</a>
             </nav>
         
-            <div class="row one">
-                <div class="col text-center" style="background-image: url('static/media/mahomes.png');background-repeat: no-repeat;background-size: cover;padding: 0px;padding-bottom: 150px;background-position: top;">
-                    <img class="title-img" src="{% static 'media/logoTitleWhite.png' %}" />
-                    <h4 class="text-white">A new way to play.</h4>
-                    <a href="#pick-title" class=""><span></span></a>
+            <div class='row one'>
+                <div class='col text-center' style='background-image: url('static/media/mahomes.png');background-repeat: no-repeat;background-size: cover;padding: 0px;padding-bottom: 150px;background-position: top;'>
+                    <img class='title-img' src='{% static 'media/logoTitleWhite.png' %}' />
+                    <h4 class='text-white'>A new way to play.</h4>
+                    <a href='#pick-title' class=''><span></span></a>
                 </div>
             </div>
 
-            <div class="row two" id="pick-title">
-                <div class="col d-flex flex-column align-items-center pt-5">
-                    <h1 class="text-center display-box-header display-4"><strong>Make Picks</strong></h1>
-                    <h4 class="text-center display-box-description">Earn points by correctly selecting the winner of each game throughout the season.</h4>
-                    <img class="rounded img-fluid" src="{% static 'media/pickExample.png' %}" />
-                    <a href="#bet-title" class="mt-3"><span></span></a>
+            <div class='row two' id='pick-title'>
+                <div class='col d-flex flex-column align-items-center pt-5'>
+                    <h1 class='text-center display-box-header display-4'><strong>Make Picks</strong></h1>
+                    <h4 class='text-center display-box-description'>Earn points by correctly selecting the winner of each game throughout the season.</h4>
+                    <img class='rounded img-fluid' src='{% static 'media/pickExample.png' %}' />
+                    <a href='#bet-title' class='mt-3'><span></span></a>
                 </div>
             </div>
 
-            <div class="row three" id="bet-title">
-                <div class="col d-flex flex-column align-items-center pt-5">
-                    <h1 class="text-center display-box-header display-4"><strong>Place Bets</strong></h1>
-                    <h4 class="text-center display-box-description">Use the points you earn from correct picks to bet on the spread of any game and earn even more points!</h4>
-                    <img class="rounded img-fluid" src="{% static 'media/betExample.png' %}" />
-                    <a href="#league-title" class="mt-3"><span></span></a>
+            <div class='row three' id='bet-title'>
+                <div class='col d-flex flex-column align-items-center pt-5'>
+                    <h1 class='text-center display-box-header display-4'><strong>Place Bets</strong></h1>
+                    <h4 class='text-center display-box-description'>Use the points you earn from correct picks to bet on the spread of any game and earn even more points!</h4>
+                    <img class='rounded img-fluid' src='{% static 'media/betExample.png' %}' />
+                    <a href='#league-title' class='mt-3'><span></span></a>
                 </div>
             </div>
 
-            <div class="row four" id="league-title">
-                <div class="col d-flex flex-column align-items-center pt-5">
-                    <h1 class="text-center display-box-header display-4">Compete in Leagues</h1>
-                    <h4 class="text-center display-box-description">Manage your own private league with friends or join a public league and see if you have what it takes to win the season.</h4>
-                    <img class="rounded img-fluid" src="{% static 'media/standingsExample.png' %}" />
-                    <a href="#zero" class="mt-3"><span class="return-top"></span></a>
+            <div class='row four' id='league-title'>
+                <div class='col d-flex flex-column align-items-center pt-5'>
+                    <h1 class='text-center display-box-header display-4'>Compete in Leagues</h1>
+                    <h4 class='text-center display-box-description'>Manage your own private league with friends or join a public league and see if you have what it takes to win the season.</h4>
+                    <img class='rounded img-fluid' src='{% static 'media/standingsExample.png' %}' />
+                    <a href='#zero' class='mt-3'><span class='return-top'></span></a>
                 </div>
             </div>   
 
@@ -58,7 +58,7 @@
 
 
 <!-- jQuery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="{% static 'home/js/home.js' %}"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='{% static 'home/js/home.js' %}'></script>
 <!-- Bootstrap -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js'></script>
