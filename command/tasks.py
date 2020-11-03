@@ -20,11 +20,11 @@ def lockPicks():  #This gets run every 5 minutes. Schedule can be found in fanta
         #Season has not been created, just quit this task
         return True
 
-    #Get all games that are within 15 minutes of start time
-    upcomingGames = Game.objects.filter(dateTime__range=[datetime.now(pytz.utc), datetime.now(pytz.utc) + timedelta(minutes=15)])
+    #Get all games that are within 1 minute of start time
+    upcomingGames = Game.objects.filter(dateTime__range=[datetime.now(pytz.utc), datetime.now(pytz.utc) + timedelta(minutes=1)])
 
     for game in upcomingGames:
-        #Lock picks for this game which is within a hour from start time
+        #Lock picks for this game which is 1 minute away from start time
         game.pickLocked=True
         game.save()
         print("Locked an upcoming game: " + game.homeTeam.name + " VS " + game.awayTeam.name)
