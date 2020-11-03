@@ -83,12 +83,14 @@ def saveScoreSpread(request):
 
         homeScore = int(homeScore)
         awayScore = int(awayScore)
-        if homeScore == 0 and awayScore == 0: #This is hoping a game never ends in a 0-0 tie
-            gameComplete = False
-        else:
-            gameComplete = True #Scores provided from admin, game is over
 
-        updateGame(game=game, homeSpread=homeSpread, awaySpread=awaySpread, homeScore=homeScore, awayScore=awayScore, isComplete=gameComplete)
+        if game.isComplete == False:
+            if homeScore == 0 and awayScore == 0: #This is hoping a game never ends in a 0-0 tie
+                gameComplete = False
+            else:
+                gameComplete = True #Scores provided from admin, game is over
+
+            updateGame(game=game, homeSpread=homeSpread, awaySpread=awaySpread, homeScore=homeScore, awayScore=awayScore, isComplete=gameComplete)
 
         status = 'SUCCESS'
     except:
