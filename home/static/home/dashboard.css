@@ -52,6 +52,31 @@ a.dashboard-menu-item {
     background-color: #ff7676;
 }
 
+@keyframes gameprogress {
+    0% {
+        left: -35px;
+        top: 0px;
+    }
+    50% {
+        left: 35px;
+        top: 0px;
+    }
+    100% {
+        left: -35px;
+        top: 0px;
+    }
+}
+
+#in-progress-game-animation {
+    background-color: #33A1FD;
+    height: 2px;
+    width: 10px;
+    position: relative;
+    animation-name: gameprogress;
+    animation-duration: 4.5s;
+    animation-iteration-count: infinite;
+}
+
 
 /*League Page Style*/
 
