@@ -40,8 +40,8 @@ class Game(models.Model):
     week = models.ForeignKey(Week, on_delete=models.CASCADE, default=None)
     homeTeam = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True, related_name="home")
     awayTeam = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True, related_name="away")
-    homeScore = models.TextField(max_length=10, blank=True)
-    awayScore = models.TextField(max_length=10, blank=True)
+    homeScore = models.IntegerField(default=0)
+    awayScore = models.IntegerField(default=0)
     location = models.TextField(max_length=20, blank=True)
     dateTime = models.DateTimeField(auto_now=False, null=True)
     winner = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True, related_name="winner")
@@ -51,6 +51,8 @@ class Game(models.Model):
     users = models.ManyToManyField(User, through="GameChoice")
     pickLocked = models.BooleanField(default=False)
     isComplete = models.BooleanField(default=False)
+    quarter = models.TextField(max_length=5, default='1')
+    timeRemaining = models.TextField(max_length=10, default='15:00')
 
 #This model governs the relationship between a game and a user and who they picked/betted on to win the game
 class GameChoice(models.Model):
