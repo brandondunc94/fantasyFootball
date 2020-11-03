@@ -74,6 +74,7 @@ def dashboard(request, weekId='', leagueName=''):
         leagueNotifications.append({
             'createDate': notificationDateTime,
             'message': currentNotification.message,
+            'notificationType': currentNotification.notificationType
         })
 
     #Get user score from league membership

@@ -106,8 +106,12 @@ a.dashboard-menu-item {
     overflow-y: scroll;
 }
 
-.notification-box {
+.score-notification-box {
     background-color: #33A1FD;
+}
+
+.sys-notification-box {
+    background-color: #292727;
 }
 
 .leaderboard {

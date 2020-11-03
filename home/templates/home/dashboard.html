@@ -89,8 +89,8 @@
                     <div class='card shadow max-height-650'>
                         <div class='news-board'>
                             {% localtime off %} {% for currentNotification in leagueNotifications %}
-                            <div class='m-3 p-1 media text-muted notification-box rounded'>
-                                <p class='media-body pb-2 mb-0 lh-125 text-white'>
+                            <div class='m-3 p-1 media {% if currentNotification.notificationType == "SCR" %}score-notification-box{% else %}sys-notification-box{% endif %} rounded'>
+                                <p class='pb-2 mb-0 text-white'>
                                     <small>{{ currentNotification.createDate|date:'D n/d/y' }}</small><strong class='d-block'>{{ currentNotification.message }}</strong>
                                 </p>
                             </div>
