@@ -18,6 +18,10 @@
     color: #292727;
 }
 
+.blue {
+    color: #33A1FD;
+}
+
 a {
     color: #33A1FD;
 }
@@ -83,11 +87,24 @@ a {
 
 html {
     overflow-x: hidden;
+    font-size: 1em;
 }
 
 body {
     font-family: 'Lato', sans-serif;
     background-color: white;
+}
+
+@media (max-width: 767px) {
+    html {
+        font-size: 1em;
+    }
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 1.3em;
+    }
 }
 
 
@@ -192,4 +209,8 @@ input {
 
 .btn {
     font-weight: bold !important;
+}
+
+html {
+    font-size: 1rem;
 }
