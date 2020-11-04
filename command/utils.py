@@ -20,7 +20,7 @@ def logSystemNotification():
     message = input("Enter league message: ") 
     for currentLeague in allLeagues:
         #Create leagueNotification for current league
-        newLeagueNotification = LeagueNotification.objects.create(league=currentLeague, message=message)
+        newLeagueNotification = LeagueNotification.objects.create(league=currentLeague, message=message, notificationType='SYS')
         newLeagueNotification.save()
 
 def sendEmailToAdmin(subject, message):
