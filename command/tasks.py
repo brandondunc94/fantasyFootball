@@ -1,8 +1,8 @@
 from __future__ import absolute_import, unicode_literals
-
 from celery import shared_task
 from league.models import Season, Week, Game, LeagueMembership
 from command.utils import sendEmailToUser
+from league.utils import getActiveWeekId
 from django.contrib.auth.models import User
 from django.core import mail
 
@@ -55,20 +55,33 @@ def sendReminderEmail():  #This gets run every Thursday afternoon. Schedule can 
 
     message = """\
     <html>
-        <head>
-        </head>
-        <body>
-            <img src="http://onsidepick.com/static/media/logoTitleWhiteBackground.png" width="250" height="auto">
-            <h4>This is a friendly reminder to make your picks and bets for the upcoming week!</h4>
-            <a class="btn btn-blue" href="http://onsidepick.com/">Make Picks</a>
-            <br><br>
-            <p>Want to turn off email notifications? Visit the Account page and remove your email from your profile.</p>
-        </body>
+    <head>
+    </head>
+    <style>
+    .btn {
+        background-color: #19A404;
+        border-radius: 5px;
+        color: white;
+        padding: 10px 10px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        }
+    </style>
+    <body>
+        <img src='http://onsidepick.com/static/media/logoTitleWhiteBackground.png' width='250' height='auto'>
+        <br><br>
+        <h4>This is a friendly reminder to make your picks and bets for the upcoming week!</h4>
+
+        <a class='btn btn-blue' href='http://onsidepick.com/'>Make Picks</a>
+        <br><br>
+        <p>Don't want email notifications? Please visit the <a href='http://onsidepick.com/account'>Account</a> page to remove the email from your profile.</p>
+    </body>
     </html>"""
 
-
+    weekId = getActiveWeekId()
     email = mail.EmailMessage(
-                'Make your picks!',
+                'Week ' + weekId + ' - Make your picks!',
                 message,
                 'onsidepickfootball@gmail.com',
                 [],
