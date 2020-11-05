@@ -19,6 +19,7 @@ class Season(models.Model):
     year = models.TextField(primary_key=True, max_length=100, blank=True)
     active = models.BooleanField(default=True)
     currentActiveWeek = models.TextField(max_length=100, default="1")
+    gameCount = models.IntegerField(default=0)
     
     def __str__(self):
         return self.year
