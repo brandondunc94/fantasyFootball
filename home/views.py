@@ -34,24 +34,31 @@ def dashboard(request, weekId='', leagueName=''):
     #Get all users for active league
     leagueMembers = LeagueMembership.objects.filter(league=activeLeague).order_by('-score')
     leagueUserData = []
+
     #Create json list of users and their weekly scores
     for currentUserMembership in leagueMembers:
 
         #Split weeklyScores by comma
         weeklyScores = currentUserMembership.weeklyScores.rstrip(',').split(',')
         
-        try:
+        try: #Get current week score change
             weeklyGain = currentUserMembership.score - int(weeklyScores[-1])
         except:
             weeklyGain = 0
         
+        try: #Calculate user pick percentage
+            pickPercentage = activeSeason.gameCount/currentUserMembership.correctPicks
+        except:
+            pickPercentage = 0
+
         weeklyScores.append(str(currentUserMembership.score))
         leagueUserData.append(
         {
             'totalScore': currentUserMembership.score,
             'weeklyScores': weeklyScores,
             'username': currentUserMembership.user.username,
-            'weeklyGain': weeklyGain
+            'weeklyGain': weeklyGain,
+            'pickPercentage': pickPercentage
         })
 
     #Get all league messages, notifications and convert the date/times to user's timezone

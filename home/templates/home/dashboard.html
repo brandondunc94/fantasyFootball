@@ -31,8 +31,8 @@
     <div class='tab-content' id='nav-tabContent'>
         <!-- League Home tab -->
         <div class='tab-pane fade rounded' id='nav-league' role='tabpanel' aria-labelledby='nav-league-tab'>
-            <div class='row mb-3'>
-                <div class='col-xl-4 col-md-6 mt-3'>
+            <div class='row'>
+                <div class='col-md-6 col-sm-12 mt-3'>
                     <div class='card-header collapse-col text-center'>
                         <div class='d-flex justify-content-between'>
                             <strong>Standings</strong>
@@ -70,7 +70,7 @@
                                         {% elif currentUser.weeklyGain == 0 %}
                                         <td class='text'>+{{ currentUser.weeklyGain }}</td>
                                         {% else %}
-                                        <td class='text-danger'>{{ currentUser.weeklyGain }}</td>
+                                        <td class='text-danger'>-{{ currentUser.weeklyGain }}</td>
                                         {% endif %}
                                     </tr>
                                     {% endfor %}
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                 </div>
-                <div class='col-xl-4 col-md-6 mt-3'>
+                <div class='col-md-6 col-sm-12 mt-3'>
                     <div class='card-header collapse-col text-center'>
                         <div class='d-flex justify-content-between'>
                             <strong>News</strong>
@@ -98,7 +98,37 @@
                         </div>
                     </div>
                 </div>
-                <div class='col-xl-4 mt-3'>
+            </div>
+            <div class='row'>
+                <div class='col-md-6 col-sm-12 mt-3'>
+                    <div class='card-header collapse-col text-center'>
+                        <div class='d-flex justify-content-between'>
+                            <strong>Season Stats</strong>
+                            <i class='arrow'></i>
+                        </div>
+                    </div>
+                    <div class='card shadow max-height-650'>
+                        <div class='leaderboard'>
+                            <table class='table text-center' cellspacing='0' width='100%'>
+                                <thead class='thead'>
+                                    <tr>
+                                        <th scope='col'>Player</th>
+                                        <th scope='col'>Pick %</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for currentUser in leagueUserData %}
+                                    <tr>
+                                        <td>{{ currentUser.username }}</td>
+                                        <td>{{ currentUser.pickPercentage }} %</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-md-6 col-sm-12 mt-3'>
                     <div class='card-header collapse-col text-center'>
                         <div class='d-flex justify-content-between'>
                             <strong>Messages</strong>
@@ -160,7 +190,7 @@
                 </div>
             </div>
             {% for currentGame in gameData %}
-            <div class='row text-center border-bottom border-gray no-gutters mt-2' id='{{ currentGame.game.id }}'>
+            <div class='row text-center border-bottom border-gray no-gutters mt-2 game-row' id='{{ currentGame.game.id }}'>
                 <div class='col-6 text-center'>
                     <div class='d-flex justify-content-around align-items-center mb-2'>
                         <div class='col-5 p-0'>
