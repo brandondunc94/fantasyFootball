@@ -73,6 +73,7 @@ class LeagueMembership(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     league = models.ForeignKey(League, on_delete=models.CASCADE)
     score = models.IntegerField(default=500)
+    correctPicks = models.IntegerField(default=0)
     weeklyScores = models.TextField(max_length=1000, blank=True, default="") #Comma separated list of weekly scores starting with week 1
     class Meta:
         unique_together = ["user", "league"]
