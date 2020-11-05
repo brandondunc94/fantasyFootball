@@ -47,7 +47,7 @@ def dashboard(request, weekId='', leagueName=''):
             weeklyGain = 0
         
         try: #Calculate user pick percentage
-            pickPercentage = round(currentUserMembership.correctPicks/activeSeason.gameCount,2)
+            pickPercentage = "{:.2%}".format(currentUserMembership.correctPicks/activeSeason.gameCount)
         except:
             pickPercentage = 0
 
