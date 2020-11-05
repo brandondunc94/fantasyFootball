@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from django.core import mail
 
 from datetime import datetime, timedelta
+from livedata.utils import getInProgressScores
 import pytz
 
 @shared_task
@@ -95,4 +96,10 @@ def sendReminderEmail():  #This gets run every Thursday afternoon. Schedule can 
     
     sendEmailToUser(emailMessages=email, userEmailList=emailList)
 
-
+@shared_task
+def getLiveScores():
+    try:
+        getInProgressScores()
+        print('All live scores have been retrieved successfully.')
+    except:
+        print('Unable to retrieve some live scores.')
