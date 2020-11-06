@@ -137,6 +137,8 @@ def createGame(weekId, homeTeamName, awayTeamName, gameDate, gameTime, timezone,
             #Create the new game
             newGame = Game(week=week, homeTeam=homeTeam, awayTeam=awayTeam, dateTime=gameDateTimeObject, homeSpread=homeSpread, awaySpread=awaySpread) #Create game
             newGame.save()
+            season.gameCount += 1
+            season.save()
         status = True
     except:
         print("Unable to create new game.")
