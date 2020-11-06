@@ -40,7 +40,7 @@ def getWeekSchedule():
         
 def getInProgressScores():
     
-    weekGames = queryApi(querystring={"status":"in progress","league":"NFL","date":date.today()})
+    weekGames = queryApi(querystring={"status":"in progress","league":"NFL","date":(date.today() - timedelta(1)).strftime("%Y-%m-%d") + ',' + date.today().strftime("%Y-%m-%d")})
     print(weekGames)
     status = True
     #Get current active week
@@ -113,7 +113,6 @@ def queryApi(querystring):
         'x-rapidapi-key': "f3dab5c1f3msh132da6594847d9dp18d4cejsn8983d76c736f"
     }
 
-    print('Querying with: ' + querystring)
     response = requests.request("GET", url, headers=headers, params=querystring)
     weekGames = json.loads(response.text)
 
