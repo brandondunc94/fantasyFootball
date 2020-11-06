@@ -13,9 +13,8 @@ import pytz
 @shared_task
 def lockPicks():  #This gets run every 5 minutes. Schedule can be found in fantasyFootball/settings.py
 
-    #Get all games that are at kickoff time
-    #upcomingGames = Game.objects.filter(dateTime__range=[datetime.now(pytz.utc), datetime.now(pytz.utc) + timedelta(minutes=1)])
-    upcomingGames = Game.objects.filter(datetime.now(pytz.utc))
+    #Get all games that are 1 minute from kickoff time
+    upcomingGames = Game.objects.filter(dateTime__range=[datetime.now(pytz.utc), datetime.now(pytz.utc) + timedelta(minutes=1)])
 
     for game in upcomingGames:
         #Lock picks for this game which is 1 minute away from start time
