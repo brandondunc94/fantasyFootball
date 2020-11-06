@@ -230,6 +230,7 @@ def scoreGame(game):
                 if currentPick.pickWinner == game.winner:
                     membership.score += 25
                     currentPick.correctPickFlag = True
+                    membership.correctPicks += 1
 
                 #Check if spread bet was correct and give points accordingly
                 if currentPick.betWinner:
