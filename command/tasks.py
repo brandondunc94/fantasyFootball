@@ -5,9 +5,8 @@ from command.utils import sendEmailToUser
 from league.utils import getActiveWeekId
 from django.contrib.auth.models import User
 from django.core import mail
-
 from datetime import datetime, timedelta
-from livedata.utils import getInProgressScores
+from livedata.utils import getInProgressScores, getFinalLiveScores
 import pytz
 
 @shared_task
@@ -95,3 +94,11 @@ def getLiveScores():
         print('All live scores have been retrieved successfully.')
     except:
         print('Unable to retrieve some live scores.')
+
+@shared_task
+def getFinalScores():
+    try:
+        getFinalLiveScores()
+        print('Any final scores have been retrieved successfully.')
+    except:
+        print('Unable to retrieve/save some final scores.')
