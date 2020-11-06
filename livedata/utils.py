@@ -113,6 +113,7 @@ def queryApi(querystring):
         'x-rapidapi-key': "f3dab5c1f3msh132da6594847d9dp18d4cejsn8983d76c736f"
     }
 
+    print('Querying with: ' + querystring)
     response = requests.request("GET", url, headers=headers, params=querystring)
     weekGames = json.loads(response.text)
 
