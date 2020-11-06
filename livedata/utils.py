@@ -41,6 +41,7 @@ def getWeekSchedule():
 def getInProgressScores():
     
     weekGames = queryApi(querystring={"status":"in progress","league":"NFL","date":date.today()})
+    print(weekGames)
     status = True
     #Get current active week
     weekId = leagueUtils.getActiveWeekId()
