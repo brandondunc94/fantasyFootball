@@ -74,7 +74,7 @@ def getInProgressScores():
     return status
 
 def getFinalLiveScores():
-    weekGames = queryApi(querystring={"status":"final","league":"NFL","date":date.today()})
+    weekGames = queryApi(querystring={"status":"final","league":"NFL","date":(date.today() - timedelta(1)).strftime("%Y-%m-%d") + ',' + date.today().strftime("%Y-%m-%d")})
 
     #Get current active week
     weekId = leagueUtils.getActiveWeekId()
