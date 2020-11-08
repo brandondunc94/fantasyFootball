@@ -249,6 +249,13 @@ def scoreGame(game):
                             else:   #Home team lost by too many points, take player's points
                                 currentPick.amountWon -= currentPick.betAmount
                                 currentPick.correctBetFlag = False
+                        else: #Spread is 0/0, check to see if home team won
+                            if game.homeScore > game.awayScore:
+                                currentPick.amountWon += currentPick.betAmount * .9
+                                currentPick.correctBetFlag = True
+                            else:
+                                currentPick.amountWon -= currentPick.betAmount
+                                currentPick.correctBetFlag = False
                     else: #User selected away team spread
                         if game.awaySpread < game.homeSpread: #Away Team was supposed to win
                             if game.awayScore - game.homeScore >= game.homeSpread: #Away team won by their spread, pay player
@@ -264,7 +271,14 @@ def scoreGame(game):
                             else:   #Away team lost by too many points, take player's points
                                 currentPick.amountWon -= currentPick.betAmount
                                 currentPick.correctBetFlag = False
-
+                        else: #Spread is 0/0, check to see if away team won
+                            if game.awayScore > game.homeScore:
+                                currentPick.amountWon += currentPick.betAmount * .9
+                                currentPick.correctBetFlag = True
+                            else:
+                                currentPick.amountWon -= currentPick.betAmount
+                                currentPick.correctBetFlag = False
+                                
                     #Add amount won to players score, this can be either positive or negative points
                     membership.score = membership.score + currentPick.amountWon
 
