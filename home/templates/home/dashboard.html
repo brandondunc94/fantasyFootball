@@ -70,7 +70,7 @@
                                         {% elif currentUser.weeklyGain == 0 %}
                                         <td class='text'>+{{ currentUser.weeklyGain }}</td>
                                         {% else %}
-                                        <td class='text-danger'>-{{ currentUser.weeklyGain }}</td>
+                                        <td class='text-danger'>{{ currentUser.weeklyGain }}</td>
                                         {% endif %}
                                     </tr>
                                     {% endfor %}
