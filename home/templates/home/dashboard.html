@@ -8,22 +8,22 @@
 <div class='navbar-dashboard shadow'>
     <nav class='nav-fill w-100'>
         <div class='nav main-nav' id='nav-tab' role='tablist'>
-            <a class='nav-item dashboard-menu-item nav-link' id='nav-league-tab' data-toggle='tab' href='#nav-league' role='tab' aria-controls='nav-league' aria-selected='false'>League</a>
-            <a class='nav-item dashboard-menu-item nav-link' id='nav-games-tab' data-toggle='tab' href='#nav-games' role='tab' aria-controls='nav-games' aria-selected='false'>Games</a>
-            <a class='nav-item dashboard-menu-item nav-link' id='nav-picks-tab' data-toggle='tab' href='#nav-picks' role='tab' aria-controls='nav-picks' aria-selected='false'>Picks</a>
-            <a class='nav-item dashboard-menu-item nav-link' id='nav-bets-tab' data-toggle='tab' href='#nav-bets' role='tab' aria-controls='nav-bets' aria-selected='false'>Bets</a>
+            <a class='nav-item dashboard-menu-item nav-link font-italic font-bold' id='nav-league-tab' data-toggle='tab' href='#nav-league' role='tab' aria-controls='nav-league' aria-selected='false'>League</a>
+            <a class='nav-item dashboard-menu-item nav-link font-italic' id='nav-games-tab' data-toggle='tab' href='#nav-games' role='tab' aria-controls='nav-games' aria-selected='false'>Games</a>
+            <a class='nav-item dashboard-menu-item nav-link font-italic' id='nav-picks-tab' data-toggle='tab' href='#nav-picks' role='tab' aria-controls='nav-picks' aria-selected='false'>Picks</a>
+            <a class='nav-item dashboard-menu-item nav-link font-italic' id='nav-bets-tab' data-toggle='tab' href='#nav-bets' role='tab' aria-controls='nav-bets' aria-selected='false'>Bets</a>
         </div>
     </nav>
 </div>
 <div class='container-fluid'>
     <div class='d-flex mt-2 mr-3 ml-3'>
-        <h2 class='w-100 text-center'><strong>{{ activeLeague }}</strong></h2>
+        <h2 class='w-100 text-center'>{{ activeLeague }}</h2>
         {% if weeks %}
         <div class='dropdown'>
-            <button class='btn week-pick dropdown-toggle' id='weekId' name='{{ week }}' type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><strong>Week {{ week }}</strong></button>
+            <button class='btn week-pick dropdown-toggle' id='weekId' name='{{ week }}' type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Week {{ week }}</button>
             <div class='dropdown-menu'>
                 {% for week in weeks %}
-                <a class='dropdown-item' href='/home/{{ week }}/'><strong>{{ week }}</strong></a> {% endfor %}
+                <a class='dropdown-item' href='/home/{{ week }}/'>{{ week }}</a> {% endfor %}
             </div>
         </div>
         {% endif %}
@@ -35,7 +35,7 @@
                 <div class='col-md-6 col-sm-12 mt-3'>
                     <div class='card-header collapse-col text-center'>
                         <div class='d-flex justify-content-between'>
-                            <strong>Standings</strong>
+                            <strong class='font-italic'>Standings</strong>
                             <i class='arrow'></i>
                         </div>
                     </div>
@@ -82,16 +82,16 @@
                 <div class='col-md-6 col-sm-12 mt-3'>
                     <div class='card-header collapse-col text-center'>
                         <div class='d-flex justify-content-between'>
-                            <strong>News</strong>
+                            <strong class='font-italic'>News</strong>
                             <i class='arrow'></i>
                         </div>
                     </div>
                     <div class='card shadow max-height-650'>
                         <div class='news-board'>
                             {% localtime off %} {% for currentNotification in leagueNotifications %}
-                            <div class='m-3 p-1 media {% if currentNotification.notificationType == "SCR" %}score-notification-box{% else %}sys-notification-box{% endif %} rounded'>
+                            <div class='m-3 p-1 {% if currentNotification.notificationType == "SCR" %}score-notification-box{% else %}sys-notification-box{% endif %} rounded'>
                                 <p class='pb-2 mb-0 text-white'>
-                                    <small>{{ currentNotification.createDate|date:'D n/d/y' }}</small><strong class='d-block'>{{ currentNotification.message }}</strong>
+                                    <strong class='d-block'>{{ currentNotification.createDate|date:'D n/d/y' }}</strong>{{ currentNotification.message }}
                                 </p>
                             </div>
                             {% endfor %} {% endlocaltime %}
@@ -103,7 +103,7 @@
                 <div class='col-md-6 col-sm-12 mt-3'>
                     <div class='card-header collapse-col text-center'>
                         <div class='d-flex justify-content-between'>
-                            <strong>Season Stats</strong>
+                            <strong class='font-italic'>Season Stats</strong>
                             <i class='arrow'></i>
                         </div>
                     </div>
@@ -131,7 +131,7 @@
                 <div class='col-md-6 col-sm-12 mt-3'>
                     <div class='card-header collapse-col text-center'>
                         <div class='d-flex justify-content-between'>
-                            <strong>Messages</strong>
+                            <strong class='font-italic'>Messages</strong>
                             <i class='arrow'></i>
                         </div>
                     </div>

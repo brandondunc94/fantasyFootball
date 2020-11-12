@@ -4,8 +4,8 @@
     <title>Onside Pick</title>
     <!-- Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">{% load static %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;1,300&display=swap" rel="stylesheet">{% load static %}
     <link href="{% static 'css/global.css' %}" rel="stylesheet">
 </head>
 
@@ -22,7 +22,7 @@
                 {% if activeLeague %}
                 <a class="dropdown-toggle nav-link nav-league" data-toggle="dropdown" aria-expanded="false" href="#">
                     <img class="mr-2" src="{% static 'media/leagueIcon.png' %}" width="auto" height="25" />
-                    <span id="leagueName" name="{{ activeLeague }}" value="{{ activeLeague }}"><strong>{{ activeLeague }}</strong></span>
+                    <span id="leagueName" name="{{ activeLeague }}" value="{{ activeLeague }}">{{ activeLeague }}</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     {% for league in userLeagues %}

@@ -91,7 +91,7 @@ html {
 }
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Kanit', sans-serif;
     background-color: white;
 }
 
@@ -194,23 +194,10 @@ a.nav-link {
 
 /* Bold Font everything */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-small,
-td,
-a,
-input {
-    font-weight: bold !important;
-}
-
-.btn {
-    font-weight: bold !important;
-}
-
 html {
     font-size: 1rem;
+}
+
+a {
+    font-style: italic;
 }
