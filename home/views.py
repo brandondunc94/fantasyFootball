@@ -46,10 +46,10 @@ def dashboard(request, weekId='', leagueName=''):
         except:
             weeklyGain = 0
         
-        try: #Calculate user pick percentage
-            pickPercentage = "{:.1%}".format(currentUserMembership.correctPicks/activeSeason.gameCount)
-        except:
-            pickPercentage = 0
+        #try: #Calculate user pick percentage
+            #pickPercentage = "{:.1%}".format(currentUserMembership.correctPicks/activeSeason.gameCount)
+        #except:
+            #pickPercentage = 0
 
         weeklyScores.append(str(currentUserMembership.score))
         leagueUserData.append(
@@ -58,7 +58,8 @@ def dashboard(request, weekId='', leagueName=''):
             'weeklyScores': weeklyScores,
             'username': currentUserMembership.user.username,
             'weeklyGain': weeklyGain,
-            'pickPercentage': pickPercentage
+            #'pickPercentage': pickPercentage,
+            #'betPercentage': betPercentage,
         })
 
     #Get all league messages, notifications and convert the date/times to user's timezone
@@ -101,7 +102,7 @@ def dashboard(request, weekId='', leagueName=''):
 
     #Get game data for weekId passed in
     try:
-        currentWeekGames = Game.objects.filter(week_id=Week.objects.get(id=weekId, season=activeSeason)).order_by('dateTime')
+        currentWeekGames = Game.objects.filter(week_id=weekId, season=activeSeason).order_by('dateTime')
     except:
         #No games are currently available. Open up the home page with no data.
         #THIS SHOULD BE A HOME PAGE FOR OFFSEASON
@@ -134,7 +135,7 @@ def dashboard(request, weekId='', leagueName=''):
             inProgressCorrectBetFlag = determineCorrectBetFlag(game=currentGame,gameChoice=currentGameChoice)
         else:
             inProgressCorrectBetFlag = False
-            
+        
         gameData.append(
         {
             'game' : currentGame,

@@ -135,7 +135,7 @@ def createGame(weekId, homeTeamName, awayTeamName, gameDate, gameTime, timezone,
             updateGame(game=existingGame, homeSpread=homeSpread, awaySpread=awaySpread, gameDate=gameDate, gameTime=gameTime, isComplete=False)
         except:
             #Create the new game
-            newGame = Game(week=week, homeTeam=homeTeam, awayTeam=awayTeam, dateTime=gameDateTimeObject, homeSpread=homeSpread, awaySpread=awaySpread) #Create game
+            newGame = Game(week=week, homeTeam=homeTeam, awayTeam=awayTeam, dateTime=gameDateTimeObject, homeSpread=homeSpread, awaySpread=awaySpread, season=season) #Create game
             newGame.save()
             season.gameCount += 1
             season.save()

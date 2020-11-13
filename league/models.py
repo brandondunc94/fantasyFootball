@@ -19,13 +19,13 @@ class Season(models.Model):
     year = models.TextField(primary_key=True, max_length=100, blank=True)
     active = models.BooleanField(default=True)
     currentActiveWeek = models.TextField(max_length=100, default="1")
-    gameCount = models.IntegerField(default=0)
     
     def __str__(self):
         return self.year
 
 class Week(models.Model):
-    season = models.ForeignKey(Season,on_delete=models.CASCADE, default=None)
+    season = models.ForeignKey(Season,on_delete=models.CASCADE, default=2020)
+    weekId = models.IntegerField(default=0)
     altName = models.TextField(max_length=100, default="Regular Season")
     isLocked = models.BooleanField(default=True)
 
@@ -35,12 +35,13 @@ class Team(models.Model):
     wins = models.IntegerField(default=0)
     losses = models.IntegerField(default=0)
     ties = models.IntegerField(default=0)
-    season = models.ForeignKey(Season,on_delete=models.CASCADE, default=None)
+    season = models.ForeignKey(Season,on_delete=models.CASCADE, default=2020)
 
 class Game(models.Model):
     week = models.ForeignKey(Week, on_delete=models.CASCADE, default=None)
     homeTeam = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True, related_name="home")
     awayTeam = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True, related_name="away")
+    season = models.ForeignKey(Season,on_delete=models.CASCADE, null=True, default=2020)
     homeScore = models.IntegerField(default=0)
     awayScore = models.IntegerField(default=0)
     location = models.TextField(max_length=20, blank=True)
@@ -61,6 +62,7 @@ class GameChoice(models.Model):
     league = models.ForeignKey(League, on_delete=models.CASCADE)
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     week = models.ForeignKey(Week, on_delete=models.CASCADE)
+    season = models.ForeignKey(Season,on_delete=models.CASCADE, null=True, default=2020)
     pickWinner = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True,  related_name="pickWinner")
     betWinner = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True, related_name="betWinner")
     betAmount = models.IntegerField(default=0)
@@ -73,6 +75,7 @@ class GameChoice(models.Model):
 class LeagueMembership(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     league = models.ForeignKey(League, on_delete=models.CASCADE)
+    season = models.ForeignKey(Season,on_delete=models.CASCADE, null=True, default='2020')
     score = models.IntegerField(default=500)
     correctPicks = models.IntegerField(default=0)
     weeklyScores = models.TextField(max_length=1000, blank=True, default="") #Comma separated list of weekly scores starting with week 1
