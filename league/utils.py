@@ -278,7 +278,9 @@ def scoreGame(game):
                             else:
                                 currentPick.amountWon -= currentPick.betAmount
                                 currentPick.correctBetFlag = False
-                                
+
+                    if currentPick.correctBetFlag == True:
+                        membership.correctBets += 1            
                     #Add amount won to players score, this can be either positive or negative points
                     membership.score = membership.score + currentPick.amountWon
 

@@ -39,3 +39,12 @@ def determineCorrectBetFlag(game, gameChoice):
         correctBetFlag = False
         
     return correctBetFlag
+
+def calculatePlayerCorrectBets():
+
+    allLeagueMemberships = LeagueMembership.objects.all()
+
+    for currentMembership in allLeagueMemberships:
+        #Get all game choices for current user and league where correctPickFlag == True
+        currentMembership.correctBets = GameChoice.objects.filter(user=currentMembership.user, league=currentMembership.league, correctBetFlag=True).count()
+        currentMembership.save()
