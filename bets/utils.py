@@ -1,3 +1,5 @@
+from league.models import LeagueMembership, GameChoice
+
 def determineCorrectBetFlag(game, gameChoice):
     if gameChoice:
         if gameChoice.betWinner:
