@@ -122,7 +122,7 @@
                                 <tbody>
                                     {% for currentUser in leagueUserData %}
                                     <tr>
-                                        <td>{{ currentUser.username }}</td>
+                                        <td> <a href='/account/{{ currentUser.username }}/'>{{ currentUser.username }}</a></td>
                                         <td>{{ currentUser.pickPercentage }}</td>
                                         <td>{{ currentUser.betPercentage }}</td>
                                         <td>{{ currentUser.betCount }}</td>
