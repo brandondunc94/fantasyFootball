@@ -82,27 +82,6 @@
                 <div class='col-md-6 col-sm-12 mt-3'>
                     <div class='card-header collapse-col text-center'>
                         <div class='d-flex justify-content-between'>
-                            <strong class='font-italic'>News</strong>
-                            <i class='arrow'></i>
-                        </div>
-                    </div>
-                    <div class='card shadow max-height-650'>
-                        <div class='news-board'>
-                            {% localtime off %} {% for currentNotification in leagueNotifications %}
-                            <div class='m-3 p-1 {% if currentNotification.notificationType == "SCR" %}score-notification-box{% else %}sys-notification-box{% endif %} rounded'>
-                                <p class='pb-2 mb-0 text-white'>
-                                    <strong class='d-block'>{{ currentNotification.createDate|date:'D n/d/y' }}</strong>{{ currentNotification.message }}
-                                </p>
-                            </div>
-                            {% endfor %} {% endlocaltime %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class='row'>
-                <div class='col-md-6 col-sm-12 mt-3'>
-                    <div class='card-header collapse-col text-center'>
-                        <div class='d-flex justify-content-between'>
                             <strong class='font-italic'>Season Stats</strong>
                             <i class='arrow'></i>
                         </div>
@@ -130,6 +109,27 @@
                                     {% endfor %}
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-md-6 col-sm-12 mt-3'>
+                    <div class='card-header collapse-col text-center'>
+                        <div class='d-flex justify-content-between'>
+                            <strong class='font-italic'>News</strong>
+                            <i class='arrow'></i>
+                        </div>
+                    </div>
+                    <div class='card shadow max-height-650'>
+                        <div class='news-board'>
+                            {% localtime off %} {% for currentNotification in leagueNotifications %}
+                            <div class='m-3 p-1 {% if currentNotification.notificationType == "SCR" %}score-notification-box{% else %}sys-notification-box{% endif %} rounded'>
+                                <p class='pb-2 mb-0 text-white'>
+                                    <strong class='d-block'>{{ currentNotification.createDate|date:'D n/d/y' }}</strong>{{ currentNotification.message }}
+                                </p>
+                            </div>
+                            {% endfor %} {% endlocaltime %}
                         </div>
                     </div>
                 </div>
