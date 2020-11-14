@@ -54,7 +54,7 @@ def dashboard(request, weekId='', leagueName=''):
         
         try: 
             #Get Bet percentage
-            gamesBetted = GameChoice.objects.filter(season=activeSeason, league=currentUserMembership.league, user=currentUserMembership.user, betWinner__isnull=True).count()
+            gamesBetted = GameChoice.objects.filter(season=activeSeason, league=currentUserMembership.league, user=currentUserMembership.user, betWinner__isnull=False).count()
             betPercentage = "{:.1%}".format(currentUserMembership.correctBets/gamesBetted)
         except:
             gamesBetted = '0'
