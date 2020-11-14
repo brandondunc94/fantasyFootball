@@ -139,23 +139,21 @@
                         <!-- LEAGUE MESSAGE LOGIC HERE -->
                         <div class='message-board'>
                             {% localtime off %} {% if leagueMessages %} {% for currentMessage in leagueMessages %}
-                            <div class='media text-muted pl-3 pr-3 pt-3'>
-                                <p class='media-body border-bottom border-gray'>
-                                    <strong class='d-block'><small class='d-block'>{{ currentMessage.createDate|date:'D n/d/y' }}</small>{{ currentMessage.username }} - {{ currentMessage.message }}</strong>
-                                </p>
-                            </div>
+                                <div class="d-flex justify-content-between pl-2 pr-2 border-bottom border-grey">
+                                    <a href='/account/{{ currentUser.username }}/'>{{ currentMessage.username }}</a>
+                                    <small class="">
+                                        <span class="glyphicon glyphicon-time"></span>{{ currentMessage.createDate|date:'D n/d/y' }}
+                                    </small>
+                                </div>
+                                <p class='pl-2 pr-2'>{{ currentMessage.message }}</p>
                             {% endfor %} {% else %}
                             <div class='media text-muted pt-3 text-center'>
-                                <p class='media-body'>
-                                    <strong class='d-block'>No messages yet..</strong>
-                                </p>
+                                <p class='media-body'>No messages yet..</p>
                             </div>
                             {% endif %} {% endlocaltime %}
                         </div>
                         <div class='media text-muted'>
-                            <p class='media-body text-center'>
-                                <strong class='d-block'>Please reload the page to see new messages.</strong>
-                            </p>
+                            <p class='media-body text-center'>Please reload the page to see new messages.</p>
                         </div>
                         <div class='input-group mt-auto p-2'>
                             {% csrf_token %}
