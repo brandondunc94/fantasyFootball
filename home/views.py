@@ -46,11 +46,19 @@ def dashboard(request, weekId='', leagueName=''):
         except:
             weeklyGain = 0
         
-        try: #Calculate user pick percentage
+        try: #Calculate user pick percentage & bet percentage
             finishedGamesCount = Game.objects.filter(season=activeSeason, isComplete=True).count()
             pickPercentage = "{:.1%}".format(currentUserMembership.correctPicks/finishedGamesCount)
         except:
             pickPercentage = '0.0%'
+        
+        try: 
+            #Get Bet percentage
+            gamesBetted = GameChoice.objects.filter(season=activeSeason, league=currentUserMembership.league, betWinner__isnull=True).count()
+            betPercentage = "{:.1%}".format(currentUserMembership.correctBets/gamesBetted)
+        except:
+            gamesBetted = '0'
+            betPercentage = 'N/A'
 
         weeklyScores.append(str(currentUserMembership.score))
         leagueUserData.append(
@@ -60,6 +68,8 @@ def dashboard(request, weekId='', leagueName=''):
             'username': currentUserMembership.user.username,
             'weeklyGain': weeklyGain,
             'pickPercentage': pickPercentage,
+            'betPercentage': betPercentage,
+            'betCount': gamesBetted
         })
 
     #Get all league messages, notifications and convert the date/times to user's timezone

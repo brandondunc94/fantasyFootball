@@ -114,6 +114,9 @@
                                     <tr>
                                         <th scope='col'>Player</th>
                                         <th scope='col'>Pick %</th>
+                                        <th scope='col'>Bet %</th>
+                                        <th scope='col'>Bet Count</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -121,6 +124,8 @@
                                     <tr>
                                         <td>{{ currentUser.username }}</td>
                                         <td>{{ currentUser.pickPercentage }}</td>
+                                        <td>{{ currentUser.betPercentage }}</td>
+                                        <td>{{ currentUser.betCount }}</td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
