@@ -47,14 +47,14 @@ def dashboard(request, weekId='', leagueName=''):
             weeklyGain = 0
         
         try: #Calculate user pick percentage & bet percentage
-            gamesPickedCount = GameChoice.objects.filter(season=activeSeason, league=currentUserMembership.league, user=currentUserMembership.user, pickWinner__isnull=False, correctPickFlag__isnull=False).count()
+            gamesPickedCount = GameChoice.objects.filter(season=activeSeason, league=currentUserMembership.league, user=currentUserMembership.user, pickWinner__isnull=False, scoredFlag=True).count()
             pickPercentage = "{:.1%}".format(currentUserMembership.correctPicks/gamesPickedCount)
         except:
             pickPercentage = '0.0%'
         
         try: 
             #Get Bet percentage
-            gamesBetted = GameChoice.objects.filter(season=activeSeason, league=currentUserMembership.league, user=currentUserMembership.user, betWinner__isnull=False, correctBetFlag__isnull=False).count()
+            gamesBetted = GameChoice.objects.filter(season=activeSeason, league=currentUserMembership.league, user=currentUserMembership.user, betWinner__isnull=False, scoredFlag=True).count()
             betPercentage = "{:.1%}".format(currentUserMembership.correctBets/gamesBetted)
         except:
             gamesBetted = '0'
