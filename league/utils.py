@@ -213,18 +213,19 @@ def determineWinner(game):
 
 def determineSpreadWinner(game):
 
+    spreadWinner = None
     if game.homeSpread < game.awaySpread: #Home Team was supposed to win
         if game.homeScore - game.awayScore >= game.awaySpread: #Home team wins by enough points & wins spread
-            game.spreadWinner = game.homeTeam
+            spreadWinner = game.homeTeam
         else:   #Away team lost within their spread margin or won, away team wins spread
-            game.spreadWinner = game.awayTeam
+            spreadWinner = game.awayTeam
     elif game.awaySpread < game.homeSpread: #Home team was supposed to lose
         if game.awayScore - game.homeScore <= game.homeSpread: #Home team lost within their spread margin or won, home team wins spread
-            game.spreadWinner = game.homeTeam
+            spreadWinner = game.homeTeam
         else:   #Home team lost by too many points, away team wins spread
-            game.spreadWinner = game.awayTeam
+            spreadWinner = game.awayTeam
     
-    game.save()
+    return spreadWinner
 
 #Score all players on the game passed in
 def scoreGame(game):
@@ -327,6 +328,7 @@ def setGameSpreadWinner():
     try:
         for currentGame in allGames:
             if currentGame.spreadWinner != None:
-                determineSpreadWinner(currentGame)
+                currentGame.spreadWinner = determineSpreadWinner(currentGame)
+                currentGame.save()
     except:
         print("Could not set spread winners")
