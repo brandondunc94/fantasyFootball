@@ -327,8 +327,9 @@ def setGameSpreadWinner():
     allGames = Game.objects.all()
     try:
         for currentGame in allGames:
-            if currentGame.spreadWinner != None:
+            if currentGame.spreadWinner == None:
                 currentGame.spreadWinner = determineSpreadWinner(currentGame)
+                print("Spread winner: " + currentGame.spreadWinner)
                 currentGame.save()
     except:
         print("Could not set spread winners")
