@@ -48,6 +48,7 @@ class Game(models.Model):
     dateTime = models.DateTimeField(auto_now=False, null=True)
     winner = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True, related_name="winner")
     loser = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True, related_name="loser")
+    spreadWinner = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True, related_name="spreadwinner")
     homeSpread = models.FloatField(default=0)
     awaySpread = models.FloatField(default=0)
     users = models.ManyToManyField(User, through="GameChoice")
