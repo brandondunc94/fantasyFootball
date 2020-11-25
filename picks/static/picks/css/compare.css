@@ -1,0 +1,7 @@
+.stats-board {
+    border: 1px solid #292727;
+    color: #292727;
+    border-radius: 5px;
+    width: 350px;
+    padding: 1em;
+}

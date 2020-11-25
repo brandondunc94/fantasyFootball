@@ -1,5 +1,7 @@
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.http import JsonResponse
+from django.db.models import Q
 from league.models import League, LeagueMembership, Season, Week, Game, GameChoice, Team
 
 #AJAX CALL - Save single pick
@@ -39,3 +41,45 @@ def save_pick(request):
         }
 
     return JsonResponse(data)
+
+def compare_teams(request, homeTeamName, awayTeamName):
+
+    #Get each team
+    
+    homeTeam = Team.objects.get(name = homeTeamName)
+    awayTeam = Team.objects.get(name = homeTeamName)
+
+    homeTeamData = {}
+
+    homeGames = Game.objects.filter(Q(homeTeam=homeTeam) | Q(awayTeam=homeTeam))
+    homeCoveredSpread = homeGames.filter(spreadWinner=homeTeam).count()
+    homeCoveredSpreadPercentage = "{:.1%}".format(homeCoveredSpread/homeGames.count())
+    #Get stats of each team
+    homeTeamData = (
+    {
+        'homeGames' : homeGames,
+        'homeTeam': homeTeam,
+        'homeTeamName': homeTeamName,
+        'homeCoveredSpread': homeCoveredSpread,
+        'homeCoveredSpreadPercentage': homeCoveredSpreadPercentage,
+    })
+
+    awayTeamData = {}
+
+    awayGames = Game.objects.filter(Q(homeTeam=awayTeam) | Q(awayTeam=awayTeam))
+    awayCoveredSpread = homeGames.filter(spreadWinner=awayTeam).count()
+    awayCoveredSpreadPercentage = "{:.1%}".format(homeCoveredSpread/homeGames.count())
+
+    awayTeamData = (
+    {
+        'awayGames' : awayGames,
+        'awayTeam' : awayTeam,
+        'awayTeamName': awayTeamName,
+        'awayCoveredSpread': awayCoveredSpread,
+        'awayCoveredSpreadPercentage': awayCoveredSpreadPercentage,
+    })
+
+    return render(request, 'picks/teamCompare.html', {
+        'homeTeamData': homeTeamData,
+        'awayTeamData': awayTeamData,
+    })
