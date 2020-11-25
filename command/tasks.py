@@ -40,7 +40,7 @@ def saveWeeklyScores(): #This gets run every Tuesday morning. Schedule can be fo
         currentMembership.save()
 
 @shared_task
-def sendReminderEmail():  #This gets run every Thursday afternoon. Schedule can be found in fantasyFootball/settings.py
+def sendThursdayReminderEmail():  #This gets run every Thursday afternoon. Schedule can be found in fantasyFootball/settings.py
     #Get all user objects and their emails and put into emailList
     allUsers = User.objects.all()
     emailList = [user.email for user in allUsers]
@@ -67,13 +67,61 @@ def sendReminderEmail():  #This gets run every Thursday afternoon. Schedule can 
 
         <a class='btn btn-blue' href='http://onsidepick.com/'>Make Picks</a>
         <br><br>
-        <p>Don't want email notifications? Please visit the <a href='http://onsidepick.com/account'>Account</a> page to remove the email from your profile.</p>
+        <p>Don't want email notifications? Please visit the <a href='http://onsidepick.com/account'>Account</a> page and remove the email from your profile.</p>
     </body>
     </html>"""
 
     weekId = getActiveWeekId()
     email = mail.EmailMessage(
                 'Week ' + weekId + ' - Make your picks!',
+                message,
+                'onsidepickfootball@gmail.com',
+                [],
+                emailList,
+                reply_to=['onsidepickfootball@gmail.com'],
+                headers={'OnsidePick': 'Reminder'},
+        
+        )
+    email.content_subtype = "html"
+    
+    
+    sendEmailToUser(emailMessages=email, userEmailList=emailList)
+
+@shared_task
+def sendSundayReminderEmail():  #This gets run every Sunday morning. Schedule can be found in fantasyFootball/settings.py
+    #Get all user objects and their emails and put into emailList
+    allUsers = User.objects.all()
+    emailList = [user.email for user in allUsers]
+
+    message = """\
+    <html>
+    <head>
+    </head>
+    <style>
+    .btn {
+        background-color: #19A404;
+        border-radius: 5px;
+        color: white;
+        padding: 10px 10px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        }
+    </style>
+    <body>
+        <img src='http://onsidepick.com/static/media/logoTitleWhiteBackground.png' width='250' height='auto'>
+        <br><br>
+        <h4>If you haven't yet, this is a friendly reminder to make your picks and bets for today's games!</h4>
+
+        <a class='btn btn-blue' href='http://onsidepick.com/'>Make Picks</a>
+        <br><br>
+        <p>Don't want email notifications? Please visit the <a href='http://onsidepick.com/account'>Account</a> page and remove the email from your profile.</p>
+    </body>
+    </html>"""
+
+    weekId = getActiveWeekId()
+    email = mail.EmailMessage(
+                'Week ' + weekId + ' - Make your Sunday picks!',
                 message,
                 'onsidepickfootball@gmail.com',
                 [],
