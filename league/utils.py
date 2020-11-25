@@ -211,6 +211,21 @@ def determineWinner(game):
     game.homeTeam.save()
     game.awayTeam.save()
 
+def determineSpreadWinner(game):
+
+    if game.homeSpread < game.awaySpread: #Home Team was supposed to win
+        if game.homeScore - game.awayScore >= game.awaySpread: #Home team wins by enough points & wins spread
+            game.spreadWinner = game.homeTeam
+        else:   #Away team lost within their spread margin or won, away team wins spread
+            game.spreadWinner = game.awayTeam
+    elif game.awaySpread < game.homeSpread: #Home team was supposed to lose
+        if game.awayScore - game.homeScore <= game.homeSpread: #Home team lost within their spread margin or won, home team wins spread
+            game.spreadWinner = game.homeTeam
+        else:   #Home team lost by too many points, away team wins spread
+            game.spreadWinner = game.awayTeam
+    
+    game.save()
+
 #Score all players on the game passed in
 def scoreGame(game):
 
@@ -305,3 +320,13 @@ def convertGameDateTimeToDB(gameDate, gameTime, timezone):
     else: #No timezone passed in - assume time is already in utc, et timezone
         gameDateTime = gameDateTime.replace(tzinfo=pytz.UTC)
     return gameDateTime
+
+def setGameSpreadWinner():
+    #Get all game objects
+    allGames = Game.objects.all()
+    try:
+        for currentGame in allGames:
+            if currentGame.spreadWinner != None:
+                determineSpreadWinner(currentGame)
+    except:
+        print("Could not set spread winners")
