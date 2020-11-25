@@ -29,7 +29,7 @@
     <div class="col-lg-2 d-flex flex-column align-items-center justify-content-center mb-3">
         <small>{{ currentGame.date }}</small>
         <small>{{ currentGame.time }}</small>
-        <a href='/picks/compare/{{ currentGame.game.homeTeam.name }}vs{{ currentGame.game.awayTeam.name }}/'>Compare</a>
+        <a href='/picks/compare/{{ currentGame.game.homeTeam.name }}vs{{ currentGame.game.awayTeam.name }}/'><img src='/static/media/compare.png' class='compare-icon' alt='Compare Teams'></a>
     </div>
     {% if currentGame.gameChoice.pickWinner == currentGame.game.awayTeam %}
     <div class="col-lg-3 pick-box pick-box-selected text-center">
@@ -56,7 +56,7 @@
     <div class="col-lg-2 d-flex flex-column align-items-center justify-content-center mb-3">
         <div><small>{{ currentGame.date }}</small></div>
         <div><small>{{ currentGame.time }}</small></div>
-        <a href='/picks/compare/{{ currentGame.game.homeTeam.name }}vs{{ currentGame.game.awayTeam.name }}/'>Compare</a>
+        <a href='/picks/compare/{{ currentGame.game.homeTeam.name }}vs{{ currentGame.game.awayTeam.name }}/'><img src='/static/media/compare.png' class='compare-icon' alt='Compare Teams'></a>
     </div>
     <div class="col-lg-3 pick-box text-center">
         <input type="radio" name="{{ currentGame.game.id }}" id="{{ currentGame.game.awayTeam.name }}-pick" value="{{ currentGame.game.awayTeam.name }}">
@@ -84,7 +84,7 @@
         <img class="img-fluid" src="{% static 'media/lock.png' %}" width="30" height="auto">
         <div><small>{{ currentGame.date }}</small></div>
         <div><small>{{ currentGame.time }}</small></div>
-        <a href='/picks/compare/{{ currentGame.game.homeTeam.name }}vs{{ currentGame.game.awayTeam.name }}/'>Compare</a>
+        <a href='/picks/compare/{{ currentGame.game.homeTeam.name }}vs{{ currentGame.game.awayTeam.name }}/'><img src='/static/media/compare.png' class='compare-icon' alt='Compare Teams'></a>
     </div>
     {% if currentGame.gameChoice.pickWinner == currentGame.game.awayTeam %}
     <div class="col-lg-3 pick-box pick-box-selected locked text-center">

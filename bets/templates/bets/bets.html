@@ -121,7 +121,7 @@
     {% endif %}
     <div class="col-lg-3 text-center mt-3 p-0">
         <input type="text" class="bet-amount-input m-2 text-center" aria-label="Point Amount" value="{% if currentGame.gameChoice.betAmount != 0 %}{{ currentGame.gameChoice.betAmount }}{% else%}Bet{%endif %}">
-        <a href='/picks/compare/{{ currentGame.game.homeTeam.name }}vs{{ currentGame.game.awayTeam.name }}/'>Compare</a>
+        <a href='/picks/compare/{{ currentGame.game.homeTeam.name }}vs{{ currentGame.game.awayTeam.name }}/'><img src='/static/media/compare.png' class='compare-icon' alt='Compare Teams'></a>
     </div>
     {% if currentGame.gameChoice.betWinner == currentGame.game.awayTeam %}
     <div class="col-lg-3 bet-box bet-box-selected text-center">
@@ -172,7 +172,7 @@
     </div>
     <div class="col-lg-3 text-center mt-3 p-0">
         <input type="text" class="bet-amount-input m-2 text-center" aria-label="Point Amount" value="{% if currentGame.gameChoice.betAmount != 0 %}{{ currentGame.gameChoice.betAmount }}{% endif %}" placeholder="Bet" disabled>
-        <a href='/picks/compare/{{ currentGame.game.homeTeam.name }}vs{{ currentGame.game.awayTeam.name }}/'>Compare</a>    
+        <a href='/picks/compare/{{ currentGame.game.homeTeam.name }}vs{{ currentGame.game.awayTeam.name }}/'><img src='/static/media/compare.png' class='compare-icon' alt='Compare Teams'></a>    
     </div>
     <div class="col-lg-3 bet-box text-center">
         {% if currentGame.game.awaySpread > 0 %}
