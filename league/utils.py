@@ -329,7 +329,6 @@ def setGameSpreadWinner():
         for currentGame in allGames:
             if currentGame.spreadWinner == None:
                 currentGame.spreadWinner = determineSpreadWinner(currentGame)
-                print("Spread winner: " + currentGame.spreadWinner.name)
                 currentGame.save()
     except:
         print("Could not set spread winners")
