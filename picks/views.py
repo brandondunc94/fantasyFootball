@@ -67,8 +67,8 @@ def compare_teams(request, homeTeamName, awayTeamName):
     awayTeamData = {}
 
     awayGames = Game.objects.filter(Q(homeTeam=awayTeam) | Q(awayTeam=awayTeam))
-    awayCoveredSpread = homeGames.filter(spreadWinner=awayTeam).count()
-    awayCoveredSpreadPercentage = "{:.1%}".format(homeCoveredSpread/homeGames.count())
+    awayCoveredSpread = awayGames.filter(spreadWinner=awayTeam).count()
+    awayCoveredSpreadPercentage = "{:.1%}".format(awayCoveredSpread/awayGames.count())
 
     awayTeamData = (
     {
