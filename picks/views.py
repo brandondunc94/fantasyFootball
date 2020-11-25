@@ -47,7 +47,7 @@ def compare_teams(request, homeTeamName, awayTeamName):
     #Get each team
     
     homeTeam = Team.objects.get(name = homeTeamName)
-    awayTeam = Team.objects.get(name = homeTeamName)
+    awayTeam = Team.objects.get(name = awayTeamName)
 
     homeTeamData = {}
 
