@@ -196,9 +196,9 @@
 <!-- Betting is locked for the current game if we make it here -->
 <div class="d-flex flex-row justify-content-center">
     {% if currentGame.gameChoice.betWinner == currentGame.game.homeTeam %}
-    <div class="col-lg-3 bet-box-locked bet-box-selected text-center d-flex flex-column justify-content-cente">
+    <div class="col-lg-3 bet-box-locked bet-box-selected text-center d-flex flex-column justify-content-center">
         {% else %}
-        <div class="col-lg-3 bet-box-locked text-center">
+        <div class="col-lg-3 bet-box-locked text-center d-flex flex-column justify-content-center">
             {% endif %} {% if currentGame.game.homeSpread > 0 %}
             <div>
                 <h6>+{{ currentGame.game.homeSpread|floatformat }}</h6>
@@ -222,9 +222,9 @@
             <h6 class='blue'>{{ currentGame.gameChoice.betAmount }}</h6>
         </div>
         {% if currentGame.gameChoice.betWinner == currentGame.game.awayTeam %}
-        <div class="col-lg-3 bet-box-locked bet-box-selected text-center d-flex flex-column justify-content-cente">
+        <div class="col-lg-3 bet-box-locked bet-box-selected text-center d-flex flex-column justify-content-center">
             {% else %}
-            <div class="col-lg-3 bet-box-locked text-center">
+            <div class="col-lg-3 bet-box-locked text-center d-flex flex-column justify-content-center">
                 {% endif %} {% if currentGame.game.awaySpread > 0 %}
                 <div>
                     <h6>+{{ currentGame.game.awaySpread|floatformat }}</h6>
