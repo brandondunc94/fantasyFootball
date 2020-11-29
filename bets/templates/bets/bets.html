@@ -74,13 +74,13 @@
 </div>
 <!--Bets-->
 <div class="d-flex flex-row justify-content-center">
-    <div class="col-lg-3 text-muted text-center">
+    <div class="col-lg-3 text-muted text-center max-width-box">
         <h6>Home Spread</h6>
     </div>
     <div class="col-lg-3 text-muted text-center p-0">
         <button class="btn btn-light" data-toggle="modal" data-target="#deleteConfirm">Help</button>
     </div>
-    <div class="col-lg-3 text-muted text-center">
+    <div class="col-lg-3 text-muted text-center max-width-box">
         <h6>Away Spread</h6>
     </div>
 </div>
@@ -89,7 +89,7 @@
 <div class="d-flex flex-row justify-content-center bet-game">
     <!--Display logic for if a winner has already been selected-->
     {% if currentGame.gameChoice.betWinner != None %} {% if currentGame.gameChoice.betWinner == currentGame.game.homeTeam %}
-    <div class="col-lg-3 bet-box bet-box-selected text-center">
+    <div class="col-lg-3 bet-box bet-box-selected text-center d-flex flex-column justify-content-center">
         {% if currentGame.game.homeSpread > 0 %}
         <div>
             <h6>+{{ currentGame.game.homeSpread|floatformat }}</h6>
@@ -104,7 +104,7 @@
         <div><small>{{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }} {% if currentGame.game.homeTeam.ties > 0 %} - {{ currentGame.game.homeTeam.ties }} {% endif %}</small></div>
     </div>
     {% else %}
-    <div class="col-lg-3 bet-box bet-box-unselected text-center">
+    <div class="col-lg-3 bet-box bet-box-unselected text-center d-flex flex-column justify-content-center">
         {% if currentGame.game.homeSpread > 0 %}
         <div>
             <h6>+{{ currentGame.game.homeSpread|floatformat }}</h6>
@@ -120,11 +120,12 @@
     </div>
     {% endif %}
     <div class="col-lg-3 text-center mt-3 p-0">
+        <p class='bet-win-amount p-0 m-0'></p>
         <input type="text" class="bet-amount-input m-2 text-center" aria-label="Point Amount" value="{% if currentGame.gameChoice.betAmount != 0 %}{{ currentGame.gameChoice.betAmount }}{% else%}Bet{%endif %}">
-        <a href='/picks/compare/{{ currentGame.game.homeTeam.name }}vs{{ currentGame.game.awayTeam.name }}/'><img src='/static/media/compare.png' class='compare-icon' alt='Compare Teams'></a>
+        <br><a href='/picks/compare/{{ currentGame.game.homeTeam.name }}vs{{ currentGame.game.awayTeam.name }}/'><img src='/static/media/compare.png' class='compare-icon' alt='Compare Teams'></a>
     </div>
     {% if currentGame.gameChoice.betWinner == currentGame.game.awayTeam %}
-    <div class="col-lg-3 bet-box bet-box-selected text-center">
+    <div class="col-lg-3 bet-box bet-box-selected text-center d-flex flex-column justify-content-center">
         {% if currentGame.game.awaySpread > 0 %}
         <div>
             <h6>+{{ currentGame.game.awaySpread|floatformat }}</h6>
@@ -139,7 +140,7 @@
         <div><small>{{ currentGame.game.awayTeam.wins }} - {{ currentGame.game.awayTeam.losses }} {% if currentGame.game.awayTeam.ties > 0 %} - {{ currentGame.game.awayTeam.ties }} {% endif %}</small></div>
     </div>
     {% else %}
-    <div class="col-lg-3 bet-box bet-box-unselected text-center">
+    <div class="col-lg-3 bet-box bet-box-unselected text-center d-flex flex-column justify-content-center">
         {% if currentGame.game.awaySpread > 0 %}
         <div>
             <h6>+{{ currentGame.game.awaySpread|floatformat }}</h6>
@@ -156,7 +157,7 @@
     {% endif %}
     <!--Display logic for if a winner has not been selected, this is the default view-->
     {% else %}
-    <div class="col-lg-3 bet-box text-center">
+    <div class="col-lg-3 bet-box text-center d-flex flex-column justify-content-center">
         {% if currentGame.game.homeSpread > 0 %}
         <div>
             <h6>+{{ currentGame.game.homeSpread|floatformat }}</h6>
@@ -171,10 +172,11 @@
         <div><small>{{ currentGame.game.homeTeam.wins }} - {{ currentGame.game.homeTeam.losses }} {% if currentGame.game.homeTeam.ties > 0 %} - {{ currentGame.game.homeTeam.ties }} {% endif %}</small></div>
     </div>
     <div class="col-lg-3 text-center mt-3 p-0">
+        <p class='bet-win-amount p-0 m-0'></p>
         <input type="text" class="bet-amount-input m-2 text-center" aria-label="Point Amount" value="{% if currentGame.gameChoice.betAmount != 0 %}{{ currentGame.gameChoice.betAmount }}{% endif %}" placeholder="Bet" disabled>
-        <a href='/picks/compare/{{ currentGame.game.homeTeam.name }}vs{{ currentGame.game.awayTeam.name }}/'><img src='/static/media/compare.png' class='compare-icon' alt='Compare Teams'></a>    
+        <br><a href='/picks/compare/{{ currentGame.game.homeTeam.name }}vs{{ currentGame.game.awayTeam.name }}/'><img src='/static/media/compare.png' class='compare-icon' alt='Compare Teams'></a>    
     </div>
-    <div class="col-lg-3 bet-box text-center">
+    <div class="col-lg-3 bet-box text-center d-flex flex-column justify-content-center">
         {% if currentGame.game.awaySpread > 0 %}
         <div>
             <h6>+{{ currentGame.game.awaySpread|floatformat }}</h6>
@@ -194,7 +196,7 @@
 <!-- Betting is locked for the current game if we make it here -->
 <div class="d-flex flex-row justify-content-center">
     {% if currentGame.gameChoice.betWinner == currentGame.game.homeTeam %}
-    <div class="col-lg-3 bet-box-locked bet-box-selected text-center">
+    <div class="col-lg-3 bet-box-locked bet-box-selected text-center d-flex flex-column justify-content-cente">
         {% else %}
         <div class="col-lg-3 bet-box-locked text-center">
             {% endif %} {% if currentGame.game.homeSpread > 0 %}
@@ -220,7 +222,7 @@
             <h6 class='blue'>{{ currentGame.gameChoice.betAmount }}</h6>
         </div>
         {% if currentGame.gameChoice.betWinner == currentGame.game.awayTeam %}
-        <div class="col-lg-3 bet-box-locked bet-box-selected text-center">
+        <div class="col-lg-3 bet-box-locked bet-box-selected text-center d-flex flex-column justify-content-cente">
             {% else %}
             <div class="col-lg-3 bet-box-locked text-center">
                 {% endif %} {% if currentGame.game.awaySpread > 0 %}

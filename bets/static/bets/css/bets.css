@@ -1,11 +1,11 @@
 /* Bet Box Styles */
 
 .bet-box {
-    margin-bottom: 25px;
     cursor: pointer;
     border-radius: 5px;
     box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border: 2px solid #ffffff;
+    max-width: 200px;
 }
 
 .bet-box-locked {
@@ -24,6 +24,15 @@
     background-color: #33A1FD;
     color: #ffffff;
     border: 2px solid #2066a1;
+}
+
+.bet-game {
+    min-height: 100px;
+    margin-bottom: 30px;
+}
+
+.bet-win-amount {
+    min-height: 30px;
 }
 
 

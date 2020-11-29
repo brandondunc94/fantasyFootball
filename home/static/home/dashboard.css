@@ -139,6 +139,10 @@ a.dashboard-menu-item {
     max-width: 30px;
 }
 
+.team-logo {
+    margin: auto;
+}
+
 
 /*Link styles*/
 
@@ -176,6 +180,10 @@ a.league-menu-item:hover {
 
 ::-webkit-scrollbar {
     width: 3px;
+}
+
+.max-width-box {
+    max-width: 200px;
 }
 
 

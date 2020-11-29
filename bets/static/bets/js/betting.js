@@ -1,5 +1,8 @@
 $(document).ready(function() {
     updatePointsAvailable(calculatePointsAvailable());
+    $('.bet-amount-input').each(function(index) {
+        updatePayoutDisplay($(this));
+    });
 });
 
 /*Save Bets*/
@@ -82,7 +85,7 @@ $(".bet-box").click(function() {
 
         /*Set bet amount to 0*/
         $(this).siblings().children('.bet-amount-input').prop('disabled', true).val('').attr('placeholder', 'Bet');
-
+        updatePayoutDisplay($(this).siblings().children('.bet-amount-input'));
         updatePointsAvailable(calculatePointsAvailable());
     } else {
         /*Select child radio button and div to mark as checked*/
@@ -110,10 +113,12 @@ var timer = null;
 $('.bet-amount-input').keyup(function() {
     clearTimeout(timer);
     timer = setTimeout(checkBetAmount, 750)
+        /*Calculate points the player will win and display*/
+    updatePayoutDisplay($(this));
+
 });
 
 function checkBetAmount() {
-    var betAmount = $(this);
     var leftOverPointsAvailable = calculatePointsAvailable();
 
     if (leftOverPointsAvailable >= 0) {
@@ -143,4 +148,15 @@ function calculatePointsAvailable() {
 
 function updatePointsAvailable(pointsAvailable) {
     $('#pointsToBet').html(pointsAvailable.toString());
+}
+
+function updatePayoutDisplay(betInput) {
+    var betAmount = parseInt(betInput.val());
+    var amountToWin = Math.floor(betAmount * .9);
+    var amountToWinDisplay = betInput.siblings('.bet-win-amount');
+    if (amountToWin) {
+        amountToWinDisplay.html('Payout: ' + amountToWin.toString());
+    } else {
+        amountToWinDisplay.html('');
+    }
 }
