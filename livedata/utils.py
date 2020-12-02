@@ -118,13 +118,16 @@ def queryApi(querystring):
 
     return weekGames
     
-def getWeekDatesList():
+def getWeekDatesList(): #Get dates all the way up until the next Sunday
     today = date.today()
+    weekdayCounter = today.weekday()
+    dayCounter = 1
 
     weekDates = []
-    #Get dates in pairs of two of next 6 days
-    weekDates.append((today + timedelta(days=1)).strftime("%Y-%m-%d") + ',' + (today + timedelta(days=2)).strftime("%Y-%m-%d"))
-    weekDates.append((today + timedelta(days=3)).strftime("%Y-%m-%d") + ',' + (today + timedelta(days=4)).strftime("%Y-%m-%d"))
-    weekDates.append((today + timedelta(days=5)).strftime("%Y-%m-%d") + ',' + (today + timedelta(days=6)).strftime("%Y-%m-%d"))
+    
+    while weekdayCounter != 6:
+        weekDates.append((today + timedelta(days=dayCounter)).strftime("%Y-%m-%d"))
+        weekdayCounter+=1
+        dayCounter+=1
 
     return weekDates
