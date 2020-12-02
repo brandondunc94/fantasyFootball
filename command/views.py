@@ -201,7 +201,8 @@ def deleteGame(request):
 
         #Get game object
         gameToDelete = Game.objects.get(week=week, id=gameId)
-        gameToDelete.delete()
+        if gameToDelete.isComplete == False: #Only delete game if its not complete
+            gameToDelete.delete()
         status = True
     except:
         status = False
