@@ -1,10 +1,13 @@
 {% extends 'fantasyFootball/base.html' %} {% block page_content %}{% load static %}
 <link href='{% static 'picks/css/compare.css' %}' rel='stylesheet'>
 <div class='container'>
+    <div class='row'>
+        <a class="btn btn-blue m-2" href='/'>&#8249; Home</a>
+    </div>
     <div class='row mt-2'>
-        <div class='col-lg-5 col-sm-12 text-center shadow p-2'>
+        <div class='col-lg-5 col-sm-12 text-center shadow-sm p-2'>
             <h1>{{ homeTeamData.homeTeamName }}</h1>
-            <img class='team-logo' src='/static/media/{{ homeTeamData.homeTeamName }}.png'>
+            <img class='' src='/static/media/{{ homeTeamData.homeTeamName }}.png'>
             <div class='m-auto stats-board'>
                 <div class='d-flex justify-content-between'>
                     <p class='font-italic'>Wins/Losses/Ties</p> 
@@ -22,12 +25,31 @@
                 </div>
                 <div class='m-2 border-top'></div>
             </div>
+            <br>
+            <div class='row'>
+                <div class='col'>
+                    <h6>Home</h6>
+                </div>
+                <div class='col'>
+                    <h6>Away</h6>
+                </div>
+            </div>
+            {% for currentGame in homeTeamData.homeGames %}
+            <div class='row'>
+                <div class='col'>
+                    <img class='team-logo-sm' src='/static/media/{{ currentGame.homeTeam.name }}.png'>
+                    <p class='text-{% if currentGame.homeScore > currentGame.awayScore %}success{% else %}danger{% endif %}'>{{ currentGame.homeScore }}</p>
+                </div>
+                <div class='col'>
+                    <img class='team-logo-sm' src='/static/media/{{ currentGame.awayTeam.name }}.png'>
+                    <p class='text-{% if currentGame.awayScore > currentGame.homeScore %}success{% else %}danger{% endif %}'>{{ currentGame.awayScore }}</p>
+                </div>
+            </div>
+            {% endfor %}
         </div>
-        <div class='col-lg-2 text-center'>
-        <a class="btn btn-blue m-2" href='/'>&#8249; Home</a></div>
-        <div class='col-lg-5 col-sm-12 text-center shadow p-2'>
+        <div class='col-lg-5 col-sm-12 text-center shadow-sm p-2'>
             <h1>{{ awayTeamData.awayTeamName }}</h1>
-            <img class='team-logo' src='/static/media/{{ awayTeamData.awayTeamName }}.png'>
+            <img class='' src='/static/media/{{ awayTeamData.awayTeamName }}.png'>
             <div class='m-auto stats-board'>
                 <div class='d-flex justify-content-between'>
                     <p class='font-italic'>Wins/Losses/Ties</p> 
@@ -45,11 +67,27 @@
                 </div>
                 <div class='m-2 border-top'></div>
             </div>
-        </div>
-    </div>
-    <div class='row m-2'>
-        <div class='col text-center'>
-            <p>More team data coming soon!</p>
+            <br>
+            <div class='row'>
+                <div class='col'>
+                    <h6>Home</h6>
+                </div>
+                <div class='col'>
+                    <h6>Away</h6>
+                </div>
+            </div>
+            {% for currentGame in awayTeamData.awayGames %}
+            <div class='row'>
+                <div class='col'>
+                    <img class='team-logo-sm' src='/static/media/{{ currentGame.homeTeam.name }}.png'>
+                    <p class='text-{% if currentGame.homeScore > currentGame.awayScore %}success{% else %}danger{% endif %}'>{{ currentGame.homeScore }}</p>
+                </div>
+                <div class='col'>
+                    <img class='team-logo-sm' src='/static/media/{{ currentGame.awayTeam.name }}.png'>
+                    <p class='text-{% if currentGame.awayScore > currentGame.homeScore %}success{% else %}danger{% endif %}'>{{ currentGame.awayScore }}</p>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
