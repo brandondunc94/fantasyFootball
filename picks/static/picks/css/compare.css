@@ -5,3 +5,8 @@
     width: 350px;
     padding: 1em;
 }
+
+.team-logo-sm {
+    height: 50px;
+    width: auto;
+}
