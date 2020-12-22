@@ -1,4 +1,4 @@
-from league.models import Season, Week, Game, League, LeagueNotification
+from league.models import Season, Week, Game, League, LeagueNotification, GameChoice
 from league.utils import createLeagueNotification
 from datetime import datetime
 from django.core import mail
@@ -47,3 +47,19 @@ def sendEmailToUser(emailMessages, userEmailList):
     except:
         print('Email could not be sent to user(s).')
         return False
+
+def setPickAmountWon():
+    #Get all game choice objects
+    allGameChoices = GameChoice.objects.all()
+
+    for currentGameChoice in allGameChoices:
+        if currentGameChoice.correctPickFlag == True:
+            #Set score based on week
+            if currentGameChoice.week.id == 1: #First week gives 50 points
+                currentGameChoice.pickAmountWon = 50
+            else:
+                currentGameChoice.pickAmountWon = 25
+        else:
+            currentGameChoice.pickAmountWon = 0
+        
+        currentGameChoice.save()
