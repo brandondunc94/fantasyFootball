@@ -68,6 +68,7 @@ class GameChoice(models.Model):
     betWinner = models.ForeignKey(Team, on_delete=models.SET_NULL, default=None, null=True, related_name="betWinner")
     betAmount = models.IntegerField(default=0)
     amountWon = models.IntegerField(default=0)
+    pickAmountWon = models.IntegerField(default=0)
     correctPickFlag = models.BooleanField(default=None,null=True)
     correctBetFlag = models.BooleanField(default=None,null=True)
     scoredFlag = models.BooleanField(default=None,null=True)
