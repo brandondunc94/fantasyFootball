@@ -244,7 +244,7 @@
                         {% if currentGame.game.isComplete %}
                         <!--Game is complete, display score-->
                             <img class='team-logo' src='/static/media/{{ currentGame.gameChoice.pickWinner.name }}.png'> 
-                            <h6 class='{% if currentGame.gameChoice.correctPickFlag == True %}text-success{% else %}text-danger{% endif %}'><strong>{{ currentGame.gameChoice.pickAmountWon }}</strong></h6>
+                            <h6 class='{% if currentGame.gameChoice.correctPickFlag == True %}text-success{% else %}text-danger{% endif %}'><strong>+{{ currentGame.gameChoice.pickAmountWon }}</strong></h6>
                         {% else %}
                             {% if currentGame.game.pickLocked %}
                             <!--Display in progress game stats -->
