@@ -10,7 +10,7 @@ def getWeekSchedule():
         weekData.append(response['results'])
 
     #Get current active week
-    weekId = leagueUtils.getActiveWeekId()
+    weekId = leagueUtils.getActiveWeek().id
     status = True
     for currentDay in weekData:
         for currentGame in currentDay:
@@ -44,7 +44,7 @@ def getInProgressScores():
     print(weekGames)
     status = True
     #Get current active week
-    weekId = leagueUtils.getActiveWeekId()
+    weekId = leagueUtils.getActiveWeek().id
     for currentGame in weekGames['results']:
         try:
             homeTeamName = currentGame['teams']['home']['mascot'] #Ex. 'Seahawks'
@@ -77,7 +77,7 @@ def getFinalLiveScores():
     weekGames = queryApi(querystring={"status":"final","league":"NFL","date":(date.today() - timedelta(1)).strftime("%Y-%m-%d") + ',' + date.today().strftime("%Y-%m-%d")})
 
     #Get current active week
-    weekId = leagueUtils.getActiveWeekId()
+    weekId = leagueUtils.getActiveWeek().id
     status = True
     for currentGame in weekGames['results']:
         try:
