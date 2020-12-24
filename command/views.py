@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.admin.views.decorators import staff_member_required
 from league.models import League, LeagueMembership, Season, Week, Game, Team, GameChoice
-from league.utils import getUserLeagues, createLeagueNotification, getActiveWeekId, createGame, scoreGame, determineWinner, updateGame
+from league.utils import getUserLeagues, createLeagueNotification, getActiveWeek, createGame, scoreGame, determineWinner, updateGame
 from livedata.utils import getWeekSchedule, getInProgressScores, getFinalLiveScores
 import json, smtplib, ssl, pytz
 from datetime import datetime
@@ -37,7 +37,7 @@ def gameOptionsPage(request, seasonYear='2019-2020', weekId=''):
 
     #Get active week if the admin has not passed in a week id
     if weekId == '':
-        weekId = getActiveWeekId()
+        weekId = getActiveWeek().id
     currentWeek = Week.objects.get(id=weekId, season=season)
     
     #Get game data for weekId passed in
@@ -181,7 +181,16 @@ def addGame(request):
     homeSpread = request.GET.get('homeSpread', None)
     awaySpread = request.GET.get('awaySpread', None)
     
-    status = createGame(weekId=weekId, homeTeamName=homeTeamName,awayTeamName=awayTeamName, gameDate=gameDate, gameTime=gameTime,timezone='US/Pacific', homeSpread=homeSpread, awaySpread=awaySpread)
+    status = createGame(
+        weekId=weekId, 
+        homeTeamName=homeTeamName,
+        awayTeamName=awayTeamName, 
+        gameDate=gameDate, 
+        gameTime=gameTime,
+        timezone='US/Pacific', 
+        homeSpread=homeSpread, 
+        awaySpread=awaySpread
+        )
 
     data = {
             'status': status
