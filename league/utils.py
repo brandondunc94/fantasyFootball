@@ -61,13 +61,13 @@ def getActiveSeason():
         
     return activeSeason
 
-def getActiveWeekId():
+def getActiveWeek():
     try:
-        activeWeekId = getActiveSeason().currentActiveWeek
+        activeWeek = Week.objects.get(id=getActiveSeason().currentActiveWeek)
     except:
-        activeWeekId = 0
+        activeWeek = None
     
-    return activeWeekId
+    return activeWeek
     
 #Returns string list of week ids for active season
 def getWeekIds():
@@ -135,7 +135,7 @@ def createGame(weekId, homeTeamName, awayTeamName, gameDate, gameTime, timezone,
             updateGame(game=existingGame, homeSpread=homeSpread, awaySpread=awaySpread, gameDate=gameDate, gameTime=gameTime, isComplete=False)
         except:
             #Create the new game
-            newGame = Game(week=week, homeTeam=homeTeam, awayTeam=awayTeam, dateTime=gameDateTimeObject, homeSpread=homeSpread, awaySpread=awaySpread, season=season) #Create game
+            newGame = Game(week=week, homeTeam=homeTeam, awayTeam=awayTeam, dateTime=gameDateTimeObject, homeSpread=homeSpread, awaySpread=awaySpread, season=season)
             newGame.save()
             season.gameCount += 1
             season.save()
@@ -233,6 +233,23 @@ def scoreGame(game):
     #Update user scores
     allUsers = User.objects.all()   #Get all users
 
+    #Get active season object
+    activeSeason = getActiveSeason()
+    activeWeekType = Week.objects.get(season=activeSeason, id=activeSeason.currentActiveWeek).altName
+    
+    #Set score multiplier based on which week it is
+    
+    if activeWeekType == 'Wild Card':
+        scoreMultiplier = 2
+    elif activeWeekType == 'Divisional Playoffs':
+        scoreMultiplier = 3
+    elif activeWeekType == 'Conference Championship':
+        scoreMultiplier = 4
+    elif activeWeekType == 'Super Bowl':
+        scoreMultiplier = 5
+    else: #Regular season - no score multiplier
+        scoreMultiplier = 1
+    
     for currentUser in allUsers:
         #Get game choices for current game and current user (1 per league that the user is in)
         picks = GameChoice.objects.filter(user=currentUser, game=game)
@@ -244,30 +261,31 @@ def scoreGame(game):
                 currentPick.scoredFlag = True #Mark this game as scored
                 #Give player 25 points if they got this pick correct 
                 if currentPick.pickWinner == game.winner:
-                    membership.score += 25
+                    membership.score += 25*scoreMultiplier
                     currentPick.correctPickFlag = True
+                    currentPick.pickAmountWon = 25*scoreMultiplier
                     membership.correctPicks += 1
-
+                
                 #Check if spread bet was correct and give points accordingly
                 if currentPick.betWinner:
                     if currentPick.betWinner == game.homeTeam: #User selected home team spread
                         if game.homeSpread < game.awaySpread: #Home Team was supposed to win
                             if game.homeScore - game.awayScore >= game.awaySpread: #Home team won by their spread, pay player
-                                currentPick.amountWon += currentPick.betAmount * .9
+                                currentPick.amountWon += currentPick.betAmount * .9 * scoreMultiplier
                                 currentPick.correctBetFlag = True
                             else:   #Home team did not win by their spread, take player's points
                                 currentPick.amountWon -= currentPick.betAmount
                                 currentPick.correctBetFlag = False
                         elif game.awaySpread < game.homeSpread: #Home team was supposed to lose
                             if game.awayScore - game.homeScore <= game.homeSpread: #Home team lost within their spread margin or won, pay player
-                                currentPick.amountWon += currentPick.betAmount * .9
+                                currentPick.amountWon += currentPick.betAmount * .9 * scoreMultiplier
                                 currentPick.correctBetFlag = True
                             else:   #Home team lost by too many points, take player's points
                                 currentPick.amountWon -= currentPick.betAmount
                                 currentPick.correctBetFlag = False
                         else: #Spread is 0/0, check to see if home team won
                             if game.homeScore > game.awayScore:
-                                currentPick.amountWon += currentPick.betAmount * .9
+                                currentPick.amountWon += currentPick.betAmount * .9 * scoreMultiplier
                                 currentPick.correctBetFlag = True
                             else:
                                 currentPick.amountWon -= currentPick.betAmount
@@ -275,21 +293,21 @@ def scoreGame(game):
                     else: #User selected away team spread
                         if game.awaySpread < game.homeSpread: #Away Team was supposed to win
                             if game.awayScore - game.homeScore >= game.homeSpread: #Away team won by their spread, pay player
-                                currentPick.amountWon += currentPick.betAmount * .9
+                                currentPick.amountWon += currentPick.betAmount * .9 * scoreMultiplier
                                 currentPick.correctBetFlag = True
                             else:   #Away team did not win by their spread, take player's points
                                 currentPick.amountWon -= currentPick.betAmount
                                 currentPick.correctBetFlag = False
                         elif game.homeSpread < game.awaySpread: #Away team was supposed to lose
                             if game.homeScore - game.awayScore <= game.awaySpread: #Away team lost within their spread margin or won, pay player
-                                currentPick.amountWon += currentPick.betAmount * .9
+                                currentPick.amountWon += currentPick.betAmount * .9 * scoreMultiplier
                                 currentPick.correctBetFlag = True
                             else:   #Away team lost by too many points, take player's points
                                 currentPick.amountWon -= currentPick.betAmount
                                 currentPick.correctBetFlag = False
                         else: #Spread is 0/0, check to see if away team won
                             if game.awayScore > game.homeScore:
-                                currentPick.amountWon += currentPick.betAmount * .9
+                                currentPick.amountWon += currentPick.betAmount * .9 * scoreMultiplier
                                 currentPick.correctBetFlag = True
                             else:
                                 currentPick.amountWon -= currentPick.betAmount
@@ -303,6 +321,10 @@ def scoreGame(game):
                     if currentPick.amountWon > 100:
                         #Player scored a boat load of points, create a league notification about it
                         message = 'Score Update - ' + currentUser.username + " scored " + str(int(currentPick.amountWon)) + " points by betting on the " + currentPick.betWinner.name + "!"
+                        createLeagueNotification(currentPick.league.name, message)
+                    if currentPick.amountWon < -100:
+                        #Player lost a boat load of points, create a league notification about it
+                        message = 'Score Update - ' + currentUser.username + " lost " + str(int(currentPick.amountWon)) + " points by betting on the " + currentPick.betWinner.name + "!"
                         createLeagueNotification(currentPick.league.name, message)
                         
                 membership.save()
