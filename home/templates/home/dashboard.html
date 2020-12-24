@@ -17,16 +17,17 @@
 </div>
 <div class='container-fluid'>
     <div class='d-flex mt-2 mr-3 ml-3'>
+        <h6>{{ week.altName }}</h6>
         <h2 class='w-100 text-center'>{{ activeLeague }}</h2>
-        {% if weeks %}
         <div class='dropdown'>
-            <button class='btn week-pick dropdown-toggle' id='weekId' name='{{ week }}' type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Week {{ week }}</button>
-            <div class='dropdown-menu'>
-                {% for week in weeks %}
-                <a class='dropdown-item' href='/home/{{ week }}/'>{{ week }}</a> {% endfor %}
-            </div>
+            {% if weeks %}
+                <button class='btn week-pick dropdown-toggle' id='weekId' name='{{ week.id }}' type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Week {{ week.id }}</button>
+                <div class='dropdown-menu'>
+                    {% for currentWeek in weeks %}
+                    <a class='dropdown-item' href='/home/{{ currentWeek }}/'>{{ currentWeek }}</a> {% endfor %}
+                </div>
+            {% endif %}
         </div>
-        {% endif %}
     </div>
     <div class='tab-content' id='nav-tabContent'>
         <!-- League Home tab -->
