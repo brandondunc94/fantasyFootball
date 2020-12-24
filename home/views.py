@@ -29,8 +29,8 @@ def dashboard(request, weekId='', leagueName=''):
     #Get current active season and active week
     activeSeason = leagueUtils.getActiveSeason()
     if weekId == '': #Use weekId passed in if user wants to view a different week than the active week
-        weekId = leagueUtils.getActiveWeekId()
-
+        week = leagueUtils.getActiveWeek()
+    
     #Get all users for active league
     leagueMembers = LeagueMembership.objects.filter(league=activeLeague).order_by('-score')
     leagueUserData = []
@@ -112,7 +112,7 @@ def dashboard(request, weekId='', leagueName=''):
 
     #Get game data for weekId passed in
     try:
-        currentWeekGames = Game.objects.filter(week_id=weekId, season=activeSeason).order_by('dateTime')
+        currentWeekGames = Game.objects.filter(week=week, season=activeSeason).order_by('dateTime')
     except:
         #No games are currently available. Open up the home page with no data.
         #THIS SHOULD BE A HOME PAGE FOR OFFSEASON
@@ -133,11 +133,11 @@ def dashboard(request, weekId='', leagueName=''):
     #Get total number of games for current week and we will count the number of picks the user has made
     gameCount = currentWeekGames.count()
     pickCount = 0
-    #We will eventually want to get the currentdate and compare it to the week start date and only grab that week
+    
     for currentGame in currentWeekGames:
         #Check to see if there is pick data for this game
         try:
-            currentGameChoice = GameChoice.objects.get(league=activeLeague,user=request.user,week=Week.objects.get(id=weekId, season=activeSeason),game=currentGame)
+            currentGameChoice = GameChoice.objects.get(league=activeLeague,user=request.user,week=week,game=currentGame)
         except:
             currentGameChoice = None
 
@@ -164,7 +164,7 @@ def dashboard(request, weekId='', leagueName=''):
         'isAdmin': isAdmin,
         'leagueUserData': leagueUserData, 
         'activeLeague': activeLeague.name, 
-        'week': weekId,
+        'week': week,
         'weeks': weeks,
         'gameCount': gameCount,
         'pickCount': pickCount,
