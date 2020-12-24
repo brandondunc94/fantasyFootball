@@ -2,7 +2,7 @@ from __future__ import absolute_import, unicode_literals
 from celery import shared_task
 from league.models import Season, Week, Game, LeagueMembership
 from command.utils import sendEmailToUser
-from league.utils import getActiveWeekId
+from league.utils import getActiveWeek
 from django.contrib.auth.models import User
 from django.core import mail
 from datetime import datetime, timedelta
@@ -71,7 +71,7 @@ def sendThursdayReminderEmail():  #This gets run every Thursday afternoon. Sched
     </body>
     </html>"""
 
-    weekId = getActiveWeekId()
+    weekId = getActiveWeek().id
     email = mail.EmailMessage(
                 'Week ' + weekId + ' - Make your picks!',
                 message,
@@ -119,7 +119,7 @@ def sendSundayReminderEmail():  #This gets run every Sunday morning. Schedule ca
     </body>
     </html>"""
 
-    weekId = getActiveWeekId()
+    weekId = getActiveWeek().id
     email = mail.EmailMessage(
                 'Week ' + weekId + ' - Make your Sunday picks!',
                 message,
