@@ -196,7 +196,7 @@
 <!-- Betting is locked for the current game if we make it here -->
 <div class="d-flex flex-row justify-content-center">
     {% if currentGame.gameChoice.betWinner == currentGame.game.homeTeam %}
-    <div class="col-lg-3 bet-box-locked bet-box-selected text-center d-flex flex-column justify-content-center">
+    <div class="col-lg-3 bet-box-locked bet-box-selected text-center d-flex flex-column justify-content-center max-width-box">
         {% else %}
         <div class="col-lg-3 bet-box-locked text-center d-flex flex-column justify-content-center max-width-box">
             {% endif %} {% if currentGame.game.homeSpread > 0 %}
