@@ -30,7 +30,9 @@ def dashboard(request, weekId='', leagueName=''):
     activeSeason = leagueUtils.getActiveSeason()
     if weekId == '': #Use weekId passed in if user wants to view a different week than the active week
         week = leagueUtils.getActiveWeek()
-    
+    else:
+        week = Week.objects.get(season=activeSeason, id=weekId)
+
     #Get all users for active league
     leagueMembers = LeagueMembership.objects.filter(league=activeLeague).order_by('-score')
     leagueUserData = []
