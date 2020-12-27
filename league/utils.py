@@ -207,9 +207,12 @@ def determineWinner(game):
         game.homeTeam.ties += 1
         game.awayTeam.ties += 1
     
+    game.spreadWinner = determineSpreadWinner(game)
+
     #Save home and away wins/losses update, save team changes
     game.homeTeam.save()
     game.awayTeam.save()
+    game.save()
 
 def determineSpreadWinner(game):
 
