@@ -1,5 +1,5 @@
 # Football Fantasy
-A new fantasy football based solely on picking game winners
+A season long NFL competition where you compete in a league to earn the most points through picks and spread bets.
 
 #### Local Development Setup
   Use the following link for a nice guide: https://code.visualstudio.com/docs/python/tutorial-django
