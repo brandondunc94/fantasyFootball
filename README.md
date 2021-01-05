@@ -1,5 +1,5 @@
 # Football Fantasy
-A season long NFL competition where you compete in a league to earn the most points through picks and spread bets.
+Created using the Django framework - A season long NFL competition where you compete in a league to earn the most points through picks and spread bets.
 
 #### Local Development Setup
   Use the following link for a nice guide: https://code.visualstudio.com/docs/python/tutorial-django
@@ -49,7 +49,7 @@ Dark Blue: #1B2A41
  5. Turn into native mobile app?
  6. Import picks to bet page
 
-##Spread payout logic
+#Spread payout logic
 1. If user picked home team
     If home team was supposed to win by # points
       If the home team won by at least # points
