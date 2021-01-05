@@ -41,26 +41,15 @@ Dark Blue: #1B2A41
 5. If changes to models - Start virtual env using: 'source env/bin/activate'
 6. Then run 'python manage.py migrate'
 
- # Celery (Without supervisor)
- 1. Start the worker INSIDE THE VIRTUAL ENV with 'celery -A fantasyFootball worker --loglevel=info'
- 2. Start celery beat with 'celery -A fantasyFootball beat'
-
- # Celery (With supervisor)
- 1. supervisor stop celerybeat (as root)
- 2. supervisor stop celeryworker
- 3. supervisorctl reload
-
  ## Things to add
  1. Add more timezones and ability for user to pick on profile creation
  2. Edit account page
  3. Enforce strong password when creating account
- 5. User profile images
- 6. Make default home page when season is not active
- 7. Add Bet payout when score is entered
- 8. Turn into mobile app
- 9. Import picks to bet page
+ 4. User profile images
+ 5. Turn into native mobile app?
+ 6. Import picks to bet page
 
-
+##Spread payout logic
 1. If user picked home team
     If home team was supposed to win by # points
       If the home team won by at least # points
@@ -83,7 +72,16 @@ Dark Blue: #1B2A41
         Pay player 90% of their bet (betAmount * 1.9)
       else
         Take player's bet amount and pay 0
-      
+
+ # Celery (Without supervisor)
+ 1. Start the worker INSIDE THE VIRTUAL ENV with 'celery -A fantasyFootball worker --loglevel=info'
+ 2. Start celery beat with 'celery -A fantasyFootball beat'
+
+ # Celery (With supervisor)
+ 1. supervisor stop celerybeat (as root)
+ 2. supervisor stop celeryworker
+ 3. supervisorctl reload
+ 
 How Celery Works:
 1. __init__.py uses celery.py to load in Celery app
 2. celery.py initializes celery app with predefined settings located in settings.py
