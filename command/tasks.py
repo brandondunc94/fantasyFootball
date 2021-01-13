@@ -63,7 +63,7 @@ def sendThursdayReminderEmail():  #This gets run every Thursday afternoon. Sched
     <body>
         <img src='http://onsidepick.com/static/media/logoTitleWhiteBackground.png' width='250' height='auto'>
         <br><br>
-        <h4>It's wild card week! Be sure to make your picks and bets if you haven't already. Point payouts for both picks and bets will be 2x the normal amount!</h4>
+        <h4>Divisonal Playoffs this week. Get your picks and bets in. Point payouts for both picks and bets will be 3x the normal amount!</h4>
 
         <a class='btn btn-blue' href='http://onsidepick.com/'>Make Picks</a>
         <br><br>
@@ -73,7 +73,7 @@ def sendThursdayReminderEmail():  #This gets run every Thursday afternoon. Sched
 
     #weekId = getActiveWeek().id
     email = mail.EmailMessage(
-                'Wild Card Week - Make your picks & earn double points!',
+                'Divisonal Playoffs - Make your picks & earn 3x points!',
                 message,
                 'onsidepickfootball@gmail.com',
                 [],
