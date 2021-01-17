@@ -367,7 +367,7 @@ def recalculatePlayersScoresFromWeek(weekId=1):
                 #['100','200','300','400']
                 #Week 1 2 3 4
                 currentLeagueMembership.score = startingScore
-                print("Current week score for week " + str(weekId) + " is " + str(startingScore))
+                print(currentUser.username + ": Current week score for week " + str(weekId) + " = " + str(startingScore))
 
                 #Get all league choice objects for current season
                 try:
@@ -393,7 +393,7 @@ def recalculatePlayersScoresFromWeek(weekId=1):
                                 currentLeagueMembership.score += 25
                 
                         #Add/subtract bet amount won/lost
-                        urrentLeagueMembership.score += currentGameChoice.amountWon
+                        currentLeagueMembership.score += currentGameChoice.amountWon
             
                     #Save score
                     print(currentUser.username + ' score has been recalculated to be ' + str(currentLeagueMembership.score))
