@@ -363,7 +363,7 @@ def recalculatePlayersScoresFromWeek(weekId=1):
             weeklyScores = currentLeagueMembership.weeklyScores.rstrip(',').split(',')
             print(weeklyScores)
             try:
-                startingScore = int(weeklyScores[weekId-1])
+                startingScore = int(weeklyScores[weekId])
                 #['100','200','300','400']
                 #Week 1 2 3 4
                 currentLeagueMembership = startingScore
