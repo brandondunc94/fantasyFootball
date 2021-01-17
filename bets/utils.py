@@ -1,4 +1,5 @@
 from league.models import LeagueMembership, GameChoice
+from league.utils import getActiveSeason
 
 def determineCorrectBetFlag(game, gameChoice):
     if gameChoice:
@@ -45,8 +46,8 @@ def determineCorrectBetFlag(game, gameChoice):
 def calculatePlayerCorrectBets():
 
     allLeagueMemberships = LeagueMembership.objects.all()
-
+    activeSeason = getActiveSeason()
     for currentMembership in allLeagueMemberships:
         #Get all game choices for current user and league where correctPickFlag == True
-        currentMembership.correctBets = GameChoice.objects.filter(user=currentMembership.user, league=currentMembership.league, correctBetFlag=True).count()
+        currentMembership.correctBets = GameChoice.objects.filter(user=currentMembership.user, league=currentMembership.league, correctBetFlag=True, season=activeSeason).count()
         currentMembership.save()
