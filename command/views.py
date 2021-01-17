@@ -361,7 +361,6 @@ def recalculatePlayersScoresFromWeek(weekId=1):
 
             #Get score at specific week using week id
             weeklyScores = currentLeagueMembership.weeklyScores.rstrip(',').split(',')
-            print(weeklyScores)
             try:
                 startingScore = int(weeklyScores[weekId])
                 #['100','200','300','400']
@@ -378,7 +377,7 @@ def recalculatePlayersScoresFromWeek(weekId=1):
                     for currentGameChoice in allGameChoices:
 
                         #Add 25 points if pickCorrectFlag == True
-                        if currentGameChoice.correctPickFlag != False:
+                        if currentGameChoice.correctPickFlag == True:
                             if currentGameChoice.week_id == 1:
                                 currentLeagueMembership.score += 50
                             elif currentGameChoice.week_id == 18:
