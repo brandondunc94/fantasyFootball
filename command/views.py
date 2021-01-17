@@ -371,7 +371,7 @@ def recalculatePlayersScoresFromWeek(weekId=1):
 
                 #Get all league choice objects for current season
                 try:
-                    allGameChoices = GameChoice.objects.filter(league=currentLeagueMembership.league, user=currentUser, week_id__gte=weekId)
+                    allGameChoices = GameChoice.objects.filter(league=currentLeagueMembership.league, user=currentUser, week_id__gte=weekId+1)
                 except:
                     print("Could not get games from week " + str(weekId) + " and on.")
                 try:
