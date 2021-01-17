@@ -288,9 +288,15 @@ def recalculatePlayersScores():
             for currentGameChoice in allGameChoices:
 
                 #Add 25 points if pickCorrectFlag == True
-                if currentGameChoice.correctPickFlag == True:
-                    if currentGameChoice.week_id == 1:
+                if currentGameChoice.correctPickFlag != False:
+                    if currentGameChoice.week_id == 1 or currentGameChoice.week_id == 18:
                         currentLeagueMembership.score += 50
+                    elif currentGameChoice.week_id == 19:
+                        currentLeagueMembership.score += 75
+                    elif currentGameChoice.week_id == 20:
+                        currentLeagueMembership.score += 100
+                    elif currentGameChoice.week_id == 21:
+                        currentLeagueMembership.score += 125
                     else:
                         currentLeagueMembership.score += 25
                 
