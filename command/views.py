@@ -367,31 +367,36 @@ def recalculatePlayersScoresFromWeek(weekId=1):
                 #['100','200','300','400']
                 #Week 1 2 3 4
                 currentLeagueMembership.score = startingScore
-                print("Current week score for week " + weekId + " is " + str(startingScore))
+                print("Current week score for week " + str(weekId) + " is " + str(startingScore))
 
                 #Get all league choice objects for current season
-                allGameChoices = GameChoice.objects.filter(league=currentLeagueMembership.league, user=currentUser, week_id__gte=weekId)
+                try:
+                    allGameChoices = GameChoice.objects.filter(league=currentLeagueMembership.league, user=currentUser, week_id__gte=weekId)
+                except:
+                    print("Could not get games from week " + str(weekId) + " and on.")
+                try:
+                    for currentGameChoice in allGameChoices:
 
-                for currentGameChoice in allGameChoices:
-
-                    #Add 25 points if pickCorrectFlag == True
-                    if currentGameChoice.correctPickFlag != False:
-                        if currentGameChoice.week_id == 1 or currentGameChoice.week_id == 18:
-                            currentLeagueMembership.score += 50
-                        elif currentGameChoice.week_id == 19:
-                            currentLeagueMembership.score += 75
-                        elif currentGameChoice.week_id == 20:
-                            currentLeagueMembership.score += 100
-                        elif currentGameChoice.week_id == 21:
-                            currentLeagueMembership.score += 125
-                        else:
-                            currentLeagueMembership.score += 25
+                        #Add 25 points if pickCorrectFlag == True
+                        if currentGameChoice.correctPickFlag != False:
+                            if currentGameChoice.week_id == 1 or currentGameChoice.week_id == 18:
+                                currentLeagueMembership.score += 50
+                            elif currentGameChoice.week_id == 19:
+                                currentLeagueMembership.score += 75
+                            elif currentGameChoice.week_id == 20:
+                                currentLeagueMembership.score += 100
+                            elif currentGameChoice.week_id == 21:
+                                currentLeagueMembership.score += 125
+                            else:
+                                currentLeagueMembership.score += 25
                 
-                    #Add/subtract bet amount won/lost
-                    currentLeagueMembership.score += currentGameChoice.amountWon
+                        #Add/subtract bet amount won/lost
+                        urrentLeagueMembership.score += currentGameChoice.amountWon
             
-                #Save score
-                print(currentUser.username + ' score has been recalculated to be ' + str(currentLeagueMembership.score))
-                currentLeagueMembership.save()
+                    #Save score
+                    print(currentUser.username + ' score has been recalculated to be ' + str(currentLeagueMembership.score))
+                    currentLeagueMembership.save()
+                except:
+                    print("Could not score game.")
             except:
                 print("Week index out of range of weekly scores.")
