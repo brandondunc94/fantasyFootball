@@ -363,7 +363,10 @@ def recalculatePlayersScoresFromWeek(weekId=1):
             weeklyScores = currentLeagueMembership.weeklyScores.rstrip(',').split(',')
             print(weeklyScores)
             try:
-                startingScore = int(weeklyScores(weeklyScores[weekId+1]))
+                startingScore = int(weeklyScores(weeklyScores[weekId-1]))
+                #['100','200','300','400']
+                #Week 1 2 3 4
+                currentLeagueMembership = startingScore
                 print("Current week score for week " + weekId + " is " + str(startingScore))
 
                 #Get all league choice objects for current season
