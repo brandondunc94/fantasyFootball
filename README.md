@@ -1,4 +1,4 @@
-# Football Fantasy
+# Onside Pick
 Created using the Django framework - A season long NFL competition where you compete in a league to earn the most points through picks and spread bets.
 
 #### Local Development Setup
@@ -41,14 +41,6 @@ Dark Blue: #1B2A41
 5. If changes to models - Start virtual env using: 'source env/bin/activate'
 6. Then run 'python manage.py migrate'
 
- ## Things to add
- 1. Add more timezones and ability for user to pick on profile creation
- 2. Edit account page
- 3. Enforce strong password when creating account
- 4. User profile images
- 5. Turn into native mobile app?
- 6. Import picks to bet page
-
 #Spread payout logic
 1. If user picked home team
     If home team was supposed to win by # points
@@ -90,7 +82,3 @@ Adding a new scheduled task:
 1. Add task to settings.py in CELERY_BEAT_SCHEDULE
 2. Restart supervisor using 'supervisorctl reload' as root user
 
-
-To run shell on server
-1. 'source env/bin/activate'
-2. Run 'python3 manage.py shell'
