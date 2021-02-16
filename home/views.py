@@ -187,3 +187,7 @@ def about(request):
 
 def welcome(request):
     return render(request, 'home/welcome.html')
+
+def sneak_peek(request):
+    request.user = User.objects.get(username='bdunc') #Default user to bdunc to showcase site
+    return dashboard(request)
