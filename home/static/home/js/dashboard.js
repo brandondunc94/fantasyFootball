@@ -6,9 +6,9 @@ $(document).ready(function() {
         $('#' + lastAccessedTab).addClass('active');
         $('#' + lastAccessedTab.replace('-tab', "")).addClass('active show');
     } else {
-        $("#nav-games-tab").addClass('active');
-        $("#nav-games").addClass('active show');
-        setCookie('lastAccessedTab', 'nav-games-tab');
+        $("#nav-league-tab").addClass('active');
+        $("#nav-league").addClass('active show');
+        setCookie('lastAccessedTab', 'nav-league-tab');
     }
 
     //Auto scroll to botton of message board
